@@ -1,0 +1,43 @@
+# Collaboration.Bundle.VerifyBundle@v1
+
+pathway_template:
+  identity:
+    template_id: Collaboration.Bundle.VerifyBundle@v1
+    artifact_type: pathway-template
+    triple: { domain: Collaboration, subdomain: Bundle, action: VerifyBundle }
+    version: 1.0.0
+
+  description: |
+    NEW in this canon. Formalizes offline integrity + signature verification: recompute
+    the content manifest, compare bundle_root_hash, and check the Ed25519 signature
+    against the embedded public key. Any recipient can run this with only python3 and
+    openssl, with no account or network. Implemented by sign_bundle.py verify.
+
+  inputs:
+    - name: bundle_dir
+      type: path
+
+  steps:
+    - id: recompute_manifest
+      agent_id: verification
+      skill: sha256_content_bind
+      config:
+        sort: lexicographic_by_rel_path
+
+    - id: compare_root_hash
+      agent_id: verification
+      skill: compare_hash
+      config:
+        against: attestations/BUNDLE_SIGNATURE.json#bundle_root_hash
+        on_mismatch: FAIL
+
+    - id: verify_signature
+      agent_id: verification
+      skill: ed25519_verify_rawin
+      config:
+        public_key: attestations/BUNDLE_SIGNATURE.json#public_key_pem
+        on_invalid: FAIL
+
+  output:
+    artifact: verification_result
+    states: [OK, FAIL]

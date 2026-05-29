@@ -1,0 +1,13 @@
+{
+  "event_id": "evt_002",
+  "timestamp": "2026-05-28T18:45:00Z",
+  "type": "technique_canonized",
+  "channel": "djat-mikeoss-20260528",
+  "description": "First canonical Pathways encoding of the collaboration-bundle technique",
+  "co_originators": ["person-a", "Originator (DJ Thomson)"],
+  "catalyzed_by": "the open MikeOSS project and team",
+  "artifacts": [
+    "collaboration-pathways/canon/COLLABORATION_BUNDLE_TECHNIQUE.md",
+    "collaboration-pathways/patterns/Pattern.CollaborationBundle.SelfDescribing.yaml"
+  ]
+}

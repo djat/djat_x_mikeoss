@@ -1,0 +1,42 @@
+{
+  "schema": "pathway-run/1.0",
+  "run_id": "pr_a4bebd4ff8b4",
+  "pathway": "Collaboration.Refactor.Finalize@v1",
+  "label": "Phase 5: completeness gate + lineage",
+  "status": "COMPLETED",
+  "started": "2026-05-29T03:46:58Z",
+  "ended": "2026-05-29T03:46:58Z",
+  "elapsed_ms": 136,
+  "command": [
+    "python3",
+    "collaboration/20260528-130500/collaboration-pathways/scripts/06_finalize.py"
+  ],
+  "exit_code": 0,
+  "script_path": "collaboration/20260528-130500/collaboration-pathways/scripts/06_finalize.py",
+  "script_sha256": "a547cde012e5b327fdbcb9bb392a6b582b49604aa6e92187f881f10154b12848",
+  "script_source": "#!/usr/bin/env python3\n\"\"\"06_finalize.py - completeness gate + refactor lineage note (Phase 5, pre-seal).\n\nCompleteness gate: every asset generated during this refactor (scripts, new pathway\ntemplates, terms, identities, viewer, de-id map) MUST appear in ASSET_PROVENANCE.yaml with a\nproducing pathway + run. Reports coverage to pathway-runs/COMPLETENESS.md and exits nonzero if\nany expected asset is unaccounted for (so the seal is gated on completeness). Also writes a\nrefactor lineage sidecar. Producing pathway: Collaboration.Refactor.Finalize@v1.\n\"\"\"\nimport json\nimport os\nimport re\nfrom pathlib import Path\n\nSNAP = Path(\"collaboration/20260528-130500\")\nAP = SNAP / \"pathway-runs\" / \"ASSET_PROVENANCE.yaml\"\nRUN_ID = os.environ.get(\"PATHWAY_RUN_ID\", \"\")\n\nNEW_TEMPLATES = {\n    \"Collaboration.Attestation.RecordPathwayRun.v1.yaml\",\n    \"Collaboration.Refactor.RenameTerm.v1.yaml\",\n    \"Collaboration.Naming.RegisterTerm.v1.yaml\",\n    \"Collaboration.Privacy.DeIdentify.v1.yaml\",\n    \"Collaboration.Identity.IssuePersonhoodCredential.v1.yaml\",\n    \"Collaboration.Identity.SealNameLockbox.v1.yaml\",\n    \"Collaboration.Identity.AssertRelationship.v1.yaml\",\n    \"Collaboration.UX.RenderRevealViewer.v1.yaml\",\n    \"Collaboration.Identity.RevealLockbox.v1.yaml\",\n}\n\n\ndef indexed_assets() -> set[str]:\n    s = set()\n    for line in AP.read_text(encoding=\"utf-8\").splitlines():\n        m = re.match(r\"\\s*- asset:\\s*(.+)$\", line)\n        if m:\n            s.add(m.group(1).strip())\n    return s\n\n\ndef expected_assets() -> list[Path]:\n    e = []\n    e += sorted((SNAP / \"collaboration-pathways\" / \"scripts\").glob(\"*.py\"))\n    e += sorted((SNAP / \"collaboration-pathways\" / \"terms\").glob(\"*.yaml\"))\n    e += [p for p in (SNAP / \"identities\").rglob(\"*\") if p.is_file()]\n    e += [SNAP / \"collaboration-pathways\" / \"patterns\" / \"Pattern.Naming.ProvenancedTermBinding.yaml\"]\n    for name in NEW_TEMPLATES:\n        e.append(SNAP / \"collaboration-pathways\" / \"pathways\" / name)\n    return [p for p in e if p.exists()]\n\n\ndef main() -> int:\n    idx = indexed_assets()\n    # This run's OWN assets are indexed only after the run completes; exclude from the gate.\n    self_assets = {\n        str(SNAP / \"collaboration-pathways\" / \"scripts\" / \"06_finalize.py\"),\n        str(SNAP / \"collaboration-pathways\" / \"pathways\" / \"Collaboration.Refactor.Finalize.v1.yaml\"),\n        str(SNAP / \"pathway-runs\" / \"COMPLETENESS.md\"),\n        str(SNAP / \"collaboration-pathways\" / \"sidecars\" / \"privacy-refactor-lineage.md\"),\n    }\n    expected = [p for p in expected_assets() if str(p) not in self_assets]\n    missing = [str(p) for p in expected if str(p) not in idx]\n    covered = [str(p) for p in expected if str(p) in idx]\n\n    report = [\"# Completeness gate - refactor asset provenance\", \"\",\n              f\"Run: {RUN_ID}\", f\"Indexed assets in ASSET_PROVENANCE.yaml: {len(idx)}\",\n              f\"Expected refactor assets present: {len(expected)}\",\n              f\"Covered: {len(covered)}\", f\"Missing: {len(missing)}\", \"\"]\n    if missing:\n        report.append(\"## MISSING (no producing pathway + run):\")\n        report += [f\"- {m}\" for m in missing]\n    else:\n        report.append(\"All refactor assets have a producing Pathway + PathwayRun. Seal may proceed.\")\n    (SNAP / \"pathway-runs\" / \"COMPLETENESS.md\").write_text(\"\\n\".join(report) + \"\\n\", encoding=\"utf-8\")\n\n    lineage = \"\"\"# Privacy refactor - provenanced event\n\nThis collaboration bundle was refactored as a single provenanced event, every step recorded\nas a PathwayRun (see pathway-runs/) and indexed in pathway-runs/ASSET_PROVENANCE.yaml:\n\n1. Phase 0 - provenance harness installed + bootstrap rename (Collaboration.Attestation.RecordPathwayRun@v1)\n2. Phase 1 - full rename \"transmission bundle\" -> \"collaboration bundle\" (Collaboration.Refactor.RenameTerm@v1)\n   + name-as-artifact: Term.CollaborationBundle@v1 supersedes Term.TransmissionBundle@v1\n   (prior term retained + freely licensable) (Collaboration.Naming.RegisterTerm@v1)\n3. Phase 2 - de-identification of external persons/entities to placeholders\n   (Collaboration.Privacy.DeIdentify@v1); real names sealed, never in the snapshot\n4. Phase 3 - self-asserted Personhood/Entity credentials + 1-of-2 lockboxes\n   (Collaboration.Identity.IssuePersonhoodCredential/SealNameLockbox/AssertRelationship@v1)\n5. Phase 4 - privacy-proxy reveal viewer (Collaboration.UX.RenderRevealViewer@v1 +\n   Collaboration.Identity.RevealLockbox@v1)\n6. Phase 5 - completeness gate + reseal\n\nAttribution preserved as fact; identifiable names live only behind the 1-of-2 lockboxes, which\nthe Originator can open and which upgrade to genuine subject-key 1-of-2 when each subject\nregisters a DID key. ZK progressive reveal + FHE are the roadmap.\n\"\"\"\n    note = SNAP / \"collaboration-pathways\" / \"sidecars\" / \"privacy-refactor-lineage.md\"\n    note.write_text(lineage, encoding=\"utf-8\")\n\n    produced = [str(SNAP / \"pathway-runs\" / \"COMPLETENESS.md\"), str(note),\n                str(SNAP / \"collaboration-pathways\" / \"scripts\" / \"06_finalize.py\"),\n                str(SNAP / \"collaboration-pathways\" / \"pathways\" / \"Collaboration.Refactor.Finalize.v1.yaml\")]\n    am = os.environ.get(\"ASSET_MANIFEST\")\n    if am:\n        Path(am).write_text(json.dumps(produced), encoding=\"utf-8\")\n\n    print(f\"completeness: {len(covered)}/{len(expected)} covered, {len(missing)} missing\")\n    if missing:\n        for m in missing[:20]:\n            print(\"  MISSING:\", m)\n        return 1\n    return 0\n\n\nif __name__ == \"__main__\":\n    raise SystemExit(main())\n",
+  "stdout": "completeness: 40/40 covered, 0 missing\n",
+  "stderr": "",
+  "produced_assets": [
+    {
+      "asset": "collaboration/20260528-130500/pathway-runs/COMPLETENESS.md",
+      "sha256": "7fe62269c18c609adb7e20ce1aec0e7c84141e39da20e0159b651fc26fe51b29"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/sidecars/privacy-refactor-lineage.md",
+      "sha256": "e4d973ba75944d8f3d0098a199d51572dd9806e7784b1a860fdfecbc3462619b"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/scripts/06_finalize.py",
+      "sha256": "a547cde012e5b327fdbcb9bb392a6b582b49604aa6e92187f881f10154b12848"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.Finalize.v1.yaml",
+      "sha256": "fa0c4e0714a546dc67c299c0b3346a9ac7b345e62107f981f17f118b649531d5"
+    }
+  ],
+  "accessed_domains": [],
+  "authenticated_by_identity": null,
+  "harness": "collaboration-pathways/scripts/run_with_provenance.py",
+  "recorded_at": "2026-05-29T03:46:58Z"
+}

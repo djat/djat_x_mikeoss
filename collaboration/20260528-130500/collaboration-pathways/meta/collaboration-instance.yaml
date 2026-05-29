@@ -1,0 +1,21 @@
+# Live instance status — written/merged by the Collaboration.Investigation.* pathways.
+instance_id: djat-mikeoss-20260528
+channel: djat-mikeoss-20260528
+
+collaboration_status: ASSEMBLED
+bundle_status: ASSEMBLED
+
+investigation:
+  id: open-assay-co-creation-mikeoss
+  status: pending
+
+seal_candidacy:
+  unilateral_hypotheses: [H-MO1, H-MO2, H-MO3, H-MO4, H-MO5, H-MO6, H-MO7, H-MO8, H-MO9, H-MO10]
+  reciprocal_only_hypotheses: []
+  note: |
+    All ten asks are designed to be confirmable unilaterally. SEALED is reachable
+    without any reply from MikeOSS; a reciprocal collaboration is welcome, not required.
+
+co_originators:
+  - person-a
+  - Originator (DJ Thomson)

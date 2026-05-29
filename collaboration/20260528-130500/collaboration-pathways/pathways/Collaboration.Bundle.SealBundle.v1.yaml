@@ -1,0 +1,66 @@
+# Collaboration.Bundle.SealBundle@v1
+
+pathway_template:
+  identity:
+    template_id: Collaboration.Bundle.SealBundle@v1
+    artifact_type: pathway-template
+    triple: { domain: Collaboration, subdomain: Bundle, action: SealBundle }
+    version: 1.0.0
+
+  description: |
+    NEW in this canon. Formalizes the previously-implicit sealing step: sign the
+    bundle_root_hash with Ed25519 (OpenSSL rawin) and emit BUNDLE_SIGNATURE.json
+    carrying the public PEM and a self-contained verify_command. No external SDK,
+    no blockchain, no network. Implemented by tools/collaboration-bundle/sign_bundle.py.
+
+  inputs:
+    - name: bundle_dir
+      type: path
+    - name: bundle_id
+      type: string
+    - name: issuer_label
+      type: string
+      default: "Originator (Pathways framework author)"
+
+  steps:
+    - id: require_content_manifest
+      agent_id: verification
+      skill: require_artifact
+      config:
+        artifact: attestations/CONTENT_MANIFEST.yaml
+        note: "Hashes must be bound before signing."
+
+    - id: ensure_signing_key
+      agent_id: persist
+      skill: ed25519_keygen_if_absent
+      config:
+        private_key: keys/bundle-signing.key
+        public_key: keys/bundle-signing.public.pem
+        private_gitignored: true
+
+    - id: sign_root_hash
+      agent_id: pathway
+      skill: ed25519_sign_rawin
+      config:
+        over: bundle_root_hash
+        target: attestations/BUNDLE_SIGNATURE.json
+        embed_public_key_pem: true
+        embed_verify_command: true
+
+    - id: record_hash_outside_seal
+      agent_id: persist
+      skill: write_text
+      config:
+        target: ../../README.md
+        rule: "Record bundle_root_hash ONLY outside the sealed folder to avoid hash drift."
+
+  output:
+    artifact: bundle_signature
+    required_fields:
+      - bundle_root_hash
+      - signature_base64
+      - public_key_pem
+
+  reference_instance:
+    repo: djat_x_mikeoss
+    tool: tools/collaboration-bundle/sign_bundle.py

@@ -1,0 +1,34 @@
+{
+  "schema": "pathway-run/1.0",
+  "run_id": "pr_54582fed9105",
+  "pathway": "Collaboration.Privacy.DeIdentify@v1",
+  "label": "Redact residual fragments (clean cleaner)",
+  "status": "COMPLETED",
+  "started": "2026-05-29T05:02:29Z",
+  "ended": "2026-05-29T05:02:29Z",
+  "elapsed_ms": 134,
+  "command": [
+    "python3",
+    "collaboration/20260528-130500/collaboration-pathways/scripts/12_redact_name_fragments.py"
+  ],
+  "exit_code": 0,
+  "script_path": "collaboration/20260528-130500/collaboration-pathways/scripts/12_redact_name_fragments.py",
+  "script_sha256": "f53ac1d8d63a491acaa9c2cc7fe2f17d923c3f1edeb67a0255f1e75d4b7b77af",
+  "script_source": "#!/usr/bin/env python3\n\"\"\"12_redact_name_fragments.py - redact residual name fragments from de-id provenance (recorded run).\n\nThe DID scrub (11) assembled its search string from parts, leaving readable name fragments in its\nown source and run record. This loads those fragments from keys/.scrub_token.json (gitignored,\nnever sealed) and replaces them across the snapshot, so a grep of the sealed bundle returns no\nreadable name fragment. This script's own source contains no name (the fragments live only in the\ngitignored key file). Producing pathway: Collaboration.Privacy.DeIdentify@v1.\n\"\"\"\nimport json\nimport os\nfrom pathlib import Path\n\nSNAP = Path(\"collaboration/20260528-130500\")\nTEXT_EXT = {\".md\", \".yaml\", \".yml\", \".json\", \".txt\", \".html\", \".py\"}\nEXCLUDE = {\".git\", \".obsidian\"}\n\natoms = json.loads(Path(\"keys/.scrub_token.json\").read_text(encoding=\"utf-8\"))[\"atoms\"]\n\n\ndef main() -> int:\n    edited = []\n    for p in SNAP.rglob(\"*\"):\n        if not p.is_file() or p.suffix not in TEXT_EXT:\n            continue\n        if any(x in EXCLUDE for x in p.parts):\n            continue\n        t = p.read_text(encoding=\"utf-8\")\n        nt = t\n        for old, new in atoms:\n            nt = nt.replace(old, new)\n        if nt != t:\n            p.write_text(nt, encoding=\"utf-8\")\n            edited.append(str(p))\n    print(f\"redact: removed residual fragments from {len(edited)} file(s)\")\n    for e in edited:\n        print(\"  \", e)\n    produced = edited + [f\"{SNAP}/collaboration-pathways/scripts/12_redact_name_fragments.py\"]\n    am = os.environ.get(\"ASSET_MANIFEST\")\n    if am:\n        Path(am).write_text(json.dumps(sorted(set(produced))), encoding=\"utf-8\")\n    return 0\n\n\nif __name__ == \"__main__\":\n    raise SystemExit(main())\n",
+  "stdout": "redact: removed residual fragments from 1 file(s)\n   collaboration/20260528-130500/pathway-runs/pr_8031cc31d1a6.json\n",
+  "stderr": "",
+  "produced_assets": [
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/scripts/12_redact_name_fragments.py",
+      "sha256": "f53ac1d8d63a491acaa9c2cc7fe2f17d923c3f1edeb67a0255f1e75d4b7b77af"
+    },
+    {
+      "asset": "collaboration/20260528-130500/pathway-runs/pr_8031cc31d1a6.json",
+      "sha256": "361e7fa8d238e12575317f5b5a212cc0394c0ac6ba4394db714b1a7c72fcc48c"
+    }
+  ],
+  "accessed_domains": [],
+  "authenticated_by_identity": null,
+  "harness": "collaboration-pathways/scripts/run_with_provenance.py",
+  "recorded_at": "2026-05-29T05:02:29Z"
+}

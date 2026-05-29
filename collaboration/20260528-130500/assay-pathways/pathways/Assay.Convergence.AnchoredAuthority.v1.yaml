@@ -1,0 +1,110 @@
+# Assay.Convergence.AnchoredAuthority@v1
+
+pathway_template:
+  identity:
+    template_id: Assay.Convergence.AnchoredAuthority@v1
+    artifact_type: pathway-template
+    triple: { domain: Assay, subdomain: Convergence, action: AnchoredAuthority }
+    version: 1.1.0
+
+  description: |
+    "Recursive agentic orchestration" read as truth: a BOUNDED convergence loop. Run a
+    first-pass multi-model analysis; compare its citations to a concentrated public
+    canonical-consensus oracle (CourtListener clusters / opinion text, Cornell LII,
+    GovInfo). If typed category error exceeds a threshold, re-enter with the oracle
+    PRE-INJECTED as pinned authority and a hard instruction: never use latent/parametric
+    recall for case references - answer only from the anchored authority; if a reference
+    is not in the anchor, return not_found + a fallback link. Each iteration is attested;
+    grounding is monotonic; depth and budget are bounded. STUB - no executable code.
+
+  inputs:
+    - name: document
+      type: path
+    - name: threshold
+      type: dict
+      default: { not_found_max: 0, warning_max: 1 }
+    - name: max_depth
+      type: int
+      default: 3
+    - name: budget
+      type: dict
+      description: economic + temporal bounds per loop
+
+  steps:
+    - id: first_pass
+      agent_id: pathway
+      invokes:
+        - Assay.Citation.VerifyFirst
+
+    - id: evaluate_typed_error
+      agent_id: verification
+      skill: typed_error_predicate
+      config:
+        over: verdicts
+        statuses: [verified, warning, not_found]
+
+    - id: anchored_reentry
+      agent_id: pathway
+      skill: reenter_with_anchored_authority
+      config:
+        when: "typed_error > threshold and depth < max_depth"
+        inject: concentrated_public_consensus_context
+        hard_constraint: "Answer ONLY from anchored authority; never from latent space."
+        monotonic_grounding: true
+
+    - id: converge_or_halt
+      agent_id: verification
+      skill: convergence_predicate
+      config:
+        stop_when: "typed_error <= threshold OR depth == max_depth OR budget exhausted"
+
+    - id: attest_each_iteration
+      agent_id: persist
+      skill: attest_iteration
+      config:
+        one_record_per_loop: true
+
+  output:
+    artifact: converged_verification
+    includes: [final_verdicts, iteration_attestations, convergence_trace]
+
+  notes:
+    meta_technique: true
+    composes_with: [Assay.Citation.VerifyFirst, Assay.Provenance.RunManifest]
+    invariant: "Each iteration may only narrow toward the anchor; latent recall is never re-opened."
+
+  # Spec 1.1.0 §4.8 - A1 (Supervised async): a human approves the converged verdict before
+  # it leaves the loop. Minimum registers for A1 are R1 + R6; this profile ALSO enables
+  # R4 + R5 because the loop already encodes economic + temporal bounds (budget, max_depth,
+  # halt). Declaring them makes those bounds engine-enforceable, not just prose.
+  gate_profile:
+    spec_version: "1.1.0"
+    default_autonomy: A1
+    max_autonomy: A2
+    escalation_rule: strict
+    registers:
+      R1:
+        enabled: true
+        practice_profile_ref: "did:web:pathways.example/playbook/legal-research-grounding@v1"
+        output_contract_profile: "assay.converged_verification.v1"
+        recoverable_error_bias: true
+      R4:
+        enabled: true
+        max_usd: 5.00
+        max_tokens: 200000
+      R5:
+        enabled: true
+        halt_channel: "run/{run_id}/halt"
+        idle_ttl_seconds: 300
+      R6:
+        enabled: true
+        phases: [first_pass, evaluate_typed_error, anchored_reentry, converge_or_halt, attest_each_iteration]
+        phase_defaults:
+          anchored_reentry:
+            human_gate: not_required    # bounded + monotonic; latent recall forbidden
+          converge_or_halt:
+            human_gate: required        # human approves converged verdict (A1 commit gate)
+    non_delegable_acts: [sign, file, send_external, certify]
+    attestation:
+      signed_by: "did:web:pathways.example"
+      note: "Self-asserted placeholder for the donation. Re-sign under tenant counsel DID on adoption."

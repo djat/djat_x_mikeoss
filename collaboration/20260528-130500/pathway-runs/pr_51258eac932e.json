@@ -1,0 +1,78 @@
+{
+  "schema": "pathway-run/1.0",
+  "run_id": "pr_51258eac932e",
+  "pathway": "Collaboration.Refactor.RenameTerm@v1",
+  "label": "Phase 1: full rename transmission->collaboration",
+  "status": "COMPLETED",
+  "started": "2026-05-29T03:32:12Z",
+  "ended": "2026-05-29T03:32:13Z",
+  "elapsed_ms": 139,
+  "command": [
+    "python3",
+    "collaboration/20260528-130500/collaboration-pathways/scripts/01_rename.py"
+  ],
+  "exit_code": 0,
+  "script_path": "collaboration/20260528-130500/collaboration-pathways/scripts/01_rename.py",
+  "script_sha256": "047d3fecfbcc436dc4b8228d7229308013effb067eba4d8577be9eef01b9834f",
+  "script_source": "#!/usr/bin/env python3\n\"\"\"01_rename.py - full rename \"transmission\" -> \"collaboration\" (Phase 1).\n\nTechnique (encoded as Collaboration.Refactor.RenameTerm@v1): ordered token replacements\n(specific before catch-all) across all text files, then file/dir renames. The OLD term is\ndeliberately re-introduced as a licensable Term artifact + lineage in the terms step, so\nthis is a name change WITH provenance, not erasure.\n\nExcludes pathway-runs/ (immutable history), attestations/ (regenerated at reseal), and\nscripts/ (their sha256 are already recorded in ASSET_PROVENANCE).\n\"\"\"\nimport json\nimport os\nfrom pathlib import Path\n\nREPO = Path(\".\").resolve()\nSNAP = Path(\"collaboration/20260528-130500\")\n\n# Ordered: specific identifier forms first, catch-all last.\nREPLACEMENTS = [\n    (\"Transmission Bundle\", \"Collaboration Bundle\"),\n    (\"transmission bundle\", \"collaboration bundle\"),\n    (\"transmission-bundle\", \"collaboration-bundle\"),\n    (\"TransmissionBundle\", \"CollaborationBundle\"),\n    (\"TRANSMISSION_BUNDLE\", \"COLLABORATION_BUNDLE\"),\n    (\"Collaboration.Transmission.\", \"Collaboration.Bundle.\"),\n    (\"subdomain: Transmission\", \"subdomain: Bundle\"),\n    (\"transmission-spine\", \"collaboration-spine\"),\n    (\"transmission-manifest\", \"collaboration-manifest\"),\n    (\"transmission-pattern-lineage\", \"collaboration-pattern-lineage\"),\n    (\"TRANSMISSION_READINESS\", \"COLLABORATION_READINESS\"),\n    (\"START_TRANSMISSION_HANDOFF\", \"START_COLLABORATION_HANDOFF\"),\n    (\"transmission/20260528-130500\", \"collaboration/20260528-130500\"),\n    (\"transmission_kind\", \"collaboration_kind\"),\n    (\"transmission_status\", \"collaboration_status\"),\n    # catch-all (act-of-transmitting noun) last\n    (\"Transmission\", \"Collaboration\"),\n    (\"transmission\", \"collaboration\"),\n]\n\n# (old_path, new_path) relative to repo root\nFILE_RENAMES = [\n    (f\"{SNAP}/transmission-spine.md\", f\"{SNAP}/collaboration-spine.md\"),\n    (f\"{SNAP}/transmission-manifest.yaml\", f\"{SNAP}/collaboration-manifest.yaml\"),\n    (f\"{SNAP}/TRANSMISSION_READINESS.md\", f\"{SNAP}/COLLABORATION_READINESS.md\"),\n    (f\"{SNAP}/collaboration-pathways/canon/TRANSMISSION_BUNDLE_TECHNIQUE.md\",\n     f\"{SNAP}/collaboration-pathways/canon/COLLABORATION_BUNDLE_TECHNIQUE.md\"),\n    (f\"{SNAP}/collaboration-pathways/sidecars/transmission-pattern-lineage-and-attribution.md\",\n     f\"{SNAP}/collaboration-pathways/sidecars/collaboration-pattern-lineage-and-attribution.md\"),\n    (f\"{SNAP}/collaboration-pathways/patterns/Pattern.TransmissionBundle.SelfDescribing.yaml\",\n     f\"{SNAP}/collaboration-pathways/patterns/Pattern.CollaborationBundle.SelfDescribing.yaml\"),\n    (f\"{SNAP}/collaboration-pathways/pathways/Collaboration.Transmission.RewriteLinks.v1.yaml\",\n     f\"{SNAP}/collaboration-pathways/pathways/Collaboration.Bundle.RewriteLinks.v1.yaml\"),\n    (f\"{SNAP}/collaboration-pathways/pathways/Collaboration.Transmission.SealBundle.v1.yaml\",\n     f\"{SNAP}/collaboration-pathways/pathways/Collaboration.Bundle.SealBundle.v1.yaml\"),\n    (f\"{SNAP}/collaboration-pathways/pathways/Collaboration.Transmission.VerifyBundle.v1.yaml\",\n     f\"{SNAP}/collaboration-pathways/pathways/Collaboration.Bundle.VerifyBundle.v1.yaml\"),\n    (\"START_TRANSMISSION_HANDOFF.prompt.md\", \"START_COLLABORATION_HANDOFF.prompt.md\"),\n    (\"tools/transmission-bundle\", \"tools/collaboration-bundle\"),\n]\n\nEXCLUDE_DIR_PARTS = {\"pathway-runs\", \"attestations\", \"scripts\", \".git\", \".obsidian\"}\nTEXT_EXT = {\".md\", \".yaml\", \".yml\", \".json\", \".txt\", \".py\", \".sh\", \".html\", \".prompt\"}\n# Files that intentionally document BOTH the old and new term must not be token-replaced.\nPRESERVE_NAMES = {\n    \"Collaboration.Refactor.RenameTerm.v1.yaml\",\n    \"Collaboration.Attestation.RecordPathwayRun.v1.yaml\",\n}\n\n\ndef is_excluded(p: Path) -> bool:\n    if p.name in PRESERVE_NAMES:\n        return True\n    return any(part in EXCLUDE_DIR_PARTS for part in p.parts)\n\n\ndef apply_replacements(text: str) -> str:\n    for old, new in REPLACEMENTS:\n        text = text.replace(old, new)\n    return text\n\n\ndef main() -> int:\n    changed, renamed = [], []\n    # 1) token replacements across text files in snapshot + repo-root handoff prompt + tools\n    roots = [SNAP, Path(\"tools\")]\n    files = []\n    for r in roots:\n        if r.exists():\n            files += [p for p in r.rglob(\"*\") if p.is_file()]\n    files += [Path(\"README.md\"), Path(\"START_TRANSMISSION_HANDOFF.prompt.md\")]\n    for p in files:\n        if not p.exists() or is_excluded(p):\n            continue\n        if p.suffix not in TEXT_EXT and not p.name.endswith(\".prompt.md\"):\n            continue\n        try:\n            orig = p.read_text(encoding=\"utf-8\")\n        except (UnicodeDecodeError, IsADirectoryError):\n            continue\n        new = apply_replacements(orig)\n        if new != orig:\n            p.write_text(new, encoding=\"utf-8\")\n            changed.append(str(p))\n    # 2) file/dir renames\n    for old, new in FILE_RENAMES:\n        op, np = Path(old), Path(new)\n        if op.exists():\n            np.parent.mkdir(parents=True, exist_ok=True)\n            os.rename(op, np)\n            renamed.append({\"from\": old, \"to\": new})\n\n    print(f\"rename: {len(changed)} files token-replaced, {len(renamed)} paths renamed\")\n    for r in renamed:\n        print(f\"  {r['from']} -> {r['to']}\")\n\n    # declare assets: renamed targets + this script + its template\n    produced = [r[\"to\"] for r in renamed]\n    produced += [\n        f\"{SNAP}/collaboration-pathways/scripts/01_rename.py\",\n        f\"{SNAP}/collaboration-pathways/pathways/Collaboration.Refactor.RenameTerm.v1.yaml\",\n    ]\n    am = os.environ.get(\"ASSET_MANIFEST\")\n    if am:\n        Path(am).write_text(json.dumps(produced), encoding=\"utf-8\")\n    return 0\n\n\nif __name__ == \"__main__\":\n    raise SystemExit(main())\n",
+  "stdout": "rename: 44 files token-replaced, 11 paths renamed\n  collaboration/20260528-130500/transmission-spine.md -> collaboration/20260528-130500/collaboration-spine.md\n  collaboration/20260528-130500/transmission-manifest.yaml -> collaboration/20260528-130500/collaboration-manifest.yaml\n  collaboration/20260528-130500/TRANSMISSION_READINESS.md -> collaboration/20260528-130500/COLLABORATION_READINESS.md\n  collaboration/20260528-130500/collaboration-pathways/canon/TRANSMISSION_BUNDLE_TECHNIQUE.md -> collaboration/20260528-130500/collaboration-pathways/canon/COLLABORATION_BUNDLE_TECHNIQUE.md\n  collaboration/20260528-130500/collaboration-pathways/sidecars/transmission-pattern-lineage-and-attribution.md -> collaboration/20260528-130500/collaboration-pathways/sidecars/collaboration-pattern-lineage-and-attribution.md\n  collaboration/20260528-130500/collaboration-pathways/patterns/Pattern.TransmissionBundle.SelfDescribing.yaml -> collaboration/20260528-130500/collaboration-pathways/patterns/Pattern.CollaborationBundle.SelfDescribing.yaml\n  collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Transmission.RewriteLinks.v1.yaml -> collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Bundle.RewriteLinks.v1.yaml\n  collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Transmission.SealBundle.v1.yaml -> collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Bundle.SealBundle.v1.yaml\n  collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Transmission.VerifyBundle.v1.yaml -> collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Bundle.VerifyBundle.v1.yaml\n  START_TRANSMISSION_HANDOFF.prompt.md -> START_COLLABORATION_HANDOFF.prompt.md\n  tools/transmission-bundle -> tools/collaboration-bundle\n",
+  "stderr": "",
+  "produced_assets": [
+    {
+      "asset": "collaboration/20260528-130500/collaboration-spine.md",
+      "sha256": "bf44317d6a351409e5e0a79d77c81f898e534671aa576d57bb3e5258842e7f47"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-manifest.yaml",
+      "sha256": "dcfb1318a4074897487e116c0092b61b55d2d36e8242f5d5378e7c90cad2c397"
+    },
+    {
+      "asset": "collaboration/20260528-130500/COLLABORATION_READINESS.md",
+      "sha256": "b02f7fc0d8415bc2f360205478606c8e6660253fef1ae651f4d11378b18a3e23"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/canon/COLLABORATION_BUNDLE_TECHNIQUE.md",
+      "sha256": "1af561e63bdd961f9705318c5e7bd8291498482afbbd8b3ffbcf36c6b2e88bee"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/sidecars/collaboration-pattern-lineage-and-attribution.md",
+      "sha256": "c8798735a18b8d39daac64ae1d8d8bbc96542d2625eb67f1ab5b2876743f496d"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/patterns/Pattern.CollaborationBundle.SelfDescribing.yaml",
+      "sha256": "56f9a136bf093c32cd68c02e8f6d954f39a35c4f71c07c82d3c6e02e0e504beb"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Bundle.RewriteLinks.v1.yaml",
+      "sha256": "20945d8487a62ba724951d3cd49010c2c33187a7f3e04cc043653f8724c3cf0d"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Bundle.SealBundle.v1.yaml",
+      "sha256": "758383143d2a6e9d1bc4fcdbb0d7e1598021641fc9ea6ad3029a118d8c5cbd97"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Bundle.VerifyBundle.v1.yaml",
+      "sha256": "f674f1f5226df2cb6340e11ded8606bb971481e185d53d44fd2400db6518c2f4"
+    },
+    {
+      "asset": "START_COLLABORATION_HANDOFF.prompt.md",
+      "sha256": "9c2a9867862a57036218287dde608c845c4c0eef7f7d4fc3057e8935cd7993fd"
+    },
+    {
+      "asset": "tools/collaboration-bundle",
+      "sha256": ""
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/scripts/01_rename.py",
+      "sha256": "047d3fecfbcc436dc4b8228d7229308013effb067eba4d8577be9eef01b9834f"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.RenameTerm.v1.yaml",
+      "sha256": "72b66d147c5d268fa128d0541ccd75887458fa23e3109e203fc56f99d825585a"
+    }
+  ],
+  "accessed_domains": [],
+  "authenticated_by_identity": null,
+  "harness": "collaboration-pathways/scripts/run_with_provenance.py",
+  "recorded_at": "2026-05-29T03:32:13Z"
+}

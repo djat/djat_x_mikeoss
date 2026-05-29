@@ -1,0 +1,17 @@
+# Term.AntiVenom@v1
+term:
+  identity:
+    term_id: Term.AntiVenom@v1
+    artifact_type: term
+    label: "anti-venom"
+    version: 1.0.0
+  status: prior-term (superseded, retained as lineage)
+  superseded_by: Term.Assay@v1
+  meaning: >
+    The original framing for the trustworthiness pathways - the "antidote" to benchmark-theater
+    "venom". Oppositional/medical; replaced by "assay". Retained for lineage and offered as a
+    freely licensable label for anyone who prefers it.
+  name_license:
+    use_as_label: free
+    attribution_required: true
+    revocation_scope_max: self_only

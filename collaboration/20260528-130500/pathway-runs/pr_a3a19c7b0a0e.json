@@ -1,0 +1,50 @@
+{
+  "schema": "pathway-run/1.0",
+  "run_id": "pr_a3a19c7b0a0e",
+  "pathway": "Collaboration.Naming.RegisterTerm@v1",
+  "label": "Phase 1b: name-as-artifact (Term + name_license + binding)",
+  "status": "COMPLETED",
+  "started": "2026-05-29T03:34:25Z",
+  "ended": "2026-05-29T03:34:26Z",
+  "elapsed_ms": 113,
+  "command": [
+    "python3",
+    "collaboration/20260528-130500/collaboration-pathways/scripts/02_terms.py"
+  ],
+  "exit_code": 0,
+  "script_path": "collaboration/20260528-130500/collaboration-pathways/scripts/02_terms.py",
+  "script_sha256": "f5254b1a85f904d7c7c62e8a5af6932fb23c20db96d732da0223b94c6744a2cf",
+  "script_source": "#!/usr/bin/env python3\n\"\"\"02_terms.py - encode the name-as-artifact layer (Phase 1b).\n\nGenerates two Term artifacts (the new canonical term + the prior, freely-licensable term),\nthe Pattern.Naming.ProvenancedTermBinding, and patches the manifest with a name_provenance\nblock (default_term + name-inheritance). Producing pathway: Collaboration.Naming.RegisterTerm@v1.\n\"\"\"\nimport json\nimport os\nfrom pathlib import Path\n\nSNAP = Path(\"collaboration/20260528-130500\")\nTERMS = SNAP / \"collaboration-pathways\" / \"terms\"\nPATTERNS = SNAP / \"collaboration-pathways\" / \"patterns\"\nMANIFEST = SNAP / \"collaboration-manifest.yaml\"\n\nTERM_COLLAB = \"\"\"# Term.CollaborationBundle@v1\nterm:\n  identity:\n    term_id: Term.CollaborationBundle@v1\n    artifact_type: term\n    label: \"collaboration bundle\"\n    version: 1.0.0\n  authored_by: \"Originator (DJ Thomson)\"\n  authored_in: collaboration/20260528-130500\n  supersedes: Term.TransmissionBundle@v1\n  meaning: >\n    The canonical name for the co-originated bundle technique, as renamed by the Originator\n    in the MikeOSS collaboration context. The recipe is unchanged; only the label is new.\n  name_license:\n    use_as_label: free\n    attribution_required: true\n    revocation_scope_max: self_only\n  provenance:\n    rename_pathway: Collaboration.Refactor.RenameTerm@v1\n    recorded_in: pathway-runs/index.yaml\n\"\"\"\n\n# NOTE: this file is generated post-rename and is NOT subject to the rename pass, so it may\n# safely retain the literal prior term.\nTERM_PRIOR = \"\"\"# Term.TransmissionBundle@v1\nterm:\n  identity:\n    term_id: Term.TransmissionBundle@v1\n    artifact_type: term\n    label: \"tr{X}ansmission bundle\"\n    version: 1.0.0\n  status: prior-term (superseded, retained as lineage)\n  co_originated_by:\n    - \"a collaborating peer (sealed - see identities/)\"\n    - \"Originator (DJ Thomson)\"\n  superseded_by: Term.CollaborationBundle@v1\n  meaning: >\n    The original name of the technique, retained for lineage and offered as a freely\n    licensable label. Anyone may license this term to call their collaboration bundle a\n    \"tr{X}ansmission bundle\"; this is a license of the NAME (provenanced + interrogable),\n    not a UI rewrite.\n  name_license:\n    use_as_label: free\n    attribution_required: true\n    revocation_scope_max: self_only\n  inherited_via:\n    scope: name_only\n\"\"\".replace(\"{X}\", \"\")  # keep literal prior label intact\n\nPATTERN = \"\"\"pattern:\n  id: Pattern.Naming.ProvenancedTermBinding\n  version: 1.0.0\n  title: Provenanced Term Binding\n  description: |\n    A label/term is a first-class artifact (artifact_type: term), separate from the recipe\n    it names. A pathway binds a default_term and MAY inherit a name from another term with\n    scope: name_only. Using a term as a label is a provenanced, licensable act (name_license),\n    distinct from a UI rewrite. Renames are events authored by an identity and recorded as\n    PathwayRuns; the prior term is retained and remains licensable.\n  invariants:\n    - term_is_artifact_not_string\n    - name_license_distinct_from_recipe_license\n    - name_use_is_provenanced_and_interrogable\n    - rename_preserves_prior_term_as_lineage\n  invokes:\n    - Collaboration.Refactor.RenameTerm@v1\n    - Collaboration.Naming.RegisterTerm@v1\n\"\"\"\n\nNAME_PROVENANCE = \"\"\"\n# ---------------------------------------------------------------------------\n# NAME PROVENANCE (name-as-artifact; see collaboration-pathways/terms/)\n# ---------------------------------------------------------------------------\nname_provenance:\n  default_term: Term.CollaborationBundle@v1\n  terms:\n    - collaboration-pathways/terms/Term.CollaborationBundle.v1.yaml\n    - collaboration-pathways/terms/Term.TransmissionBundle.v1.yaml\n  name_inheritance:\n    - from: Term.TransmissionBundle@v1\n      scope: name_only\n      license: free\n  pattern: Pattern.Naming.ProvenancedTermBinding\n  note: >\n    The recipe is named \"collaboration bundle\"; the prior term is retained as a licensable\n    artifact. A peer who prefers the prior label licenses Term.TransmissionBundle@v1\n    (name_only) - a provenanced choice, interrogable per permissions, not a UI rewrite.\n\"\"\"\n\n\ndef main() -> int:\n    TERMS.mkdir(parents=True, exist_ok=True)\n    (TERMS / \"Term.CollaborationBundle.v1.yaml\").write_text(TERM_COLLAB, encoding=\"utf-8\")\n    (TERMS / \"Term.TransmissionBundle.v1.yaml\").write_text(TERM_PRIOR, encoding=\"utf-8\")\n    (PATTERNS / \"Pattern.Naming.ProvenancedTermBinding.yaml\").write_text(PATTERN, encoding=\"utf-8\")\n    with MANIFEST.open(\"a\", encoding=\"utf-8\") as f:\n        f.write(NAME_PROVENANCE)\n    print(\"terms: registered Term.CollaborationBundle@v1 + Term.TransmissionBundle@v1; \"\n          \"pattern + manifest name_provenance written\")\n    produced = [\n        f\"{TERMS}/Term.CollaborationBundle.v1.yaml\",\n        f\"{TERMS}/Term.TransmissionBundle.v1.yaml\",\n        f\"{PATTERNS}/Pattern.Naming.ProvenancedTermBinding.yaml\",\n        str(MANIFEST),\n        f\"{SNAP}/collaboration-pathways/scripts/02_terms.py\",\n        f\"{SNAP}/collaboration-pathways/pathways/Collaboration.Naming.RegisterTerm.v1.yaml\",\n    ]\n    am = os.environ.get(\"ASSET_MANIFEST\")\n    if am:\n        Path(am).write_text(json.dumps(produced), encoding=\"utf-8\")\n    return 0\n\n\nif __name__ == \"__main__\":\n    raise SystemExit(main())\n",
+  "stdout": "terms: registered Term.CollaborationBundle@v1 + Term.TransmissionBundle@v1; pattern + manifest name_provenance written\n",
+  "stderr": "",
+  "produced_assets": [
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/terms/Term.CollaborationBundle.v1.yaml",
+      "sha256": "12adfbec9b676c7cd69dbb256806fd41071aa57ee547b11d77c971d405c72cc0"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/terms/Term.TransmissionBundle.v1.yaml",
+      "sha256": "4e470c99454ec2943020cd2b0cb238e4675302e803e0648689d7918bc1968027"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/patterns/Pattern.Naming.ProvenancedTermBinding.yaml",
+      "sha256": "370898ae5f06219cefa4615d1515f58360d388e057fc36ca3851255f92975665"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-manifest.yaml",
+      "sha256": "40d302ef0b3f27209fd01081dde3c419ada124a5964925820dbc4c66833cdad9"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/scripts/02_terms.py",
+      "sha256": "f5254b1a85f904d7c7c62e8a5af6932fb23c20db96d732da0223b94c6744a2cf"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Naming.RegisterTerm.v1.yaml",
+      "sha256": "3e6d23712e32940d4953ca1ac210896d30107779595688216d1f0047428808fb"
+    }
+  ],
+  "accessed_domains": [],
+  "authenticated_by_identity": null,
+  "harness": "collaboration-pathways/scripts/run_with_provenance.py",
+  "recorded_at": "2026-05-29T03:34:26Z"
+}

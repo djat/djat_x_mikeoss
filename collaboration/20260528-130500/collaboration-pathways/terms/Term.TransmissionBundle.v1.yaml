@@ -1,0 +1,23 @@
+# Term.TransmissionBundle@v1
+term:
+  identity:
+    term_id: Term.TransmissionBundle@v1
+    artifact_type: term
+    label: "transmission bundle"
+    version: 1.0.0
+  status: prior-term (superseded, retained as lineage)
+  co_originated_by:
+    - "a collaborating peer (sealed - see identities/)"
+    - "Originator (DJ Thomson)"
+  superseded_by: Term.CollaborationBundle@v1
+  meaning: >
+    The original name of the technique, retained for lineage and offered as a freely
+    licensable label. Anyone may license this term to call their collaboration bundle a
+    "transmission bundle"; this is a license of the NAME (provenanced + interrogable),
+    not a UI rewrite.
+  name_license:
+    use_as_label: free
+    attribution_required: true
+    revocation_scope_max: self_only
+  inherited_via:
+    scope: name_only

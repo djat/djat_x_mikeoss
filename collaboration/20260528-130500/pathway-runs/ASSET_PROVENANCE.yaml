@@ -1,0 +1,855 @@
+# ASSET_PROVENANCE - asset -> producing pathway -> run -> sha256
+# Universal mandate: every generated asset/technique/code is recorded here.
+assets:
+  - asset: collaboration/20260528-130500/collaboration-pathways/scripts/run_with_provenance.py
+    produced_by_pathway: Collaboration.Attestation.RecordPathwayRun@v1
+    pathway_run_id: pr_13d38a89c014
+    sha256: 03b8231bd2d0b61144aebef6f48d2338dfb3169453ff073b8ee732192d93cb5f
+  - asset: collaboration/20260528-130500/collaboration-pathways/scripts/00_genesis.py
+    produced_by_pathway: Collaboration.Attestation.RecordPathwayRun@v1
+    pathway_run_id: pr_13d38a89c014
+    sha256: b8ed66d4b2e2a044a5b5f7d8b892c48568c3c0f193b76ca1fdf2be13fd0d6bd3
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Attestation.RecordPathwayRun.v1.yaml
+    produced_by_pathway: Collaboration.Attestation.RecordPathwayRun@v1
+    pathway_run_id: pr_13d38a89c014
+    sha256: 6c9b19ef4d6814c12399f0de016d3d44e26a2540c9efdf1b555ba4698decba97
+  - asset: collaboration/20260528-130500/pathway-runs/genesis-bootstrap.json
+    produced_by_pathway: Collaboration.Attestation.RecordPathwayRun@v1
+    pathway_run_id: pr_13d38a89c014
+    sha256: 6dba1d38799aaf22e0cdd0e215b7e3cbad53ce9019476d2a26b7692e3091eb92
+  - asset: collaboration/20260528-130500/collaboration-spine.md
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_51258eac932e
+    sha256: bf44317d6a351409e5e0a79d77c81f898e534671aa576d57bb3e5258842e7f47
+  - asset: collaboration/20260528-130500/collaboration-manifest.yaml
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_51258eac932e
+    sha256: dcfb1318a4074897487e116c0092b61b55d2d36e8242f5d5378e7c90cad2c397
+  - asset: collaboration/20260528-130500/COLLABORATION_READINESS.md
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_51258eac932e
+    sha256: b02f7fc0d8415bc2f360205478606c8e6660253fef1ae651f4d11378b18a3e23
+  - asset: collaboration/20260528-130500/collaboration-pathways/canon/COLLABORATION_BUNDLE_TECHNIQUE.md
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_51258eac932e
+    sha256: 1af561e63bdd961f9705318c5e7bd8291498482afbbd8b3ffbcf36c6b2e88bee
+  - asset: collaboration/20260528-130500/collaboration-pathways/sidecars/collaboration-pattern-lineage-and-attribution.md
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_51258eac932e
+    sha256: c8798735a18b8d39daac64ae1d8d8bbc96542d2625eb67f1ab5b2876743f496d
+  - asset: collaboration/20260528-130500/collaboration-pathways/patterns/Pattern.CollaborationBundle.SelfDescribing.yaml
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_51258eac932e
+    sha256: 56f9a136bf093c32cd68c02e8f6d954f39a35c4f71c07c82d3c6e02e0e504beb
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Bundle.RewriteLinks.v1.yaml
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_51258eac932e
+    sha256: 20945d8487a62ba724951d3cd49010c2c33187a7f3e04cc043653f8724c3cf0d
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Bundle.SealBundle.v1.yaml
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_51258eac932e
+    sha256: 758383143d2a6e9d1bc4fcdbb0d7e1598021641fc9ea6ad3029a118d8c5cbd97
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Bundle.VerifyBundle.v1.yaml
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_51258eac932e
+    sha256: f674f1f5226df2cb6340e11ded8606bb971481e185d53d44fd2400db6518c2f4
+  - asset: START_COLLABORATION_HANDOFF.prompt.md
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_51258eac932e
+    sha256: 9c2a9867862a57036218287dde608c845c4c0eef7f7d4fc3057e8935cd7993fd
+  - asset: tools/collaboration-bundle
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_51258eac932e
+    sha256: 
+  - asset: collaboration/20260528-130500/collaboration-pathways/scripts/01_rename.py
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_51258eac932e
+    sha256: 047d3fecfbcc436dc4b8228d7229308013effb067eba4d8577be9eef01b9834f
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.RenameTerm.v1.yaml
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_51258eac932e
+    sha256: 72b66d147c5d268fa128d0541ccd75887458fa23e3109e203fc56f99d825585a
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Experience.Collaboration.OpenInvitation.v1.yaml
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_2d6d0730e9f7
+    sha256: edd88f4f58d380933435ea29d8675fd1ebdf018d79dc53b0cab6dbeb5525dab1
+  - asset: collaboration/20260528-130500/collaboration-pathways/scripts/01b_rename_fixups.py
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_2d6d0730e9f7
+    sha256: 610865c42227db8975b3717e69f3e7a7086711ace519288268dbf4f4849b6459
+  - asset: collaboration/20260528-130500/collaboration-pathways/terms/Term.CollaborationBundle.v1.yaml
+    produced_by_pathway: Collaboration.Naming.RegisterTerm@v1
+    pathway_run_id: pr_a3a19c7b0a0e
+    sha256: 12adfbec9b676c7cd69dbb256806fd41071aa57ee547b11d77c971d405c72cc0
+  - asset: collaboration/20260528-130500/collaboration-pathways/terms/Term.TransmissionBundle.v1.yaml
+    produced_by_pathway: Collaboration.Naming.RegisterTerm@v1
+    pathway_run_id: pr_a3a19c7b0a0e
+    sha256: 4e470c99454ec2943020cd2b0cb238e4675302e803e0648689d7918bc1968027
+  - asset: collaboration/20260528-130500/collaboration-pathways/patterns/Pattern.Naming.ProvenancedTermBinding.yaml
+    produced_by_pathway: Collaboration.Naming.RegisterTerm@v1
+    pathway_run_id: pr_a3a19c7b0a0e
+    sha256: 370898ae5f06219cefa4615d1515f58360d388e057fc36ca3851255f92975665
+  - asset: collaboration/20260528-130500/collaboration-manifest.yaml
+    produced_by_pathway: Collaboration.Naming.RegisterTerm@v1
+    pathway_run_id: pr_a3a19c7b0a0e
+    sha256: 40d302ef0b3f27209fd01081dde3c419ada124a5964925820dbc4c66833cdad9
+  - asset: collaboration/20260528-130500/collaboration-pathways/scripts/02_terms.py
+    produced_by_pathway: Collaboration.Naming.RegisterTerm@v1
+    pathway_run_id: pr_a3a19c7b0a0e
+    sha256: f5254b1a85f904d7c7c62e8a5af6932fb23c20db96d732da0223b94c6744a2cf
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Naming.RegisterTerm.v1.yaml
+    produced_by_pathway: Collaboration.Naming.RegisterTerm@v1
+    pathway_run_id: pr_a3a19c7b0a0e
+    sha256: 3e6d23712e32940d4953ca1ac210896d30107779595688216d1f0047428808fb
+  - asset: collaboration/20260528-130500/identities/deidentification-map.json
+    produced_by_pathway: Collaboration.Privacy.DeIdentify@v1
+    pathway_run_id: pr_2ae701f8d0f2
+    sha256: a9ef05f1b113d8f6c56865e3dcd813e5e3fe46c9fb20d745db12bd1e6f40acca
+  - asset: collaboration/20260528-130500/collaboration-pathways/scripts/03_deidentify.py
+    produced_by_pathway: Collaboration.Privacy.DeIdentify@v1
+    pathway_run_id: pr_2ae701f8d0f2
+    sha256: 1baed78cf38e9c898fd9a57d1852660d772f9eae56bea9d2424addfe6d2fd4bf
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Privacy.DeIdentify.v1.yaml
+    produced_by_pathway: Collaboration.Privacy.DeIdentify@v1
+    pathway_run_id: pr_2ae701f8d0f2
+    sha256: f1bbf519f1f2b6f05be13b12d0d8cb61a246fdbd628c174d08fe854ddb80fdc0
+  - asset: collaboration/20260528-130500/identities/persons/person-a.credential.json
+    produced_by_pathway: Collaboration.Identity.IssuePersonhoodCredential@v1
+    pathway_run_id: pr_020e76ed45ad
+    sha256: 3a61e4808aef098db71e7d73bd42a35a1d839c154cf2f4a6fc081c015f1f0ee7
+  - asset: collaboration/20260528-130500/identities/persons/person-a.lockbox.json
+    produced_by_pathway: Collaboration.Identity.IssuePersonhoodCredential@v1
+    pathway_run_id: pr_020e76ed45ad
+    sha256: 28692644a5f100b3892d0db76978ade66a44b73b97d48f8459f5502d5dd37cc2
+  - asset: collaboration/20260528-130500/identities/persons/person-b.credential.json
+    produced_by_pathway: Collaboration.Identity.IssuePersonhoodCredential@v1
+    pathway_run_id: pr_020e76ed45ad
+    sha256: 27a4e6466a6be8b1933da3c7fb1ecbd712161b8f7b22e108f9f58f2e42f5dffb
+  - asset: collaboration/20260528-130500/identities/persons/person-b.lockbox.json
+    produced_by_pathway: Collaboration.Identity.IssuePersonhoodCredential@v1
+    pathway_run_id: pr_020e76ed45ad
+    sha256: 2f7d0a53a27a4a13a7fdad4b546a0b7bae19e4ff81651a3b205592be822210b0
+  - asset: collaboration/20260528-130500/identities/persons/person-c.credential.json
+    produced_by_pathway: Collaboration.Identity.IssuePersonhoodCredential@v1
+    pathway_run_id: pr_020e76ed45ad
+    sha256: 49e231d180aa9fe646530c1f85adcbfe33da7342224000dcd54cf351d88aa83f
+  - asset: collaboration/20260528-130500/identities/persons/person-c.lockbox.json
+    produced_by_pathway: Collaboration.Identity.IssuePersonhoodCredential@v1
+    pathway_run_id: pr_020e76ed45ad
+    sha256: f01c6d1bda84c8f5fc091d2c8837e027c1d4a98043cb7130fb14f6da374083f8
+  - asset: collaboration/20260528-130500/identities/entities/entity-1.credential.json
+    produced_by_pathway: Collaboration.Identity.IssuePersonhoodCredential@v1
+    pathway_run_id: pr_020e76ed45ad
+    sha256: 0658edc6c4cafb824caa927343bb7d045819e21cf73ffb7135aa6d3cf52201cf
+  - asset: collaboration/20260528-130500/identities/entities/entity-1.lockbox.json
+    produced_by_pathway: Collaboration.Identity.IssuePersonhoodCredential@v1
+    pathway_run_id: pr_020e76ed45ad
+    sha256: 5c52f5f01872e32eed55f1347d0c1a25ca460d10351be0fe0926ca9dcc012197
+  - asset: collaboration/20260528-130500/identities/entities/entity-2.credential.json
+    produced_by_pathway: Collaboration.Identity.IssuePersonhoodCredential@v1
+    pathway_run_id: pr_020e76ed45ad
+    sha256: 3e1b9ee47cc024b40be97c635823adb89661cfe7131afaedecb524294b9b56a9
+  - asset: collaboration/20260528-130500/identities/entities/entity-2.lockbox.json
+    produced_by_pathway: Collaboration.Identity.IssuePersonhoodCredential@v1
+    pathway_run_id: pr_020e76ed45ad
+    sha256: d61cc40357b5ea16bbc655f643066e3d9e1e5f55ed43c0bfc9dffdcfe7612a02
+  - asset: collaboration/20260528-130500/identities/entities/entity-3.credential.json
+    produced_by_pathway: Collaboration.Identity.IssuePersonhoodCredential@v1
+    pathway_run_id: pr_020e76ed45ad
+    sha256: abbf818106f24eee8fed35aa532ac77ac8c7fc3887e1ac8b1b28c881756fac27
+  - asset: collaboration/20260528-130500/identities/entities/entity-3.lockbox.json
+    produced_by_pathway: Collaboration.Identity.IssuePersonhoodCredential@v1
+    pathway_run_id: pr_020e76ed45ad
+    sha256: fc349c0a8fa53246a3e427463ac86cff431f99f210b6ad23af0d5130619fab85
+  - asset: collaboration/20260528-130500/identities/relationships/person-a-entity-1.json
+    produced_by_pathway: Collaboration.Identity.IssuePersonhoodCredential@v1
+    pathway_run_id: pr_020e76ed45ad
+    sha256: 6213142252f8357a3678ee3d90f1aa162e320a1ca8219e73e710a059e2cc7e0a
+  - asset: collaboration/20260528-130500/identities/relationships/person-b-entity-2.json
+    produced_by_pathway: Collaboration.Identity.IssuePersonhoodCredential@v1
+    pathway_run_id: pr_020e76ed45ad
+    sha256: 25dbb5d3a7ff5dce17e418ca6c49e03c664a457deaab599048e9bb988c7de77b
+  - asset: collaboration/20260528-130500/identities/relationships/person-c-entity-3.json
+    produced_by_pathway: Collaboration.Identity.IssuePersonhoodCredential@v1
+    pathway_run_id: pr_020e76ed45ad
+    sha256: 9af2d625ae0e4b1ff8f3da3939dd13146086f9c07d7bb1208b0b3337b6784485
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.IssuePersonhoodCredential.v1.yaml
+    produced_by_pathway: Collaboration.Identity.IssuePersonhoodCredential@v1
+    pathway_run_id: pr_020e76ed45ad
+    sha256: 8ebedb6f1bf4bdbb60788aff34dd75a648b2946f135466ecd086f9a3988b4895
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.SealNameLockbox.v1.yaml
+    produced_by_pathway: Collaboration.Identity.IssuePersonhoodCredential@v1
+    pathway_run_id: pr_020e76ed45ad
+    sha256: a3efcfe11396391779afab11f0d6dd4d52e12d0ecebe375da43da252d20fc747
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.AssertRelationship.v1.yaml
+    produced_by_pathway: Collaboration.Identity.IssuePersonhoodCredential@v1
+    pathway_run_id: pr_020e76ed45ad
+    sha256: cb2744fd80b37409ebec2be2f8c79b4e3a9d93e1c2f161b733749b4316b9142e
+  - asset: collaboration/20260528-130500/identities/README.md
+    produced_by_pathway: Collaboration.Identity.IssuePersonhoodCredential@v1
+    pathway_run_id: pr_020e76ed45ad
+    sha256: fc6628a9e598700b5deed0032f7a5659e23b3e1dbdf9e8894007018a136af86a
+  - asset: collaboration/20260528-130500/collaboration-pathways/scripts/04_issue_identities.py
+    produced_by_pathway: Collaboration.Identity.IssuePersonhoodCredential@v1
+    pathway_run_id: pr_020e76ed45ad
+    sha256: 71cb6213426725a7b370ee2962edbe6aeb8f93e1dd64d3024b65251a1eb0a79c
+  - asset: collaboration/20260528-130500/identities/viewer/index.html
+    produced_by_pathway: Collaboration.UX.RenderRevealViewer@v1
+    pathway_run_id: pr_74756e724afc
+    sha256: f7691d761d2f4df56effd6d4020018bbd52a5800dc48125d0b4832c21752a1a1
+  - asset: collaboration/20260528-130500/identities/viewer/PROVENANCE.json
+    produced_by_pathway: Collaboration.UX.RenderRevealViewer@v1
+    pathway_run_id: pr_74756e724afc
+    sha256: 88445672d3fe682271f487a47fd4ba06921cce922ff0b9284ff7b2b23ee47967
+  - asset: collaboration/20260528-130500/identities/viewer/README.md
+    produced_by_pathway: Collaboration.UX.RenderRevealViewer@v1
+    pathway_run_id: pr_74756e724afc
+    sha256: eae3a675ecb71e8f17710ce27b82e930ceeae865a035ee4baf373d845b7fe3f1
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.UX.RenderRevealViewer.v1.yaml
+    produced_by_pathway: Collaboration.UX.RenderRevealViewer@v1
+    pathway_run_id: pr_74756e724afc
+    sha256: 065d85d9253ace19d3d2f5542553b0edc67f73e789f5ae229896677bbf6593a8
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.RevealLockbox.v1.yaml
+    produced_by_pathway: Collaboration.UX.RenderRevealViewer@v1
+    pathway_run_id: pr_74756e724afc
+    sha256: a00467aa99abb25cfbfc7d75677a7d6a66701db227255114a1aad5b735f3dec0
+  - asset: collaboration/20260528-130500/collaboration-pathways/scripts/05_build_viewer.py
+    produced_by_pathway: Collaboration.UX.RenderRevealViewer@v1
+    pathway_run_id: pr_74756e724afc
+    sha256: 4b1b5fffb28f61ed86e22fdc296c22e0957cd205a63a32b88d7e6f920be3f41a
+  - asset: collaboration/20260528-130500/pathway-runs/COMPLETENESS.md
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_a4bebd4ff8b4
+    sha256: 7fe62269c18c609adb7e20ce1aec0e7c84141e39da20e0159b651fc26fe51b29
+  - asset: collaboration/20260528-130500/collaboration-pathways/sidecars/privacy-refactor-lineage.md
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_a4bebd4ff8b4
+    sha256: e4d973ba75944d8f3d0098a199d51572dd9806e7784b1a860fdfecbc3462619b
+  - asset: collaboration/20260528-130500/collaboration-pathways/scripts/06_finalize.py
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_a4bebd4ff8b4
+    sha256: a547cde012e5b327fdbcb9bb392a6b582b49604aa6e92187f881f10154b12848
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.Finalize.v1.yaml
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_a4bebd4ff8b4
+    sha256: fa0c4e0714a546dc67c299c0b3346a9ac7b345e62107f981f17f118b649531d5
+  - asset: collaboration/20260528-130500/identities/persons/person-a.credential.json
+    produced_by_pathway: Collaboration.Identity.SealNameLockbox@v1
+    pathway_run_id: pr_fdf5b3d1d0c8
+    sha256: f60c0ee8683be9df8b2fc95d78dc7e4a488a0f2c0b31cc4bbb7f96f2204b64e3
+  - asset: collaboration/20260528-130500/identities/persons/person-a.lockbox.json
+    produced_by_pathway: Collaboration.Identity.SealNameLockbox@v1
+    pathway_run_id: pr_fdf5b3d1d0c8
+    sha256: 55a5ebf85a058aa218fd5db86237a6a2e6c452fea5889237dedf2c008010c29e
+  - asset: collaboration/20260528-130500/identities/persons/person-b.credential.json
+    produced_by_pathway: Collaboration.Identity.SealNameLockbox@v1
+    pathway_run_id: pr_fdf5b3d1d0c8
+    sha256: 914bcf2d5f2496ac72c14766a0ca596355be6f2cedee60b046220849103a94e8
+  - asset: collaboration/20260528-130500/identities/persons/person-b.lockbox.json
+    produced_by_pathway: Collaboration.Identity.SealNameLockbox@v1
+    pathway_run_id: pr_fdf5b3d1d0c8
+    sha256: 2b75d95b402ab007efd44a3f9188c7ec479e5a54bbf6a3d1f40e83b33cd7cab3
+  - asset: collaboration/20260528-130500/identities/persons/person-c.credential.json
+    produced_by_pathway: Collaboration.Identity.SealNameLockbox@v1
+    pathway_run_id: pr_fdf5b3d1d0c8
+    sha256: 4ac51a5ba99028e13639227d18abecada97816400e6a2025246d1e19b3005a38
+  - asset: collaboration/20260528-130500/identities/persons/person-c.lockbox.json
+    produced_by_pathway: Collaboration.Identity.SealNameLockbox@v1
+    pathway_run_id: pr_fdf5b3d1d0c8
+    sha256: 2b418eac0ea975d30c701990fb321a20ae4999a9ec8ea7bddb0e22a432760f3c
+  - asset: collaboration/20260528-130500/identities/entities/entity-1.credential.json
+    produced_by_pathway: Collaboration.Identity.SealNameLockbox@v1
+    pathway_run_id: pr_fdf5b3d1d0c8
+    sha256: 96b2f35a49bc8e4ab16576d7785e175a7862068e8c3fb6009f1eae8a524216fc
+  - asset: collaboration/20260528-130500/identities/entities/entity-1.lockbox.json
+    produced_by_pathway: Collaboration.Identity.SealNameLockbox@v1
+    pathway_run_id: pr_fdf5b3d1d0c8
+    sha256: aa9f09779a8856906f53b927e12fe4912c28750398228caffdf8ed96dd4dd2de
+  - asset: collaboration/20260528-130500/identities/entities/entity-2.credential.json
+    produced_by_pathway: Collaboration.Identity.SealNameLockbox@v1
+    pathway_run_id: pr_fdf5b3d1d0c8
+    sha256: 740a0735406081a4d2ffac5a1f9d62265ea2d26ec3320faf5daee3d78bf766b5
+  - asset: collaboration/20260528-130500/identities/entities/entity-2.lockbox.json
+    produced_by_pathway: Collaboration.Identity.SealNameLockbox@v1
+    pathway_run_id: pr_fdf5b3d1d0c8
+    sha256: 847ff7dfbbd79af168d8aaaa2b60e7c2641407d2368e042b5fde909327e5859b
+  - asset: collaboration/20260528-130500/identities/entities/entity-3.credential.json
+    produced_by_pathway: Collaboration.Identity.SealNameLockbox@v1
+    pathway_run_id: pr_fdf5b3d1d0c8
+    sha256: 0daca0a0b8445bd10164cec5aace3426d5fdfed6f9750937611c423dc51d343d
+  - asset: collaboration/20260528-130500/identities/entities/entity-3.lockbox.json
+    produced_by_pathway: Collaboration.Identity.SealNameLockbox@v1
+    pathway_run_id: pr_fdf5b3d1d0c8
+    sha256: 552ec875bdd8318a2ba74d51b6253cb631949f329a0011f66ab550c28131e209
+  - asset: collaboration/20260528-130500/identities/relationships/person-a-entity-1.json
+    produced_by_pathway: Collaboration.Identity.SealNameLockbox@v1
+    pathway_run_id: pr_fdf5b3d1d0c8
+    sha256: ecf7342b6612fdf9b9fcb1d09f57809d39ac106663f566c8a02ca51896c55cd3
+  - asset: collaboration/20260528-130500/identities/relationships/person-b-entity-2.json
+    produced_by_pathway: Collaboration.Identity.SealNameLockbox@v1
+    pathway_run_id: pr_fdf5b3d1d0c8
+    sha256: 62c15ef6bedf461b3e4489118b9817c2249152ba4211eb82b9e414464d1662a9
+  - asset: collaboration/20260528-130500/identities/relationships/person-c-entity-3.json
+    produced_by_pathway: Collaboration.Identity.SealNameLockbox@v1
+    pathway_run_id: pr_fdf5b3d1d0c8
+    sha256: 36e2a0a1abde62ceb666a8fc109962cccc78f25a92ab565b7f0e4effd6a25318
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.IssuePersonhoodCredential.v1.yaml
+    produced_by_pathway: Collaboration.Identity.SealNameLockbox@v1
+    pathway_run_id: pr_fdf5b3d1d0c8
+    sha256: 8ebedb6f1bf4bdbb60788aff34dd75a648b2946f135466ecd086f9a3988b4895
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.SealNameLockbox.v1.yaml
+    produced_by_pathway: Collaboration.Identity.SealNameLockbox@v1
+    pathway_run_id: pr_fdf5b3d1d0c8
+    sha256: a3efcfe11396391779afab11f0d6dd4d52e12d0ecebe375da43da252d20fc747
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.AssertRelationship.v1.yaml
+    produced_by_pathway: Collaboration.Identity.SealNameLockbox@v1
+    pathway_run_id: pr_fdf5b3d1d0c8
+    sha256: cb2744fd80b37409ebec2be2f8c79b4e3a9d93e1c2f161b733749b4316b9142e
+  - asset: collaboration/20260528-130500/identities/README.md
+    produced_by_pathway: Collaboration.Identity.SealNameLockbox@v1
+    pathway_run_id: pr_fdf5b3d1d0c8
+    sha256: fc6628a9e598700b5deed0032f7a5659e23b3e1dbdf9e8894007018a136af86a
+  - asset: collaboration/20260528-130500/collaboration-pathways/scripts/04_issue_identities.py
+    produced_by_pathway: Collaboration.Identity.SealNameLockbox@v1
+    pathway_run_id: pr_fdf5b3d1d0c8
+    sha256: acfc2b411a6820041adfeef139147d40adff88c1ba2c3f9350999353d39ad2f1
+  - asset: collaboration/20260528-130500/identities/viewer/index.html
+    produced_by_pathway: Collaboration.UX.RenderRevealViewer@v1
+    pathway_run_id: pr_ea5b2ee616a2
+    sha256: ec806306d42f31969685b43119332f16c0f08805d51f2546ce9f4181c996ffae
+  - asset: collaboration/20260528-130500/identities/viewer/PROVENANCE.json
+    produced_by_pathway: Collaboration.UX.RenderRevealViewer@v1
+    pathway_run_id: pr_ea5b2ee616a2
+    sha256: 3a050835264963bae4f846eb3e926b54fef6ad3af293ecfc31816740dbe0b1a0
+  - asset: collaboration/20260528-130500/identities/viewer/README.md
+    produced_by_pathway: Collaboration.UX.RenderRevealViewer@v1
+    pathway_run_id: pr_ea5b2ee616a2
+    sha256: eae3a675ecb71e8f17710ce27b82e930ceeae865a035ee4baf373d845b7fe3f1
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.UX.RenderRevealViewer.v1.yaml
+    produced_by_pathway: Collaboration.UX.RenderRevealViewer@v1
+    pathway_run_id: pr_ea5b2ee616a2
+    sha256: 065d85d9253ace19d3d2f5542553b0edc67f73e789f5ae229896677bbf6593a8
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.RevealLockbox.v1.yaml
+    produced_by_pathway: Collaboration.UX.RenderRevealViewer@v1
+    pathway_run_id: pr_ea5b2ee616a2
+    sha256: a00467aa99abb25cfbfc7d75677a7d6a66701db227255114a1aad5b735f3dec0
+  - asset: collaboration/20260528-130500/collaboration-pathways/scripts/05_build_viewer.py
+    produced_by_pathway: Collaboration.UX.RenderRevealViewer@v1
+    pathway_run_id: pr_ea5b2ee616a2
+    sha256: 08d829c7d9535b5fd35e473d3b19bbe0c5842bc4c0beaf17c3d7f302005f3b3d
+  - asset: collaboration/20260528-130500/pathway-runs/COMPLETENESS.md
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_e0e05c240390
+    sha256: bb3848fb6790ebb897ebadfe39bf7dc9438c02f1860e85dedc2d45c8c95f5370
+  - asset: collaboration/20260528-130500/collaboration-pathways/sidecars/privacy-refactor-lineage.md
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_e0e05c240390
+    sha256: e4d973ba75944d8f3d0098a199d51572dd9806e7784b1a860fdfecbc3462619b
+  - asset: collaboration/20260528-130500/collaboration-pathways/scripts/06_finalize.py
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_e0e05c240390
+    sha256: a547cde012e5b327fdbcb9bb392a6b582b49604aa6e92187f881f10154b12848
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.Finalize.v1.yaml
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_e0e05c240390
+    sha256: fa0c4e0714a546dc67c299c0b3346a9ac7b345e62107f981f17f118b649531d5
+  - asset: collaboration/20260528-130500/canon/PATHWAYS_ARCHITECTURE_v1.1.0.md
+    produced_by_pathway: Collaboration.Canon.UpdateSpec@v1
+    pathway_run_id: pr_ec23ce283530
+    sha256: 05482abd4805969ee92bbf6c02e3a15dde7f1461959f70e6b91f64f13a746f41
+  - asset: collaboration/20260528-130500/canon/PATHWAYS_REFERENCE_v1.1.0.md
+    produced_by_pathway: Collaboration.Canon.UpdateSpec@v1
+    pathway_run_id: pr_ec23ce283530
+    sha256: 15c26db7542ec5e6756ae7b00a672ea55efa9beb54ae5cc73a94f2d67831f2eb
+  - asset: collaboration/20260528-130500/canon/CANON_MANIFEST.yaml
+    produced_by_pathway: Collaboration.Canon.UpdateSpec@v1
+    pathway_run_id: pr_ec23ce283530
+    sha256: bd1ad8a34d192f0c63d2c53938150c45e27621a81d254ecf56b8ffcbd975bda5
+  - asset: collaboration/20260528-130500/pathways_canon/PATHWAYS_ARCHITECTURE.md
+    produced_by_pathway: Collaboration.Canon.UpdateSpec@v1
+    pathway_run_id: pr_ec23ce283530
+    sha256: 182d2da5d483b340f81b60d8dda86cab9b1f069f43d7ae526d28802b803b1cf4
+  - asset: collaboration/20260528-130500/collaboration-pathways/PACKAGE.yaml
+    produced_by_pathway: Collaboration.Canon.UpdateSpec@v1
+    pathway_run_id: pr_ec23ce283530
+    sha256: 3c44a642858e189a920d19f5ec82fa360f5aacf35ed3ea8cb99dab60e6647714
+  - asset: collaboration/20260528-130500/collaboration-manifest.yaml
+    produced_by_pathway: Collaboration.Canon.UpdateSpec@v1
+    pathway_run_id: pr_ec23ce283530
+    sha256: fbb0869c59a4dfe747e73df859754f6fac31e730c81f42d84ed1608c4f919553
+  - asset: collaboration/20260528-130500/collaboration-pathways/scripts/07_canon_update.py
+    produced_by_pathway: Collaboration.Canon.UpdateSpec@v1
+    pathway_run_id: pr_ec23ce283530
+    sha256: 8f91db20111e16035e2cd2f7c6a6610c950af3ce673c1ce1b70bcfdcbb71b194
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Canon.UpdateSpec.v1.yaml
+    produced_by_pathway: Collaboration.Canon.UpdateSpec@v1
+    pathway_run_id: pr_ec23ce283530
+    sha256: 5ee31b9e5fcc537ce2df0a50416b00386f0f493c5734f76df114166a2a39907c
+  - asset: collaboration/20260528-130500/pathway-runs/COMPLETENESS.md
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_22835d2f4b9d
+    sha256: 5513f914586595100d0f912a60c35f9ab6279e08ca53f54b070ba7bcf6c98b26
+  - asset: collaboration/20260528-130500/collaboration-pathways/sidecars/privacy-refactor-lineage.md
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_22835d2f4b9d
+    sha256: e4d973ba75944d8f3d0098a199d51572dd9806e7784b1a860fdfecbc3462619b
+  - asset: collaboration/20260528-130500/collaboration-pathways/scripts/06_finalize.py
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_22835d2f4b9d
+    sha256: 924c5b269071dd5dbb219fc013b964b7023dfc2892cfcb49975508600d83a801
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.Finalize.v1.yaml
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_22835d2f4b9d
+    sha256: fa0c4e0714a546dc67c299c0b3346a9ac7b345e62107f981f17f118b649531d5
+  - asset: collaboration/20260528-130500/COLLABORATION_READINESS.md
+    produced_by_pathway: Collaboration.Canon.UpdateSpec@v1
+    pathway_run_id: pr_d0007433bd12
+    sha256: bb968c190312f1945c1eb0359864f9edc9c7948b430e2755232bf711e5b978dc
+  - asset: collaboration/20260528-130500/canon/CANON_MANIFEST.yaml
+    produced_by_pathway: Collaboration.Canon.UpdateSpec@v1
+    pathway_run_id: pr_d0007433bd12
+    sha256: fe45193a8c69a9f630eb319a56f81d240e3849e37c70a22091dc7fca4d1961ca
+  - asset: collaboration/20260528-130500/canon/PATHWAYS_ARCHITECTURE_v1.1.0.md
+    produced_by_pathway: Collaboration.Canon.UpdateSpec@v1
+    pathway_run_id: pr_d0007433bd12
+    sha256: 05482abd4805969ee92bbf6c02e3a15dde7f1461959f70e6b91f64f13a746f41
+  - asset: collaboration/20260528-130500/canon/PATHWAYS_REFERENCE_v1.1.0.md
+    produced_by_pathway: Collaboration.Canon.UpdateSpec@v1
+    pathway_run_id: pr_d0007433bd12
+    sha256: 1588cda3f28fc8c22007ab05cad4231b1212444f2d0c2a1b404e9603ac6c75cc
+  - asset: collaboration/20260528-130500/collaboration-manifest.yaml
+    produced_by_pathway: Collaboration.Canon.UpdateSpec@v1
+    pathway_run_id: pr_d0007433bd12
+    sha256: 8c7c3e8f5a483ecbaa5a81cd601c105c169dc92c5f232e6520475852dca9046a
+  - asset: collaboration/20260528-130500/collaboration-pathways/PACKAGE.yaml
+    produced_by_pathway: Collaboration.Canon.UpdateSpec@v1
+    pathway_run_id: pr_d0007433bd12
+    sha256: 33e698a36976794e6a45e4809f64d8d8c58cc40c5f9c72121bcbeeb7ce53cb51
+  - asset: collaboration/20260528-130500/collaboration-pathways/scripts/07_canon_update.py
+    produced_by_pathway: Collaboration.Canon.UpdateSpec@v1
+    pathway_run_id: pr_d0007433bd12
+    sha256: 668079c476ab419c6ac0cf3ec9061cabe29e557e265a4051ecc65966601f5abf
+  - asset: collaboration/20260528-130500/collaboration-pathways/scripts/08_strip_token.py
+    produced_by_pathway: Collaboration.Canon.UpdateSpec@v1
+    pathway_run_id: pr_d0007433bd12
+    sha256: eeda39973e3836c1b298a51ff12d72331eeb339d6fafefba912f641e8a8fdf91
+  - asset: collaboration/20260528-130500/pathway-runs/pr_ec23ce283530.json
+    produced_by_pathway: Collaboration.Canon.UpdateSpec@v1
+    pathway_run_id: pr_d0007433bd12
+    sha256: cdd09dc438b9222e73d0873e25af534f5718a91149f11b06cd819f0afb3d4adb
+  - asset: collaboration/20260528-130500/pathway-runs/COMPLETENESS.md
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_406c7ed8c71c
+    sha256: 3f418f2c0940d31d021da861c2b874a6261532e84909b271190112b5c4a723d1
+  - asset: collaboration/20260528-130500/collaboration-pathways/sidecars/privacy-refactor-lineage.md
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_406c7ed8c71c
+    sha256: e4d973ba75944d8f3d0098a199d51572dd9806e7784b1a860fdfecbc3462619b
+  - asset: collaboration/20260528-130500/collaboration-pathways/scripts/06_finalize.py
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_406c7ed8c71c
+    sha256: 924c5b269071dd5dbb219fc013b964b7023dfc2892cfcb49975508600d83a801
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.Finalize.v1.yaml
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_406c7ed8c71c
+    sha256: fa0c4e0714a546dc67c299c0b3346a9ac7b345e62107f981f17f118b649531d5
+  - asset: collaboration/20260528-130500/antivenom-pathways/pathways/Assay.Benchmark.Reproducible.v1.yaml
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_dcd9c2813464
+    sha256: 
+  - asset: collaboration/20260528-130500/antivenom-pathways/pathways/Assay.Citation.VerifyFirst.v1.yaml
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_dcd9c2813464
+    sha256: 
+  - asset: collaboration/20260528-130500/antivenom-pathways/pathways/Assay.Convergence.AnchoredAuthority.v1.yaml
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_dcd9c2813464
+    sha256: 
+  - asset: collaboration/20260528-130500/antivenom-pathways/pathways/Assay.Provenance.RunManifest.v1.yaml
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_dcd9c2813464
+    sha256: 
+  - asset: collaboration/20260528-130500/assay-pathways
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_dcd9c2813464
+    sha256: 
+  - asset: collaboration/20260528-130500/assay-pathways/APPLICATION_PLAYBOOK.md
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_dcd9c2813464
+    sha256: a358194747fd45025d8d926a3f2d3b7a7a495f8b963430f29f361db88cc67d69
+  - asset: collaboration/20260528-130500/collaboration-pathways/scripts/09_rename_assay.py
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_dcd9c2813464
+    sha256: 84c2e4a7ef719c61a75f7e03d3ccec624bdc58cfe6b93a28a84b062118eedcb1
+  - asset: collaboration/20260528-130500/collaboration-spine.md
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_dcd9c2813464
+    sha256: c0533feb8a90818a19768af7999a646b614e2f4b713f5d74c6cd3485ac45b5f4
+  - asset: collaboration/20260528-130500/sidecars/assay-thesis.md
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_dcd9c2813464
+    sha256: f0d1038872190aa600a1887d62533b05b1c1e871249e103f82d3d42b06829e35
+  - asset: collaboration/20260528-130500/timeline/events/evt_003_assay_encoded.json
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_dcd9c2813464
+    sha256: fa4fb5951c021766d11212a85c81e810cfc1d7dbb71e625e3c611117d7b99eed
+  - asset: collaboration/20260528-130500/assay-pathways/APPLICATION_PLAYBOOK.md
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_25bc3856a86c
+    sha256: de7187c7d22f6efee6af5658e623defa1c36c9c0ee6cf2b8bc2f793bdd09d818
+  - asset: collaboration/20260528-130500/sidecars/assay-thesis.md
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_25bc3856a86c
+    sha256: 80d62d868185637c09bbcb3d1ce8b631e7035e7feceff6a78ff4a075018ffb5f
+  - asset: collaboration/20260528-130500/collaboration-pathways/scripts/09b_gloss_fix.py
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_25bc3856a86c
+    sha256: 764a4c2754bc13b926ac58c5f4d07d0de37342120f4aee5eac8f0c1c91c68c7b
+  - asset: collaboration/20260528-130500/collaboration-pathways/terms/Term.Assay.v1.yaml
+    produced_by_pathway: Collaboration.Naming.RegisterTerm@v1
+    pathway_run_id: pr_9ef41959c291
+    sha256: de24c5057f21e58e5afabc159f3726be58fedeae4caba0a5cd5cac45a33f8acd
+  - asset: collaboration/20260528-130500/collaboration-pathways/terms/Term.AntiVenom.v1.yaml
+    produced_by_pathway: Collaboration.Naming.RegisterTerm@v1
+    pathway_run_id: pr_9ef41959c291
+    sha256: 19de8ce98ceb45d5752d87ee04361c6956cb21f8cdfadeabe702510d76a7c5de
+  - asset: collaboration/20260528-130500/collaboration-manifest.yaml
+    produced_by_pathway: Collaboration.Naming.RegisterTerm@v1
+    pathway_run_id: pr_9ef41959c291
+    sha256: 847f4d1a079bab8f8ae2b5096c69fb89519b2b149fe5389984ad77032e8e86a4
+  - asset: collaboration/20260528-130500/collaboration-pathways/scripts/10_assay_terms.py
+    produced_by_pathway: Collaboration.Naming.RegisterTerm@v1
+    pathway_run_id: pr_9ef41959c291
+    sha256: 80bd0973be8667f712c8883731ab8ef06f405016ce58ab79479f18d300003c65
+  - asset: collaboration/20260528-130500/pathway-runs/COMPLETENESS.md
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_0954b2476ab7
+    sha256: 1e4556ec2aea18ea85c18ae5853312b1abd7e0ee0b88bc143d83f9bb225a9227
+  - asset: collaboration/20260528-130500/collaboration-pathways/sidecars/privacy-refactor-lineage.md
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_0954b2476ab7
+    sha256: e4d973ba75944d8f3d0098a199d51572dd9806e7784b1a860fdfecbc3462619b
+  - asset: collaboration/20260528-130500/collaboration-pathways/scripts/06_finalize.py
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_0954b2476ab7
+    sha256: 924c5b269071dd5dbb219fc013b964b7023dfc2892cfcb49975508600d83a801
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.Finalize.v1.yaml
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_0954b2476ab7
+    sha256: fa0c4e0714a546dc67c299c0b3346a9ac7b345e62107f981f17f118b649531d5
+  - asset: collaboration/20260528-130500/collaboration-manifest.yaml
+    produced_by_pathway: Collaboration.Privacy.DeIdentify@v1
+    pathway_run_id: pr_ad4aa0852967
+    sha256: ad4b504cd0583cf65e418dd16ed7c41489d0c4c17cc525aa2689eb574198617b
+  - asset: collaboration/20260528-130500/collaboration-pathways/PACKAGE.yaml
+    produced_by_pathway: Collaboration.Privacy.DeIdentify@v1
+    pathway_run_id: pr_ad4aa0852967
+    sha256: 56c19807d768c5a015567682c923599ee51b6ab5dc8cff0e1954315ea8c32a89
+  - asset: collaboration/20260528-130500/collaboration-pathways/canon/COLLABORATION_BUNDLE_TECHNIQUE.md
+    produced_by_pathway: Collaboration.Privacy.DeIdentify@v1
+    pathway_run_id: pr_ad4aa0852967
+    sha256: 919ff7f69ec4eda9d56df47325b4b1037a818b41ef742a2bdc00826f39064060
+  - asset: collaboration/20260528-130500/collaboration-pathways/meta/co-originator-attribution.yaml
+    produced_by_pathway: Collaboration.Privacy.DeIdentify@v1
+    pathway_run_id: pr_ad4aa0852967
+    sha256: 4975f3fc722e2576032493661f0eeb59f3ffa415d68c3498885bedbad039ba43
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Meta.EmbedTechniqueProvenance.v1.yaml
+    produced_by_pathway: Collaboration.Privacy.DeIdentify@v1
+    pathway_run_id: pr_ad4aa0852967
+    sha256: 3d0f1ab95e646ab12e13bce34058d52a3249961fe41b3956932d5241eb088943
+  - asset: collaboration/20260528-130500/collaboration-pathways/patterns/Pattern.CollaborationBundle.SelfDescribing.yaml
+    produced_by_pathway: Collaboration.Privacy.DeIdentify@v1
+    pathway_run_id: pr_ad4aa0852967
+    sha256: b195581edf95b46c612826474629676bf1c58b41111308561c2927ef1e08764d
+  - asset: collaboration/20260528-130500/collaboration-pathways/patterns/Pattern.ProjectCollaboration.ConvergenceRepository.yaml
+    produced_by_pathway: Collaboration.Privacy.DeIdentify@v1
+    pathway_run_id: pr_ad4aa0852967
+    sha256: 172ee3cd417ae43fbfebfff4c9321365f40618c992837a9f940fa73d0df376b6
+  - asset: collaboration/20260528-130500/collaboration-pathways/scripts/11_scrub_did.py
+    produced_by_pathway: Collaboration.Privacy.DeIdentify@v1
+    pathway_run_id: pr_ad4aa0852967
+    sha256: 1593ac7285dc1c40a3339dddb331bbec833b3ae03d9789f37869cb905eac4952
+  - asset: collaboration/20260528-130500/collaboration-pathways/sidecars/collaboration-pattern-lineage-and-attribution.md
+    produced_by_pathway: Collaboration.Privacy.DeIdentify@v1
+    pathway_run_id: pr_ad4aa0852967
+    sha256: 72255f59d3bd8ebae0bf9e5e337949435e25d0ac92b255658c18bccc801cc09b
+  - asset: collaboration/20260528-130500/identities/persons/person-a.credential.json
+    produced_by_pathway: Collaboration.Identity.SealNameLockbox@v1
+    pathway_run_id: pr_87ef2cef2a4d
+    sha256: 1ee3ebb4c455e6a40c8751530cd8c83eacab86c021cc3bf7af423ddd3773583e
+  - asset: collaboration/20260528-130500/identities/persons/person-a.lockbox.json
+    produced_by_pathway: Collaboration.Identity.SealNameLockbox@v1
+    pathway_run_id: pr_87ef2cef2a4d
+    sha256: 891f4880bfa9884002c8bbc27c34f6e4a1de66ce8e784a953f163dcde0d7ca42
+  - asset: collaboration/20260528-130500/identities/persons/person-b.credential.json
+    produced_by_pathway: Collaboration.Identity.SealNameLockbox@v1
+    pathway_run_id: pr_87ef2cef2a4d
+    sha256: 3df74b1960359880df4e6a6ee143c1f589c9932f613d71c5456c1b352723e22e
+  - asset: collaboration/20260528-130500/identities/persons/person-b.lockbox.json
+    produced_by_pathway: Collaboration.Identity.SealNameLockbox@v1
+    pathway_run_id: pr_87ef2cef2a4d
+    sha256: ed4ee1b33bc9412bfaf6d2f1226279f906775a3584fbd1c92c19978d889fc2f8
+  - asset: collaboration/20260528-130500/identities/persons/person-c.credential.json
+    produced_by_pathway: Collaboration.Identity.SealNameLockbox@v1
+    pathway_run_id: pr_87ef2cef2a4d
+    sha256: cdec82266e2e77e19ef0eca4a8c966c60a5492f92bfd846bfe42f771d05fc44c
+  - asset: collaboration/20260528-130500/identities/persons/person-c.lockbox.json
+    produced_by_pathway: Collaboration.Identity.SealNameLockbox@v1
+    pathway_run_id: pr_87ef2cef2a4d
+    sha256: cfb9d2073b364395ba1e9c560587d1126acb921eb3e2f3b4db3a3ed1453bb659
+  - asset: collaboration/20260528-130500/identities/entities/entity-1.credential.json
+    produced_by_pathway: Collaboration.Identity.SealNameLockbox@v1
+    pathway_run_id: pr_87ef2cef2a4d
+    sha256: 389868a6ace1da146c66e20dad10ccd343ae1448dc741662a990ba49c1607d27
+  - asset: collaboration/20260528-130500/identities/entities/entity-1.lockbox.json
+    produced_by_pathway: Collaboration.Identity.SealNameLockbox@v1
+    pathway_run_id: pr_87ef2cef2a4d
+    sha256: 7aa05239b49e4adeee3c233225bcbc89fe34b6775bede5bab33958e0563dcb3b
+  - asset: collaboration/20260528-130500/identities/entities/entity-2.credential.json
+    produced_by_pathway: Collaboration.Identity.SealNameLockbox@v1
+    pathway_run_id: pr_87ef2cef2a4d
+    sha256: c5de571cab952f343c06dfe51e06164d7fafe59f6f34d8760362f547bc6a5895
+  - asset: collaboration/20260528-130500/identities/entities/entity-2.lockbox.json
+    produced_by_pathway: Collaboration.Identity.SealNameLockbox@v1
+    pathway_run_id: pr_87ef2cef2a4d
+    sha256: 9ff7e74d1394c508f716d04ce33237cd311651bd83dc8e5f99a3b4b4d32ec00d
+  - asset: collaboration/20260528-130500/identities/entities/entity-3.credential.json
+    produced_by_pathway: Collaboration.Identity.SealNameLockbox@v1
+    pathway_run_id: pr_87ef2cef2a4d
+    sha256: 384171b344704427bff7a369372d9467ffbe16b8e9c68ec088dc0262311703ef
+  - asset: collaboration/20260528-130500/identities/entities/entity-3.lockbox.json
+    produced_by_pathway: Collaboration.Identity.SealNameLockbox@v1
+    pathway_run_id: pr_87ef2cef2a4d
+    sha256: c88026b84da864f567689b103c8d85496a48d3a1852a9c19806bea032bdab2ab
+  - asset: collaboration/20260528-130500/identities/relationships/person-a-entity-1.json
+    produced_by_pathway: Collaboration.Identity.SealNameLockbox@v1
+    pathway_run_id: pr_87ef2cef2a4d
+    sha256: 75c4e56b9981ea1608d8f1343bf82aace65bec24ecfc3332e51795f13dfd9131
+  - asset: collaboration/20260528-130500/identities/relationships/person-b-entity-2.json
+    produced_by_pathway: Collaboration.Identity.SealNameLockbox@v1
+    pathway_run_id: pr_87ef2cef2a4d
+    sha256: cf4b26a3ef35a216b2cd05ad1f750ff61c2fdbc82be9ee5c8c7811ff9bd32840
+  - asset: collaboration/20260528-130500/identities/relationships/person-c-entity-3.json
+    produced_by_pathway: Collaboration.Identity.SealNameLockbox@v1
+    pathway_run_id: pr_87ef2cef2a4d
+    sha256: 4ebe997fc8fdb6119d4a195d036f7158a941a48bb55cfa8f2214257faad9d32e
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.IssuePersonhoodCredential.v1.yaml
+    produced_by_pathway: Collaboration.Identity.SealNameLockbox@v1
+    pathway_run_id: pr_87ef2cef2a4d
+    sha256: 8ebedb6f1bf4bdbb60788aff34dd75a648b2946f135466ecd086f9a3988b4895
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.SealNameLockbox.v1.yaml
+    produced_by_pathway: Collaboration.Identity.SealNameLockbox@v1
+    pathway_run_id: pr_87ef2cef2a4d
+    sha256: a3efcfe11396391779afab11f0d6dd4d52e12d0ecebe375da43da252d20fc747
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.AssertRelationship.v1.yaml
+    produced_by_pathway: Collaboration.Identity.SealNameLockbox@v1
+    pathway_run_id: pr_87ef2cef2a4d
+    sha256: cb2744fd80b37409ebec2be2f8c79b4e3a9d93e1c2f161b733749b4316b9142e
+  - asset: collaboration/20260528-130500/identities/README.md
+    produced_by_pathway: Collaboration.Identity.SealNameLockbox@v1
+    pathway_run_id: pr_87ef2cef2a4d
+    sha256: fc6628a9e598700b5deed0032f7a5659e23b3e1dbdf9e8894007018a136af86a
+  - asset: collaboration/20260528-130500/collaboration-pathways/scripts/04_issue_identities.py
+    produced_by_pathway: Collaboration.Identity.SealNameLockbox@v1
+    pathway_run_id: pr_87ef2cef2a4d
+    sha256: acfc2b411a6820041adfeef139147d40adff88c1ba2c3f9350999353d39ad2f1
+  - asset: collaboration/20260528-130500/identities/viewer/index.html
+    produced_by_pathway: Collaboration.UX.RenderRevealViewer@v1
+    pathway_run_id: pr_ca2762aba00f
+    sha256: c1d1b75d6d3a30dabde3c9f2e89fe61655605b7bec568fea02ce2af0d977aaed
+  - asset: collaboration/20260528-130500/identities/viewer/PROVENANCE.json
+    produced_by_pathway: Collaboration.UX.RenderRevealViewer@v1
+    pathway_run_id: pr_ca2762aba00f
+    sha256: 65e563a08b4a4516166521506fa0880b5f5909f3f3608dfe53fab127ca39c5f7
+  - asset: collaboration/20260528-130500/identities/viewer/README.md
+    produced_by_pathway: Collaboration.UX.RenderRevealViewer@v1
+    pathway_run_id: pr_ca2762aba00f
+    sha256: eae3a675ecb71e8f17710ce27b82e930ceeae865a035ee4baf373d845b7fe3f1
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.UX.RenderRevealViewer.v1.yaml
+    produced_by_pathway: Collaboration.UX.RenderRevealViewer@v1
+    pathway_run_id: pr_ca2762aba00f
+    sha256: 065d85d9253ace19d3d2f5542553b0edc67f73e789f5ae229896677bbf6593a8
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.RevealLockbox.v1.yaml
+    produced_by_pathway: Collaboration.UX.RenderRevealViewer@v1
+    pathway_run_id: pr_ca2762aba00f
+    sha256: a00467aa99abb25cfbfc7d75677a7d6a66701db227255114a1aad5b735f3dec0
+  - asset: collaboration/20260528-130500/collaboration-pathways/scripts/05_build_viewer.py
+    produced_by_pathway: Collaboration.UX.RenderRevealViewer@v1
+    pathway_run_id: pr_ca2762aba00f
+    sha256: 08d829c7d9535b5fd35e473d3b19bbe0c5842bc4c0beaf17c3d7f302005f3b3d
+  - asset: collaboration/20260528-130500/pathway-runs/COMPLETENESS.md
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_462b11c2cca2
+    sha256: 94de591651e8c4ec94585c52429416ed9bb7e2f375db38444915932717676d9c
+  - asset: collaboration/20260528-130500/collaboration-pathways/sidecars/privacy-refactor-lineage.md
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_462b11c2cca2
+    sha256: e4d973ba75944d8f3d0098a199d51572dd9806e7784b1a860fdfecbc3462619b
+  - asset: collaboration/20260528-130500/collaboration-pathways/scripts/06_finalize.py
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_462b11c2cca2
+    sha256: 924c5b269071dd5dbb219fc013b964b7023dfc2892cfcb49975508600d83a801
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.Finalize.v1.yaml
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_462b11c2cca2
+    sha256: fa0c4e0714a546dc67c299c0b3346a9ac7b345e62107f981f17f118b649531d5
+  - asset: collaboration/20260528-130500/collaboration-pathways/scripts/11_scrub_did.py
+    produced_by_pathway: Collaboration.Privacy.DeIdentify@v1
+    pathway_run_id: pr_8031cc31d1a6
+    sha256: 9857f603f1d36cba5e88b5e763e76b30dc8899a76df8c40179894df9af9dcf0e
+  - asset: collaboration/20260528-130500/collaboration-pathways/scripts/12_redact_name_fragments.py
+    produced_by_pathway: Collaboration.Privacy.DeIdentify@v1
+    pathway_run_id: pr_8031cc31d1a6
+    sha256: 383b2bc8fadb0683030cff6924d95adad78e1c126bcbce2595dda7ffabb57af8
+  - asset: collaboration/20260528-130500/pathway-runs/index.yaml
+    produced_by_pathway: Collaboration.Privacy.DeIdentify@v1
+    pathway_run_id: pr_8031cc31d1a6
+    sha256: 06d3ac82a6cfe0318ff3cc0ba024bc69e1ce044dc8e476dc8755d97e3279414a
+  - asset: collaboration/20260528-130500/pathway-runs/pr_87ef2cef2a4d.json
+    produced_by_pathway: Collaboration.Privacy.DeIdentify@v1
+    pathway_run_id: pr_8031cc31d1a6
+    sha256: c43493fa8084b5b16e3c61ae26fb2e4d6ae040712e9bf8aa649f0cc1e465317e
+  - asset: collaboration/20260528-130500/pathway-runs/pr_ad4aa0852967.json
+    produced_by_pathway: Collaboration.Privacy.DeIdentify@v1
+    pathway_run_id: pr_8031cc31d1a6
+    sha256: 3f767f7b93dbe4ba6ccde0c0af05a9c1915a86d9cd6d66f1dba448f7558e85ca
+  - asset: collaboration/20260528-130500/pathway-runs/COMPLETENESS.md
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_64f2a4f3c15d
+    sha256: 0df2cbb28b13fbfc39f46dd5231d2ead89555efa8704c81e4f7b6f2aa88d590a
+  - asset: collaboration/20260528-130500/collaboration-pathways/sidecars/privacy-refactor-lineage.md
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_64f2a4f3c15d
+    sha256: e4d973ba75944d8f3d0098a199d51572dd9806e7784b1a860fdfecbc3462619b
+  - asset: collaboration/20260528-130500/collaboration-pathways/scripts/06_finalize.py
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_64f2a4f3c15d
+    sha256: 924c5b269071dd5dbb219fc013b964b7023dfc2892cfcb49975508600d83a801
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.Finalize.v1.yaml
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_64f2a4f3c15d
+    sha256: fa0c4e0714a546dc67c299c0b3346a9ac7b345e62107f981f17f118b649531d5
+  - asset: collaboration/20260528-130500/collaboration-pathways/scripts/12_redact_name_fragments.py
+    produced_by_pathway: Collaboration.Privacy.DeIdentify@v1
+    pathway_run_id: pr_54582fed9105
+    sha256: f53ac1d8d63a491acaa9c2cc7fe2f17d923c3f1edeb67a0255f1e75d4b7b77af
+  - asset: collaboration/20260528-130500/pathway-runs/pr_8031cc31d1a6.json
+    produced_by_pathway: Collaboration.Privacy.DeIdentify@v1
+    pathway_run_id: pr_54582fed9105
+    sha256: 361e7fa8d238e12575317f5b5a212cc0394c0ac6ba4394db714b1a7c72fcc48c
+  - asset: collaboration/20260528-130500/pathway-runs/COMPLETENESS.md
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_fa8f2716a1f0
+    sha256: 08ce2a0122edda0666d1ec72959152c121679f06f942b2d343a1b1bb7c87eafe
+  - asset: collaboration/20260528-130500/collaboration-pathways/sidecars/privacy-refactor-lineage.md
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_fa8f2716a1f0
+    sha256: e4d973ba75944d8f3d0098a199d51572dd9806e7784b1a860fdfecbc3462619b
+  - asset: collaboration/20260528-130500/collaboration-pathways/scripts/06_finalize.py
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_fa8f2716a1f0
+    sha256: 924c5b269071dd5dbb219fc013b964b7023dfc2892cfcb49975508600d83a801
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.Finalize.v1.yaml
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_fa8f2716a1f0
+    sha256: fa0c4e0714a546dc67c299c0b3346a9ac7b345e62107f981f17f118b649531d5
+  - asset: collaboration/20260528-130500/assay-pathways/pathways/Assay.Citation.VerifyFirst.v1.yaml
+    produced_by_pathway: Collaboration.Refactor.HardenGateProfile@v1
+    pathway_run_id: pr_f50c44020305
+    sha256: 0c1c65e6445f0bdd492f1d88ca91e5490329bf99fe88c29449a0d50a765f4794
+  - asset: collaboration/20260528-130500/assay-pathways/pathways/Assay.Convergence.AnchoredAuthority.v1.yaml
+    produced_by_pathway: Collaboration.Refactor.HardenGateProfile@v1
+    pathway_run_id: pr_f50c44020305
+    sha256: 5b8ca0de9f12799badbd8e865bbfb1145d984f562dd4ee95026730169c8d129a
+  - asset: collaboration/20260528-130500/assay-pathways/pathways/Assay.Provenance.RunManifest.v1.yaml
+    produced_by_pathway: Collaboration.Refactor.HardenGateProfile@v1
+    pathway_run_id: pr_f50c44020305
+    sha256: e417caf50290fce6525dd44b4c5a581dddeec56639ca38d1cb43c23df1f7dc22
+  - asset: collaboration/20260528-130500/assay-pathways/practice-profiles/legal-research-grounding.v1.yaml
+    produced_by_pathway: Collaboration.Refactor.HardenGateProfile@v1
+    pathway_run_id: pr_f50c44020305
+    sha256: a70ce7575184875187ea91afc6d9bf121807e0206534de265bfabeb938054b79
+  - asset: collaboration/20260528-130500/assay-pathways/PACKAGE.yaml
+    produced_by_pathway: Collaboration.Refactor.HardenGateProfile@v1
+    pathway_run_id: pr_f50c44020305
+    sha256: b62e742281437abfd6b4dfe3ec5bd9d8baa94ac3a2de5f9514f46b393023715e
+  - asset: collaboration/20260528-130500/assay-pathways/pathways-index.yaml
+    produced_by_pathway: Collaboration.Refactor.HardenGateProfile@v1
+    pathway_run_id: pr_f50c44020305
+    sha256: 231f79bed4ef5edbdf57461b58aa0a82113956bbebb1af7b450cb85bdabd8f2a
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.HardenGateProfile.v1.yaml
+    produced_by_pathway: Collaboration.Refactor.HardenGateProfile@v1
+    pathway_run_id: pr_f50c44020305
+    sha256: c08faee3ee00e28ebd25cc57c2f975e12ba28dae92f8eaf111ee483e55ab9f08
+  - asset: collaboration/20260528-130500/collaboration-pathways/scripts/13_harden_v11.py
+    produced_by_pathway: Collaboration.Refactor.HardenGateProfile@v1
+    pathway_run_id: pr_f50c44020305
+    sha256: 66d0b4d2cda46dc8705ec4454111c63fc34beef22203355d3431a7b0becb370f
+  - asset: collaboration/20260528-130500/pathway-runs/COMPLETENESS.md
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_716d9822b0b5
+    sha256: 3b7b636b005ddb589f267803c0eac286adba45f82937b0fc1a20e8b0f0696586
+  - asset: collaboration/20260528-130500/collaboration-pathways/sidecars/privacy-refactor-lineage.md
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_716d9822b0b5
+    sha256: e4d973ba75944d8f3d0098a199d51572dd9806e7784b1a860fdfecbc3462619b
+  - asset: collaboration/20260528-130500/collaboration-pathways/scripts/06_finalize.py
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_716d9822b0b5
+    sha256: 22412f595f00725c86663212b74f708537f3ef2ed87821ea04fbd3ce52c7252c
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.Finalize.v1.yaml
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_716d9822b0b5
+    sha256: fa0c4e0714a546dc67c299c0b3346a9ac7b345e62107f981f17f118b649531d5
+  - asset: collaboration/20260528-130500/collaboration-pathways/scripts/07_canon_update.py
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_48775d21aa40
+    sha256: 668079c476ab419c6ac0cf3ec9061cabe29e557e265a4051ecc65966601f5abf
+  - asset: collaboration/20260528-130500/collaboration-pathways/scripts/14_strip_token_followup.py
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_48775d21aa40
+    sha256: b6787f6faa186fc8a226ea8f9da614f7287921e5c76cabb3d0a4021fec025dd8
+  - asset: collaboration/20260528-130500/collaboration-pathways/scripts/14_strip_token_followup.py
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_48775d21aa40
+    sha256: b6787f6faa186fc8a226ea8f9da614f7287921e5c76cabb3d0a4021fec025dd8
+  - asset: collaboration/20260528-130500/pathway-runs/COMPLETENESS.md
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_ff751f4be03b
+    sha256: 8005ce810e1ab79350a2ec764dbfebad5838a2583fe6bb972248136455e52a65
+  - asset: collaboration/20260528-130500/collaboration-pathways/sidecars/privacy-refactor-lineage.md
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_ff751f4be03b
+    sha256: e4d973ba75944d8f3d0098a199d51572dd9806e7784b1a860fdfecbc3462619b
+  - asset: collaboration/20260528-130500/collaboration-pathways/scripts/06_finalize.py
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_ff751f4be03b
+    sha256: 22412f595f00725c86663212b74f708537f3ef2ed87821ea04fbd3ce52c7252c
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.Finalize.v1.yaml
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_ff751f4be03b
+    sha256: fa0c4e0714a546dc67c299c0b3346a9ac7b345e62107f981f17f118b649531d5
+  - asset: collaboration/20260528-130500/pathway-runs/pr_48775d21aa40.json
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_f8d16b9ca8b9
+    sha256: 56beb2ccbf23e1ab3bffdec16979e86aaa3bba3c153bd3494ea628f67e217396
+  - asset: collaboration/20260528-130500/collaboration-pathways/scripts/14_strip_token_followup.py
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_f8d16b9ca8b9
+    sha256: 6e2bda2103ddad5ac09026ae12cc331bc56d837021c6141dfdfd4be4a2de1558
+  - asset: collaboration/20260528-130500/pathway-runs/COMPLETENESS.md
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_5ba65e4479bd
+    sha256: f135da2680c922c7922283337ae10c6d2ffcc51bbaea4427812da80117255443
+  - asset: collaboration/20260528-130500/collaboration-pathways/sidecars/privacy-refactor-lineage.md
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_5ba65e4479bd
+    sha256: e4d973ba75944d8f3d0098a199d51572dd9806e7784b1a860fdfecbc3462619b
+  - asset: collaboration/20260528-130500/collaboration-pathways/scripts/06_finalize.py
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_5ba65e4479bd
+    sha256: 22412f595f00725c86663212b74f708537f3ef2ed87821ea04fbd3ce52c7252c
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.Finalize.v1.yaml
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_5ba65e4479bd
+    sha256: fa0c4e0714a546dc67c299c0b3346a9ac7b345e62107f981f17f118b649531d5

@@ -1,0 +1,38 @@
+# Practice profile (registry node) - spec 1.1.0 §4.8.5 (R1 cold-start)
+#
+# A practice profile is the Pathways analog of the article's CLAUDE.md practice file:
+# tenant-scoped institutional rules the engine MUST resolve before launching any template
+# whose gate_profile.R1.enabled = true. If it does not resolve, the run is
+# BLOCKED_CONFIGURATION (it never starts). This stub ships so the assay templates' R1 refs
+# resolve out of the box; on adoption, replace it with a counsel-signed profile.
+
+practice_profile:
+  kind: practice_profile          # registry node kind (Level-F+)
+  slug: legal-research-grounding
+  version: "1.0.0"
+  ref: "did:web:pathways.example/playbook/legal-research-grounding@v1"
+  signed_by: "did:web:pathways.example"           # placeholder; re-sign under supervising-counsel DID
+  self_asserted: true
+  spec: { reference: "canon/PATHWAYS_REFERENCE_v1.1.0.md", section: "4.8.5", version: "1.1.0", reference_sha256: "1588cda3f28fc8c22007ab05cad4231b1212444f2d0c2a1b404e9603ac6c75cc" }
+
+  jurisdictional_posture:
+    default: "US federal + state; cite only retrievable authority"
+    unknown_jurisdiction: escalate
+
+  escalation_thresholds:
+    not_found_citations: { max: 0, on_exceed: block_delivery }
+    warning_citations:   { max: 1, on_exceed: human_review }
+
+  institutional_rules:
+    - "Never present a case citation that was not retrieved from the public legal-data commons."
+    - "On any unverifiable authority, emit a fallback link; never paraphrase a holding from latent recall."
+    - "A verification report is agent-lane work; the legal determination remains lawyer-lane."
+
+  anti_patterns:                  # forkable annotations (§4.8.5); referenced via narrative pointers
+    - id: latent-citation
+      note: "Citing from parametric memory instead of retrieved authority. The primary failure the Elite MegaLaw satire mocks."
+    - id: confident-not-found
+      note: "Returning fluent prose where a citation could not be verified, instead of a fallback link."
+
+  revision_history:               # Aqua-attested in a Level-F deployment; stub here
+    - { version: "1.0.0", at: "2026-05-28", note: "Initial donation stub.", revision_sha256: "<computed-on-adoption>" }

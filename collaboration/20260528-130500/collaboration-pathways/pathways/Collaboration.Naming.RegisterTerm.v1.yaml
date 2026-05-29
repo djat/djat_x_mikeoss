@@ -1,0 +1,44 @@
+# Collaboration.Naming.RegisterTerm@v1
+
+pathway_template:
+  identity:
+    template_id: Collaboration.Naming.RegisterTerm@v1
+    artifact_type: pathway-template
+    triple: { domain: Collaboration, subdomain: Naming, action: RegisterTerm }
+    version: 1.0.0
+
+  description: |
+    Registers a name/label as a first-class Term artifact (artifact_type: term), distinct
+    from the recipe it labels. A term carries its own name_license (free or termed),
+    authorship, lineage, and supersedes/superseded_by links. Pathways bind a default_term
+    and may inherit a name from another term with scope: name_only. Using a term as a label
+    is therefore a provenanced, licensable act - not a UI rewrite.
+
+  implementation: collaboration-pathways/scripts/02_terms.py
+
+  inputs:
+    - name: terms
+      type: list
+    - name: default_term
+      type: string
+    - name: name_inheritance
+      type: list
+
+  steps:
+    - id: write_terms
+      agent_id: persist
+      skill: write_term_artifacts
+    - id: bind_default_and_inheritance
+      agent_id: persist
+      skill: merge_name_provenance
+      config:
+        target: collaboration-manifest.yaml
+        key: name_provenance
+    - id: register_pattern
+      agent_id: persist
+      skill: write_pattern
+      config:
+        target: collaboration-pathways/patterns/Pattern.Naming.ProvenancedTermBinding.yaml
+
+  output:
+    artifact: term_registry

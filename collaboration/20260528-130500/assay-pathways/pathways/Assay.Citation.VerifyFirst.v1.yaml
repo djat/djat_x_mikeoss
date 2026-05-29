@@ -1,0 +1,77 @@
+# Assay.Citation.VerifyFirst@v1
+
+pathway_template:
+  identity:
+    template_id: Assay.Citation.VerifyFirst@v1
+    artifact_type: pathway-template
+    triple: { domain: Assay, subdomain: Citation, action: VerifyFirst }
+    version: 1.1.0
+
+  description: |
+    The honest counterpart to "Legal Research 271.5%". A deterministic grounding gate
+    runs BEFORE any model speaks: every citation is checked against the public
+    legal-data commons (Free Law Project / CourtListener, Cornell LII, GovInfo).
+    Hallucinated citations are caught by math, not vibes. The model is reserved for a
+    bounded support check on already-verified authorities. STUB - no executable code.
+
+  inputs:
+    - name: document
+      type: path
+    - name: authorities
+      type: list
+      description: Citations extracted from the document (typed)
+
+  steps:
+    - id: extract_authorities
+      agent_id: extraction
+      skill: legal_references
+      config:
+        typed: true
+
+    - id: deterministic_verify
+      agent_id: verification
+      skill: database_verification
+      config:
+        provider_order: [courtlistener, cornell_lii, govinfo]
+        model_provider: deterministic
+        emit: { statuses: [verified, warning, not_found], field_level_diagnostics: true }
+
+    - id: bounded_support_check
+      agent_id: analysis
+      skill: support_check
+      config:
+        only_on: verified
+        constraint: "Use only the retrieved verbatim opinion text. Never invent quotations."
+
+    - id: fallback_links
+      agent_id: composer
+      skill: emit_fallback_links
+      config:
+        when: [warning, not_found]
+        targets: [scholar, lii, courtlistener]
+
+  output:
+    artifact: verification_report
+    includes: [verdicts, citations, fallback_links]
+
+  ethos:
+    principle: deterministic-grounding-over-latent-recall
+    commons: [free_law_project, cornell_lii, govinfo]
+
+  # Spec 1.1.0 §4.8 - authority-boundary manifest. A0 (Assisted): a licensed human reads
+  # every verification report before any external effect; the only required register is R1.
+  gate_profile:
+    spec_version: "1.1.0"
+    default_autonomy: A0
+    max_autonomy: A1
+    escalation_rule: strict
+    registers:
+      R1:
+        enabled: true
+        practice_profile_ref: "did:web:pathways.example/playbook/legal-research-grounding@v1"
+        output_contract_profile: "assay.verification.v1"
+        recoverable_error_bias: true   # warning/not_found surface fallback links; never fabricate
+    non_delegable_acts: [sign, file, send_external, certify]
+    attestation:
+      signed_by: "did:web:pathways.example"
+      note: "Self-asserted placeholder for the donation. Re-sign under tenant counsel DID on adoption."

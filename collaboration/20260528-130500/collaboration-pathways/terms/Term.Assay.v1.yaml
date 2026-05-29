@@ -1,0 +1,18 @@
+# Term.Assay@v1
+term:
+  identity:
+    term_id: Term.Assay@v1
+    artifact_type: term
+    label: "assay (pathways)"
+    version: 1.0.0
+  authored_by: "Originator (DJ Thomson)"
+  authored_in: collaboration/20260528-130500
+  supersedes: Term.AntiVenom@v1
+  meaning: >
+    The domain name for the legal-AI trustworthiness pathways. An assay is a precise test of what
+    something is genuinely made of - an assayer certifies the true composition of a metal. Chosen
+    to replace the prior oppositional/medical framing with a positive, constructive one.
+  name_license:
+    use_as_label: free
+    attribution_required: true
+    revocation_scope_max: self_only

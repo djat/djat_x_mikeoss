@@ -1,0 +1,45 @@
+# Collaboration.Investigation.DeclarePending@v1
+
+pathway_template:
+  identity:
+    template_id: Collaboration.Investigation.DeclarePending@v1
+    triple: { domain: Collaboration, subdomain: Investigation, action: DeclarePending }
+    version: 1.0.0
+
+  description: |
+    Records an explicit pending investigation preventing premature closure.
+    Collaboration is not agreement; open questions must be named.
+
+  inputs:
+    - name: investigation_id
+      type: string
+    - name: hypothesis
+      type: string
+    - name: success_criteria
+      type: list
+    - name: blocking_on
+      type: dict
+    - name: proof_pathway
+      type: pathway-ref
+
+  steps:
+    - id: validate_not_empty
+      agent_id: verification
+      skill: require_non_empty
+      config:
+        fields: [hypothesis, success_criteria, proof_pathway]
+
+    - id: write_instance_meta
+      agent_id: persist
+      skill: merge_yaml
+      config:
+        target: meta/collaboration-instance.yaml
+        set:
+          investigation.status: pending
+          collaboration_status: ASSEMBLED
+
+  output:
+    artifact: investigation_declaration
+
+  this_instance:
+    investigation_id: open-assay-co-creation-mikeoss

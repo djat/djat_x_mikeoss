@@ -1,0 +1,15 @@
+{
+  "@context": "https://www.w3.org/ns/credentials/v2",
+  "type": [
+    "VerifiableCredential",
+    "VerifiableRelationshipCredential"
+  ],
+  "issuer": "Originator",
+  "self_asserted": true,
+  "relationship": "represents",
+  "person": "person-b",
+  "entity": "entity-2",
+  "claim": "person-b is a real representative of entity-2; revealable by inference (at least one representative exists) without naming.",
+  "produced_by_pathway": "Collaboration.Identity.AssertRelationship@v1",
+  "pathway_run_id": "pr_87ef2cef2a4d"
+}

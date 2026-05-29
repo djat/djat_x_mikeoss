@@ -1,0 +1,8 @@
+{
+  "event_id": "evt_001",
+  "timestamp": "2026-05-28T18:20:00Z",
+  "type": "invitation_initiated",
+  "channel": "djat-mikeoss-20260528",
+  "description": "Open invitation to the MikeOSS project and team; the Elite MegaLaw Benchmark read as beautiful satire, then as truth",
+  "artifacts": ["collaboration-spine.md", "companion-bundle-index.md"]
+}

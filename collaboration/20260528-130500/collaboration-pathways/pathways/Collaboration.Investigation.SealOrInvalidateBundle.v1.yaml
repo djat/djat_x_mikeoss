@@ -1,0 +1,43 @@
+# Collaboration.Investigation.SealOrInvalidateBundle@v1
+
+pathway_template:
+  identity:
+    template_id: Collaboration.Investigation.SealOrInvalidateBundle@v1
+    triple: { domain: Collaboration, subdomain: Investigation, action: SealOrInvalidateBundle }
+    version: 1.0.0
+
+  description: |
+    Evaluates pre-registered hypotheses against proof artifacts and sets bundle_status.
+    For an invitation bundle, SEALED is reachable on the unilateral experiments alone;
+    a missing reciprocal collaboration leaves the counterparty hypotheses INCONCLUSIVE,
+    never INVALIDATED.
+
+  inputs:
+    - name: hypotheses_ref
+      type: path
+      default: test/HYPOTHESES.md
+    - name: proof_results
+      type: path
+      default: proof-results/
+
+  steps:
+    - id: load_hypotheses
+      agent_id: persist
+      skill: read_yaml_md
+    - id: evaluate_each
+      agent_id: verification
+      skill: hypothesis_evaluator
+    - id: set_bundle_status
+      agent_id: persist
+      skill: merge_yaml
+      config:
+        target: meta/collaboration-instance.yaml
+        allowed_states: [SEALED, INVALIDATED, INCONCLUSIVE, ASSEMBLED]
+    - id: emit_seal_record
+      agent_id: persist
+      skill: write_yaml
+      config:
+        target: proof-results/seal-record.yaml
+
+  output:
+    artifact: bundle_fate_evaluation

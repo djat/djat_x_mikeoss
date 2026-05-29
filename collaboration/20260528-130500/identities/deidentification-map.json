@@ -1,0 +1,199 @@
+{
+  "produced_by_pathway": "Collaboration.Privacy.DeIdentify@v1",
+  "pathway_run_id": "pr_2ae701f8d0f2",
+  "note": "Placeholders key into the sealed lockboxes (identities/). MikeOSS, the Originator, and the public legal commons are not de-identified.",
+  "placeholders": {
+    "entity-2": {
+      "kind": "entity",
+      "total": 2,
+      "sites": [
+        {
+          "file": "tools/collaboration-bundle/README.md",
+          "count": 2
+        }
+      ]
+    },
+    "person-a": {
+      "kind": "person",
+      "total": 37,
+      "sites": [
+        {
+          "file": "README.md",
+          "count": 4
+        },
+        {
+          "file": "collaboration/20260528-130500/COLLABORATION_READINESS.md",
+          "count": 1
+        },
+        {
+          "file": "collaboration/20260528-130500/REPOSITORY_README.md",
+          "count": 2
+        },
+        {
+          "file": "collaboration/20260528-130500/collaboration-manifest.yaml",
+          "count": 1
+        },
+        {
+          "file": "collaboration/20260528-130500/collaboration-pathways/APPLICATION_PLAYBOOK.md",
+          "count": 2
+        },
+        {
+          "file": "collaboration/20260528-130500/collaboration-pathways/PACKAGE.yaml",
+          "count": 1
+        },
+        {
+          "file": "collaboration/20260528-130500/collaboration-pathways/canon/COLLABORATION_BUNDLE_TECHNIQUE.md",
+          "count": 6
+        },
+        {
+          "file": "collaboration/20260528-130500/collaboration-pathways/meta/co-originator-attribution.yaml",
+          "count": 1
+        },
+        {
+          "file": "collaboration/20260528-130500/collaboration-pathways/meta/collaboration-instance.yaml",
+          "count": 1
+        },
+        {
+          "file": "collaboration/20260528-130500/collaboration-pathways/pathways-index.yaml",
+          "count": 1
+        },
+        {
+          "file": "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Meta.EmbedTechniqueProvenance.v1.yaml",
+          "count": 1
+        },
+        {
+          "file": "collaboration/20260528-130500/collaboration-pathways/patterns/Pattern.CollaborationBundle.SelfDescribing.yaml",
+          "count": 2
+        },
+        {
+          "file": "collaboration/20260528-130500/collaboration-pathways/patterns/Pattern.ProjectCollaboration.ConvergenceRepository.yaml",
+          "count": 1
+        },
+        {
+          "file": "collaboration/20260528-130500/collaboration-pathways/prompt-ledger.yaml",
+          "count": 2
+        },
+        {
+          "file": "collaboration/20260528-130500/collaboration-pathways/sidecars/collaboration-pattern-lineage-and-attribution.md",
+          "count": 3
+        },
+        {
+          "file": "collaboration/20260528-130500/collaboration-spine.md",
+          "count": 3
+        },
+        {
+          "file": "collaboration/20260528-130500/companion-bundle-index.md",
+          "count": 2
+        },
+        {
+          "file": "collaboration/20260528-130500/pathways_canon/PATHWAYS_PROJECT_COLLABORATION_REPORT.md",
+          "count": 1
+        },
+        {
+          "file": "collaboration/20260528-130500/timeline/events/evt_002_technique_canonized.json",
+          "count": 1
+        },
+        {
+          "file": "collaboration/20260528-130500/timeline/timeline-manifest.yaml",
+          "count": 1
+        }
+      ]
+    },
+    "person-b": {
+      "kind": "person",
+      "total": 2,
+      "sites": [
+        {
+          "file": "collaboration/20260528-130500/collaboration-pathways/canon/COLLABORATION_BUNDLE_TECHNIQUE.md",
+          "count": 1
+        },
+        {
+          "file": "collaboration/20260528-130500/collaboration-pathways/sidecars/collaboration-pattern-lineage-and-attribution.md",
+          "count": 1
+        }
+      ]
+    },
+    "person-c": {
+      "kind": "person",
+      "total": 2,
+      "sites": [
+        {
+          "file": "collaboration/20260528-130500/collaboration-pathways/canon/COLLABORATION_BUNDLE_TECHNIQUE.md",
+          "count": 1
+        },
+        {
+          "file": "collaboration/20260528-130500/collaboration-pathways/sidecars/collaboration-pattern-lineage-and-attribution.md",
+          "count": 1
+        }
+      ]
+    },
+    "prior-instance-3": {
+      "kind": "prior-instance",
+      "total": 7,
+      "sites": [
+        {
+          "file": "README.md",
+          "count": 1
+        },
+        {
+          "file": "collaboration/20260528-130500/REPOSITORY_README.md",
+          "count": 1
+        },
+        {
+          "file": "collaboration/20260528-130500/collaboration-manifest.yaml",
+          "count": 1
+        },
+        {
+          "file": "collaboration/20260528-130500/collaboration-pathways/PACKAGE.yaml",
+          "count": 1
+        },
+        {
+          "file": "collaboration/20260528-130500/collaboration-pathways/canon/COLLABORATION_BUNDLE_TECHNIQUE.md",
+          "count": 1
+        },
+        {
+          "file": "collaboration/20260528-130500/collaboration-pathways/patterns/Pattern.ProjectCollaboration.ConvergenceRepository.yaml",
+          "count": 1
+        },
+        {
+          "file": "collaboration/20260528-130500/collaboration-pathways/sidecars/collaboration-pattern-lineage-and-attribution.md",
+          "count": 1
+        }
+      ]
+    },
+    "prior-instance-4": {
+      "kind": "prior-instance",
+      "total": 7,
+      "sites": [
+        {
+          "file": "README.md",
+          "count": 1
+        },
+        {
+          "file": "collaboration/20260528-130500/REPOSITORY_README.md",
+          "count": 1
+        },
+        {
+          "file": "collaboration/20260528-130500/collaboration-manifest.yaml",
+          "count": 1
+        },
+        {
+          "file": "collaboration/20260528-130500/collaboration-pathways/PACKAGE.yaml",
+          "count": 1
+        },
+        {
+          "file": "collaboration/20260528-130500/collaboration-pathways/canon/COLLABORATION_BUNDLE_TECHNIQUE.md",
+          "count": 1
+        },
+        {
+          "file": "collaboration/20260528-130500/collaboration-pathways/patterns/Pattern.ProjectCollaboration.ConvergenceRepository.yaml",
+          "count": 1
+        },
+        {
+          "file": "collaboration/20260528-130500/collaboration-pathways/sidecars/collaboration-pattern-lineage-and-attribution.md",
+          "count": 1
+        }
+      ]
+    }
+  }
+}

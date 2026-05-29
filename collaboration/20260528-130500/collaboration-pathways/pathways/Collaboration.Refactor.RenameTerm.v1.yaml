@@ -1,0 +1,46 @@
+# Collaboration.Refactor.RenameTerm@v1
+
+pathway_template:
+  identity:
+    template_id: Collaboration.Refactor.RenameTerm@v1
+    artifact_type: pathway-template
+    triple: { domain: Collaboration, subdomain: Refactor, action: RenameTerm }
+    version: 1.0.0
+
+  description: |
+    Encodes the technique of renaming a term across a bundle as a provenanced, ordered
+    set of token replacements + file/dir renames - so the rename itself is an attestable
+    PathwayRun, not an untracked edit. Here: "transmission bundle" -> "collaboration
+    bundle" (full depth: term, prose, identifiers, file names, pathway IDs). The OLD term
+    is preserved as a licensable Term artifact (see Collaboration.Refactor on terms).
+
+  implementation: collaboration-pathways/scripts/01_rename.py
+
+  inputs:
+    - name: snapshot
+      type: path
+    - name: replacements
+      type: list
+      description: ordered (old -> new) token map, specific-before-catch-all
+    - name: file_renames
+      type: list
+    - name: excludes
+      type: list
+      default: [pathway-runs, attestations, scripts]
+
+  steps:
+    - id: apply_token_replacements
+      agent_id: pathway
+      skill: ordered_text_replace
+      config:
+        order: specific_first_then_catch_all
+    - id: rename_files_and_dirs
+      agent_id: pathway
+      skill: move_paths
+    - id: declare_assets
+      agent_id: persist
+      skill: emit_asset_manifest
+
+  output:
+    artifact: renamed_bundle
+    notes: "Old name retained as a Term artifact + lineage; this is a name change WITH provenance."

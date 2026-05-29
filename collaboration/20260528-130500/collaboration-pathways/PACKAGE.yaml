@@ -1,0 +1,94 @@
+# Project Collaboration Pathways — packaging manifest
+
+bundle_id: collaboration-pathways
+version: "1.0.0"
+title: "Project Collaboration Pathways"
+description: >
+  Formalizes multi-party technical collaboration as Pathways templates AND carries
+  the first canonical, self-describing encoding of the collaboration-bundle technique
+  itself. A convergence repository holds verbatim-copied, content-bound, Ed25519-sealed
+  assets; a prompt ledger records collaboration meta; an investigation declaration
+  captures pending proof; proof pathways emit falsifiable, mostly-unilateral verify
+  artifacts; and the technique's own canon + provenance travel inside the bundle.
+
+conformance_target_default: S
+
+primary_artifact: APPLICATION_PLAYBOOK.md
+technique_canon: canon/COLLABORATION_BUNDLE_TECHNIQUE.md
+pathways_index: pathways-index.yaml
+prompt_ledger: prompt-ledger.yaml
+
+reference_instance:
+  id: djat-mikeoss-20260528
+  meta: meta/djat-mikeoss-20260528.yaml
+  convergence_repo: ../collaboration/20260528-130500/
+  investigation_id: open-assay-co-creation-mikeoss
+
+attribution:
+  co_originators:
+    - did: did:placeholder:person-a
+      label: "person-a, Strategy vessel S57"
+      role: collaboration-bundle-premise-pattern
+      catalog_units: [44]
+    - label: "Originator (DJ Thomson)"
+      role: pathways-framework-formalization-and-self-describing-enhancement
+  authored_enhancements:
+    - name: self-describing-bundle
+      by: "Originator (DJ Thomson)"
+      pathway: Collaboration.Meta.EmbedTechniqueProvenance@v1
+      pattern: Pattern.CollaborationBundle.SelfDescribing
+      first_carried_in: djat_x_mikeoss/collaboration/20260528-130500/
+      catalyzed_by: the open MikeOSS project and team
+  pattern_lineage:
+    - collaboration-bundle/
+    - collaboration-bundle-reciprocal/
+    - prior-instance-3/collaboration/20260526-120000/
+    - prior-instance-4/collaboration/20260526-140000/
+    - djat_x_mikeoss/collaboration/20260528-130500/
+  license_terms:
+    version: "1.0.0"
+    fork: true
+    attribution_required: true
+    revocation_scope_max: self_only
+
+files:
+  - APPLICATION_PLAYBOOK.md
+  - PACKAGE.yaml
+  - pathways-index.yaml
+  - prompt-ledger.yaml
+  - canon/COLLABORATION_BUNDLE_TECHNIQUE.md
+  - meta/djat-mikeoss-20260528.yaml
+  - meta/co-originator-attribution.yaml
+  - meta/collaboration-instance.yaml
+  - pathways/Collaboration.Convergence.AssembleBundle.v1.yaml
+  - pathways/Collaboration.Bundle.RewriteLinks.v1.yaml
+  - pathways/Collaboration.Attestation.BindContentHashes.v1.yaml
+  - pathways/Collaboration.Bundle.SealBundle.v1.yaml
+  - pathways/Collaboration.Bundle.VerifyBundle.v1.yaml
+  - pathways/Collaboration.Meta.EncodePromptLedger.v1.yaml
+  - pathways/Collaboration.Meta.EmbedTechniqueProvenance.v1.yaml
+  - pathways/Collaboration.Investigation.DeclarePending.v1.yaml
+  - pathways/Collaboration.Investigation.PreRegisterHypotheses.v1.yaml
+  - pathways/Collaboration.Investigation.SealOrInvalidateBundle.v1.yaml
+  - pathways/Collaboration.Proof.AwaitCounterpartyBuild.v1.yaml
+  - pathways/Collaboration.Proof.RunUnilateralExperiment.v1.yaml
+  - pathways/Collaboration.Reciprocation.AssembleReturnBundle.v1.yaml
+  - pathways/Experience.Collaboration.OpenInvitation.v1.yaml
+  - patterns/Pattern.ProjectCollaboration.ConvergenceRepository.yaml
+  - patterns/Pattern.CollaborationBundle.SelfDescribing.yaml
+  - sidecars/collaboration-pattern-lineage-and-attribution.md
+  - test/HYPOTHESES.md
+  - test/PC-1-unilateral-experiments.yaml
+  - test/PC-2-bundle-seal-invalidate.yaml
+
+normative_substrate_docs:
+  collaboration_report: ../pathways_canon/PATHWAYS_PROJECT_COLLABORATION_REPORT.md
+  architecture: ../pathways_canon/PATHWAYS_ARCHITECTURE.md
+  reference_spec: ../canon/PATHWAYS_REFERENCE_v1.1.0.md
+
+conforms_to_spec:
+  version: 1.1.0
+  reference_spec: canon/PATHWAYS_REFERENCE_v1.1.0.md
+  reference_spec_sha256: 1588cda3f28fc8c22007ab05cad4231b1212444f2d0c2a1b404e9603ac6c75cc
+  architecture: canon/PATHWAYS_ARCHITECTURE_v1.1.0.md
+  architecture_sha256: 05482abd4805969ee92bbf6c02e3a15dde7f1461959f70e6b91f64f13a746f41

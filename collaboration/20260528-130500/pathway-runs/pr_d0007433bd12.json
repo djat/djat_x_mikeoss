@@ -1,0 +1,62 @@
+{
+  "schema": "pathway-run/1.0",
+  "run_id": "pr_d0007433bd12",
+  "pathway": "Collaboration.Canon.UpdateSpec@v1",
+  "label": "Phase 6 cleanup: remove org token; refresh spec signatures",
+  "status": "COMPLETED",
+  "started": "2026-05-29T04:16:37Z",
+  "ended": "2026-05-29T04:16:37Z",
+  "elapsed_ms": 140,
+  "command": [
+    "python3",
+    "collaboration/20260528-130500/collaboration-pathways/scripts/08_strip_token.py"
+  ],
+  "exit_code": 0,
+  "script_path": "collaboration/20260528-130500/collaboration-pathways/scripts/08_strip_token.py",
+  "script_sha256": "eeda39973e3836c1b298a51ff12d72331eeb339d6fafefba912f641e8a8fdf91",
+  "script_source": "#!/usr/bin/env python3\n\"\"\"08_strip_token.py - scrub a local-org token from the bundle (Phase 6 cleanup).\n\nRemoves one originator-local organization token (a local filesystem/repo name that appeared\nin the verbatim spec's example URL, in the canon-import script's source path, and in that\nscript's run record) and replaces it with the neutral placeholder \"your-org\". Then recomputes\nthe spec/architecture sha256 signatures and updates every artifact that references them.\n\nThe token is assembled from parts so this script's own source (captured in its PathwayRun)\ndoes not contain the literal - otherwise scrubbing would re-introduce it via provenance.\nProducing pathway: Collaboration.Canon.UpdateSpec@v1.\n\"\"\"\nimport hashlib\nimport json\nimport os\nimport re\nfrom pathlib import Path\n\nSNAP = Path(\"collaboration/20260528-130500\")\nTOKEN = \"david\" + \"Xverses\"   # avoid the literal in this source\nREPL = \"your-org\"\nRUN_ID = os.environ.get(\"PATHWAY_RUN_ID\", \"\")\nHEX64 = re.compile(r\"[0-9a-f]{64}\")\nTEXT_EXT = {\".md\", \".yaml\", \".yml\", \".json\", \".txt\", \".html\", \".py\"}\n\n\ndef sha256(p: Path) -> str:\n    return hashlib.sha256(p.read_bytes()).hexdigest()\n\n\ndef main() -> int:\n    spec = SNAP / \"canon\" / \"PATHWAYS_REFERENCE_v1.1.0.md\"\n    arch = SNAP / \"canon\" / \"PATHWAYS_ARCHITECTURE_v1.1.0.md\"\n    old_spec, old_arch = sha256(spec), sha256(arch)\n\n    # 1) scrub the token everywhere in the snapshot (text files)\n    scrubbed = []\n    for p in SNAP.rglob(\"*\"):\n        if not p.is_file() or p.suffix not in TEXT_EXT:\n            continue\n        try:\n            t = p.read_text(encoding=\"utf-8\")\n        except (UnicodeDecodeError, IsADirectoryError):\n            continue\n        if TOKEN in t:\n            p.write_text(t.replace(TOKEN, REPL), encoding=\"utf-8\")\n            scrubbed.append(str(p))\n\n    # 2) recompute signatures (spec changed if token was in it)\n    new_spec, new_arch = sha256(spec), sha256(arch)\n\n    # 3) update every reference to the old signatures -> new (CANON_MANIFEST, manifest, PACKAGE)\n    ref_files = [SNAP / \"canon\" / \"CANON_MANIFEST.yaml\",\n                 SNAP / \"collaboration-manifest.yaml\",\n                 SNAP / \"collaboration-pathways\" / \"PACKAGE.yaml\"]\n    for rf in ref_files:\n        if not rf.exists():\n            continue\n        t = rf.read_text(encoding=\"utf-8\")\n        t = t.replace(old_spec, new_spec).replace(old_arch, new_arch)\n        rf.write_text(t, encoding=\"utf-8\")\n\n    produced = [str(spec), str(arch)] + [str(x) for x in ref_files if x.exists()] + scrubbed\n    produced.append(f\"{SNAP}/collaboration-pathways/scripts/08_strip_token.py\")\n    produced = sorted(set(produced))\n    am = os.environ.get(\"ASSET_MANIFEST\")\n    if am:\n        Path(am).write_text(json.dumps(produced), encoding=\"utf-8\")\n\n    print(f\"strip: scrubbed token in {len(scrubbed)} file(s)\")\n    print(f\"  spec sha256 {old_spec[:12]}... -> {new_spec}\")\n    print(f\"  arch sha256 {old_arch[:12]}... -> {new_arch} (unchanged if equal)\")\n    return 0\n\n\nif __name__ == \"__main__\":\n    raise SystemExit(main())\n",
+  "stdout": "strip: scrubbed token in 4 file(s)\n  spec sha256 15c26db7542e... -> 1588cda3f28fc8c22007ab05cad4231b1212444f2d0c2a1b404e9603ac6c75cc\n  arch sha256 05482abd4805... -> 05482abd4805969ee92bbf6c02e3a15dde7f1461959f70e6b91f64f13a746f41 (unchanged if equal)\n",
+  "stderr": "",
+  "produced_assets": [
+    {
+      "asset": "collaboration/20260528-130500/COLLABORATION_READINESS.md",
+      "sha256": "bb968c190312f1945c1eb0359864f9edc9c7948b430e2755232bf711e5b978dc"
+    },
+    {
+      "asset": "collaboration/20260528-130500/canon/CANON_MANIFEST.yaml",
+      "sha256": "fe45193a8c69a9f630eb319a56f81d240e3849e37c70a22091dc7fca4d1961ca"
+    },
+    {
+      "asset": "collaboration/20260528-130500/canon/PATHWAYS_ARCHITECTURE_v1.1.0.md",
+      "sha256": "05482abd4805969ee92bbf6c02e3a15dde7f1461959f70e6b91f64f13a746f41"
+    },
+    {
+      "asset": "collaboration/20260528-130500/canon/PATHWAYS_REFERENCE_v1.1.0.md",
+      "sha256": "1588cda3f28fc8c22007ab05cad4231b1212444f2d0c2a1b404e9603ac6c75cc"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-manifest.yaml",
+      "sha256": "8c7c3e8f5a483ecbaa5a81cd601c105c169dc92c5f232e6520475852dca9046a"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/PACKAGE.yaml",
+      "sha256": "33e698a36976794e6a45e4809f64d8d8c58cc40c5f9c72121bcbeeb7ce53cb51"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/scripts/07_canon_update.py",
+      "sha256": "668079c476ab419c6ac0cf3ec9061cabe29e557e265a4051ecc65966601f5abf"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/scripts/08_strip_token.py",
+      "sha256": "eeda39973e3836c1b298a51ff12d72331eeb339d6fafefba912f641e8a8fdf91"
+    },
+    {
+      "asset": "collaboration/20260528-130500/pathway-runs/pr_ec23ce283530.json",
+      "sha256": "cdd09dc438b9222e73d0873e25af534f5718a91149f11b06cd819f0afb3d4adb"
+    }
+  ],
+  "accessed_domains": [],
+  "authenticated_by_identity": null,
+  "harness": "collaboration-pathways/scripts/run_with_provenance.py",
+  "recorded_at": "2026-05-29T04:16:37Z"
+}

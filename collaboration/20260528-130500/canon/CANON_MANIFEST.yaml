@@ -1,0 +1,21 @@
+# Canon Manifest - frozen normative spec + architecture (v1.1.0)
+manifest_version: "1.1"
+channel: djat-mikeoss-20260528
+
+specification:
+  reference_implementation_spec:
+    file: PATHWAYS_REFERENCE_v1.1.0.md
+    version: 1.1.0
+    title: "Pathways Reference Implementation Specification - Authority Boundaries"
+    signature: { alg: sha256, value: 1588cda3f28fc8c22007ab05cad4231b1212444f2d0c2a1b404e9603ac6c75cc }
+  architecture:
+    file: PATHWAYS_ARCHITECTURE_v1.1.0.md
+    version: 1.1.0
+    title: "Pathways Architecture - Spec alignment (coherent with RIS 1.1.0)"
+    signature: { alg: sha256, value: 05482abd4805969ee92bbf6c02e3a15dde7f1461959f70e6b91f64f13a746f41 }
+
+note: |
+  Full authoritative v1.1.0 specification and architecture, included verbatim and frozen for
+  this bundle. These are the normative source of truth; every artifact that cites the spec
+  references version 1.1.0 and the sha256 signatures above. The verbatim docs may reference
+  the upstream Pathways ecosystem; the bundle's own authored prose is separately de-identified.

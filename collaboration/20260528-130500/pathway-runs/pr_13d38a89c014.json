@@ -1,0 +1,42 @@
+{
+  "schema": "pathway-run/1.0",
+  "run_id": "pr_13d38a89c014",
+  "pathway": "Collaboration.Attestation.RecordPathwayRun@v1",
+  "label": "Phase 0 genesis: bootstrap rename + harness self-attest",
+  "status": "COMPLETED",
+  "started": "2026-05-29T03:29:55Z",
+  "ended": "2026-05-29T03:29:55Z",
+  "elapsed_ms": 111,
+  "command": [
+    "python3",
+    "collaboration/20260528-130500/collaboration-pathways/scripts/00_genesis.py"
+  ],
+  "exit_code": 0,
+  "script_path": "collaboration/20260528-130500/collaboration-pathways/scripts/00_genesis.py",
+  "script_sha256": "b8ed66d4b2e2a044a5b5f7d8b892c48568c3c0f193b76ca1fdf2be13fd0d6bd3",
+  "script_source": "#!/usr/bin/env python3\n\"\"\"00_genesis.py - genesis run of the provenance harness.\n\nRecords the Phase 0 bootstrap: the snapshot directory rename (transmission/ ->\ncollaboration/) and the installation of the provenance harness itself. This is the first\nPathwayRun; it self-attests the harness (the recorder records itself) and declares the\nPhase 0 assets so they enter ASSET_PROVENANCE.yaml.\n\"\"\"\nimport json\nimport os\nfrom pathlib import Path\n\nSNAP = \"collaboration/20260528-130500\"\n\nBOOTSTRAP = {\n    \"event\": \"phase0_bootstrap\",\n    \"directory_rename\": {\"from\": \"transmission/20260528-130500\", \"to\": f\"{SNAP}\"},\n    \"harness_installed\": f\"{SNAP}/collaboration-pathways/scripts/run_with_provenance.py\",\n    \"note\": (\n        \"The top-level snapshot directory was renamed transmission/ -> collaboration/ as \"\n        \"the bootstrap move; this genesis PathwayRun attests it. All subsequent scripts run \"\n        \"through the harness under the stable collaboration/ path.\"\n    ),\n}\n\n# Phase 0 assets produced/installed during bootstrap\nASSETS = [\n    f\"{SNAP}/collaboration-pathways/scripts/run_with_provenance.py\",\n    f\"{SNAP}/collaboration-pathways/scripts/00_genesis.py\",\n    f\"{SNAP}/collaboration-pathways/pathways/Collaboration.Attestation.RecordPathwayRun.v1.yaml\",\n]\n\ndef main() -> int:\n    Path(f\"{SNAP}/pathway-runs/genesis-bootstrap.json\").write_text(\n        json.dumps(BOOTSTRAP, indent=2) + \"\\n\", encoding=\"utf-8\"\n    )\n    ASSETS.append(f\"{SNAP}/pathway-runs/genesis-bootstrap.json\")\n    am = os.environ.get(\"ASSET_MANIFEST\")\n    if am:\n        Path(am).write_text(json.dumps(ASSETS), encoding=\"utf-8\")\n    print(\"genesis: bootstrap recorded; harness self-attested; phase-0 assets declared\")\n    return 0\n\nif __name__ == \"__main__\":\n    raise SystemExit(main())\n",
+  "stdout": "genesis: bootstrap recorded; harness self-attested; phase-0 assets declared\n",
+  "stderr": "",
+  "produced_assets": [
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/scripts/run_with_provenance.py",
+      "sha256": "03b8231bd2d0b61144aebef6f48d2338dfb3169453ff073b8ee732192d93cb5f"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/scripts/00_genesis.py",
+      "sha256": "b8ed66d4b2e2a044a5b5f7d8b892c48568c3c0f193b76ca1fdf2be13fd0d6bd3"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Attestation.RecordPathwayRun.v1.yaml",
+      "sha256": "6c9b19ef4d6814c12399f0de016d3d44e26a2540c9efdf1b555ba4698decba97"
+    },
+    {
+      "asset": "collaboration/20260528-130500/pathway-runs/genesis-bootstrap.json",
+      "sha256": "6dba1d38799aaf22e0cdd0e215b7e3cbad53ce9019476d2a26b7692e3091eb92"
+    }
+  ],
+  "accessed_domains": [],
+  "authenticated_by_identity": null,
+  "harness": "collaboration-pathways/scripts/run_with_provenance.py",
+  "recorded_at": "2026-05-29T03:29:55Z"
+}

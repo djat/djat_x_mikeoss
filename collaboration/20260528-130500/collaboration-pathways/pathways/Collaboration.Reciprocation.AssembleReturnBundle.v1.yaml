@@ -1,0 +1,57 @@
+# Collaboration.Reciprocation.AssembleReturnBundle@v1
+
+pathway_template:
+  identity:
+    template_id: Collaboration.Reciprocation.AssembleReturnBundle@v1
+    triple: { domain: Collaboration, subdomain: Reciprocation, action: AssembleReturnBundle }
+    version: 1.0.0
+
+  description: |
+    If MikeOSS chooses to reply, the reciprocal collaboration is itself a bundle in
+    this same lineage: same directory structure, same sealing, same self-describing
+    technique provenance. This pathway describes how to assemble it.
+
+  inputs:
+    - name: inbound_channel
+      type: string
+      default: djat-mikeoss-20260528
+    - name: reciprocal_channel
+      type: string
+      description: e.g. mikeoss-djat-YYYYMMDD
+
+  steps:
+    - id: record_full_history
+      agent_id: pathway
+      invokes:
+        - Collaboration.Meta.EncodePromptLedger
+      config:
+        record_all_prompts: true
+
+    - id: carry_technique_provenance
+      agent_id: pathway
+      invokes:
+        - Collaboration.Meta.EmbedTechniqueProvenance
+      config:
+        note: "The reciprocal bundle must also be self-describing."
+
+    - id: include_experiment_results
+      agent_id: persist
+      skill: collect_directory
+      config:
+        source: proof-results/
+        welcome:
+          - mikeoss-experiment-results.md
+          - framework-learnings.md
+
+    - id: assemble_bundle
+      agent_id: pathway
+      invokes:
+        - Collaboration.Convergence.AssembleBundle
+
+    - id: seal_bundle
+      agent_id: pathway
+      invokes:
+        - Collaboration.Bundle.SealBundle
+
+  output:
+    artifact: reciprocal_collaboration_bundle

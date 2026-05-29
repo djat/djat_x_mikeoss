@@ -1,0 +1,13 @@
+# Collaboration.Identity.AssertRelationship@v1
+pathway_template:
+  identity:
+    template_id: Collaboration.Identity.AssertRelationship@v1
+    artifact_type: pathway-template
+    triple: { domain: Collaboration, subdomain: Identity, action: AssertRelationship }
+    version: 1.0.0
+  description: |
+    Asserts an OpenVTC-compatible Verifiable Relationship Credential (VRC) between a person
+    and an entity (representative-of). Allows revealing "at least one representative of the
+    entity" or "the entity only" independently, by inference, without counterparty risk.
+  implementation: collaboration-pathways/scripts/04_issue_identities.py
+  output: { artifact: relationship_credential }

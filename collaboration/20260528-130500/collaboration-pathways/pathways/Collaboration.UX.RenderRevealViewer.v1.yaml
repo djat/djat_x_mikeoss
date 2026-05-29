@@ -1,0 +1,15 @@
+# Collaboration.UX.RenderRevealViewer@v1
+pathway_template:
+  identity:
+    template_id: Collaboration.UX.RenderRevealViewer@v1
+    artifact_type: pathway-template
+    triple: { domain: Collaboration, subdomain: UX, action: RenderRevealViewer }
+    version: 1.0.0
+  description: |
+    Generates the self-contained privacy-proxy reveal UX (identities/viewer/index.html). The
+    generated HTML/JS is itself a Pathway-produced asset (recorded in viewer/PROVENANCE.json +
+    ASSET_PROVENANCE.yaml), NOT a hand-waved artifact. It lists every de-identified site, shows
+    the public personhood/entity claims + relationships, and reveals real names + digital
+    identities client-side via Collaboration.Identity.RevealLockbox@v1. Inlines only ciphertext.
+  implementation: collaboration-pathways/scripts/05_build_viewer.py
+  output: { artifact: reveal_viewer }

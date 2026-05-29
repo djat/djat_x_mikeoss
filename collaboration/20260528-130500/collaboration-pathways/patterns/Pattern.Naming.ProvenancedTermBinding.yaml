@@ -1,0 +1,18 @@
+pattern:
+  id: Pattern.Naming.ProvenancedTermBinding
+  version: 1.0.0
+  title: Provenanced Term Binding
+  description: |
+    A label/term is a first-class artifact (artifact_type: term), separate from the recipe
+    it names. A pathway binds a default_term and MAY inherit a name from another term with
+    scope: name_only. Using a term as a label is a provenanced, licensable act (name_license),
+    distinct from a UI rewrite. Renames are events authored by an identity and recorded as
+    PathwayRuns; the prior term is retained and remains licensable.
+  invariants:
+    - term_is_artifact_not_string
+    - name_license_distinct_from_recipe_license
+    - name_use_is_provenanced_and_interrogable
+    - rename_preserves_prior_term_as_lineage
+  invokes:
+    - Collaboration.Refactor.RenameTerm@v1
+    - Collaboration.Naming.RegisterTerm@v1

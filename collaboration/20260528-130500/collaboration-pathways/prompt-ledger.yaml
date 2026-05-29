@@ -1,0 +1,87 @@
+# Originator prompt ledger — djat-mikeoss-20260528
+# Append-only collaboration process meta-encoding
+
+ledger_version: "1.0.0"
+channel: djat-mikeoss-20260528
+prepared_by: the open Pathways project (Originator)
+prepared_for: the open MikeOSS project and team
+
+entries:
+  - seq: 1
+    timestamp: 2026-05-28T18:20:00Z
+    author: Originator
+    intent: plan
+    prompt_summary: |
+      Read the Elite MegaLaw Benchmark as beautiful satire, then run an exercise to
+      read it as truth, find the delta, and propose how two open projects — the open
+      Pathways project and the open MikeOSS project — can co-create the genuine
+      assay to what the satire has begun to alchemize. Frame as an open invitation
+      and recognition, with a menu of small, self-validating asks.
+    artifacts_affected:
+      - collaboration-spine.md
+      - companion-bundle-index.md
+      - collaboration-pathways/test/HYPOTHESES.md
+    pathway_steps_triggered:
+      - Experience.Collaboration.OpenInvitation
+      - Collaboration.Investigation.DeclarePending
+    outcomes:
+      bundle_status: ASSEMBLED
+      investigation_status: pending
+
+  - seq: 2
+    timestamp: 2026-05-28T18:45:00Z
+    author: Originator
+    intent: meta_encode
+    prompt_summary: |
+      Make this the first context in which person-a's and my collaboration-bundle
+      technique is canonically encoded as Pathways. Promote prior per-instance
+      Collaboration.* pathways into a standalone, reusable, self-describing canon.
+      Add Seal/Verify pathways and a self-describing-bundle enhancement so the bundle
+      carries its own technique provenance. Co-originators: person-a + Originator.
+    artifacts_affected:
+      - collaboration-pathways/canon/COLLABORATION_BUNDLE_TECHNIQUE.md
+      - collaboration-pathways/pathways/
+      - collaboration-pathways/patterns/Pattern.CollaborationBundle.SelfDescribing.yaml
+    pathway_steps_triggered:
+      - Collaboration.Meta.EmbedTechniqueProvenance
+    outcomes:
+      technique_canon: encoded
+      new_pathways: [SealBundle, VerifyBundle, EmbedTechniqueProvenance, RunUnilateralExperiment, OpenInvitation]
+
+  - seq: 3
+    timestamp: 2026-05-28T19:00:00Z
+    author: Originator
+    intent: execute
+    prompt_summary: |
+      Encode the legal assay as Pathway stubs (verify-first citation grounding,
+      reproducible attested benchmark, anchored-authority convergence/recursion,
+      run-manifest). No executable code. Strip product and framework branding; speak
+      as the open Pathways project. Pre-register the asks as H-MO1..H-MO10.
+    artifacts_affected:
+      - assay-pathways/
+      - collaboration-pathways/test/HYPOTHESES.md
+    pathway_steps_triggered:
+      - Collaboration.Investigation.PreRegisterHypotheses
+    outcomes:
+      assay_pathways: 4
+      hypotheses_registered: H-MO1..H-MO10
+
+  - seq: 4
+    timestamp: 2026-05-28T19:05:00Z
+    author: Originator
+    intent: execute
+    prompt_summary: |
+      Assemble and seal the convergence repository. Bind content hashes, Ed25519-sign
+      the bundle_root_hash, embed technique provenance, record the root hash outside
+      the seal. Declare investigation pending; SEALED reachable on unilateral asks.
+    artifacts_affected:
+      - collaboration/20260528-130500/
+      - attestations/CONTENT_MANIFEST.yaml
+      - attestations/BUNDLE_SIGNATURE.json
+    pathway_steps_triggered:
+      - Collaboration.Convergence.AssembleBundle
+      - Collaboration.Meta.EmbedTechniqueProvenance
+      - Collaboration.Bundle.SealBundle
+    outcomes:
+      bundle_status: ASSEMBLED
+      sealed: true

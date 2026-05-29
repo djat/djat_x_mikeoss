@@ -1,0 +1,75 @@
+# Experience.Collaboration.OpenInvitation@v1
+
+pathway_template:
+  identity:
+    template_id: Experience.Collaboration.OpenInvitation@v1
+    artifact_type: pathway-template
+    triple: { domain: Experience, subdomain: Collaboration, action: OpenInvitation }
+    version: 1.0.0
+
+  description: |
+    NEW journey wrapper. The analog of Experience.Collaboration.DealFlowSeedingHandoff,
+    but for an INVITATION rather than a build handoff. It assembles a bundle whose
+    purpose is recognition + a read-as-truth exercise + an assay thesis + a menu
+    of self-validating experiments, and which carries the technique's own provenance.
+    No build is required of the counterparty; no reciprocation is required.
+
+  inputs:
+    - name: counterparty
+      type: string
+      default: the open MikeOSS project and team
+    - name: channel
+      type: string
+      default: djat-mikeoss-20260528
+
+  steps:
+    - id: assemble
+      agent_id: pathway
+      invokes:
+        - Collaboration.Convergence.AssembleBundle
+
+    - id: embed_technique_provenance
+      agent_id: pathway
+      invokes:
+        - Collaboration.Meta.EmbedTechniqueProvenance
+
+    - id: encode_process
+      agent_id: pathway
+      invokes:
+        - Collaboration.Meta.EncodePromptLedger
+
+    - id: declare_investigation
+      agent_id: pathway
+      invokes:
+        - Collaboration.Investigation.DeclarePending
+
+    - id: preregister_asks
+      agent_id: pathway
+      invokes:
+        - Collaboration.Investigation.PreRegisterHypotheses
+
+    - id: run_unilateral_experiments
+      agent_id: pathway
+      invokes:
+        - Collaboration.Proof.RunUnilateralExperiment
+      config:
+        optional: true
+        note: "Either side can run any subset; each confirms a self-validating ask."
+
+    - id: seal
+      agent_id: pathway
+      invokes:
+        - Collaboration.Bundle.SealBundle
+
+    - id: evaluate
+      agent_id: pathway
+      invokes:
+        - Collaboration.Investigation.SealOrInvalidateBundle
+
+  output:
+    artifact: open_invitation_collaboration_bundle
+
+  reference_instance:
+    repo: djat_x_mikeoss
+    collaboration: collaboration/20260528-130500/
+    counterparties: [Originator, the open MikeOSS project and team]

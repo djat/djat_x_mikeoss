@@ -1,0 +1,31 @@
+# Collaboration.Investigation.PreRegisterHypotheses@v1
+
+pathway_template:
+  identity:
+    template_id: Collaboration.Investigation.PreRegisterHypotheses@v1
+    triple: { domain: Collaboration, subdomain: Investigation, action: PreRegisterHypotheses }
+    version: 1.0.0
+
+  description: |
+    Files falsifiable hypotheses in test/HYPOTHESES.md before any proof runs.
+    For this invitation bundle, hypotheses are the 10 self-validating asks
+    (H-MO1..H-MO10), most of which can be confirmed unilaterally.
+
+  inputs:
+    - name: hypotheses
+      type: list
+      description: H-MO1..H-MO10 for this instance
+    - name: target
+      type: path
+      default: test/HYPOTHESES.md
+
+  steps:
+    - id: validate_pre_registration
+      agent_id: verification
+      skill: require_filed_before_proof
+    - id: write_hypotheses
+      agent_id: composer
+      skill: author_hypotheses_document
+
+  output:
+    artifact: hypotheses_document

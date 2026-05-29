@@ -1,0 +1,54 @@
+# Collaboration.Refactor.HardenGateProfile@v1
+
+pathway_template:
+  identity:
+    template_id: Collaboration.Refactor.HardenGateProfile@v1
+    artifact_type: pathway-template
+    triple: { domain: Collaboration, subdomain: Refactor, action: HardenGateProfile }
+    version: 1.0.0
+
+  description: |
+    Provenanced technique for moving a code-free Pathways package from "designs toward"
+    the spec-1.1.0 Authority-Boundaries surface to formally CARRYING it: attach §4.8.4
+    gate_profile manifests (autonomy band + registers) to templates, add a §4.8.5
+    practice profile so the R1 cold-start gate resolves, and promote the run-manifest to
+    the §4.8.6 attested-run record (+ §4.8.7 R3 handoff envelope). Authoring-level
+    hardening only - adds no executable engine; a Level-F runtime can then enforce the
+    declared profiles verbatim.
+
+  inputs:
+    - name: target_package
+      type: path
+    - name: practice_profile_ref
+      type: string
+
+  steps:
+    - id: declare_gate_profiles
+      agent_id: pathway
+      skill: attach_gate_profile_manifest
+      config:
+        per_template_autonomy: true
+        escalation_rule: strict
+    - id: add_practice_profile
+      agent_id: persist
+      skill: write_practice_profile
+      config:
+        kind: practice_profile
+        cold_start_gate: true
+    - id: promote_run_manifest
+      agent_id: pathway
+      skill: promote_attested_run_schema
+      config:
+        persist_effective_gate_profile: true
+        add_handoff_envelope: true
+    - id: record_provenance
+      agent_id: persist
+      invokes: [Collaboration.Attestation.RecordPathwayRun]
+
+  output:
+    artifact: hardened_package
+    includes: [gate_profiles, practice_profile, attested_run_schema]
+
+  notes:
+    spec_alignment: "Greenwood Authority Boundaries -> spec 1.1.0 §4.8; this template makes a package carry, not merely gesture at, the registers."
+    contains_code: false

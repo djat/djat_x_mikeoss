@@ -1,0 +1,54 @@
+instance_id: djat-mikeoss-20260528
+channel: djat-mikeoss-20260528
+
+counterparties:
+  originator:
+    role: pathways-framework-author
+    label: the open Pathways project (Originator / DJ Thomson)
+  counterparty:
+    role: open-collaborator
+    label: the open MikeOSS project and team
+    project: MikeOSS (mikeoss.com)
+
+convergence_repository: collaboration/20260528-130500/
+bundle_status: ASSEMBLED
+
+collaboration_kind: open-invitation
+build_required_of_counterparty: false
+reciprocation_required: false
+
+process_encoding:
+  prompt_ledger: collaboration-pathways/prompt-ledger.yaml
+  journey: Experience.Collaboration.OpenInvitation
+  technique_canon: collaboration-pathways/canon/COLLABORATION_BUNDLE_TECHNIQUE.md
+
+investigation:
+  id: open-assay-co-creation-mikeoss
+  status: pending
+  hypothesis: |
+    Two open projects can co-create a transparent, attested, deterministically-grounded
+    assay to legal-AI benchmark theater; and most of the value (H-MO1..H-MO10)
+    can be produced unilaterally, independent of any reply.
+  blocking_on:
+    counterparty: none-required
+    optional_welcome:
+      - reciprocal collaboration bundle in this lineage
+      - co-created or forked assay-pathways
+  success_criteria:
+    - Unilateral experiments confirmed and published openly
+    - Technique self-describing and offline-verifiable
+    - Door left open for reciprocation
+  proof_pathway: Collaboration.Proof.RunUnilateralExperiment@v1
+  hypotheses_ref: collaboration-pathways/test/HYPOTHESES.md
+
+deliverables_seeded:
+  - collaboration-pathways/ (canonical technique encoding)
+  - assay-pathways/ (legal assay stubs)
+  - canon/ , pathways_canon/
+
+reciprocation_expected: optional
+
+timeline:
+  assembled: 2026-05-28T19:05:00Z
+  sealed: null
+  reciprocal_received: null

@@ -1,0 +1,31 @@
+{
+  "subject_placeholder": "person-b",
+  "kind": "person",
+  "reveal": {
+    "alg": "aes-256-cbc",
+    "kdf": "pbkdf2-hmac-sha256",
+    "iter": 600000,
+    "format": "openssl enc -aes-256-cbc -pbkdf2 -salt (base64)",
+    "ciphertext_b64": "U2FsdGVkX19hinKxG3vJbN1bJ3W5X4veNRLL1+RZ3npVhj71awRmHag85cJ5Yty8TJS4CRGVKIbQmB6mO9APxqFI6TBgWFgbm+tCVjHfVEHouT+zFvkleLay+ittPEb+XgpK3e0kevFoTeSuyY2La2pHuhcFPQ/7uu5LhIFWGeWDyjTBO30aUSNZa3Tpjkrfjn1OpcUnPYod7FFZfGldW63ihPZZOhwdx7EgSQs6k3+SB3qHxUPWG/F9mIx5Fb41cfRP/b1BqxpdyDYiY06iTuWdrHcoOsObSc1bakZGfovjaEs84PCx3CHFdLsESEA01h1j4N4Oxw72HpBRXVVcvgRaR0VczC7lo+tUYrn2c6RiZ451ZEGum9sv2QRiy6pn205PSbhgWnVrDldng54DVl+tDJshoXSg1YrjTcI5f2J+rj4HSlXymZKC8F3OBrxybmngBqj4+w50rHHst/wC+i1r8q2PB0VJmZnFM/5Xw6rBv4npvPcKgmHrN1Swmysj"
+  },
+  "recipients": [
+    {
+      "role": "originator",
+      "method": "originator-reveal-key",
+      "key_ref": "keys/originator-reveal.key",
+      "can_open": true
+    },
+    {
+      "role": "subject",
+      "method": "pending_subject_key (1-of-2 upgrade path; subject DID + identity URLs are SEALED in the payload, revealed only on open)",
+      "can_open": false
+    }
+  ],
+  "commitment": {
+    "alg": "sha256(real_name||salt)",
+    "value": "e0c50f7634a07971de0f4001c718ae49521ac6b5eec845970e059d0445c10b9e",
+    "salt_in_payload": true
+  },
+  "produced_by_pathway": "Collaboration.Identity.SealNameLockbox@v1",
+  "pathway_run_id": "pr_87ef2cef2a4d"
+}

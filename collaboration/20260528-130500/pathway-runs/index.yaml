@@ -1,0 +1,332 @@
+# PathwayRun index - append-only
+runs:
+  - run_id: pr_13d38a89c014
+    pathway: Collaboration.Attestation.RecordPathwayRun@v1
+    label: "Phase 0 genesis: bootstrap rename + harness self-attest"
+    started: 2026-05-29T03:29:55Z
+    ended: 2026-05-29T03:29:55Z
+    exit_code: 0
+    script: collaboration/20260528-130500/collaboration-pathways/scripts/00_genesis.py
+    script_sha256: b8ed66d4b2e2a044a5b5f7d8b892c48568c3c0f193b76ca1fdf2be13fd0d6bd3
+    record: pathway-runs/pr_13d38a89c014.json
+    produced: ["collaboration/20260528-130500/collaboration-pathways/scripts/run_with_provenance.py", "collaboration/20260528-130500/collaboration-pathways/scripts/00_genesis.py", "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Attestation.RecordPathwayRun.v1.yaml", "collaboration/20260528-130500/pathway-runs/genesis-bootstrap.json"]
+  - run_id: pr_51258eac932e
+    pathway: Collaboration.Refactor.RenameTerm@v1
+    label: "Phase 1: full rename transmission->collaboration"
+    started: 2026-05-29T03:32:12Z
+    ended: 2026-05-29T03:32:13Z
+    exit_code: 0
+    script: collaboration/20260528-130500/collaboration-pathways/scripts/01_rename.py
+    script_sha256: 047d3fecfbcc436dc4b8228d7229308013effb067eba4d8577be9eef01b9834f
+    record: pathway-runs/pr_51258eac932e.json
+    produced: ["collaboration/20260528-130500/collaboration-spine.md", "collaboration/20260528-130500/collaboration-manifest.yaml", "collaboration/20260528-130500/COLLABORATION_READINESS.md", "collaboration/20260528-130500/collaboration-pathways/canon/COLLABORATION_BUNDLE_TECHNIQUE.md", "collaboration/20260528-130500/collaboration-pathways/sidecars/collaboration-pattern-lineage-and-attribution.md", "collaboration/20260528-130500/collaboration-pathways/patterns/Pattern.CollaborationBundle.SelfDescribing.yaml", "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Bundle.RewriteLinks.v1.yaml", "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Bundle.SealBundle.v1.yaml", "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Bundle.VerifyBundle.v1.yaml", "START_COLLABORATION_HANDOFF.prompt.md", "tools/collaboration-bundle", "collaboration/20260528-130500/collaboration-pathways/scripts/01_rename.py", "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.RenameTerm.v1.yaml"]
+  - run_id: pr_2d6d0730e9f7
+    pathway: Collaboration.Refactor.RenameTerm@v1
+    label: "Phase 1 fixups: normalize OpenInvitation + caps"
+    started: 2026-05-29T03:33:15Z
+    ended: 2026-05-29T03:33:15Z
+    exit_code: 0
+    script: collaboration/20260528-130500/collaboration-pathways/scripts/01b_rename_fixups.py
+    script_sha256: 610865c42227db8975b3717e69f3e7a7086711ace519288268dbf4f4849b6459
+    record: pathway-runs/pr_2d6d0730e9f7.json
+    produced: ["collaboration/20260528-130500/collaboration-pathways/pathways/Experience.Collaboration.OpenInvitation.v1.yaml", "collaboration/20260528-130500/collaboration-pathways/scripts/01b_rename_fixups.py"]
+  - run_id: pr_a3a19c7b0a0e
+    pathway: Collaboration.Naming.RegisterTerm@v1
+    label: "Phase 1b: name-as-artifact (Term + name_license + binding)"
+    started: 2026-05-29T03:34:25Z
+    ended: 2026-05-29T03:34:26Z
+    exit_code: 0
+    script: collaboration/20260528-130500/collaboration-pathways/scripts/02_terms.py
+    script_sha256: f5254b1a85f904d7c7c62e8a5af6932fb23c20db96d732da0223b94c6744a2cf
+    record: pathway-runs/pr_a3a19c7b0a0e.json
+    produced: ["collaboration/20260528-130500/collaboration-pathways/terms/Term.CollaborationBundle.v1.yaml", "collaboration/20260528-130500/collaboration-pathways/terms/Term.TransmissionBundle.v1.yaml", "collaboration/20260528-130500/collaboration-pathways/patterns/Pattern.Naming.ProvenancedTermBinding.yaml", "collaboration/20260528-130500/collaboration-manifest.yaml", "collaboration/20260528-130500/collaboration-pathways/scripts/02_terms.py", "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Naming.RegisterTerm.v1.yaml"]
+  - run_id: pr_2ae701f8d0f2
+    pathway: Collaboration.Privacy.DeIdentify@v1
+    label: "Phase 2: de-identify external persons/entities"
+    started: 2026-05-29T03:38:34Z
+    ended: 2026-05-29T03:38:35Z
+    exit_code: 0
+    script: collaboration/20260528-130500/collaboration-pathways/scripts/03_deidentify.py
+    script_sha256: 1baed78cf38e9c898fd9a57d1852660d772f9eae56bea9d2424addfe6d2fd4bf
+    record: pathway-runs/pr_2ae701f8d0f2.json
+    produced: ["collaboration/20260528-130500/identities/deidentification-map.json", "collaboration/20260528-130500/collaboration-pathways/scripts/03_deidentify.py", "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Privacy.DeIdentify.v1.yaml"]
+  - run_id: pr_020e76ed45ad
+    pathway: Collaboration.Identity.IssuePersonhoodCredential@v1
+    label: "Phase 3: personhood/entity credentials + 1-of-2 lockboxes"
+    started: 2026-05-29T03:42:29Z
+    ended: 2026-05-29T03:42:31Z
+    exit_code: 0
+    script: collaboration/20260528-130500/collaboration-pathways/scripts/04_issue_identities.py
+    script_sha256: 71cb6213426725a7b370ee2962edbe6aeb8f93e1dd64d3024b65251a1eb0a79c
+    record: pathway-runs/pr_020e76ed45ad.json
+    produced: ["collaboration/20260528-130500/identities/persons/person-a.credential.json", "collaboration/20260528-130500/identities/persons/person-a.lockbox.json", "collaboration/20260528-130500/identities/persons/person-b.credential.json", "collaboration/20260528-130500/identities/persons/person-b.lockbox.json", "collaboration/20260528-130500/identities/persons/person-c.credential.json", "collaboration/20260528-130500/identities/persons/person-c.lockbox.json", "collaboration/20260528-130500/identities/entities/entity-1.credential.json", "collaboration/20260528-130500/identities/entities/entity-1.lockbox.json", "collaboration/20260528-130500/identities/entities/entity-2.credential.json", "collaboration/20260528-130500/identities/entities/entity-2.lockbox.json", "collaboration/20260528-130500/identities/entities/entity-3.credential.json", "collaboration/20260528-130500/identities/entities/entity-3.lockbox.json", "collaboration/20260528-130500/identities/relationships/person-a-entity-1.json", "collaboration/20260528-130500/identities/relationships/person-b-entity-2.json", "collaboration/20260528-130500/identities/relationships/person-c-entity-3.json", "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.IssuePersonhoodCredential.v1.yaml", "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.SealNameLockbox.v1.yaml", "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.AssertRelationship.v1.yaml", "collaboration/20260528-130500/identities/README.md", "collaboration/20260528-130500/collaboration-pathways/scripts/04_issue_identities.py"]
+  - run_id: pr_74756e724afc
+    pathway: Collaboration.UX.RenderRevealViewer@v1
+    label: "Phase 4: privacy-proxy reveal viewer"
+    started: 2026-05-29T03:44:34Z
+    ended: 2026-05-29T03:44:34Z
+    exit_code: 0
+    script: collaboration/20260528-130500/collaboration-pathways/scripts/05_build_viewer.py
+    script_sha256: 4b1b5fffb28f61ed86e22fdc296c22e0957cd205a63a32b88d7e6f920be3f41a
+    record: pathway-runs/pr_74756e724afc.json
+    produced: ["collaboration/20260528-130500/identities/viewer/index.html", "collaboration/20260528-130500/identities/viewer/PROVENANCE.json", "collaboration/20260528-130500/identities/viewer/README.md", "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.UX.RenderRevealViewer.v1.yaml", "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.RevealLockbox.v1.yaml", "collaboration/20260528-130500/collaboration-pathways/scripts/05_build_viewer.py"]
+  - run_id: pr_a4bebd4ff8b4
+    pathway: Collaboration.Refactor.Finalize@v1
+    label: "Phase 5: completeness gate + lineage"
+    started: 2026-05-29T03:46:58Z
+    ended: 2026-05-29T03:46:58Z
+    exit_code: 0
+    script: collaboration/20260528-130500/collaboration-pathways/scripts/06_finalize.py
+    script_sha256: a547cde012e5b327fdbcb9bb392a6b582b49604aa6e92187f881f10154b12848
+    record: pathway-runs/pr_a4bebd4ff8b4.json
+    produced: ["collaboration/20260528-130500/pathway-runs/COMPLETENESS.md", "collaboration/20260528-130500/collaboration-pathways/sidecars/privacy-refactor-lineage.md", "collaboration/20260528-130500/collaboration-pathways/scripts/06_finalize.py", "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.Finalize.v1.yaml"]
+  - run_id: pr_fdf5b3d1d0c8
+    pathway: Collaboration.Identity.SealNameLockbox@v1
+    label: "Phase 3 re-issue: identities sealed only"
+    started: 2026-05-29T03:50:09Z
+    ended: 2026-05-29T03:50:10Z
+    exit_code: 0
+    script: collaboration/20260528-130500/collaboration-pathways/scripts/04_issue_identities.py
+    script_sha256: acfc2b411a6820041adfeef139147d40adff88c1ba2c3f9350999353d39ad2f1
+    record: pathway-runs/pr_fdf5b3d1d0c8.json
+    produced: ["collaboration/20260528-130500/identities/persons/person-a.credential.json", "collaboration/20260528-130500/identities/persons/person-a.lockbox.json", "collaboration/20260528-130500/identities/persons/person-b.credential.json", "collaboration/20260528-130500/identities/persons/person-b.lockbox.json", "collaboration/20260528-130500/identities/persons/person-c.credential.json", "collaboration/20260528-130500/identities/persons/person-c.lockbox.json", "collaboration/20260528-130500/identities/entities/entity-1.credential.json", "collaboration/20260528-130500/identities/entities/entity-1.lockbox.json", "collaboration/20260528-130500/identities/entities/entity-2.credential.json", "collaboration/20260528-130500/identities/entities/entity-2.lockbox.json", "collaboration/20260528-130500/identities/entities/entity-3.credential.json", "collaboration/20260528-130500/identities/entities/entity-3.lockbox.json", "collaboration/20260528-130500/identities/relationships/person-a-entity-1.json", "collaboration/20260528-130500/identities/relationships/person-b-entity-2.json", "collaboration/20260528-130500/identities/relationships/person-c-entity-3.json", "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.IssuePersonhoodCredential.v1.yaml", "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.SealNameLockbox.v1.yaml", "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.AssertRelationship.v1.yaml", "collaboration/20260528-130500/identities/README.md", "collaboration/20260528-130500/collaboration-pathways/scripts/04_issue_identities.py"]
+  - run_id: pr_ea5b2ee616a2
+    pathway: Collaboration.UX.RenderRevealViewer@v1
+    label: "Phase 4 rebuild viewer"
+    started: 2026-05-29T03:50:10Z
+    ended: 2026-05-29T03:50:11Z
+    exit_code: 0
+    script: collaboration/20260528-130500/collaboration-pathways/scripts/05_build_viewer.py
+    script_sha256: 08d829c7d9535b5fd35e473d3b19bbe0c5842bc4c0beaf17c3d7f302005f3b3d
+    record: pathway-runs/pr_ea5b2ee616a2.json
+    produced: ["collaboration/20260528-130500/identities/viewer/index.html", "collaboration/20260528-130500/identities/viewer/PROVENANCE.json", "collaboration/20260528-130500/identities/viewer/README.md", "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.UX.RenderRevealViewer.v1.yaml", "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.RevealLockbox.v1.yaml", "collaboration/20260528-130500/collaboration-pathways/scripts/05_build_viewer.py"]
+  - run_id: pr_e0e05c240390
+    pathway: Collaboration.Refactor.Finalize@v1
+    label: "Phase 5 re-gate"
+    started: 2026-05-29T03:50:11Z
+    ended: 2026-05-29T03:50:11Z
+    exit_code: 0
+    script: collaboration/20260528-130500/collaboration-pathways/scripts/06_finalize.py
+    script_sha256: a547cde012e5b327fdbcb9bb392a6b582b49604aa6e92187f881f10154b12848
+    record: pathway-runs/pr_e0e05c240390.json
+    produced: ["collaboration/20260528-130500/pathway-runs/COMPLETENESS.md", "collaboration/20260528-130500/collaboration-pathways/sidecars/privacy-refactor-lineage.md", "collaboration/20260528-130500/collaboration-pathways/scripts/06_finalize.py", "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.Finalize.v1.yaml"]
+  - run_id: pr_ec23ce283530
+    pathway: Collaboration.Canon.UpdateSpec@v1
+    label: "Phase 6: import v1.1.0 spec + architecture into canon"
+    started: 2026-05-29T04:10:41Z
+    ended: 2026-05-29T04:10:41Z
+    exit_code: 0
+    script: collaboration/20260528-130500/collaboration-pathways/scripts/07_canon_update.py
+    script_sha256: 8f91db20111e16035e2cd2f7c6a6610c950af3ce673c1ce1b70bcfdcbb71b194
+    record: pathway-runs/pr_ec23ce283530.json
+    produced: ["collaboration/20260528-130500/canon/PATHWAYS_ARCHITECTURE_v1.1.0.md", "collaboration/20260528-130500/canon/PATHWAYS_REFERENCE_v1.1.0.md", "collaboration/20260528-130500/canon/CANON_MANIFEST.yaml", "collaboration/20260528-130500/pathways_canon/PATHWAYS_ARCHITECTURE.md", "collaboration/20260528-130500/collaboration-pathways/PACKAGE.yaml", "collaboration/20260528-130500/collaboration-manifest.yaml", "collaboration/20260528-130500/collaboration-pathways/scripts/07_canon_update.py", "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Canon.UpdateSpec.v1.yaml"]
+  - run_id: pr_22835d2f4b9d
+    pathway: Collaboration.Refactor.Finalize@v1
+    label: "Phase 6 re-gate (canon v1.1.0)"
+    started: 2026-05-29T04:10:42Z
+    ended: 2026-05-29T04:10:42Z
+    exit_code: 0
+    script: collaboration/20260528-130500/collaboration-pathways/scripts/06_finalize.py
+    script_sha256: 924c5b269071dd5dbb219fc013b964b7023dfc2892cfcb49975508600d83a801
+    record: pathway-runs/pr_22835d2f4b9d.json
+    produced: ["collaboration/20260528-130500/pathway-runs/COMPLETENESS.md", "collaboration/20260528-130500/collaboration-pathways/sidecars/privacy-refactor-lineage.md", "collaboration/20260528-130500/collaboration-pathways/scripts/06_finalize.py", "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.Finalize.v1.yaml"]
+  - run_id: pr_d0007433bd12
+    pathway: Collaboration.Canon.UpdateSpec@v1
+    label: "Phase 6 cleanup: remove org token; refresh spec signatures"
+    started: 2026-05-29T04:16:37Z
+    ended: 2026-05-29T04:16:37Z
+    exit_code: 0
+    script: collaboration/20260528-130500/collaboration-pathways/scripts/08_strip_token.py
+    script_sha256: eeda39973e3836c1b298a51ff12d72331eeb339d6fafefba912f641e8a8fdf91
+    record: pathway-runs/pr_d0007433bd12.json
+    produced: ["collaboration/20260528-130500/COLLABORATION_READINESS.md", "collaboration/20260528-130500/canon/CANON_MANIFEST.yaml", "collaboration/20260528-130500/canon/PATHWAYS_ARCHITECTURE_v1.1.0.md", "collaboration/20260528-130500/canon/PATHWAYS_REFERENCE_v1.1.0.md", "collaboration/20260528-130500/collaboration-manifest.yaml", "collaboration/20260528-130500/collaboration-pathways/PACKAGE.yaml", "collaboration/20260528-130500/collaboration-pathways/scripts/07_canon_update.py", "collaboration/20260528-130500/collaboration-pathways/scripts/08_strip_token.py", "collaboration/20260528-130500/pathway-runs/pr_ec23ce283530.json"]
+  - run_id: pr_406c7ed8c71c
+    pathway: Collaboration.Refactor.Finalize@v1
+    label: "re-gate after token strip"
+    started: 2026-05-29T04:16:37Z
+    ended: 2026-05-29T04:16:37Z
+    exit_code: 0
+    script: collaboration/20260528-130500/collaboration-pathways/scripts/06_finalize.py
+    script_sha256: 924c5b269071dd5dbb219fc013b964b7023dfc2892cfcb49975508600d83a801
+    record: pathway-runs/pr_406c7ed8c71c.json
+    produced: ["collaboration/20260528-130500/pathway-runs/COMPLETENESS.md", "collaboration/20260528-130500/collaboration-pathways/sidecars/privacy-refactor-lineage.md", "collaboration/20260528-130500/collaboration-pathways/scripts/06_finalize.py", "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.Finalize.v1.yaml"]
+  - run_id: pr_dcd9c2813464
+    pathway: Collaboration.Refactor.RenameTerm@v1
+    label: "Rename anti-venom -> assay + reader gloss"
+    started: 2026-05-29T04:35:07Z
+    ended: 2026-05-29T04:35:07Z
+    exit_code: 0
+    script: collaboration/20260528-130500/collaboration-pathways/scripts/09_rename_assay.py
+    script_sha256: 84c2e4a7ef719c61a75f7e03d3ccec624bdc58cfe6b93a28a84b062118eedcb1
+    record: pathway-runs/pr_dcd9c2813464.json
+    produced: ["collaboration/20260528-130500/antivenom-pathways/pathways/Assay.Benchmark.Reproducible.v1.yaml", "collaboration/20260528-130500/antivenom-pathways/pathways/Assay.Citation.VerifyFirst.v1.yaml", "collaboration/20260528-130500/antivenom-pathways/pathways/Assay.Convergence.AnchoredAuthority.v1.yaml", "collaboration/20260528-130500/antivenom-pathways/pathways/Assay.Provenance.RunManifest.v1.yaml", "collaboration/20260528-130500/assay-pathways", "collaboration/20260528-130500/assay-pathways/APPLICATION_PLAYBOOK.md", "collaboration/20260528-130500/collaboration-pathways/scripts/09_rename_assay.py", "collaboration/20260528-130500/collaboration-spine.md", "collaboration/20260528-130500/sidecars/assay-thesis.md", "collaboration/20260528-130500/timeline/events/evt_003_assay_encoded.json"]
+  - run_id: pr_25bc3856a86c
+    pathway: Collaboration.Refactor.RenameTerm@v1
+    label: "Gloss fix: define assay in thesis + playbook"
+    started: 2026-05-29T04:35:46Z
+    ended: 2026-05-29T04:35:47Z
+    exit_code: 0
+    script: collaboration/20260528-130500/collaboration-pathways/scripts/09b_gloss_fix.py
+    script_sha256: 764a4c2754bc13b926ac58c5f4d07d0de37342120f4aee5eac8f0c1c91c68c7b
+    record: pathway-runs/pr_25bc3856a86c.json
+    produced: ["collaboration/20260528-130500/assay-pathways/APPLICATION_PLAYBOOK.md", "collaboration/20260528-130500/sidecars/assay-thesis.md", "collaboration/20260528-130500/collaboration-pathways/scripts/09b_gloss_fix.py"]
+  - run_id: pr_9ef41959c291
+    pathway: Collaboration.Naming.RegisterTerm@v1
+    label: "Term.Assay@v1 supersedes Term.AntiVenom@v1"
+    started: 2026-05-29T04:36:39Z
+    ended: 2026-05-29T04:36:40Z
+    exit_code: 0
+    script: collaboration/20260528-130500/collaboration-pathways/scripts/10_assay_terms.py
+    script_sha256: 80bd0973be8667f712c8883731ab8ef06f405016ce58ab79479f18d300003c65
+    record: pathway-runs/pr_9ef41959c291.json
+    produced: ["collaboration/20260528-130500/collaboration-pathways/terms/Term.Assay.v1.yaml", "collaboration/20260528-130500/collaboration-pathways/terms/Term.AntiVenom.v1.yaml", "collaboration/20260528-130500/collaboration-manifest.yaml", "collaboration/20260528-130500/collaboration-pathways/scripts/10_assay_terms.py"]
+  - run_id: pr_0954b2476ab7
+    pathway: Collaboration.Refactor.Finalize@v1
+    label: "re-gate after assay rename"
+    started: 2026-05-29T04:36:40Z
+    ended: 2026-05-29T04:36:40Z
+    exit_code: 0
+    script: collaboration/20260528-130500/collaboration-pathways/scripts/06_finalize.py
+    script_sha256: 924c5b269071dd5dbb219fc013b964b7023dfc2892cfcb49975508600d83a801
+    record: pathway-runs/pr_0954b2476ab7.json
+    produced: ["collaboration/20260528-130500/pathway-runs/COMPLETENESS.md", "collaboration/20260528-130500/collaboration-pathways/sidecars/privacy-refactor-lineage.md", "collaboration/20260528-130500/collaboration-pathways/scripts/06_finalize.py", "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.Finalize.v1.yaml"]
+  - run_id: pr_ad4aa0852967
+    pathway: Collaboration.Privacy.DeIdentify@v1
+    label: "De-identify residual placeholder DID -> did:placeholder:person-a"
+    started: 2026-05-29T04:58:27Z
+    ended: 2026-05-29T04:58:27Z
+    exit_code: 0
+    script: collaboration/20260528-130500/collaboration-pathways/scripts/11_scrub_did.py
+    script_sha256: 1593ac7285dc1c40a3339dddb331bbec833b3ae03d9789f37869cb905eac4952
+    record: pathway-runs/pr_ad4aa0852967.json
+    produced: ["collaboration/20260528-130500/collaboration-manifest.yaml", "collaboration/20260528-130500/collaboration-pathways/PACKAGE.yaml", "collaboration/20260528-130500/collaboration-pathways/canon/COLLABORATION_BUNDLE_TECHNIQUE.md", "collaboration/20260528-130500/collaboration-pathways/meta/co-originator-attribution.yaml", "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Meta.EmbedTechniqueProvenance.v1.yaml", "collaboration/20260528-130500/collaboration-pathways/patterns/Pattern.CollaborationBundle.SelfDescribing.yaml", "collaboration/20260528-130500/collaboration-pathways/patterns/Pattern.ProjectCollaboration.ConvergenceRepository.yaml", "collaboration/20260528-130500/collaboration-pathways/scripts/11_scrub_did.py", "collaboration/20260528-130500/collaboration-pathways/sidecars/collaboration-pattern-lineage-and-attribution.md"]
+  - run_id: pr_87ef2cef2a4d
+    pathway: Collaboration.Identity.SealNameLockbox@v1
+    label: "Re-issue lockboxes with localpartredacted.com identifiers (sealed)"
+    started: 2026-05-29T04:58:46Z
+    ended: 2026-05-29T04:58:47Z
+    exit_code: 0
+    script: collaboration/20260528-130500/collaboration-pathways/scripts/04_issue_identities.py
+    script_sha256: acfc2b411a6820041adfeef139147d40adff88c1ba2c3f9350999353d39ad2f1
+    record: pathway-runs/pr_87ef2cef2a4d.json
+    produced: ["collaboration/20260528-130500/identities/persons/person-a.credential.json", "collaboration/20260528-130500/identities/persons/person-a.lockbox.json", "collaboration/20260528-130500/identities/persons/person-b.credential.json", "collaboration/20260528-130500/identities/persons/person-b.lockbox.json", "collaboration/20260528-130500/identities/persons/person-c.credential.json", "collaboration/20260528-130500/identities/persons/person-c.lockbox.json", "collaboration/20260528-130500/identities/entities/entity-1.credential.json", "collaboration/20260528-130500/identities/entities/entity-1.lockbox.json", "collaboration/20260528-130500/identities/entities/entity-2.credential.json", "collaboration/20260528-130500/identities/entities/entity-2.lockbox.json", "collaboration/20260528-130500/identities/entities/entity-3.credential.json", "collaboration/20260528-130500/identities/entities/entity-3.lockbox.json", "collaboration/20260528-130500/identities/relationships/person-a-entity-1.json", "collaboration/20260528-130500/identities/relationships/person-b-entity-2.json", "collaboration/20260528-130500/identities/relationships/person-c-entity-3.json", "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.IssuePersonhoodCredential.v1.yaml", "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.SealNameLockbox.v1.yaml", "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.AssertRelationship.v1.yaml", "collaboration/20260528-130500/identities/README.md", "collaboration/20260528-130500/collaboration-pathways/scripts/04_issue_identities.py"]
+  - run_id: pr_ca2762aba00f
+    pathway: Collaboration.UX.RenderRevealViewer@v1
+    label: "Rebuild viewer after re-issue"
+    started: 2026-05-29T04:58:47Z
+    ended: 2026-05-29T04:58:48Z
+    exit_code: 0
+    script: collaboration/20260528-130500/collaboration-pathways/scripts/05_build_viewer.py
+    script_sha256: 08d829c7d9535b5fd35e473d3b19bbe0c5842bc4c0beaf17c3d7f302005f3b3d
+    record: pathway-runs/pr_ca2762aba00f.json
+    produced: ["collaboration/20260528-130500/identities/viewer/index.html", "collaboration/20260528-130500/identities/viewer/PROVENANCE.json", "collaboration/20260528-130500/identities/viewer/README.md", "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.UX.RenderRevealViewer.v1.yaml", "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.RevealLockbox.v1.yaml", "collaboration/20260528-130500/collaboration-pathways/scripts/05_build_viewer.py"]
+  - run_id: pr_462b11c2cca2
+    pathway: Collaboration.Refactor.Finalize@v1
+    label: "re-gate after DID de-id"
+    started: 2026-05-29T04:58:48Z
+    ended: 2026-05-29T04:58:48Z
+    exit_code: 0
+    script: collaboration/20260528-130500/collaboration-pathways/scripts/06_finalize.py
+    script_sha256: 924c5b269071dd5dbb219fc013b964b7023dfc2892cfcb49975508600d83a801
+    record: pathway-runs/pr_462b11c2cca2.json
+    produced: ["collaboration/20260528-130500/pathway-runs/COMPLETENESS.md", "collaboration/20260528-130500/collaboration-pathways/sidecars/privacy-refactor-lineage.md", "collaboration/20260528-130500/collaboration-pathways/scripts/06_finalize.py", "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.Finalize.v1.yaml"]
+  - run_id: pr_8031cc31d1a6
+    pathway: Collaboration.Privacy.DeIdentify@v1
+    label: "Redact residual name fragments from de-id provenance"
+    started: 2026-05-29T05:01:37Z
+    ended: 2026-05-29T05:01:37Z
+    exit_code: 0
+    script: collaboration/20260528-130500/collaboration-pathways/scripts/12_redact_name_fragments.py
+    script_sha256: 6d8fc5f6b5ef7a3cd7204425bd0669a0597616c28c662bb8ffb2ad34ffde5b1d
+    record: pathway-runs/pr_8031cc31d1a6.json
+    produced: ["collaboration/20260528-130500/collaboration-pathways/scripts/11_scrub_did.py", "collaboration/20260528-130500/collaboration-pathways/scripts/12_redact_name_fragments.py", "collaboration/20260528-130500/pathway-runs/index.yaml", "collaboration/20260528-130500/pathway-runs/pr_87ef2cef2a4d.json", "collaboration/20260528-130500/pathway-runs/pr_ad4aa0852967.json"]
+  - run_id: pr_64f2a4f3c15d
+    pathway: Collaboration.Refactor.Finalize@v1
+    label: "re-gate after fragment redaction"
+    started: 2026-05-29T05:01:38Z
+    ended: 2026-05-29T05:01:38Z
+    exit_code: 0
+    script: collaboration/20260528-130500/collaboration-pathways/scripts/06_finalize.py
+    script_sha256: 924c5b269071dd5dbb219fc013b964b7023dfc2892cfcb49975508600d83a801
+    record: pathway-runs/pr_64f2a4f3c15d.json
+    produced: ["collaboration/20260528-130500/pathway-runs/COMPLETENESS.md", "collaboration/20260528-130500/collaboration-pathways/sidecars/privacy-refactor-lineage.md", "collaboration/20260528-130500/collaboration-pathways/scripts/06_finalize.py", "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.Finalize.v1.yaml"]
+  - run_id: pr_54582fed9105
+    pathway: Collaboration.Privacy.DeIdentify@v1
+    label: "Redact residual fragments (clean cleaner)"
+    started: 2026-05-29T05:02:29Z
+    ended: 2026-05-29T05:02:29Z
+    exit_code: 0
+    script: collaboration/20260528-130500/collaboration-pathways/scripts/12_redact_name_fragments.py
+    script_sha256: f53ac1d8d63a491acaa9c2cc7fe2f17d923c3f1edeb67a0255f1e75d4b7b77af
+    record: pathway-runs/pr_54582fed9105.json
+    produced: ["collaboration/20260528-130500/collaboration-pathways/scripts/12_redact_name_fragments.py", "collaboration/20260528-130500/pathway-runs/pr_8031cc31d1a6.json"]
+  - run_id: pr_fa8f2716a1f0
+    pathway: Collaboration.Refactor.Finalize@v1
+    label: "final re-gate after DID de-id"
+    started: 2026-05-29T05:02:45Z
+    ended: 2026-05-29T05:02:45Z
+    exit_code: 0
+    script: collaboration/20260528-130500/collaboration-pathways/scripts/06_finalize.py
+    script_sha256: 924c5b269071dd5dbb219fc013b964b7023dfc2892cfcb49975508600d83a801
+    record: pathway-runs/pr_fa8f2716a1f0.json
+    produced: ["collaboration/20260528-130500/pathway-runs/COMPLETENESS.md", "collaboration/20260528-130500/collaboration-pathways/sidecars/privacy-refactor-lineage.md", "collaboration/20260528-130500/collaboration-pathways/scripts/06_finalize.py", "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.Finalize.v1.yaml"]
+  - run_id: pr_f50c44020305
+    pathway: Collaboration.Refactor.HardenGateProfile@v1
+    label: "harden assay package to spec 1.1.0 §4.8 (gate_profiles + practice profile + attested-run)"
+    started: 2026-05-29T06:18:53Z
+    ended: 2026-05-29T06:18:54Z
+    exit_code: 0
+    script: collaboration/20260528-130500/collaboration-pathways/scripts/13_harden_v11.py
+    script_sha256: 66d0b4d2cda46dc8705ec4454111c63fc34beef22203355d3431a7b0becb370f
+    record: pathway-runs/pr_f50c44020305.json
+    produced: ["collaboration/20260528-130500/assay-pathways/pathways/Assay.Citation.VerifyFirst.v1.yaml", "collaboration/20260528-130500/assay-pathways/pathways/Assay.Convergence.AnchoredAuthority.v1.yaml", "collaboration/20260528-130500/assay-pathways/pathways/Assay.Provenance.RunManifest.v1.yaml", "collaboration/20260528-130500/assay-pathways/practice-profiles/legal-research-grounding.v1.yaml", "collaboration/20260528-130500/assay-pathways/PACKAGE.yaml", "collaboration/20260528-130500/assay-pathways/pathways-index.yaml", "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.HardenGateProfile.v1.yaml", "collaboration/20260528-130500/collaboration-pathways/scripts/13_harden_v11.py"]
+  - run_id: pr_716d9822b0b5
+    pathway: Collaboration.Refactor.Finalize@v1
+    label: "re-gate after v1.1 gate-profile hardening"
+    started: 2026-05-29T06:18:54Z
+    ended: 2026-05-29T06:18:54Z
+    exit_code: 0
+    script: collaboration/20260528-130500/collaboration-pathways/scripts/06_finalize.py
+    script_sha256: 22412f595f00725c86663212b74f708537f3ef2ed87821ea04fbd3ce52c7252c
+    record: pathway-runs/pr_716d9822b0b5.json
+    produced: ["collaboration/20260528-130500/pathway-runs/COMPLETENESS.md", "collaboration/20260528-130500/collaboration-pathways/sidecars/privacy-refactor-lineage.md", "collaboration/20260528-130500/collaboration-pathways/scripts/06_finalize.py", "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.Finalize.v1.yaml"]
+  - run_id: pr_48775d21aa40
+    pathway: Collaboration.Refactor.RenameTerm@v1
+    label: "strip-token follow-up: reconcile legacy org token in canon-import script"
+    started: 2026-05-29T06:28:27Z
+    ended: 2026-05-29T06:28:27Z
+    exit_code: 0
+    script: collaboration/20260528-130500/collaboration-pathways/scripts/14_strip_token_followup.py
+    script_sha256: fb87faafd872691a5d7282941e47408167fd007badc9d1a240764b05e2454d59
+    record: pathway-runs/pr_48775d21aa40.json
+    produced: ["collaboration/20260528-130500/collaboration-pathways/scripts/07_canon_update.py", "collaboration/20260528-130500/collaboration-pathways/scripts/14_strip_token_followup.py", "collaboration/20260528-130500/collaboration-pathways/scripts/14_strip_token_followup.py"]
+  - run_id: pr_ff751f4be03b
+    pathway: Collaboration.Refactor.Finalize@v1
+    label: "re-gate after token follow-up"
+    started: 2026-05-29T06:28:27Z
+    ended: 2026-05-29T06:28:28Z
+    exit_code: 0
+    script: collaboration/20260528-130500/collaboration-pathways/scripts/06_finalize.py
+    script_sha256: 22412f595f00725c86663212b74f708537f3ef2ed87821ea04fbd3ce52c7252c
+    record: pathway-runs/pr_ff751f4be03b.json
+    produced: ["collaboration/20260528-130500/pathway-runs/COMPLETENESS.md", "collaboration/20260528-130500/collaboration-pathways/sidecars/privacy-refactor-lineage.md", "collaboration/20260528-130500/collaboration-pathways/scripts/06_finalize.py", "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.Finalize.v1.yaml"]
+  - run_id: pr_f8d16b9ca8b9
+    pathway: Collaboration.Refactor.RenameTerm@v1
+    label: "strip-token follow-up v2: reconcile residual occurrences from private token file"
+    started: 2026-05-29T06:29:37Z
+    ended: 2026-05-29T06:29:37Z
+    exit_code: 0
+    script: collaboration/20260528-130500/collaboration-pathways/scripts/14_strip_token_followup.py
+    script_sha256: 6e2bda2103ddad5ac09026ae12cc331bc56d837021c6141dfdfd4be4a2de1558
+    record: pathway-runs/pr_f8d16b9ca8b9.json
+    produced: ["collaboration/20260528-130500/pathway-runs/pr_48775d21aa40.json", "collaboration/20260528-130500/collaboration-pathways/scripts/14_strip_token_followup.py"]
+  - run_id: pr_5ba65e4479bd
+    pathway: Collaboration.Refactor.Finalize@v1
+    label: "re-gate after token follow-up v2"
+    started: 2026-05-29T06:29:38Z
+    ended: 2026-05-29T06:29:38Z
+    exit_code: 0
+    script: collaboration/20260528-130500/collaboration-pathways/scripts/06_finalize.py
+    script_sha256: 22412f595f00725c86663212b74f708537f3ef2ed87821ea04fbd3ce52c7252c
+    record: pathway-runs/pr_5ba65e4479bd.json
+    produced: ["collaboration/20260528-130500/pathway-runs/COMPLETENESS.md", "collaboration/20260528-130500/collaboration-pathways/sidecars/privacy-refactor-lineage.md", "collaboration/20260528-130500/collaboration-pathways/scripts/06_finalize.py", "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.Finalize.v1.yaml"]

@@ -1,0 +1,31 @@
+co_originator_attribution:
+  collaboration_bundle_technique:
+    co_originators:
+      - did: did:placeholder:person-a
+        label: "person-a"
+        role: collaboration-bundle-premise-pattern
+        catalog_units: [44]
+      - label: "Originator (DJ Thomson)"
+        role: pathways-framework-formalization
+    scope:
+      - concept
+      - pattern
+      - formats
+      - directory_structure
+      - encoding_and_sealing_methods
+      - convergence_repository_pattern
+      - investigation_seal_lifecycle
+      - reciprocation_contract
+    first_canonical_encoding: djat_x_mikeoss/collaboration/20260528-130500/
+    catalyzed_by: the open MikeOSS project and team
+    license_terms:
+      fork: true
+      attribution_required: true
+      revocation_scope_max: self_only
+
+  authored_enhancements:
+    - name: self-describing-bundle
+      by: "Originator (DJ Thomson)"
+      pathway: Collaboration.Meta.EmbedTechniqueProvenance@v1
+      pattern: Pattern.CollaborationBundle.SelfDescribing
+      first_carried_in: djat_x_mikeoss/collaboration/20260528-130500/

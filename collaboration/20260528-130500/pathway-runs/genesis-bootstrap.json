@@ -1,0 +1,9 @@
+{
+  "event": "phase0_bootstrap",
+  "directory_rename": {
+    "from": "transmission/20260528-130500",
+    "to": "collaboration/20260528-130500"
+  },
+  "harness_installed": "collaboration/20260528-130500/collaboration-pathways/scripts/run_with_provenance.py",
+  "note": "The top-level snapshot directory was renamed transmission/ -> collaboration/ as the bootstrap move; this genesis PathwayRun attests it. All subsequent scripts run through the harness under the stable collaboration/ path."
+}

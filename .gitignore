@@ -1,0 +1,9 @@
+# Keys: ignore EVERYTHING under keys/ (private signing key, reveal key, subject
+# mapping, scrub tokens, tmp) except the public verification key. Deny-by-default so
+# no future secret is ever committed by accident.
+keys/*
+!keys/bundle-signing.public.pem
+
+# OS / editor noise
+.DS_Store
+.obsidian/

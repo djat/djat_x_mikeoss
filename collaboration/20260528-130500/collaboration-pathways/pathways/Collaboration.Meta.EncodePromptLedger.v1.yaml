@@ -1,0 +1,38 @@
+# Collaboration.Meta.EncodePromptLedger@v1
+
+pathway_template:
+  identity:
+    template_id: Collaboration.Meta.EncodePromptLedger@v1
+    triple: { domain: Collaboration, subdomain: Meta, action: EncodePromptLedger }
+    version: 1.0.0
+
+  description: |
+    Appends an author prompt entry to prompt-ledger.yaml with sequence number,
+    intent classification, affected artifacts, and triggered pathway steps.
+
+  inputs:
+    - name: prompt_text
+      type: string
+    - name: author
+      type: string
+    - name: intent
+      type: enum
+      values: [plan, execute, refine, meta_encode, review]
+    - name: artifacts_affected
+      type: list
+    - name: pathway_steps_triggered
+      type: list
+
+  steps:
+    - id: allocate_seq
+      agent_id: persist
+      skill: next_ledger_seq
+    - id: append_entry
+      agent_id: persist
+      skill: append_yaml_list
+      config:
+        target: prompt-ledger.yaml
+        key: entries
+
+  output:
+    artifact: prompt_ledger_entry

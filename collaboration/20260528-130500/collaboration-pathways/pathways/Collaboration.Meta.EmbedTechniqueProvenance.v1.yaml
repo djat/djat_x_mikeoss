@@ -1,0 +1,73 @@
+# Collaboration.Meta.EmbedTechniqueProvenance@v1
+
+pathway_template:
+  identity:
+    template_id: Collaboration.Meta.EmbedTechniqueProvenance@v1
+    artifact_type: pathway-template
+    triple: { domain: Collaboration, subdomain: Meta, action: EmbedTechniqueProvenance }
+    version: 1.0.0
+
+  description: |
+    NEW. Originator (DJ Thomson)'s authored enhancement to the collaboration-bundle
+    technique: embed the technique's OWN canonical Pathways encoding plus its
+    provenance (version, co-originators, lineage, defining pathways) INSIDE the
+    bundle, so both sides — and any later peer — can interrogate not just this
+    exchange but the meta-collaboration context of the whole ecosystem,
+    asynchronously and without a shared runtime. From this bundle forward, every
+    collaboration bundle is self-describing.
+
+  authored_by:
+    label: "Originator (DJ Thomson)"
+    role: self-describing-enhancement-author
+  base_technique_co_originators:
+    - label: "person-a"
+      did: did:placeholder:person-a
+    - label: "Originator (DJ Thomson)"
+
+  inputs:
+    - name: bundle_dir
+      type: path
+    - name: technique_canon
+      type: path
+      default: collaboration-pathways/canon/COLLABORATION_BUNDLE_TECHNIQUE.md
+    - name: lineage_sidecar
+      type: path
+      default: collaboration-pathways/sidecars/collaboration-pattern-lineage-and-attribution.md
+
+  steps:
+    - id: carry_technique_canon
+      agent_id: persist
+      skill: include_in_bundle
+      config:
+        ensure_present:
+          - collaboration-pathways/canon/COLLABORATION_BUNDLE_TECHNIQUE.md
+          - collaboration-pathways/pathways-index.yaml
+          - collaboration-pathways/patterns/Pattern.CollaborationBundle.SelfDescribing.yaml
+
+    - id: write_technique_provenance_block
+      agent_id: persist
+      skill: merge_yaml
+      config:
+        target: collaboration-manifest.yaml
+        key: technique_provenance
+        fields:
+          - technique
+          - technique_version
+          - co_originators
+          - authored_enhancements
+          - lineage
+          - defining_pathways
+          - interrogate_via
+
+    - id: bind_co_originator_attestation
+      agent_id: persist
+      skill: write_yaml
+      config:
+        target: collaboration-pathways/meta/co-originator-attribution.yaml
+
+  output:
+    artifact: self_describing_bundle
+
+  invariant:
+    pattern: Pattern.CollaborationBundle.SelfDescribing
+    rule: "A bundle that cannot describe its own technique MUST NOT be sealed."

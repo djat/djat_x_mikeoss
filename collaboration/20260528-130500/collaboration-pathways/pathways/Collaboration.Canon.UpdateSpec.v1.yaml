@@ -1,0 +1,16 @@
+# Collaboration.Canon.UpdateSpec@v1
+pathway_template:
+  identity:
+    template_id: Collaboration.Canon.UpdateSpec@v1
+    artifact_type: pathway-template
+    triple: { domain: Collaboration, subdomain: Canon, action: UpdateSpec }
+    version: 1.0.0
+  description: |
+    Brings the authoritative Pathways specification + architecture (v1.1.0) into the bundle
+    canon verbatim, computes their sha256 "specification signatures", supersedes the prior
+    v1.0.0 excerpt, and updates every artifact that cites the spec to reference v1.1.0 + the
+    exact signature hashes (CANON_MANIFEST, collaboration-manifest, PACKAGE conforms_to_spec,
+    read-order pointers). The verbatim specs may reference the upstream ecosystem; the bundle's
+    own authored prose remains de-identified.
+  implementation: collaboration-pathways/scripts/07_canon_update.py
+  output: { artifact: canon_v1_1_0 }

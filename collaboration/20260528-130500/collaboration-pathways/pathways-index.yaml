@@ -1,0 +1,120 @@
+bundle_id: collaboration-pathways
+version: "1.0.0"
+filesystem_root: collaboration-pathways/
+note: |
+  First canonical Pathways encoding of the collaboration-bundle technique.
+  Co-originated by person-a + Originator (DJ Thomson). Promoted from prior
+  per-instance encodings into a reusable, self-describing canon, and carried inside
+  this bundle so the technique is interrogable, not just the format.
+
+pathways:
+  - id: Collaboration.Convergence.AssembleBundle
+    file: pathways/Collaboration.Convergence.AssembleBundle.v1.yaml
+    invokes:
+      - Collaboration.Bundle.RewriteLinks
+      - Collaboration.Attestation.BindContentHashes
+
+  - id: Collaboration.Bundle.RewriteLinks
+    file: pathways/Collaboration.Bundle.RewriteLinks.v1.yaml
+    invokes: []
+
+  - id: Collaboration.Attestation.BindContentHashes
+    file: pathways/Collaboration.Attestation.BindContentHashes.v1.yaml
+    invokes: []
+
+  - id: Collaboration.Bundle.SealBundle
+    file: pathways/Collaboration.Bundle.SealBundle.v1.yaml
+    new_in_canon: true
+    invokes: []
+
+  - id: Collaboration.Bundle.VerifyBundle
+    file: pathways/Collaboration.Bundle.VerifyBundle.v1.yaml
+    new_in_canon: true
+    invokes: []
+
+  - id: Collaboration.Meta.EncodePromptLedger
+    file: pathways/Collaboration.Meta.EncodePromptLedger.v1.yaml
+    invokes: []
+
+  - id: Collaboration.Meta.EmbedTechniqueProvenance
+    file: pathways/Collaboration.Meta.EmbedTechniqueProvenance.v1.yaml
+    new_in_canon: true
+    authored_by: Originator (DJ Thomson)
+    invokes: []
+
+  - id: Collaboration.Investigation.DeclarePending
+    file: pathways/Collaboration.Investigation.DeclarePending.v1.yaml
+    invokes:
+      - Collaboration.Meta.EncodePromptLedger
+
+  - id: Collaboration.Investigation.PreRegisterHypotheses
+    file: pathways/Collaboration.Investigation.PreRegisterHypotheses.v1.yaml
+    invokes: []
+
+  - id: Collaboration.Investigation.SealOrInvalidateBundle
+    file: pathways/Collaboration.Investigation.SealOrInvalidateBundle.v1.yaml
+    invokes: []
+
+  - id: Collaboration.Proof.AwaitCounterpartyBuild
+    file: pathways/Collaboration.Proof.AwaitCounterpartyBuild.v1.yaml
+    invokes:
+      - Collaboration.Investigation.SealOrInvalidateBundle
+
+  - id: Collaboration.Proof.RunUnilateralExperiment
+    file: pathways/Collaboration.Proof.RunUnilateralExperiment.v1.yaml
+    new_in_canon: true
+    invokes:
+      - Collaboration.Investigation.SealOrInvalidateBundle
+
+  - id: Collaboration.Reciprocation.AssembleReturnBundle
+    file: pathways/Collaboration.Reciprocation.AssembleReturnBundle.v1.yaml
+    invokes:
+      - Collaboration.Meta.EncodePromptLedger
+      - Collaboration.Meta.EmbedTechniqueProvenance
+      - Collaboration.Convergence.AssembleBundle
+      - Collaboration.Bundle.SealBundle
+
+  - id: Experience.Collaboration.OpenInvitation
+    file: pathways/Experience.Collaboration.OpenInvitation.v1.yaml
+    new_in_canon: true
+    invokes:
+      - Collaboration.Convergence.AssembleBundle
+      - Collaboration.Meta.EmbedTechniqueProvenance
+      - Collaboration.Meta.EncodePromptLedger
+      - Collaboration.Investigation.DeclarePending
+      - Collaboration.Investigation.PreRegisterHypotheses
+      - Collaboration.Proof.RunUnilateralExperiment
+      - Collaboration.Bundle.SealBundle
+      - Collaboration.Investigation.SealOrInvalidateBundle
+
+patterns:
+  - id: Pattern.ProjectCollaboration.ConvergenceRepository
+    file: patterns/Pattern.ProjectCollaboration.ConvergenceRepository.yaml
+  - id: Pattern.CollaborationBundle.SelfDescribing
+    file: patterns/Pattern.CollaborationBundle.SelfDescribing.yaml
+    new_in_canon: true
+
+meta_instances:
+  - id: djat-mikeoss-20260528
+    file: meta/djat-mikeoss-20260528.yaml
+    journey: Experience.Collaboration.OpenInvitation
+    convergence_repo: ../collaboration/20260528-130500/
+
+prompt_ledger: prompt-ledger.yaml
+
+technique_canon: canon/COLLABORATION_BUNDLE_TECHNIQUE.md
+
+hypotheses:
+  file: test/HYPOTHESES.md
+  pre_register_pathway: Collaboration.Investigation.PreRegisterHypotheses@v1
+  evaluate_pathway: Collaboration.Investigation.SealOrInvalidateBundle@v1
+
+conformance_tests:
+  - id: PC-1
+    file: test/PC-1-unilateral-experiments.yaml
+    invokes:
+      - Collaboration.Proof.RunUnilateralExperiment
+  - id: PC-2
+    file: test/PC-2-bundle-seal-invalidate.yaml
+    invokes:
+      - Collaboration.Investigation.SealOrInvalidateBundle

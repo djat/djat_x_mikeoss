@@ -1,0 +1,8 @@
+{
+  "asset": "identities/viewer/index.html",
+  "produced_by_pathway": "Collaboration.UX.RenderRevealViewer@v1",
+  "decrypt_technique_pathway": "Collaboration.Identity.RevealLockbox@v1",
+  "pathway_run_id": "pr_ca2762aba00f",
+  "sha256": "c1d1b75d6d3a30dabde3c9f2e89fe61655605b7bec568fea02ce2af0d977aaed",
+  "note": "Generated HTML/JS is a Pathway-produced asset; HTML cannot hold metadata inline so it is recorded here and in ASSET_PROVENANCE.yaml."
+}

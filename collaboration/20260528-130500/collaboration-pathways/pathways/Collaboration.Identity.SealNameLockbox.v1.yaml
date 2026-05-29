@@ -1,0 +1,14 @@
+# Collaboration.Identity.SealNameLockbox@v1
+pathway_template:
+  identity:
+    template_id: Collaboration.Identity.SealNameLockbox@v1
+    artifact_type: pathway-template
+    triple: { domain: Collaboration, subdomain: Identity, action: SealNameLockbox }
+    version: 1.0.0
+  description: |
+    Seals a subject's real name + digital identities (DIDs / URLs) into a lockbox encrypted
+    AES-256-CBC under PBKDF2-HMAC-SHA256 (600k iters; openssl + Web Crypto reproducible).
+    recipients[] records the intended 1-of-2: the Originator (operative now) OR the subject's
+    DID key (upgrade path). Enables selective, progressive reveal (ZK + FHE on the roadmap).
+  implementation: collaboration-pathways/scripts/04_issue_identities.py
+  output: { artifact: name_lockbox }

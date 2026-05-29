@@ -1,0 +1,38 @@
+{
+  "schema": "pathway-run/1.0",
+  "run_id": "pr_25bc3856a86c",
+  "pathway": "Collaboration.Refactor.RenameTerm@v1",
+  "label": "Gloss fix: define assay in thesis + playbook",
+  "status": "COMPLETED",
+  "started": "2026-05-29T04:35:46Z",
+  "ended": "2026-05-29T04:35:47Z",
+  "elapsed_ms": 122,
+  "command": [
+    "python3",
+    "collaboration/20260528-130500/collaboration-pathways/scripts/09b_gloss_fix.py"
+  ],
+  "exit_code": 0,
+  "script_path": "collaboration/20260528-130500/collaboration-pathways/scripts/09b_gloss_fix.py",
+  "script_sha256": "764a4c2754bc13b926ac58c5f4d07d0de37342120f4aee5eac8f0c1c91c68c7b",
+  "script_source": "#!/usr/bin/env python3\n\"\"\"09b_gloss_fix.py - insert the 'assay' definition into the two files missed by 09.\n\n09's gloss anchors used hyphens where the headings use em-dashes, so the assay-thesis sidecar\nand the assay-pathways playbook did not receive the reader-facing definition. This inserts it\nrobustly right after each file's H1. Producing pathway: Collaboration.Refactor.RenameTerm@v1.\n\"\"\"\nimport json\nimport os\nfrom pathlib import Path\n\nSNAP = Path(\"collaboration/20260528-130500\")\nASSAY_DEF = (\n    \"\\n> **Assay** - a precise test of what something is genuinely made of; an *assayer* \"\n    \"certifies the true composition of a metal. Here, the *assay pathways* test what a legal-AI \"\n    \"claim is really made of - grounded citations, reproducible scores, attested runs: the honest \"\n    \"measurement the satire only performs.\\n\"\n)\nTARGETS = [\n    SNAP / \"assay-pathways\" / \"APPLICATION_PLAYBOOK.md\",\n    SNAP / \"sidecars\" / \"assay-thesis.md\",\n]\n\n\ndef main() -> int:\n    done = []\n    for p in TARGETS:\n        if not p.exists():\n            continue\n        t = p.read_text(encoding=\"utf-8\")\n        if \"an *assayer*\" in t:\n            continue\n        lines = t.split(\"\\n\")\n        # insert after the first H1 line\n        idx = next((i for i, ln in enumerate(lines) if ln.startswith(\"# \")), 0)\n        lines.insert(idx + 1, ASSAY_DEF)\n        p.write_text(\"\\n\".join(lines), encoding=\"utf-8\")\n        done.append(str(p))\n    print(f\"gloss fix: inserted definition into {len(done)} file(s)\")\n    produced = done + [f\"{SNAP}/collaboration-pathways/scripts/09b_gloss_fix.py\"]\n    am = os.environ.get(\"ASSET_MANIFEST\")\n    if am:\n        Path(am).write_text(json.dumps(produced), encoding=\"utf-8\")\n    return 0\n\n\nif __name__ == \"__main__\":\n    raise SystemExit(main())\n",
+  "stdout": "gloss fix: inserted definition into 2 file(s)\n",
+  "stderr": "",
+  "produced_assets": [
+    {
+      "asset": "collaboration/20260528-130500/assay-pathways/APPLICATION_PLAYBOOK.md",
+      "sha256": "de7187c7d22f6efee6af5658e623defa1c36c9c0ee6cf2b8bc2f793bdd09d818"
+    },
+    {
+      "asset": "collaboration/20260528-130500/sidecars/assay-thesis.md",
+      "sha256": "80d62d868185637c09bbcb3d1ce8b631e7035e7feceff6a78ff4a075018ffb5f"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/scripts/09b_gloss_fix.py",
+      "sha256": "764a4c2754bc13b926ac58c5f4d07d0de37342120f4aee5eac8f0c1c91c68c7b"
+    }
+  ],
+  "accessed_domains": [],
+  "authenticated_by_identity": null,
+  "harness": "collaboration-pathways/scripts/run_with_provenance.py",
+  "recorded_at": "2026-05-29T04:35:47Z"
+}

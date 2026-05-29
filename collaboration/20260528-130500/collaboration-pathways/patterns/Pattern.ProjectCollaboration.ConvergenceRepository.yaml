@@ -1,0 +1,60 @@
+pattern:
+  id: Pattern.ProjectCollaboration.ConvergenceRepository
+  version: 1.0.0
+  title: Convergence Repository Pattern
+
+  description: |
+    Two peers begin collaboration by assembling a convergence repository —
+    not by sharing live repo access. The repository is:
+    - verbatim-copied (no symlinks)
+    - link-closed for browsing
+    - content-hash bound for integrity
+    - Ed25519-sealed
+    - date-stamped immutable once assembled
+
+  invariants:
+    - copy_only_no_symlinks
+    - link_closure_before_hash_bind
+    - hash_bind_after_link_rewrite
+    - sign_after_hash_bind
+    - pending_investigation_declared
+    - proof_before_closure
+    - pre_registered_hypotheses_before_proof
+    - bundle_sealed_or_invalidated_not_ambiguous
+
+  attribution:
+    co_originators:
+      - did: did:placeholder:person-a
+        label: "person-a, Strategy vessel S57"
+        role: collaboration-bundle-premise-pattern
+      - label: "Originator (DJ Thomson)"
+        role: pathways-framework-author
+
+  lineage:
+    - collaboration-bundle/
+    - collaboration-bundle-reciprocal/
+    - prior-instance-3/collaboration/20260526-120000/
+    - prior-instance-4/collaboration/20260526-140000/
+    - djat_x_mikeoss/collaboration/20260528-130500/
+
+  invokes:
+    - Collaboration.Convergence.AssembleBundle
+    - Collaboration.Bundle.SealBundle
+    - Collaboration.Investigation.DeclarePending
+    - Collaboration.Investigation.PreRegisterHypotheses
+    - Collaboration.Investigation.SealOrInvalidateBundle
+
+  reference_implementations:
+    - repo: djat_x_mikeoss
+      collaboration: collaboration/20260528-130500/
+      counterparties: [Originator, the open MikeOSS project and team]
+
+  anti_patterns:
+    - name: live_symlink_handoff
+      why: breaks portability and invalidates offline verify
+    - name: hash_bind_before_link_rewrite
+      why: rewritten links change content hashes
+    - name: closure_without_investigation
+      why: convergence != agreement; pending questions must be explicit
+    - name: bundled_executable_code
+      why: defeats spec-sovereign implementation goal for seeding collaborations

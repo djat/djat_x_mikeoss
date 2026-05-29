@@ -1,0 +1,40 @@
+# Collaboration.Privacy.DeIdentify@v1
+
+pathway_template:
+  identity:
+    template_id: Collaboration.Privacy.DeIdentify@v1
+    artifact_type: pathway-template
+    triple: { domain: Collaboration, subdomain: Privacy, action: DeIdentify }
+    version: 1.0.0
+
+  description: |
+    Replaces identifiable external persons/entities in public text with stable placeholders
+    (person-a/b/c, entity-1/2/3, prior-instance-N, the Originator), emitting a
+    deidentification-map.json that records every placeholder -> {file, count}. Attribution
+    is preserved as fact; the real names move into sealed lockboxes (Phase 3). This is a
+    privacy proxy: least-privilege conversion of names to placeholders, reversible only via
+    the lockbox reveal.
+
+  implementation: collaboration-pathways/scripts/03_deidentify.py
+
+  inputs:
+    - name: subject_map
+      type: dict
+      description: real token -> placeholder (multiword/domain/handle first, then word-boundary bare)
+    - name: excludes
+      type: list
+      default: [pathway-runs, scripts, attestations]
+
+  steps:
+    - id: ordered_replace
+      agent_id: pathway
+      skill: ordered_regex_replace
+    - id: emit_map
+      agent_id: persist
+      skill: write_deidentification_map
+      config:
+        target: identities/deidentification-map.json
+
+  output:
+    artifact: deidentified_bundle
+    notes: "Placeholders are keys into the sealed lockboxes; real names never appear in public text."

@@ -1,0 +1,11 @@
+{
+  "event_id": "evt_003",
+  "timestamp": "2026-05-28T19:00:00Z",
+  "type": "assay_encoded",
+  "channel": "djat-mikeoss-20260528",
+  "description": "Four assay legal pathway stubs and ten pre-registered asks (H-MO1..H-MO10) authored",
+  "artifacts": [
+    "assay-pathways/",
+    "collaboration-pathways/test/HYPOTHESES.md"
+  ]
+}

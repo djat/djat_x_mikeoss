@@ -1,0 +1,42 @@
+{
+  "schema": "pathway-run/1.0",
+  "run_id": "pr_9ef41959c291",
+  "pathway": "Collaboration.Naming.RegisterTerm@v1",
+  "label": "Term.Assay@v1 supersedes Term.AntiVenom@v1",
+  "status": "COMPLETED",
+  "started": "2026-05-29T04:36:39Z",
+  "ended": "2026-05-29T04:36:40Z",
+  "elapsed_ms": 115,
+  "command": [
+    "python3",
+    "collaboration/20260528-130500/collaboration-pathways/scripts/10_assay_terms.py"
+  ],
+  "exit_code": 0,
+  "script_path": "collaboration/20260528-130500/collaboration-pathways/scripts/10_assay_terms.py",
+  "script_sha256": "80bd0973be8667f712c8883731ab8ef06f405016ce58ab79479f18d300003c65",
+  "script_source": "#!/usr/bin/env python3\n\"\"\"10_assay_terms.py - register the domain rename as Term artifacts (recorded run).\n\nProducing pathway: Collaboration.Naming.RegisterTerm@v1. Records that \"assay\" supersedes the\nprior \"anti-venom\" framing, keeping the prior term as a freely licensable artifact (name-as-\nartifact discipline). Written after the rename, so Term.AntiVenom retains the literal prior label.\n\"\"\"\nimport json\nimport os\nfrom pathlib import Path\n\nSNAP = Path(\"collaboration/20260528-130500\")\nTERMS = SNAP / \"collaboration-pathways\" / \"terms\"\nMANIFEST = SNAP / \"collaboration-manifest.yaml\"\n\nTERM_ASSAY = \"\"\"# Term.Assay@v1\nterm:\n  identity:\n    term_id: Term.Assay@v1\n    artifact_type: term\n    label: \"assay (pathways)\"\n    version: 1.0.0\n  authored_by: \"Originator (DJ Thomson)\"\n  authored_in: collaboration/20260528-130500\n  supersedes: Term.AntiVenom@v1\n  meaning: >\n    The domain name for the legal-AI trustworthiness pathways. An assay is a precise test of what\n    something is genuinely made of - an assayer certifies the true composition of a metal. Chosen\n    to replace the prior oppositional/medical framing with a positive, constructive one.\n  name_license:\n    use_as_label: free\n    attribution_required: true\n    revocation_scope_max: self_only\n\"\"\"\n\n# Written post-rename and not subject to the rename pass, so it retains the literal prior label.\nTERM_PRIOR = \"\"\"# Term.AntiVenom@v1\nterm:\n  identity:\n    term_id: Term.AntiVenom@v1\n    artifact_type: term\n    label: \"anti-venom\"\n    version: 1.0.0\n  status: prior-term (superseded, retained as lineage)\n  superseded_by: Term.Assay@v1\n  meaning: >\n    The original framing for the trustworthiness pathways - the \"antidote\" to benchmark-theater\n    \"venom\". Oppositional/medical; replaced by \"assay\". Retained for lineage and offered as a\n    freely licensable label for anyone who prefers it.\n  name_license:\n    use_as_label: free\n    attribution_required: true\n    revocation_scope_max: self_only\n\"\"\"\n\nMANIFEST_BLOCK = \"\"\"\n# ---------------------------------------------------------------------------\n# DOMAIN NAME PROVENANCE (the assay pathways; renamed from \"anti-venom\")\n# ---------------------------------------------------------------------------\ndomain_name_provenance:\n  default_term: Term.Assay@v1\n  terms:\n    - collaboration-pathways/terms/Term.Assay.v1.yaml\n    - collaboration-pathways/terms/Term.AntiVenom.v1.yaml\n  supersession:\n    new: Term.Assay@v1\n    prior: Term.AntiVenom@v1\n    scope: name_only\n    license: free\n  pattern: Pattern.Naming.ProvenancedTermBinding\n  note: >\n    The pathway recipes (verify-first grounding, reproducible benchmark, anchored-authority\n    convergence, run-manifest) are unchanged; only the domain label changed. The prior term is\n    retained and freely licensable.\n\"\"\"\n\n\ndef main() -> int:\n    TERMS.mkdir(parents=True, exist_ok=True)\n    (TERMS / \"Term.Assay.v1.yaml\").write_text(TERM_ASSAY, encoding=\"utf-8\")\n    (TERMS / \"Term.AntiVenom.v1.yaml\").write_text(TERM_PRIOR, encoding=\"utf-8\")\n    with MANIFEST.open(\"a\", encoding=\"utf-8\") as f:\n        f.write(MANIFEST_BLOCK)\n    print(\"assay terms: Term.Assay@v1 supersedes Term.AntiVenom@v1; manifest domain_name_provenance written\")\n    produced = [\n        str(TERMS / \"Term.Assay.v1.yaml\"),\n        str(TERMS / \"Term.AntiVenom.v1.yaml\"),\n        str(MANIFEST),\n        f\"{SNAP}/collaboration-pathways/scripts/10_assay_terms.py\",\n    ]\n    am = os.environ.get(\"ASSET_MANIFEST\")\n    if am:\n        Path(am).write_text(json.dumps(produced), encoding=\"utf-8\")\n    return 0\n\n\nif __name__ == \"__main__\":\n    raise SystemExit(main())\n",
+  "stdout": "assay terms: Term.Assay@v1 supersedes Term.AntiVenom@v1; manifest domain_name_provenance written\n",
+  "stderr": "",
+  "produced_assets": [
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/terms/Term.Assay.v1.yaml",
+      "sha256": "de24c5057f21e58e5afabc159f3726be58fedeae4caba0a5cd5cac45a33f8acd"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/terms/Term.AntiVenom.v1.yaml",
+      "sha256": "19de8ce98ceb45d5752d87ee04361c6956cb21f8cdfadeabe702510d76a7c5de"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-manifest.yaml",
+      "sha256": "847f4d1a079bab8f8ae2b5096c69fb89519b2b149fe5389984ad77032e8e86a4"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/scripts/10_assay_terms.py",
+      "sha256": "80bd0973be8667f712c8883731ab8ef06f405016ce58ab79479f18d300003c65"
+    }
+  ],
+  "accessed_domains": [],
+  "authenticated_by_identity": null,
+  "harness": "collaboration-pathways/scripts/run_with_provenance.py",
+  "recorded_at": "2026-05-29T04:36:40Z"
+}

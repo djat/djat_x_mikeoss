@@ -1,0 +1,39 @@
+# Collaboration.Attestation.BindContentHashes@v1
+
+pathway_template:
+  identity:
+    template_id: Collaboration.Attestation.BindContentHashes@v1
+    triple: { domain: Collaboration, subdomain: Attestation, action: BindContentHashes }
+    version: 1.0.0
+
+  description: |
+    Computes SHA-256 hash for every file in the convergence repo and emits
+    CONTENT_MANIFEST.yaml with bundle_root_hash. No external signing SDK required.
+
+  inputs:
+    - name: bundle_dir
+      type: path
+    - name: exclusions
+      type: list
+      default: [.git, .obsidian, .DS_Store, attestations/CONTENT_MANIFEST.yaml, attestations/BUNDLE_SIGNATURE.json]
+
+  steps:
+    - id: hash_files
+      agent_id: verification
+      skill: sha256_content_bind
+      config:
+        algorithm: sha256-content-bind
+        sort: lexicographic_by_rel_path
+
+    - id: emit_manifest
+      agent_id: persist
+      skill: write_yaml
+      config:
+        target: attestations/CONTENT_MANIFEST.yaml
+        fields:
+          - bundle_root_hash
+          - file_count
+          - files[]
+
+  output:
+    artifact: content_manifest

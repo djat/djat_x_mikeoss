@@ -1,0 +1,66 @@
+# Collaboration.Convergence.AssembleBundle@v1
+
+pathway_template:
+  identity:
+    template_id: Collaboration.Convergence.AssembleBundle@v1
+    artifact_type: pathway-template
+    triple:
+      domain: Collaboration
+      subdomain: Convergence
+      action: AssembleBundle
+    version: 1.0.0
+
+  description: |
+    Assembles a date-stamped convergence repository under collaboration/YYYYMMDD-HHMMSS/.
+    Verbatim-copies source artifacts, rewrites relative MD/YAML links, runs link-closure
+    gate, binds content hashes, emits CONTENT_MANIFEST. Generalized from the deal-flow
+    seeding instance to any collaboration (build, invitation, or reciprocal).
+
+  inputs:
+    - name: source_roots
+      type: list
+      description: Paths to copy (collaboration-pathways, the domain pathways, canon, sidecars)
+    - name: collaboration_dir
+      type: path
+      description: Target dated folder e.g. collaboration/20260528-130500/
+    - name: issued_at
+      type: iso8601
+
+  steps:
+    - id: copy_artifacts
+      agent_id: pathway
+      skill: Collaboration.Convergence.CopyArtifacts
+      config:
+        mode: verbatim
+        symlinks: false
+      outputs: [convergence_tree]
+
+    - id: rewrite_links
+      agent_id: pathway
+      skill: Collaboration.Bundle.RewriteLinks
+      invokes:
+        - Collaboration.Bundle.RewriteLinks
+      outputs: [link_rewrite_report]
+
+    - id: check_links
+      agent_id: verification
+      skill: check-links
+      config:
+        must_pass: true
+
+    - id: bind_hashes
+      agent_id: pathway
+      skill: Collaboration.Attestation.BindContentHashes
+      invokes:
+        - Collaboration.Attestation.BindContentHashes
+      outputs: [content_manifest]
+
+  output:
+    artifact: convergence_repository
+    required_fields:
+      - bundle_root_hash
+      - file_count
+
+  reference_instance:
+    repo: djat_x_mikeoss
+    collaboration: collaboration/20260528-130500/

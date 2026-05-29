@@ -1,0 +1,62 @@
+{
+  "schema": "pathway-run/1.0",
+  "run_id": "pr_ad4aa0852967",
+  "pathway": "Collaboration.Privacy.DeIdentify@v1",
+  "label": "De-identify residual placeholder DID -> did:placeholder:person-a",
+  "status": "COMPLETED",
+  "started": "2026-05-29T04:58:27Z",
+  "ended": "2026-05-29T04:58:27Z",
+  "elapsed_ms": 138,
+  "command": [
+    "python3",
+    "collaboration/20260528-130500/collaboration-pathways/scripts/11_scrub_did.py"
+  ],
+  "exit_code": 0,
+  "script_path": "collaboration/20260528-130500/collaboration-pathways/scripts/11_scrub_did.py",
+  "script_sha256": "1593ac7285dc1c40a3339dddb331bbec833b3ae03d9789f37869cb905eac4952",
+  "script_source": "#!/usr/bin/env python3\n\"\"\"11_scrub_did.py - de-identify the residual placeholder DID (recorded run).\n\nPhase 2 replaced the name tokens but missed the lowercase/hyphenated form embedded in a\nplaceholder DID, which still carried a real person's name. This replaces that DID with the\nnon-identifying did:placeholder:person-a across the snapshot. The person's real identifiers\n(domain, email, did:web) live only in the sealed lockbox (re-issued separately).\n\nThe leaking string is assembled from parts so this script's source (and its PathwayRun record)\ndoes not reproduce the name. Producing pathway: Collaboration.Privacy.DeIdentify@v1.\n\"\"\"\nimport json\nimport os\nfrom pathlib import Path\n\nSNAP = Path(\"collaboration/20260528-130500\")\nTEXT_EXT = {\".md\", \".yaml\", \".yml\", \".json\", \".txt\", \".html\"}\nEXCLUDE = {\".git\", \".obsidian\"}\n\nOLD = \"did:placeholder:\" + \"localpart\" + \"-redacted-2026-05-20-S57\"  # assembled to avoid the literal name\nNEW = \"did:placeholder:person-a\"\n\n\ndef main() -> int:\n    scrubbed = []\n    for p in SNAP.rglob(\"*\"):\n        if not p.is_file() or p.suffix not in TEXT_EXT:\n            continue\n        if any(x in EXCLUDE for x in p.parts):\n            continue\n        t = p.read_text(encoding=\"utf-8\")\n        if OLD in t:\n            p.write_text(t.replace(OLD, NEW), encoding=\"utf-8\")\n            scrubbed.append(str(p))\n    print(f\"scrub-did: replaced placeholder DID in {len(scrubbed)} file(s) -> {NEW}\")\n    for s in scrubbed:\n        print(\"  \", s)\n    produced = scrubbed + [f\"{SNAP}/collaboration-pathways/scripts/11_scrub_did.py\"]\n    am = os.environ.get(\"ASSET_MANIFEST\")\n    if am:\n        Path(am).write_text(json.dumps(sorted(set(produced))), encoding=\"utf-8\")\n    return 0\n\n\nif __name__ == \"__main__\":\n    raise SystemExit(main())\n",
+  "stdout": "scrub-did: replaced placeholder DID in 8 file(s) -> did:placeholder:person-a\n   collaboration/20260528-130500/collaboration-manifest.yaml\n   collaboration/20260528-130500/collaboration-pathways/PACKAGE.yaml\n   collaboration/20260528-130500/collaboration-pathways/patterns/Pattern.CollaborationBundle.SelfDescribing.yaml\n   collaboration/20260528-130500/collaboration-pathways/patterns/Pattern.ProjectCollaboration.ConvergenceRepository.yaml\n   collaboration/20260528-130500/collaboration-pathways/meta/co-originator-attribution.yaml\n   collaboration/20260528-130500/collaboration-pathways/canon/COLLABORATION_BUNDLE_TECHNIQUE.md\n   collaboration/20260528-130500/collaboration-pathways/sidecars/collaboration-pattern-lineage-and-attribution.md\n   collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Meta.EmbedTechniqueProvenance.v1.yaml\n",
+  "stderr": "",
+  "produced_assets": [
+    {
+      "asset": "collaboration/20260528-130500/collaboration-manifest.yaml",
+      "sha256": "ad4b504cd0583cf65e418dd16ed7c41489d0c4c17cc525aa2689eb574198617b"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/PACKAGE.yaml",
+      "sha256": "56c19807d768c5a015567682c923599ee51b6ab5dc8cff0e1954315ea8c32a89"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/canon/COLLABORATION_BUNDLE_TECHNIQUE.md",
+      "sha256": "919ff7f69ec4eda9d56df47325b4b1037a818b41ef742a2bdc00826f39064060"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/meta/co-originator-attribution.yaml",
+      "sha256": "4975f3fc722e2576032493661f0eeb59f3ffa415d68c3498885bedbad039ba43"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Meta.EmbedTechniqueProvenance.v1.yaml",
+      "sha256": "3d0f1ab95e646ab12e13bce34058d52a3249961fe41b3956932d5241eb088943"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/patterns/Pattern.CollaborationBundle.SelfDescribing.yaml",
+      "sha256": "b195581edf95b46c612826474629676bf1c58b41111308561c2927ef1e08764d"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/patterns/Pattern.ProjectCollaboration.ConvergenceRepository.yaml",
+      "sha256": "172ee3cd417ae43fbfebfff4c9321365f40618c992837a9f940fa73d0df376b6"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/scripts/11_scrub_did.py",
+      "sha256": "1593ac7285dc1c40a3339dddb331bbec833b3ae03d9789f37869cb905eac4952"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/sidecars/collaboration-pattern-lineage-and-attribution.md",
+      "sha256": "72255f59d3bd8ebae0bf9e5e337949435e25d0ac92b255658c18bccc801cc09b"
+    }
+  ],
+  "accessed_domains": [],
+  "authenticated_by_identity": null,
+  "harness": "collaboration-pathways/scripts/run_with_provenance.py",
+  "recorded_at": "2026-05-29T04:58:27Z"
+}

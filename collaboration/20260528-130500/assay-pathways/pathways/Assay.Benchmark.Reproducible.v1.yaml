@@ -1,0 +1,59 @@
+# Assay.Benchmark.Reproducible@v1
+
+pathway_template:
+  identity:
+    template_id: Assay.Benchmark.Reproducible@v1
+    artifact_type: pathway-template
+    triple: { domain: Assay, subdomain: Benchmark, action: Reproducible }
+    version: 1.0.0
+
+  description: |
+    The honest inverse of the Elite MegaLaw table. Each benchmark task is an attested
+    run with hashed prompt + hashed output and deterministic grounding. Scores are
+    bounded by ground truth — a citation either resolves against a canonical public
+    source or it does not — so no score can exceed 100%, and every number can be
+    re-derived by a third party. No chart smoothing, no decimal optimisation, no
+    strategic category weighting. STUB — no executable code.
+
+  inputs:
+    - name: task_set
+      type: path
+      description: ~10 tasks for one category (e.g. Legal Research)
+    - name: models
+      type: list
+
+  steps:
+    - id: run_each_task
+      agent_id: pathway
+      skill: run_attested_task
+      config:
+        per_run: { hash_prompt: true, hash_output: true, record_model_id: true }
+
+    - id: ground_against_commons
+      agent_id: verification
+      skill: database_verification
+      config:
+        provider_order: [courtlistener, cornell_lii, govinfo]
+
+    - id: score_bounded
+      agent_id: analysis
+      skill: bounded_score
+      config:
+        max_score: 1.0
+        rule: "Score is the fraction grounded against canonical sources. Cannot exceed reality."
+
+    - id: emit_rerun_script
+      agent_id: composer
+      skill: author_rerun_kernel
+      config:
+        target: proof-results/benchmark/rerun.md
+        openly_licensed: true
+
+  output:
+    artifact: reproducible_benchmark_result
+    includes: [per_task_attestation, bounded_scores, rerun_kernel]
+
+  anti_patterns:
+    - scores_above_100_percent
+    - self_administered_panel
+    - unreadable_methodology

@@ -1,0 +1,15 @@
+{
+  "event_id": "evt_004",
+  "timestamp": "2026-05-28T19:05:00Z",
+  "type": "bundle_assembled",
+  "channel": "djat-mikeoss-20260528",
+  "bundle_status": "ASSEMBLED",
+  "investigation_id": "open-assay-co-creation-mikeoss",
+  "artifacts": [
+    "collaboration-pathways/",
+    "assay-pathways/",
+    "canon/",
+    "pathways_canon/",
+    "sidecars/"
+  ]
+}

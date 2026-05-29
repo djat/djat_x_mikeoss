@@ -1,0 +1,34 @@
+{
+  "schema": "pathway-run/1.0",
+  "run_id": "pr_2d6d0730e9f7",
+  "pathway": "Collaboration.Refactor.RenameTerm@v1",
+  "label": "Phase 1 fixups: normalize OpenInvitation + caps",
+  "status": "COMPLETED",
+  "started": "2026-05-29T03:33:15Z",
+  "ended": "2026-05-29T03:33:15Z",
+  "elapsed_ms": 120,
+  "command": [
+    "python3",
+    "collaboration/20260528-130500/collaboration-pathways/scripts/01b_rename_fixups.py"
+  ],
+  "exit_code": 0,
+  "script_path": "collaboration/20260528-130500/collaboration-pathways/scripts/01b_rename_fixups.py",
+  "script_sha256": "610865c42227db8975b3717e69f3e7a7086711ace519288268dbf4f4849b6459",
+  "script_source": "#!/usr/bin/env python3\n\"\"\"01b_rename_fixups.py - post-rename consistency fixups (Phase 1).\n\nTwo issues from the ordered catch-all:\n  1. The journey action \"OpenInvitationTransmission\" became \"OpenInvitationCollaboration\"\n     (redundant). Normalize to \"OpenInvitation\" and rename its file to match.\n  2. One all-caps \"TRANSMISSION\" survived in a manifest comment -> \"COLLABORATION\".\nRecorded as a Collaboration.Refactor.RenameTerm@v1 run.\n\"\"\"\nimport json\nimport os\nfrom pathlib import Path\n\nSNAP = Path(\"collaboration/20260528-130500\")\nEXCLUDE = {\"pathway-runs\", \"attestations\", \"scripts\", \".git\", \".obsidian\"}\nPRESERVE = {\"Collaboration.Refactor.RenameTerm.v1.yaml\",\n            \"Collaboration.Attestation.RecordPathwayRun.v1.yaml\"}\nTEXT_EXT = {\".md\", \".yaml\", \".yml\", \".json\", \".txt\", \".html\"}\nREPL = [\n    (\"OpenInvitationCollaboration\", \"OpenInvitation\"),\n    (\"OpenInvitationTransmission\", \"OpenInvitation\"),\n    (\"MIKEOSS TRANSMISSION\", \"MIKEOSS COLLABORATION\"),\n    (\"TRANSMISSION\", \"COLLABORATION\"),\n]\nRENAMES = [\n    (f\"{SNAP}/collaboration-pathways/pathways/Experience.Collaboration.OpenInvitationTransmission.v1.yaml\",\n     f\"{SNAP}/collaboration-pathways/pathways/Experience.Collaboration.OpenInvitation.v1.yaml\"),\n]\n\n\ndef excluded(p: Path) -> bool:\n    return p.name in PRESERVE or any(x in EXCLUDE for x in p.parts)\n\n\ndef main() -> int:\n    changed, renamed = [], []\n    for p in SNAP.rglob(\"*\"):\n        if not p.is_file() or excluded(p) or p.suffix not in TEXT_EXT:\n            continue\n        orig = p.read_text(encoding=\"utf-8\")\n        new = orig\n        for a, b in REPL:\n            new = new.replace(a, b)\n        if new != orig:\n            p.write_text(new, encoding=\"utf-8\")\n            changed.append(str(p))\n    for old, new in RENAMES:\n        if Path(old).exists():\n            os.rename(old, new)\n            renamed.append(new)\n    print(f\"fixups: {len(changed)} files, {len(renamed)} renamed\")\n    produced = renamed + [f\"{SNAP}/collaboration-pathways/scripts/01b_rename_fixups.py\"]\n    am = os.environ.get(\"ASSET_MANIFEST\")\n    if am:\n        Path(am).write_text(json.dumps(produced), encoding=\"utf-8\")\n    return 0\n\n\nif __name__ == \"__main__\":\n    raise SystemExit(main())\n",
+  "stdout": "fixups: 10 files, 1 renamed\n",
+  "stderr": "",
+  "produced_assets": [
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/pathways/Experience.Collaboration.OpenInvitation.v1.yaml",
+      "sha256": "edd88f4f58d380933435ea29d8675fd1ebdf018d79dc53b0cab6dbeb5525dab1"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/scripts/01b_rename_fixups.py",
+      "sha256": "610865c42227db8975b3717e69f3e7a7086711ace519288268dbf4f4849b6459"
+    }
+  ],
+  "accessed_domains": [],
+  "authenticated_by_identity": null,
+  "harness": "collaboration-pathways/scripts/run_with_provenance.py",
+  "recorded_at": "2026-05-29T03:33:15Z"
+}

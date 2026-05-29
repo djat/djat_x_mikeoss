@@ -1,0 +1,66 @@
+{
+  "schema": "pathway-run/1.0",
+  "run_id": "pr_dcd9c2813464",
+  "pathway": "Collaboration.Refactor.RenameTerm@v1",
+  "label": "Rename anti-venom -> assay + reader gloss",
+  "status": "COMPLETED",
+  "started": "2026-05-29T04:35:07Z",
+  "ended": "2026-05-29T04:35:07Z",
+  "elapsed_ms": 181,
+  "command": [
+    "python3",
+    "collaboration/20260528-130500/collaboration-pathways/scripts/09_rename_assay.py"
+  ],
+  "exit_code": 0,
+  "script_path": "collaboration/20260528-130500/collaboration-pathways/scripts/09_rename_assay.py",
+  "script_sha256": "84c2e4a7ef719c61a75f7e03d3ccec624bdc58cfe6b93a28a84b062118eedcb1",
+  "script_source": "#!/usr/bin/env python3\n\"\"\"09_rename_assay.py - rename the \"anti-venom\" framing to \"assay\" (recorded run).\n\nProducing pathway: Collaboration.Refactor.RenameTerm@v1. Token-swaps AntiVenom/anti-venom ->\nAssay/assay across the snapshot (excluding immutable run records, regenerated attestations, and\nscripts), softens the residual venom/antidote metaphor into the assay framing, renames the\ndirectory + four pathway files + the thesis sidecar + the timeline event, and injects a one-line\ndefinition of \"assay\" at first use in the reader-facing files. The prior term \"anti-venom\" is\nretained as a licensable Term in a separate step (10_assay_terms.py). The literal old tokens in\nTHIS script + its run record are the legitimate provenance of the rename.\n\"\"\"\nimport json\nimport os\nfrom pathlib import Path\n\nSNAP = Path(\"collaboration/20260528-130500\")\nEXCLUDE = {\"pathway-runs\", \"attestations\", \"scripts\", \".git\", \".obsidian\"}\nTEXT_EXT = {\".md\", \".yaml\", \".yml\", \".json\", \".txt\", \".html\"}\n\nTOKENS = [\n    (\"AntiVenom.\", \"Assay.\"),\n    (\"antivenom-pathways\", \"assay-pathways\"),\n    (\"anti-venom-thesis\", \"assay-thesis\"),\n    (\"Anti-Venom\", \"Assay\"),\n    (\"Anti-venom\", \"Assay\"),\n    (\"AntiVenom\", \"Assay\"),\n    (\"anti-venom\", \"assay\"),\n    (\"antivenom\", \"assay\"),\n]\nRESIDUE = [\n    (\"co-create the genuine **assay** to the very thing the satire has already begun to alchemize.\",\n     \"co-create the genuine **assay** the satire only performs - a rigorous test of what a legal-AI claim is really made of.\"),\n    (\"The antidote is not a better marketing department\", \"The assay is not a better marketing department\"),\n    (\"The antidote is not a better story\", \"The assay is not a better story\"),\n    (\"If the antidote to benchmark theater were proprietary\", \"If the assay for benchmark theater were proprietary\"),\n    (\"the proposed antidote\", \"the proposed assay\"),\n    (\"antidote\", \"assay\"),\n]\n\nASSAY_DEF = (\n    \"\\n> **Assay** - a precise test of what something is genuinely made of; an *assayer* \"\n    \"certifies the true composition of a metal. Here, the *assay pathways* test what a legal-AI \"\n    \"claim is really made of - grounded citations, reproducible scores, attested runs: the honest \"\n    \"measurement the satire only performs.\\n\"\n)\nGLOSS_ANCHORS = {\n    str(SNAP / \"collaboration-spine.md\"): \"## 3. The assay thesis\",\n    str(SNAP / \"sidecars\" / \"assay-thesis.md\"): \"# Sidecar - The assay thesis (depth)\",\n    str(SNAP / \"assay-pathways\" / \"APPLICATION_PLAYBOOK.md\"): \"# Assay Pathways - Application Playbook\",\n}\n\nFILE_RENAMES_INNER = [\n    (f\"{SNAP}/antivenom-pathways/pathways/AntiVenom.Citation.VerifyFirst.v1.yaml\",\n     f\"{SNAP}/antivenom-pathways/pathways/Assay.Citation.VerifyFirst.v1.yaml\"),\n    (f\"{SNAP}/antivenom-pathways/pathways/AntiVenom.Benchmark.Reproducible.v1.yaml\",\n     f\"{SNAP}/antivenom-pathways/pathways/Assay.Benchmark.Reproducible.v1.yaml\"),\n    (f\"{SNAP}/antivenom-pathways/pathways/AntiVenom.Convergence.AnchoredAuthority.v1.yaml\",\n     f\"{SNAP}/antivenom-pathways/pathways/Assay.Convergence.AnchoredAuthority.v1.yaml\"),\n    (f\"{SNAP}/antivenom-pathways/pathways/AntiVenom.Provenance.RunManifest.v1.yaml\",\n     f\"{SNAP}/antivenom-pathways/pathways/Assay.Provenance.RunManifest.v1.yaml\"),\n]\n\n\ndef excluded(p: Path) -> bool:\n    return any(x in EXCLUDE for x in p.parts)\n\n\ndef main() -> int:\n    changed = []\n    for p in SNAP.rglob(\"*\"):\n        if not p.is_file() or excluded(p) or p.suffix not in TEXT_EXT:\n            continue\n        orig = p.read_text(encoding=\"utf-8\")\n        t = orig\n        for a, b in TOKENS:\n            t = t.replace(a, b)\n        for a, b in RESIDUE:\n            t = t.replace(a, b)\n        if t != orig:\n            p.write_text(t, encoding=\"utf-8\")\n            changed.append(str(p))\n\n    # Inner pathway-file renames, then the directory, then sidecar + timeline event.\n    renamed = []\n    for old, new in FILE_RENAMES_INNER:\n        if Path(old).exists():\n            os.rename(old, new)\n            renamed.append(new)\n    if (SNAP / \"antivenom-pathways\").exists():\n        os.rename(SNAP / \"antivenom-pathways\", SNAP / \"assay-pathways\")\n        renamed.append(str(SNAP / \"assay-pathways\"))\n    th_old, th_new = SNAP / \"sidecars\" / \"anti-venom-thesis.md\", SNAP / \"sidecars\" / \"assay-thesis.md\"\n    if th_old.exists():\n        os.rename(th_old, th_new)\n        renamed.append(str(th_new))\n    ev_old = SNAP / \"timeline\" / \"events\" / \"evt_003_antivenom_encoded.json\"\n    ev_new = SNAP / \"timeline\" / \"events\" / \"evt_003_assay_encoded.json\"\n    if ev_old.exists():\n        os.rename(ev_old, ev_new)\n        renamed.append(str(ev_new))\n\n    # Gloss insertion at first use (post-rename paths).\n    glossed = []\n    for fpath, anchor in GLOSS_ANCHORS.items():\n        p = Path(fpath)\n        if not p.exists():\n            continue\n        t = p.read_text(encoding=\"utf-8\")\n        if anchor in t and \"an *assayer*\" not in t:\n            t = t.replace(anchor, anchor + ASSAY_DEF, 1)\n            p.write_text(t, encoding=\"utf-8\")\n            glossed.append(fpath)\n\n    print(f\"assay rename: {len(changed)} files token/residue-edited, {len(renamed)} paths renamed, \"\n          f\"{len(glossed)} glossed\")\n    for r in renamed:\n        print(\"  renamed ->\", r)\n\n    produced = renamed + [\n        f\"{SNAP}/collaboration-pathways/scripts/09_rename_assay.py\",\n    ] + [g for g in GLOSS_ANCHORS]\n    am = os.environ.get(\"ASSET_MANIFEST\")\n    if am:\n        Path(am).write_text(json.dumps(sorted(set(produced))), encoding=\"utf-8\")\n    return 0\n\n\nif __name__ == \"__main__\":\n    raise SystemExit(main())\n",
+  "stdout": "assay rename: 28 files token/residue-edited, 7 paths renamed, 1 glossed\n  renamed -> collaboration/20260528-130500/antivenom-pathways/pathways/Assay.Citation.VerifyFirst.v1.yaml\n  renamed -> collaboration/20260528-130500/antivenom-pathways/pathways/Assay.Benchmark.Reproducible.v1.yaml\n  renamed -> collaboration/20260528-130500/antivenom-pathways/pathways/Assay.Convergence.AnchoredAuthority.v1.yaml\n  renamed -> collaboration/20260528-130500/antivenom-pathways/pathways/Assay.Provenance.RunManifest.v1.yaml\n  renamed -> collaboration/20260528-130500/assay-pathways\n  renamed -> collaboration/20260528-130500/sidecars/assay-thesis.md\n  renamed -> collaboration/20260528-130500/timeline/events/evt_003_assay_encoded.json\n",
+  "stderr": "",
+  "produced_assets": [
+    {
+      "asset": "collaboration/20260528-130500/antivenom-pathways/pathways/Assay.Benchmark.Reproducible.v1.yaml",
+      "sha256": ""
+    },
+    {
+      "asset": "collaboration/20260528-130500/antivenom-pathways/pathways/Assay.Citation.VerifyFirst.v1.yaml",
+      "sha256": ""
+    },
+    {
+      "asset": "collaboration/20260528-130500/antivenom-pathways/pathways/Assay.Convergence.AnchoredAuthority.v1.yaml",
+      "sha256": ""
+    },
+    {
+      "asset": "collaboration/20260528-130500/antivenom-pathways/pathways/Assay.Provenance.RunManifest.v1.yaml",
+      "sha256": ""
+    },
+    {
+      "asset": "collaboration/20260528-130500/assay-pathways",
+      "sha256": ""
+    },
+    {
+      "asset": "collaboration/20260528-130500/assay-pathways/APPLICATION_PLAYBOOK.md",
+      "sha256": "a358194747fd45025d8d926a3f2d3b7a7a495f8b963430f29f361db88cc67d69"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/scripts/09_rename_assay.py",
+      "sha256": "84c2e4a7ef719c61a75f7e03d3ccec624bdc58cfe6b93a28a84b062118eedcb1"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-spine.md",
+      "sha256": "c0533feb8a90818a19768af7999a646b614e2f4b713f5d74c6cd3485ac45b5f4"
+    },
+    {
+      "asset": "collaboration/20260528-130500/sidecars/assay-thesis.md",
+      "sha256": "f0d1038872190aa600a1887d62533b05b1c1e871249e103f82d3d42b06829e35"
+    },
+    {
+      "asset": "collaboration/20260528-130500/timeline/events/evt_003_assay_encoded.json",
+      "sha256": "fa4fb5951c021766d11212a85c81e810cfc1d7dbb71e625e3c611117d7b99eed"
+    }
+  ],
+  "accessed_domains": [],
+  "authenticated_by_identity": null,
+  "harness": "collaboration-pathways/scripts/run_with_provenance.py",
+  "recorded_at": "2026-05-29T04:35:07Z"
+}

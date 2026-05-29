@@ -1,0 +1,29 @@
+timeline_version: "1.0"
+channel: djat-mikeoss-20260528
+
+events:
+  - id: evt_001
+    timestamp: 2026-05-28T18:20:00Z
+    type: invitation_initiated
+    description: Open invitation to the MikeOSS project and team initiated; read-the-satire-as-truth exercise framed
+
+  - id: evt_002
+    timestamp: 2026-05-28T18:45:00Z
+    type: technique_canonized
+    description: First canonical Pathways encoding of the collaboration-bundle technique authored (co-originators person-a + Originator)
+
+  - id: evt_003
+    timestamp: 2026-05-28T19:00:00Z
+    type: assay_encoded
+    description: Four assay legal pathway stubs and ten pre-registered asks authored
+
+  - id: evt_004
+    timestamp: 2026-05-28T19:05:00Z
+    type: bundle_assembled
+    description: Convergence repository assembled at collaboration/20260528-130500/
+    bundle_status: ASSEMBLED
+
+  - id: evt_005
+    timestamp: null
+    type: reciprocal_optional
+    description: A reciprocal collaboration from MikeOSS is welcome but not required; bundle can SEAL on unilateral experiments

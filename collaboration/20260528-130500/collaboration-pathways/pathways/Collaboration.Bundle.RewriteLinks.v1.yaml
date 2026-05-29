@@ -1,0 +1,30 @@
+# Collaboration.Bundle.RewriteLinks@v1
+
+pathway_template:
+  identity:
+    template_id: Collaboration.Bundle.RewriteLinks@v1
+    triple: { domain: Collaboration, subdomain: Bundle, action: RewriteLinks }
+    version: 1.0.0
+
+  description: |
+    Rewrites all relative .md and .yaml links in the convergence repo so they
+    resolve within the bundle boundary. Emits link-rewrite-report.yaml audit.
+
+  inputs:
+    - name: bundle_dir
+      type: path
+
+  steps:
+    - id: scan_links
+      agent_id: verification
+      skill: scan_relative_links
+      config:
+        extensions: [.md, .yaml, .yml]
+
+    - id: rewrite
+      agent_id: pathway
+      skill: rewrite_to_bundle_relative
+      outputs: [link_rewrite_report]
+
+  output:
+    artifact: link_rewrite_report

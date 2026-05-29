@@ -1,0 +1,29 @@
+# PC-1 — Unilateral experiment conformance test
+
+test:
+  id: PC-1
+  title: At least one ask is confirmable without a reciprocal collaboration
+  invokes:
+    - Collaboration.Proof.RunUnilateralExperiment
+
+  narrative: |
+    Each of H-MO1..H-MO10 is designed to produce standalone value. This test asserts
+    that running any one of them emits a result artifact under proof-results/unilateral/
+    and updates seal candidacy — with no dependency on a reply from MikeOSS.
+
+  pass_criteria:
+    - "Running any H-MOn emits proof-results/unilateral/H-MOn.yaml"
+    - "bundle can reach SEALED with reciprocal_received == null"
+    - "no ask, if unrun, sets bundle_status to INVALIDATED"
+
+  hypotheses:
+    - H-MO1
+    - H-MO2
+    - H-MO3
+    - H-MO4
+    - H-MO5
+    - H-MO6
+    - H-MO7
+    - H-MO8
+    - H-MO9
+    - H-MO10

@@ -1,0 +1,184 @@
+# =============================================================================
+# THE OPEN PATHWAYS × MIKEOSS COLLABORATION — machine-readable bundle manifest
+# =============================================================================
+# Pairs with companion-bundle-index.md (the human-readable read-me-first).
+# This manifest also carries the technique_provenance block (see below): the
+# self-describing enhancement that lets any peer interrogate the collaboration-bundle
+# technique's Pathways formalization directly from the manifest.
+# =============================================================================
+
+manifest_version: "1.0"
+
+bundle:
+  name: "The open Pathways × MikeOSS Collaboration"
+  prepared_by: "the open Pathways project (Originator)"
+  prepared_for: "the open MikeOSS project and team"
+  date: 2026-05-28
+  channel: djat-mikeoss-20260528
+  purpose: |
+    An open invitation. Read the Elite MegaLaw Benchmark as beautiful satire, then as
+    truth; find the delta; propose two open projects co-create the genuine assay
+    (transparent, attested, deterministically-grounded legal AI). Carries the first
+    canonical Pathways encoding of the collaboration-bundle technique itself.
+  disclosure_boundary: architecture-and-method
+  contains_code: false
+  collaboration_kind: open-invitation
+  reciprocation_required: false
+  status: "ASSEMBLED — open invitation to the MikeOSS project and team"
+
+read_order:
+  - "companion-bundle-index.md"
+  - "collaboration-spine.md"
+  - "collaboration-pathways/canon/COLLABORATION_BUNDLE_TECHNIQUE.md"
+  - "collaboration-pathways/APPLICATION_PLAYBOOK.md"
+  - "assay-pathways/APPLICATION_PLAYBOOK.md"
+  - "collaboration-pathways/test/HYPOTHESES.md"
+  - "canon/PATHWAYS_REFERENCE_v1.1.0.md"
+
+files:
+  - path: companion-bundle-index.md
+    role: read-me-first
+    disclosure: architecture-and-method
+  - path: collaboration-spine.md
+    role: spine
+    disclosure: architecture-and-method
+  - path: collaboration-manifest.yaml
+    role: machine-index
+    disclosure: architecture-and-method
+  - path: COLLABORATION_READINESS.md
+    role: preflight-checklist
+    disclosure: architecture-and-method
+  - path: collaboration-pathways/
+    role: canonical-technique-encoding
+    disclosure: architecture-and-method
+  - path: assay-pathways/
+    role: legal-assay-pathways
+    disclosure: architecture-and-method
+  - path: pathways_canon/
+    role: framework-reports
+    disclosure: architecture-and-method
+  - path: canon/
+    role: frozen-normative-excerpt
+    disclosure: architecture-and-method
+  - path: sidecars/
+    role: depth
+    disclosure: architecture-and-method
+  - path: timeline/
+    role: event-log
+    disclosure: architecture-and-method
+  - path: assets/
+    role: reference
+    disclosure: architecture-and-method
+
+# -----------------------------------------------------------------------------
+# TECHNIQUE PROVENANCE — the self-describing enhancement (read this to interrogate
+# not just the bundle FORMAT, but the collaboration-bundle TECHNIQUE's formalization)
+# -----------------------------------------------------------------------------
+technique_provenance:
+  technique: collaboration-bundle
+  technique_version: "1.0 (first canonical Pathways encoding)"
+  co_originators:
+    - label: "person-a"
+      did: did:placeholder:person-a
+      role: premise-pattern
+      catalog_units: [44]
+    - label: "Originator (DJ Thomson)"
+      role: pathways-formalization
+  authored_enhancements:
+    - name: self-describing-bundle
+      by: "Originator (DJ Thomson)"
+      summary: >
+        Every bundle henceforth carries the technique's canon + provenance inside
+        itself, for asynchronous interrogability across the ecosystem.
+      pathway: Collaboration.Meta.EmbedTechniqueProvenance@v1
+      pattern: Pattern.CollaborationBundle.SelfDescribing
+      catalyzed_by: the open MikeOSS project and team
+  lineage:
+    - { stage: 1, repo: collaboration-bundle, role: inbound-premise }
+    - { stage: 2, repo: collaboration-bundle-reciprocal, role: reciprocal-handoff }
+    - { stage: 3, repo: prior-instance-3, role: attestation-validation }
+    - { stage: 4, repo: prior-instance-4, role: deal-flow-seeding }
+    - { stage: 5, repo: djat_x_mikeoss, role: first-canonical-technique-encoding }
+  defining_pathways:
+    - Collaboration.Convergence.AssembleBundle@v1
+    - Collaboration.Bundle.RewriteLinks@v1
+    - Collaboration.Attestation.BindContentHashes@v1
+    - Collaboration.Bundle.SealBundle@v1
+    - Collaboration.Bundle.VerifyBundle@v1
+    - Collaboration.Meta.EncodePromptLedger@v1
+    - Collaboration.Meta.EmbedTechniqueProvenance@v1
+    - Collaboration.Investigation.DeclarePending@v1
+    - Collaboration.Investigation.PreRegisterHypotheses@v1
+    - Collaboration.Investigation.SealOrInvalidateBundle@v1
+    - Collaboration.Proof.AwaitCounterpartyBuild@v1
+    - Collaboration.Proof.RunUnilateralExperiment@v1
+    - Collaboration.Reciprocation.AssembleReturnBundle@v1
+    - Experience.Collaboration.OpenInvitation@v1
+  defining_patterns:
+    - Pattern.ProjectCollaboration.ConvergenceRepository
+    - Pattern.CollaborationBundle.SelfDescribing
+  interrogate_via:
+    canon: collaboration-pathways/canon/COLLABORATION_BUNDLE_TECHNIQUE.md
+    index: collaboration-pathways/pathways-index.yaml
+    lineage: collaboration-pathways/sidecars/collaboration-pattern-lineage-and-attribution.md
+    verify: "python3 tools/collaboration-bundle/sign_bundle.py verify collaboration/20260528-130500"
+  license_terms:
+    fork: true
+    attribution_required: true
+    revocation_scope_max: self_only
+
+reciprocation_required: false
+reciprocation_optional_welcome:
+  - reciprocal collaboration bundle in this lineage
+  - co-created or forked assay-pathways/
+  - proof-results/mikeoss-experiment-results.md
+
+# ---------------------------------------------------------------------------
+# NAME PROVENANCE (name-as-artifact; see collaboration-pathways/terms/)
+# ---------------------------------------------------------------------------
+name_provenance:
+  default_term: Term.CollaborationBundle@v1
+  terms:
+    - collaboration-pathways/terms/Term.CollaborationBundle.v1.yaml
+    - collaboration-pathways/terms/Term.TransmissionBundle.v1.yaml
+  name_inheritance:
+    - from: Term.TransmissionBundle@v1
+      scope: name_only
+      license: free
+  pattern: Pattern.Naming.ProvenancedTermBinding
+  note: >
+    The recipe is named "collaboration bundle"; the prior term is retained as a licensable
+    artifact. A peer who prefers the prior label licenses Term.TransmissionBundle@v1
+    (name_only) - a provenanced choice, interrogable per permissions, not a UI rewrite.
+
+# ---------------------------------------------------------------------------
+# SPECIFICATION PROVENANCE - artifacts reference these exact spec signatures
+# ---------------------------------------------------------------------------
+specification_provenance:
+  spec:
+    file: canon/PATHWAYS_REFERENCE_v1.1.0.md
+    version: 1.1.0
+    sha256: 1588cda3f28fc8c22007ab05cad4231b1212444f2d0c2a1b404e9603ac6c75cc
+  architecture:
+    file: canon/PATHWAYS_ARCHITECTURE_v1.1.0.md
+    version: 1.1.0
+    sha256: 05482abd4805969ee92bbf6c02e3a15dde7f1461959f70e6b91f64f13a746f41
+
+# ---------------------------------------------------------------------------
+# DOMAIN NAME PROVENANCE (the assay pathways; renamed from "anti-venom")
+# ---------------------------------------------------------------------------
+domain_name_provenance:
+  default_term: Term.Assay@v1
+  terms:
+    - collaboration-pathways/terms/Term.Assay.v1.yaml
+    - collaboration-pathways/terms/Term.AntiVenom.v1.yaml
+  supersession:
+    new: Term.Assay@v1
+    prior: Term.AntiVenom@v1
+    scope: name_only
+    license: free
+  pattern: Pattern.Naming.ProvenancedTermBinding
+  note: >
+    The pathway recipes (verify-first grounding, reproducible benchmark, anchored-authority
+    convergence, run-manifest) are unchanged; only the domain label changed. The prior term is
+    retained and freely licensable.

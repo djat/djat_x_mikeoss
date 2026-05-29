@@ -1,0 +1,42 @@
+pattern:
+  id: Pattern.CollaborationBundle.SelfDescribing
+  version: 1.0.0
+  title: Self-Describing Collaboration Bundle Pattern
+
+  description: |
+    NEW. Originator (DJ Thomson)'s authored enhancement to the co-originated
+    collaboration-bundle technique. Every bundle henceforth carries, inside itself,
+    the canonical Pathways encoding of the technique AND that technique's provenance,
+    so any peer can interrogate not just the bundle's format but its formalization —
+    asynchronously, without a shared runtime, across the whole ecosystem.
+
+  invariants:
+    - technique_canon_present        # collaboration-pathways/canon/COLLABORATION_BUNDLE_TECHNIQUE.md travels in the bundle
+    - defining_pathways_present      # the Collaboration.* family that defines the technique travels in the bundle
+    - technique_provenance_block     # collaboration-manifest.yaml carries technique_provenance (version, co-originators, lineage)
+    - co_originator_attestation      # person-a + Originator (DJ Thomson) named and machine-readable
+    - interrogable_without_runtime   # readable + verifiable with only python3 + openssl
+    - no_seal_without_self_description # a bundle that cannot describe its technique MUST NOT be sealed
+
+  base_technique_co_originators:
+    - did: did:placeholder:person-a
+      label: "person-a"
+      role: collaboration-bundle-premise-pattern
+    - label: "Originator (DJ Thomson)"
+      role: pathways-formalization
+
+  authored_enhancement:
+    by: "Originator (DJ Thomson)"
+    name: self-describing-bundle
+    first_carried_in: djat_x_mikeoss/collaboration/20260528-130500/
+    catalyzed_by: the open MikeOSS project and team
+
+  invokes:
+    - Collaboration.Meta.EmbedTechniqueProvenance
+    - Collaboration.Bundle.VerifyBundle
+
+  anti_patterns:
+    - name: opaque_bundle
+      why: a bundle whose format is verifiable but whose technique is not interrogable defeats asynchronous meta-collaboration
+    - name: provenance_only_in_external_repo
+      why: technique provenance must travel inside the bundle, not depend on a separate system

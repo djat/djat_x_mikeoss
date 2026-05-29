@@ -1,0 +1,55 @@
+# Collaboration.Attestation.RecordPathwayRun@v1
+
+pathway_template:
+  identity:
+    template_id: Collaboration.Attestation.RecordPathwayRun@v1
+    artifact_type: pathway-template
+    triple: { domain: Collaboration, subdomain: Attestation, action: RecordPathwayRun }
+    version: 1.0.0
+
+  description: |
+    The universal provenance harness. Every script written and run during a refactor is
+    executed THROUGH this pathway so its technique (script source + sha256), its execution
+    (argv, stdout/stderr, exit, timing), and its produced assets are recorded as a
+    PathwayRun (pathway-runs/pr_*.json) and indexed in pathway-runs/ASSET_PROVENANCE.yaml.
+    Implements the universal mandate: every asset, technique, and piece of code - used or
+    generated - is encoded AS a Pathway and recorded AS a PathwayRun.
+
+  implementation: collaboration-pathways/scripts/run_with_provenance.py
+
+  inputs:
+    - name: snapshot
+      type: path
+    - name: pathway
+      type: string
+      description: the producing pathway id for this run
+    - name: command
+      type: list
+    - name: produces
+      type: list
+      description: repo-relative asset paths produced by the run
+
+  steps:
+    - id: read_technique
+      agent_id: verification
+      skill: hash_script_source
+    - id: execute
+      agent_id: pathway
+      skill: run_command_capture
+    - id: record_run
+      agent_id: persist
+      skill: write_pathway_run
+      config:
+        target: pathway-runs/pr_<id>.json
+        fields: [run_id, pathway, script_source, script_sha256, command, stdout, stderr, exit_code, produced_assets, accessed_domains, authenticated_by_identity]
+    - id: index_assets
+      agent_id: persist
+      skill: merge_asset_provenance
+      config:
+        target: pathway-runs/ASSET_PROVENANCE.yaml
+
+  output:
+    artifact: pathway_run_record
+
+  invariant:
+    rule: "No script touches the bundle except through this pathway; the final seal fails if any asset lacks a producing pathway + run."

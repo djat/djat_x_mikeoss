@@ -1,0 +1,48 @@
+# Collaboration.Proof.AwaitCounterpartyBuild@v1
+
+pathway_template:
+  identity:
+    template_id: Collaboration.Proof.AwaitCounterpartyBuild@v1
+    triple: { domain: Collaboration, subdomain: Proof, action: AwaitCounterpartyBuild }
+    version: 1.0.0
+
+  description: |
+    Defines the OPTIONAL reciprocal-proof experiment: if MikeOSS chooses to reply,
+    the reciprocal bundle carries its own experiments, learnings, and (optionally)
+    co-created assay pathways. Unlike a build handoff, no reciprocation is
+    required for this bundle to reach a valid fate.
+
+  inputs:
+    - name: invitation_spine
+      type: path
+      default: collaboration-spine.md
+    - name: reciprocal_optional
+      type: bool
+      default: true
+
+  steps:
+    - id: define_proof_artifacts
+      agent_id: composer
+      skill: author_proof_requirements
+      config:
+        optional: true
+        welcome_if_returned:
+          - proof-results/mikeoss-experiment-results.md
+          - collaboration-pathways/prompt-ledger.yaml
+          - assay-pathways/ (co-created or forked)
+
+    - id: await_reciprocal
+      agent_id: ui_listen
+      skill: collaboration_status
+      config:
+        status: INVESTIGATION_ACTIVE
+        blocking_on: none
+        note: "Unilateral experiments can SEAL the bundle without a reply."
+
+    - id: evaluate_on_receipt
+      agent_id: pathway
+      invokes:
+        - Collaboration.Investigation.SealOrInvalidateBundle
+
+  output:
+    artifact: optional_counterparty_proof

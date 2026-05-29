@@ -1,0 +1,38 @@
+{
+  "schema": "pathway-run/1.0",
+  "run_id": "pr_2ae701f8d0f2",
+  "pathway": "Collaboration.Privacy.DeIdentify@v1",
+  "label": "Phase 2: de-identify external persons/entities",
+  "status": "COMPLETED",
+  "started": "2026-05-29T03:38:34Z",
+  "ended": "2026-05-29T03:38:35Z",
+  "elapsed_ms": 140,
+  "command": [
+    "python3",
+    "collaboration/20260528-130500/collaboration-pathways/scripts/03_deidentify.py"
+  ],
+  "exit_code": 0,
+  "script_path": "collaboration/20260528-130500/collaboration-pathways/scripts/03_deidentify.py",
+  "script_sha256": "1baed78cf38e9c898fd9a57d1852660d772f9eae56bea9d2424addfe6d2fd4bf",
+  "script_source": "#!/usr/bin/env python3\n\"\"\"03_deidentify.py - replace identifiable external entities with stable placeholders (Phase 2).\n\nProducing pathway: Collaboration.Privacy.DeIdentify@v1.\n\nThe real names are NOT in this script - they are loaded from keys/subjects.private.json\n(unsealed, gitignored), so this script's source (captured in the PathwayRun record) contains\nno identifiable names and the sealed bundle never leaks them. Emits\nidentities/deidentification-map.json (placeholder -> {file, count}). MikeOSS (the addressee),\nthe Originator (the vouching issuer), and the public legal commons are NOT de-identified.\n\"\"\"\nimport json\nimport os\nimport re\nfrom pathlib import Path\n\nSNAP = Path(\"collaboration/20260528-130500\")\nPRIVATE = Path(\"keys/subjects.private.json\")\nRUN_ID = os.environ.get(\"PATHWAY_RUN_ID\", \"\")\nEXCLUDE = {\"pathway-runs\", \"scripts\", \"attestations\", \".git\", \".obsidian\"}\nTEXT_EXT = {\".md\", \".yaml\", \".yml\", \".json\", \".txt\", \".html\"}\n\ncfg = json.loads(PRIVATE.read_text(encoding=\"utf-8\"))\nLITERAL = cfg[\"replacements\"][\"literal\"]\nBOUNDARY = cfg[\"replacements\"][\"boundary\"]\nKIND = cfg[\"kinds\"]\n\nplaceholder_sites: dict[str, dict[str, int]] = {}\n\n\ndef record(ph: str, fname: str, n: int) -> None:\n    if n > 0:\n        placeholder_sites.setdefault(ph, {})\n        placeholder_sites[ph][fname] = placeholder_sites[ph].get(fname, 0) + n\n\n\ndef deidentify(text: str, fname: str) -> str:\n    for old, ph in LITERAL:\n        c = text.count(old)\n        if c:\n            text = text.replace(old, ph)\n            record(ph, fname, c)\n    for pat, ph in BOUNDARY:\n        new, c = re.subn(pat, ph, text)\n        if c:\n            text = new\n            record(ph, fname, c)\n    return text\n\n\ndef excluded(p: Path) -> bool:\n    return any(x in EXCLUDE for x in p.parts)\n\n\ndef main() -> int:\n    files = [p for p in SNAP.rglob(\"*\") if p.is_file()]\n    files += [p for p in Path(\"tools\").rglob(\"*\") if p.is_file()]\n    files += [Path(\"README.md\"), Path(\"START_COLLABORATION_HANDOFF.prompt.md\")]\n    edited = []\n    for p in files:\n        if not p.exists() or excluded(p) or p.suffix not in TEXT_EXT:\n            continue\n        try:\n            orig = p.read_text(encoding=\"utf-8\")\n        except (UnicodeDecodeError, IsADirectoryError):\n            continue\n        new = deidentify(orig, str(p))\n        if new != orig:\n            p.write_text(new, encoding=\"utf-8\")\n            edited.append(str(p))\n\n    out = SNAP / \"identities\" / \"deidentification-map.json\"\n    out.parent.mkdir(parents=True, exist_ok=True)\n    payload = {\n        \"produced_by_pathway\": \"Collaboration.Privacy.DeIdentify@v1\",\n        \"pathway_run_id\": RUN_ID,\n        \"note\": \"Placeholders key into the sealed lockboxes (identities/). MikeOSS, the Originator, and the public legal commons are not de-identified.\",\n        \"placeholders\": {\n            ph: {\n                \"kind\": KIND.get(ph, \"unknown\"),\n                \"total\": sum(sites.values()),\n                \"sites\": [{\"file\": f, \"count\": c} for f, c in sorted(sites.items())],\n            }\n            for ph, sites in sorted(placeholder_sites.items())\n        },\n    }\n    out.write_text(json.dumps(payload, indent=2) + \"\\n\", encoding=\"utf-8\")\n    print(f\"de-identify: {len(edited)} files edited; placeholders: {sorted(placeholder_sites)}\")\n    produced = [str(out), f\"{SNAP}/collaboration-pathways/scripts/03_deidentify.py\",\n                f\"{SNAP}/collaboration-pathways/pathways/Collaboration.Privacy.DeIdentify.v1.yaml\"]\n    am = os.environ.get(\"ASSET_MANIFEST\")\n    if am:\n        Path(am).write_text(json.dumps(produced), encoding=\"utf-8\")\n    return 0\n\n\nif __name__ == \"__main__\":\n    raise SystemExit(main())\n",
+  "stdout": "de-identify: 21 files edited; placeholders: ['entity-2', 'person-a', 'person-b', 'person-c', 'prior-instance-3', 'prior-instance-4']\n",
+  "stderr": "",
+  "produced_assets": [
+    {
+      "asset": "collaboration/20260528-130500/identities/deidentification-map.json",
+      "sha256": "a9ef05f1b113d8f6c56865e3dcd813e5e3fe46c9fb20d745db12bd1e6f40acca"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/scripts/03_deidentify.py",
+      "sha256": "1baed78cf38e9c898fd9a57d1852660d772f9eae56bea9d2424addfe6d2fd4bf"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Privacy.DeIdentify.v1.yaml",
+      "sha256": "f1bbf519f1f2b6f05be13b12d0d8cb61a246fdbd628c174d08fe854ddb80fdc0"
+    }
+  ],
+  "accessed_domains": [],
+  "authenticated_by_identity": null,
+  "harness": "collaboration-pathways/scripts/run_with_provenance.py",
+  "recorded_at": "2026-05-29T03:38:35Z"
+}

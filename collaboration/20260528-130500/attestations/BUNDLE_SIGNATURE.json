@@ -1,0 +1,12 @@
+{
+  "manifest_version": "1.0",
+  "manifest_kind": "bundle_signature",
+  "bundle_id": "djat-mikeoss-20260528",
+  "issued_at": "2026-05-29T06:29:38Z",
+  "issuer_label": "Originator (Pathways framework author)",
+  "signing_method": "Ed25519 OpenSSL rawin over bundle_root_hash hex",
+  "bundle_root_hash": "089f8cab5417501542aa15e97ceba2fde21d69bc7f78348d6c108c66829b8e3d",
+  "signature_base64": "7IAc1qmjgOCC1T6koXMKagiEDISkFkOWiosxAXrvvOnfT+MfMvnMeoErXntP5yuRNQsf93APC8Vvr4zGEVx5Bg==",
+  "public_key_pem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAqrzbFAZlXl4HbG/9TbYkXXI36lG2h6QgnmAUgukxs8I=\n-----END PUBLIC KEY-----\n",
+  "verify_command": "python3 tools/collaboration-bundle/sign_bundle.py verify collaboration/20260528-130500"
+}

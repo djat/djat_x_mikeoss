@@ -1,0 +1,20 @@
+# Term.CollaborationBundle@v1
+term:
+  identity:
+    term_id: Term.CollaborationBundle@v1
+    artifact_type: term
+    label: "collaboration bundle"
+    version: 1.0.0
+  authored_by: "Originator (DJ Thomson)"
+  authored_in: collaboration/20260528-130500
+  supersedes: Term.TransmissionBundle@v1
+  meaning: >
+    The canonical name for the co-originated bundle technique, as renamed by the Originator
+    in the MikeOSS collaboration context. The recipe is unchanged; only the label is new.
+  name_license:
+    use_as_label: free
+    attribution_required: true
+    revocation_scope_max: self_only
+  provenance:
+    rename_pathway: Collaboration.Refactor.RenameTerm@v1
+    recorded_in: pathway-runs/index.yaml

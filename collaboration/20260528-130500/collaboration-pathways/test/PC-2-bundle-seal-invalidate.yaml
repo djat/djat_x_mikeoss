@@ -1,0 +1,24 @@
+# PC-2 — Bundle seal/invalidate conformance test
+
+test:
+  id: PC-2
+  title: Hypothesis evaluation sets unambiguous bundle fate
+  invokes:
+    - Collaboration.Investigation.SealOrInvalidateBundle
+
+  narrative: |
+    Evaluate the structural hypotheses (H-MO0a, H-MO0b) and the ten asks, then set
+    bundle_status to SEALED, INVALIDATED, INCONCLUSIVE, or ASSEMBLED — never ambiguous.
+    Reciprocal-only outcomes are INCONCLUSIVE, never INVALIDATED.
+
+  pass_criteria:
+    - bundle_status in [SEALED, INVALIDATED, INCONCLUSIVE, ASSEMBLED]
+    - proof-results/seal-record.yaml emitted on evaluation
+    - "structural falsifier (broken link OR hash/sig mismatch OR missing technique_provenance) => INVALIDATED"
+    - "missing reciprocation alone never => INVALIDATED"
+
+  hypotheses:
+    - H-MO0a
+    - H-MO0b
+    - H-MO1
+    - H-MO9

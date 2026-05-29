@@ -1,0 +1,14 @@
+# Collaboration.Refactor.Finalize@v1
+pathway_template:
+  identity:
+    template_id: Collaboration.Refactor.Finalize@v1
+    artifact_type: pathway-template
+    triple: { domain: Collaboration, subdomain: Refactor, action: Finalize }
+    version: 1.0.0
+  description: |
+    The pre-seal completeness gate: verifies that every asset generated during the refactor
+    (scripts, new pathway templates, terms, identities, viewer, de-identification map) has a
+    producing Pathway + PathwayRun recorded in ASSET_PROVENANCE.yaml. Writes COMPLETENESS.md
+    and the privacy-refactor lineage sidecar. The seal proceeds only on a clean gate.
+  implementation: collaboration-pathways/scripts/06_finalize.py
+  output: { artifact: completeness_report }

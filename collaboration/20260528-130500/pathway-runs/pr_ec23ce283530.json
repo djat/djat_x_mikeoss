@@ -1,0 +1,58 @@
+{
+  "schema": "pathway-run/1.0",
+  "run_id": "pr_ec23ce283530",
+  "pathway": "Collaboration.Canon.UpdateSpec@v1",
+  "label": "Phase 6: import v1.1.0 spec + architecture into canon",
+  "status": "COMPLETED",
+  "started": "2026-05-29T04:10:41Z",
+  "ended": "2026-05-29T04:10:41Z",
+  "elapsed_ms": 142,
+  "command": [
+    "python3",
+    "collaboration/20260528-130500/collaboration-pathways/scripts/07_canon_update.py"
+  ],
+  "exit_code": 0,
+  "script_path": "collaboration/20260528-130500/collaboration-pathways/scripts/07_canon_update.py",
+  "script_sha256": "8f91db20111e16035e2cd2f7c6a6610c950af3ce673c1ce1b70bcfdcbb71b194",
+  "script_source": "#!/usr/bin/env python3\n\"\"\"07_canon_update.py - bring authoritative Pathways spec + architecture v1.1.0 into canon (Phase 6).\n\nProducing pathway: Collaboration.Canon.UpdateSpec@v1. Copies the full v1.1.0 specification and\narchitecture verbatim, computes their sha256 signatures, removes the v1.0.0 excerpt, and updates\nartifacts to reference v1.1.0 + the exact signatures. The verbatim specs may reference the\nupstream ecosystem (allowed); the bundle's own de-identified prose is unaffected (the specs\ncontain none of the de-identified subject names).\n\"\"\"\nimport hashlib\nimport json\nimport os\nimport shutil\nfrom pathlib import Path\n\nSNAP = Path(\"collaboration/20260528-130500\")\nSRC = Path(\"/Users/djathomson/Projects/your-org/legal-services-crew\")\nCANON = SNAP / \"canon\"\nRUN_ID = os.environ.get(\"PATHWAY_RUN_ID\", \"\")\n\n\ndef sha256(p: Path) -> str:\n    return hashlib.sha256(p.read_bytes()).hexdigest()\n\n\ndef main() -> int:\n    CANON.mkdir(parents=True, exist_ok=True)\n    arch_dst = CANON / \"PATHWAYS_ARCHITECTURE_v1.1.0.md\"\n    spec_dst = CANON / \"PATHWAYS_REFERENCE_v1.1.0.md\"\n    shutil.copyfile(SRC / \"PATHWAYS_ARCHITECTURE.md\", arch_dst)\n    shutil.copyfile(SRC / \"PATHWAYS_REFERENCE_IMPLEMENTATION_SPEC.md\", spec_dst)\n    arch_sha, spec_sha = sha256(arch_dst), sha256(spec_dst)\n\n    old = CANON / \"PATHWAYS_REFERENCE_v1.0.0.md\"\n    if old.exists():\n        old.unlink()\n\n    (CANON / \"CANON_MANIFEST.yaml\").write_text(f\"\"\"# Canon Manifest - frozen normative spec + architecture (v1.1.0)\nmanifest_version: \"1.1\"\nchannel: djat-mikeoss-20260528\n\nspecification:\n  reference_implementation_spec:\n    file: PATHWAYS_REFERENCE_v1.1.0.md\n    version: 1.1.0\n    title: \"Pathways Reference Implementation Specification - Authority Boundaries\"\n    signature: {{ alg: sha256, value: {spec_sha} }}\n  architecture:\n    file: PATHWAYS_ARCHITECTURE_v1.1.0.md\n    version: 1.1.0\n    title: \"Pathways Architecture - Spec alignment (coherent with RIS 1.1.0)\"\n    signature: {{ alg: sha256, value: {arch_sha} }}\n\nnote: |\n  Full authoritative v1.1.0 specification and architecture, included verbatim and frozen for\n  this bundle. These are the normative source of truth; every artifact that cites the spec\n  references version 1.1.0 and the sha256 signatures above. The verbatim docs may reference\n  the upstream Pathways ecosystem; the bundle's own authored prose is separately de-identified.\n\"\"\", encoding=\"utf-8\")\n\n    # pathways_canon architecture excerpt -> pointer to the full canonical doc\n    (SNAP / \"pathways_canon\" / \"PATHWAYS_ARCHITECTURE.md\").write_text(\n        f\"\"\"# Pathways Architecture - pointer\n\nThe authoritative architecture document (v1.1.0) is carried in full at\n[`../canon/PATHWAYS_ARCHITECTURE_v1.1.0.md`](../canon/PATHWAYS_ARCHITECTURE_v1.1.0.md).\n\n- version: 1.1.0 (Spec alignment; coherent with RIS 1.1.0 Authority Boundaries)\n- sha256: {arch_sha}\n\nThis stub exists only so older read-order links resolve; read the full canon doc.\n\"\"\", encoding=\"utf-8\")\n\n    # token-patch references v1.0.0 -> v1.1.0 across snapshot text artifacts\n    patch_targets = [\n        SNAP / \"companion-bundle-index.md\",\n        SNAP / \"collaboration-spine.md\",\n        SNAP / \"collaboration-pathways\" / \"PACKAGE.yaml\",\n        SNAP / \"collaboration-pathways\" / \"APPLICATION_PLAYBOOK.md\",\n        SNAP / \"collaboration-manifest.yaml\",\n    ]\n    patched = []\n    for p in patch_targets:\n        if not p.exists():\n            continue\n        t = p.read_text(encoding=\"utf-8\")\n        nt = t.replace(\"PATHWAYS_REFERENCE_v1.0.0\", \"PATHWAYS_REFERENCE_v1.1.0\")\n        if nt != t:\n            p.write_text(nt, encoding=\"utf-8\")\n            patched.append(str(p))\n\n    # PACKAGE.yaml: add conforms_to_spec + point normative docs at v1.1.0\n    pkg = SNAP / \"collaboration-pathways\" / \"PACKAGE.yaml\"\n    if pkg.exists():\n        with pkg.open(\"a\", encoding=\"utf-8\") as f:\n            f.write(f\"\"\"\nconforms_to_spec:\n  version: 1.1.0\n  reference_spec: canon/PATHWAYS_REFERENCE_v1.1.0.md\n  reference_spec_sha256: {spec_sha}\n  architecture: canon/PATHWAYS_ARCHITECTURE_v1.1.0.md\n  architecture_sha256: {arch_sha}\n\"\"\")\n\n    # collaboration-manifest.yaml: append specification_provenance\n    man = SNAP / \"collaboration-manifest.yaml\"\n    with man.open(\"a\", encoding=\"utf-8\") as f:\n        f.write(f\"\"\"\n# ---------------------------------------------------------------------------\n# SPECIFICATION PROVENANCE - artifacts reference these exact spec signatures\n# ---------------------------------------------------------------------------\nspecification_provenance:\n  spec:\n    file: canon/PATHWAYS_REFERENCE_v1.1.0.md\n    version: 1.1.0\n    sha256: {spec_sha}\n  architecture:\n    file: canon/PATHWAYS_ARCHITECTURE_v1.1.0.md\n    version: 1.1.0\n    sha256: {arch_sha}\n\"\"\")\n\n    produced = [str(arch_dst), str(spec_dst), str(CANON / \"CANON_MANIFEST.yaml\"),\n                str(SNAP / \"pathways_canon\" / \"PATHWAYS_ARCHITECTURE.md\"),\n                str(pkg), str(man),\n                f\"{SNAP}/collaboration-pathways/scripts/07_canon_update.py\",\n                f\"{SNAP}/collaboration-pathways/pathways/Collaboration.Canon.UpdateSpec.v1.yaml\"]\n    am = os.environ.get(\"ASSET_MANIFEST\")\n    if am:\n        Path(am).write_text(json.dumps(produced), encoding=\"utf-8\")\n\n    print(f\"canon: imported v1.1.0 spec + architecture verbatim\")\n    print(f\"  PATHWAYS_REFERENCE_v1.1.0.md     sha256 {spec_sha}\")\n    print(f\"  PATHWAYS_ARCHITECTURE_v1.1.0.md  sha256 {arch_sha}\")\n    print(f\"  removed v1.0.0 excerpt; patched {len(patched)} reference(s)\")\n    return 0\n\n\nif __name__ == \"__main__\":\n    raise SystemExit(main())\n",
+  "stdout": "canon: imported v1.1.0 spec + architecture verbatim\n  PATHWAYS_REFERENCE_v1.1.0.md     sha256 15c26db7542ec5e6756ae7b00a672ea55efa9beb54ae5cc73a94f2d67831f2eb\n  PATHWAYS_ARCHITECTURE_v1.1.0.md  sha256 05482abd4805969ee92bbf6c02e3a15dde7f1461959f70e6b91f64f13a746f41\n  removed v1.0.0 excerpt; patched 3 reference(s)\n",
+  "stderr": "",
+  "produced_assets": [
+    {
+      "asset": "collaboration/20260528-130500/canon/PATHWAYS_ARCHITECTURE_v1.1.0.md",
+      "sha256": "05482abd4805969ee92bbf6c02e3a15dde7f1461959f70e6b91f64f13a746f41"
+    },
+    {
+      "asset": "collaboration/20260528-130500/canon/PATHWAYS_REFERENCE_v1.1.0.md",
+      "sha256": "15c26db7542ec5e6756ae7b00a672ea55efa9beb54ae5cc73a94f2d67831f2eb"
+    },
+    {
+      "asset": "collaboration/20260528-130500/canon/CANON_MANIFEST.yaml",
+      "sha256": "bd1ad8a34d192f0c63d2c53938150c45e27621a81d254ecf56b8ffcbd975bda5"
+    },
+    {
+      "asset": "collaboration/20260528-130500/pathways_canon/PATHWAYS_ARCHITECTURE.md",
+      "sha256": "182d2da5d483b340f81b60d8dda86cab9b1f069f43d7ae526d28802b803b1cf4"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/PACKAGE.yaml",
+      "sha256": "3c44a642858e189a920d19f5ec82fa360f5aacf35ed3ea8cb99dab60e6647714"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-manifest.yaml",
+      "sha256": "fbb0869c59a4dfe747e73df859754f6fac31e730c81f42d84ed1608c4f919553"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/scripts/07_canon_update.py",
+      "sha256": "8f91db20111e16035e2cd2f7c6a6610c950af3ce673c1ce1b70bcfdcbb71b194"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Canon.UpdateSpec.v1.yaml",
+      "sha256": "5ee31b9e5fcc537ce2df0a50416b00386f0f493c5734f76df114166a2a39907c"
+    }
+  ],
+  "accessed_domains": [],
+  "authenticated_by_identity": null,
+  "harness": "collaboration-pathways/scripts/run_with_provenance.py",
+  "recorded_at": "2026-05-29T04:10:41Z"
+}

@@ -1,0 +1,49 @@
+# Collaboration.Proof.RunUnilateralExperiment@v1
+
+pathway_template:
+  identity:
+    template_id: Collaboration.Proof.RunUnilateralExperiment@v1
+    artifact_type: pathway-template
+    triple: { domain: Collaboration, subdomain: Proof, action: RunUnilateralExperiment }
+    version: 1.0.0
+
+  description: |
+    NEW. Runs one of the small, self-validating experiments (the asks) that produce
+    standalone value whether or not the counterparty replies. Each experiment confirms
+    or falsifies a pre-registered hypothesis (H-MO1..H-MO10) and emits a result artifact.
+    This is what lets an INVITATION bundle reach SEALED without a reciprocal collaboration.
+
+  inputs:
+    - name: hypothesis_id
+      type: string
+      description: e.g. H-MO1
+    - name: experiment_spec
+      type: path
+      default: test/HYPOTHESES.md
+    - name: result_target
+      type: path
+      default: proof-results/
+
+  steps:
+    - id: load_hypothesis
+      agent_id: persist
+      skill: read_yaml_md
+    - id: run_experiment
+      agent_id: pathway
+      skill: execute_unilateral_probe
+      config:
+        bounded: true
+        publishes_open_artifact: true
+    - id: record_result
+      agent_id: persist
+      skill: write_yaml
+      config:
+        target: proof-results/unilateral/<hypothesis_id>.yaml
+    - id: update_seal_candidacy
+      agent_id: pathway
+      invokes:
+        - Collaboration.Investigation.SealOrInvalidateBundle
+
+  output:
+    artifact: unilateral_experiment_result
+    note: "SEALED is reachable on unilateral confirmations; reciprocal hypotheses stay INCONCLUSIVE if unanswered."

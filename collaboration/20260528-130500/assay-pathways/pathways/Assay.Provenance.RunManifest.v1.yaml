@@ -1,0 +1,77 @@
+# Assay.Provenance.RunManifest@v1
+
+pathway_template:
+  identity:
+    template_id: Assay.Provenance.RunManifest@v1
+    artifact_type: pathway-template
+    triple: { domain: Assay, subdomain: Provenance, action: RunManifest }
+    version: 1.1.0
+
+  description: |
+    The minimal attested-run schema any tool - including a Supabase-backed one like
+    MikeOSS - could emit. It makes the difference between "who ran / who attested /
+    who authored" visible, which is the structural assay to a panel "consisting
+    entirely of MikeOSS". v1.1.0 promotes the schema to the attested-run record the
+    spec's choke-point audit (§4.8.6) expects: it persists the run's effective autonomy
+    band + gate_profile, and carries a typed handoff envelope (§4.8.7 R3) that a
+    HandoffBus can validate at the seam. STUB - no executable code; the schemas are the
+    artifact.
+
+  inputs:
+    - name: run
+      type: dict
+
+  # §4.8.1: every PathwayRun MUST carry an autonomy band. §4.8.6: runs MUST persist the
+  # effective gate_profile and the practice-profile revision that shaped the work.
+  run_manifest_schema:
+    run_id: string
+    timestamp: iso8601
+    autonomy: "A0|A1|A2|A3"            # NEW (spec 1.1.0 §4.8.1) - rejected if absent/unknown
+    actor:
+      ran_by: string            # human / org
+      model: { provider: string, name: string, version: string }
+      attested_by: string       # may differ from ran_by
+      authored_by: string       # may differ from both
+    effective_gate_profile:     # NEW (spec 1.1.0 §4.8.6) - what the run was launched with
+      gate_profile_sha256: hex
+      autonomy: "A0|A1|A2|A3"
+      registers_enabled: ["R1"]
+      practice_profile_ref: "did:web|did:key ... @version"
+      practice_profile_revision_sha256: hex
+    inputs:
+      prompt_sha256: hex
+      document_sha256: hex
+    outputs:
+      output_sha256: hex
+    grounding:
+      sources: [courtlistener, cornell_lii, govinfo]
+      verdicts: [{ citation: string, status: "verified|warning|not_found", source_url: string }]
+    handoff_audit:              # NEW (spec 1.1.0 §4.8.7 R3) - append-only seam log
+      - { seam: string, intent: string, target: string, decision: "accepted|rejected|neutralized", at: iso8601 }
+    signature:
+      method: "ed25519 (optional)"
+      public_key_pem: string
+      signature_base64: string
+
+  # §4.8.7 R3 - the typed envelope a HandoffBus validates at every seam: closed intent
+  # enum + JSONSchema params + target allowlist. Downstream NEVER sees upstream free text
+  # as steering; steering is template-rendered; the audit is append-only.
+  handoff_envelope_schema:
+    intent: { enum: [verify_citation, support_check, emit_fallback, attest_iteration] }
+    params: { json_schema_ref: "assay.handoff.params.v1" }
+    target: { allowlist: ["subrun:Assay.*", "store:proof-results/*"] }
+    steering_source: template-rendered
+    audit: append-only
+
+  steps:
+    - id: assemble_manifest
+      agent_id: persist
+      skill: write_run_manifest
+      config:
+        target: proof-results/run-manifests/<run_id>.json
+        persist_effective_gate_profile: true   # §4.8.6 enforcement-record requirement
+
+  output:
+    artifact: run_manifest
+    interop_note: "One page; emit from any stack. Validates interoperability even if unanswered."
+    choke_point_note: "Carries the fields the launch/seam choke points (§4.8.6) record, so a Level-F runtime can audit this run without bespoke glue."

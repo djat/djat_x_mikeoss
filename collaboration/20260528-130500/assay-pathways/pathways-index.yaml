@@ -1,0 +1,39 @@
+bundle_id: assay-pathways
+version: "1.1.0"
+filesystem_root: assay-pathways/
+
+pathways:
+  - id: Assay.Citation.VerifyFirst
+    file: pathways/Assay.Citation.VerifyFirst.v1.yaml
+    answers_satire: "Legal Research / Citation pass rates"
+    autonomy: A0
+    gate_profile_registers: [R1]
+    invokes: []
+
+  - id: Assay.Benchmark.Reproducible
+    file: pathways/Assay.Benchmark.Reproducible.v1.yaml
+    answers_satire: "chart smoothing / decimal optimisation / scores above 100%"
+    invokes: []
+
+  - id: Assay.Convergence.AnchoredAuthority
+    file: pathways/Assay.Convergence.AnchoredAuthority.v1.yaml
+    answers_satire: "recursive agentic orchestration"
+    autonomy: A1
+    gate_profile_registers: [R1, R4, R5, R6]
+    invokes:
+      - Assay.Citation.VerifyFirst
+      - Assay.Provenance.RunManifest
+
+  - id: Assay.Provenance.RunManifest
+    file: pathways/Assay.Provenance.RunManifest.v1.yaml
+    answers_satire: "a panel consisting entirely of MikeOSS"
+    emits: [autonomy, effective_gate_profile, handoff_envelope]
+    invokes: []
+
+practice_profiles:
+  - kind: practice_profile
+    slug: legal-research-grounding
+    version: "1.0.0"
+    ref: "did:web:pathways.example/playbook/legal-research-grounding@v1"
+    file: practice-profiles/legal-research-grounding.v1.yaml
+    satisfies: "§4.8.5 R1 cold-start for VerifyFirst + AnchoredAuthority"
