@@ -853,3 +853,31 @@ assets:
     produced_by_pathway: Collaboration.Refactor.Finalize@v1
     pathway_run_id: pr_5ba65e4479bd
     sha256: fa0c4e0714a546dc67c299c0b3346a9ac7b345e62107f981f17f118b649531d5
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.SovereignAttributionProxy.v1.yaml
+    produced_by_pathway: Collaboration.Meta.EmbedTechniqueProvenance@v1
+    pathway_run_id: pr_b0b118829995
+    sha256: fd0776749afa32e9320eedce9dfee11ff962eacaac3dd56c55cc269d291d628d
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways-index.yaml
+    produced_by_pathway: Collaboration.Meta.EmbedTechniqueProvenance@v1
+    pathway_run_id: pr_b0b118829995
+    sha256: 99fba847db4770cb77f7ba6597b5262b4872b441a7164a2ed2f03bd086da1e7f
+  - asset: collaboration/20260528-130500/collaboration-pathways/scripts/15_encode_sovereign_attribution.py
+    produced_by_pathway: Collaboration.Meta.EmbedTechniqueProvenance@v1
+    pathway_run_id: pr_b0b118829995
+    sha256: 13d2d22c03bd1cc608d88ae18f2474b8ab13cca8dac3e54a1178a7eeb56454c8
+  - asset: collaboration/20260528-130500/pathway-runs/COMPLETENESS.md
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_2414f50802db
+    sha256: 88545f5bcf877c5c391745bef5e37b9146353c1cec9cd19a51668710d5c831a4
+  - asset: collaboration/20260528-130500/collaboration-pathways/sidecars/privacy-refactor-lineage.md
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_2414f50802db
+    sha256: e4d973ba75944d8f3d0098a199d51572dd9806e7784b1a860fdfecbc3462619b
+  - asset: collaboration/20260528-130500/collaboration-pathways/scripts/06_finalize.py
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_2414f50802db
+    sha256: beff79807f990e07e1ad12d008468fdff0b4eeb43a9aaeaff8d82478eda83d0c
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.Finalize.v1.yaml
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_2414f50802db
+    sha256: fa0c4e0714a546dc67c299c0b3346a9ac7b345e62107f981f17f118b649531d5

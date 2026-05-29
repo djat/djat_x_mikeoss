@@ -1,0 +1,94 @@
+# Collaboration.Identity.SovereignAttributionProxy@v1
+pathway_template:
+  identity:
+    template_id: Collaboration.Identity.SovereignAttributionProxy@v1
+    artifact_type: pathway-template
+    triple: { domain: Collaboration, subdomain: Identity, action: SovereignAttributionProxy }
+    version: 1.0.0
+    authored_by: "Originator (DJ Thomson)"
+    author_note: |
+      First canonical Pathways encoding of the identity-masking + attestation-lockbox technique.
+      Authored by the Originator (DJ Thomson). MikeOSS is, implicitly, the first collaborator whose
+      invitation occasioned this encoding.
+
+  description: |
+    The overarching technique by which a collaboration bundle becomes a TRUST PROXY for every author
+    in its lineage. It masks each real identity behind a stable placeholder, then seals a verifiable
+    attestation binding that placeholder to a real DID and/or public identity anchor - so a cold
+    reader can trust, BY INFERENCE, that real, unique people and entities stand behind the work,
+    without any name being exposed. Each masked author retains:
+      (1) SOVEREIGN PROOF of participation - self-asserted Personhood / Entity Credential + a salted
+          public commitment sha256(real_name || salt) that a revealed name can later be checked against;
+      (2) FULL ATTRIBUTION of all Pathways-encoded lineage and provenance underpinning the embedded /
+          referenced pathways - on reveal, the run ledger, fork lineage, and Term edges resolve to them;
+      (3) FORWARD RIGHTS - sovereign control over future reveal AND future actions of that identity,
+          exercisable later via their own key (the 1-of-2 upgrade path), optionally within INHERITED
+          CONSTRAINTS carried as explicit, cryptographically-lineaged terms;
+      (4) PRIVACY - nothing reveals without a holder of the reveal key.
+    This is identity masking AS attestation: privacy and attribution at once, with sovereign forward
+    control and clear cryptographic lineage.
+
+  composes:
+    - Collaboration.Identity.IssuePersonhoodCredential@v1   # PHC / Entity Credential + salted commitment
+    - Collaboration.Identity.SealNameLockbox@v1             # 1-of-2 reveal lockbox (AES-256-CBC / PBKDF2)
+    - Collaboration.Identity.AssertRelationship@v1          # VRC: person <-> entity association
+    - Collaboration.UX.RenderRevealViewer@v1                # the trust-proxy reveal UX (browser, client-side)
+    - Collaboration.Identity.RevealLockbox@v1               # selective / progressive reveal
+
+  inputs:
+    - { name: subject, type: dict, description: "real name + DIDs / public identity anchors (held outside the seal, gitignored)" }
+    - { name: placeholder, type: string, description: "stable de-identified id (e.g. person-a / entity-1)" }
+    - { name: inherited_constraints, type: list, default: [], description: "terms that bind FUTURE actions of the revealed identity" }
+
+  steps:
+    - id: mask_identity
+      agent_id: persist
+      skill: deidentify_to_placeholder
+      config: { map_source: "keys/subjects.private.json (gitignored, never sealed)" }
+    - id: anchor_attestation
+      agent_id: persist
+      invokes: [Collaboration.Identity.IssuePersonhoodCredential]
+      config:
+        binds: "placeholder -> real DID / public identity anchor"
+        commitment: "sha256(real_name || salt)   # public, name-free"
+        scaffold: "OpenVTC-compatible PHC / Entity Credential (did:webvh deferred)"
+    - id: seal_reveal_lockbox
+      agent_id: persist
+      invokes: [Collaboration.Identity.SealNameLockbox]
+      config:
+        reveal_policy: "1-of-2"
+        keys: ["Originator (operative now)", "subject DID key (sovereign upgrade path)"]
+    - id: assert_relationships
+      agent_id: persist
+      invokes: [Collaboration.Identity.AssertRelationship]
+      config: { credential: "VRC (Verifiable Relationship Credential)" }
+    - id: grant_forward_rights
+      agent_id: persist
+      skill: bind_forward_rights
+      config:
+        reveal_control: subject_sovereign        # the subject's key alone can reveal in future
+        action_control: subject_sovereign        # future actions of the identity are the subject's to authorize
+        inherited_constraints_apply: true         # within terms carried as cryptographic-lineage edges
+        lineage: "edges from this attestation to every referenced pathway + PathwayRun it underpins"
+    - id: render_proxy_viewer
+      agent_id: composer
+      invokes: [Collaboration.UX.RenderRevealViewer]
+
+  forward_rights:
+    sovereign_reveal: "Each author may reveal their own name / DID at any time via their key; the Originator's key is the interim 1-of-2 convenience, never a lock-out."
+    sovereign_future_action: "Future actions taken under the revealed identity remain the author's to authorize, optionally bounded by inherited_constraints."
+    inherited_constraints: "Constraints (if any) travel as explicit, signed terms with a cryptographic lineage back to this attestation; they bind forks, not the person's autonomy outside this context."
+    cryptographic_lineage: "Reveal resolves the placeholder to a DID and to every Pathways-encoded provenance record (runs, forks, Terms) attributable to that author."
+
+  scaffolding:
+    prototype: "OpenVTC - https://github.com/OpenVTC/openvtc (DIDs, VCs, Personhood Credentials, Verifiable Relationship Credentials, did:webvh)."
+    future_integration: "First Person Project / network - https://firstperson.network (first-person trust relationships; PHC / VRC interop)."
+    note: "This bundle ships the credential SHAPES + lockboxes as OpenVTC-compatible scaffolding; a production deployment would issue did:webvh Persona DIDs and exchange VRCs over DIDComm."
+
+  output:
+    artifact: sovereign_attribution_proxy
+    includes: [personhood_or_entity_credentials, name_lockboxes, relationship_credentials, reveal_viewer, forward_rights_grant]
+
+  ethos:
+    principle: "privacy-and-attribution-at-once; sovereign forward control; clear cryptographic lineage"
+    pathways_home: "https://tesseractstakes.com/pathways"

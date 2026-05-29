@@ -87,6 +87,18 @@ pathways:
       - Collaboration.Bundle.SealBundle
       - Collaboration.Investigation.SealOrInvalidateBundle
 
+  - id: Collaboration.Identity.SovereignAttributionProxy
+    file: pathways/Collaboration.Identity.SovereignAttributionProxy.v1.yaml
+    new_in_canon: true
+    authored_by: Originator (DJ Thomson)
+    note: "Trust-proxy technique: identity masking AS attestation - sovereign proof, full attribution, forward rights, privacy."
+    invokes:
+      - Collaboration.Identity.IssuePersonhoodCredential
+      - Collaboration.Identity.SealNameLockbox
+      - Collaboration.Identity.AssertRelationship
+      - Collaboration.UX.RenderRevealViewer
+      - Collaboration.Identity.RevealLockbox
+
 patterns:
   - id: Pattern.ProjectCollaboration.ConvergenceRepository
     file: patterns/Pattern.ProjectCollaboration.ConvergenceRepository.yaml

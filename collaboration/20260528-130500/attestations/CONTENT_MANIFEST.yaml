@@ -2,7 +2,7 @@
 manifest_version: "1.0"
 manifest_kind: content_manifest
 bundle_id: djat-mikeoss-20260528
-issued_at: 2026-05-29T06:29:38Z
+issued_at: 2026-05-29T08:03:38Z
 issuer_label: "Originator (Pathways framework author)"
 
 state:
@@ -12,9 +12,9 @@ state:
 bundle_root_hash:
   algorithm: sha256
   method: "sha256(sort-join(rel_path \t content_sha256 \n))"
-  hash: 089f8cab5417501542aa15e97ceba2fde21d69bc7f78348d6c108c66829b8e3d
+  hash: 8cb466fc2fb9d3e16e1869d40ec3d2ac044d7d0501257ef26620a2ea23605ff3
 
-file_count: 149
+file_count: 153
 
 files:
   - rel_path: COLLABORATION_READINESS.md
@@ -116,6 +116,9 @@ files:
   - rel_path: collaboration-pathways/pathways/Collaboration.Identity.SealNameLockbox.v1.yaml
     content_sha256: a3efcfe11396391779afab11f0d6dd4d52e12d0ecebe375da43da252d20fc747
     file_size: 767
+  - rel_path: collaboration-pathways/pathways/Collaboration.Identity.SovereignAttributionProxy.v1.yaml
+    content_sha256: fd0776749afa32e9320eedce9dfee11ff962eacaac3dd56c55cc269d291d628d
+    file_size: 6064
   - rel_path: collaboration-pathways/pathways/Collaboration.Investigation.DeclarePending.v1.yaml
     content_sha256: 339bc51d72ffba23e32c70ce6ca36e2eea124f00adf2d99a89a7ca1ff1f8260f
     file_size: 1181
@@ -162,8 +165,8 @@ files:
     content_sha256: 873c69132314653998700a2fb1b8076957f93e18f3b44e4c13d281069b42b28a
     file_size: 2201
   - rel_path: collaboration-pathways/pathways-index.yaml
-    content_sha256: 879fb055eb590f88762761995c361bf65148491f4447f59e9eaf989ca1ce0166
-    file_size: 4352
+    content_sha256: 99fba847db4770cb77f7ba6597b5262b4872b441a7164a2ed2f03bd086da1e7f
+    file_size: 4935
   - rel_path: collaboration-pathways/patterns/Pattern.CollaborationBundle.SelfDescribing.yaml
     content_sha256: b195581edf95b46c612826474629676bf1c58b41111308561c2927ef1e08764d
     file_size: 2076
@@ -198,8 +201,8 @@ files:
     content_sha256: 08d829c7d9535b5fd35e473d3b19bbe0c5842bc4c0beaf17c3d7f302005f3b3d
     file_size: 13342
   - rel_path: collaboration-pathways/scripts/06_finalize.py
-    content_sha256: 22412f595f00725c86663212b74f708537f3ef2ed87821ea04fbd3ce52c7252c
-    file_size: 5731
+    content_sha256: beff79807f990e07e1ad12d008468fdff0b4eeb43a9aaeaff8d82478eda83d0c
+    file_size: 5795
   - rel_path: collaboration-pathways/scripts/07_canon_update.py
     content_sha256: 668079c476ab419c6ac0cf3ec9061cabe29e557e265a4051ecc65966601f5abf
     file_size: 5581
@@ -227,6 +230,9 @@ files:
   - rel_path: collaboration-pathways/scripts/14_strip_token_followup.py
     content_sha256: 6e2bda2103ddad5ac09026ae12cc331bc56d837021c6141dfdfd4be4a2de1558
     file_size: 2171
+  - rel_path: collaboration-pathways/scripts/15_encode_sovereign_attribution.py
+    content_sha256: 13d2d22c03bd1cc608d88ae18f2474b8ab13cca8dac3e54a1178a7eeb56454c8
+    file_size: 8798
   - rel_path: collaboration-pathways/scripts/run_with_provenance.py
     content_sha256: 03b8231bd2d0b61144aebef6f48d2338dfb3169453ff073b8ee732192d93cb5f
     file_size: 6811
@@ -324,17 +330,17 @@ files:
     content_sha256: c1d1b75d6d3a30dabde3c9f2e89fe61655605b7bec568fea02ce2af0d977aaed
     file_size: 21551
   - rel_path: pathway-runs/ASSET_PROVENANCE.yaml
-    content_sha256: ca3d1929bd9fd703dc5f9e79444db75a9eb1ef154a83a917a88a5d59d195c7b6
-    file_size: 56810
+    content_sha256: b6f7654c34683809b1f2d50c48effd42d6d12a56832d306194a029a55d3758f7
+    file_size: 58749
   - rel_path: pathway-runs/COMPLETENESS.md
-    content_sha256: f135da2680c922c7922283337ae10c6d2ffcc51bbaea4427812da80117255443
-    file_size: 252
+    content_sha256: 88545f5bcf877c5c391745bef5e37b9146353c1cec9cd19a51668710d5c831a4
+    file_size: 253
   - rel_path: pathway-runs/genesis-bootstrap.json
     content_sha256: 6dba1d38799aaf22e0cdd0e215b7e3cbad53ce9019476d2a26b7692e3091eb92
     file_size: 493
   - rel_path: pathway-runs/index.yaml
-    content_sha256: 1cd6083871e673ab61490e8b412f015a91eeb9267dc4fb46b002a88c5062657d
-    file_size: 32680
+    content_sha256: 3830d805207dc3ae3e4762244fe17ea30b743f3823bdf6ac89b8ce57f01256e3
+    file_size: 34319
   - rel_path: pathway-runs/pr_020e76ed45ad.json
     content_sha256: 4bd22255f5d369f9aca09f20062a7f6e09d4a7f149a35b4e1ac0bcb44bb6c866
     file_size: 17355
@@ -347,6 +353,9 @@ files:
   - rel_path: pathway-runs/pr_22835d2f4b9d.json
     content_sha256: ae10b5eaca3f5602d2c28401e460805c0dfa4558f6d955bdb557c9ce4539aa5c
     file_size: 7646
+  - rel_path: pathway-runs/pr_2414f50802db.json
+    content_sha256: 5a34094e8876306cc0b743d7b328929287e4381d06a44e80cea93080aaec27df
+    file_size: 7796
   - rel_path: pathway-runs/pr_25bc3856a86c.json
     content_sha256: 3e8fd90cb0ece575999ea7d7ed1a728ffba35d1afa25c6f4f032fe79b9231e05
     file_size: 3336
@@ -401,6 +410,9 @@ files:
   - rel_path: pathway-runs/pr_ad4aa0852967.json
     content_sha256: 3f767f7b93dbe4ba6ccde0c0af05a9c1915a86d9cd6d66f1dba448f7558e85ca
     file_size: 5483
+  - rel_path: pathway-runs/pr_b0b118829995.json
+    content_sha256: 266e668872b9a2ce89b8f53723708be33803b2e076b203c2bfe214efa4ea5036
+    file_size: 10965
   - rel_path: pathway-runs/pr_ca2762aba00f.json
     content_sha256: ba7e1b1b5546c321ed7a340e491bc1ee8b9e1c75d840723b269792a43b78d656
     file_size: 15989

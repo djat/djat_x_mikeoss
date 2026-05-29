@@ -28,9 +28,9 @@ Everything here is **specifications, recipes, prose, and cryptographic attestati
 
 A few terms, defined once:
 
-- **Pathways** — an open standard for writing a *workflow* down as a **versioned, signed, forkable recipe** (a small file with a stable name like `Assay.Citation.VerifyFirst@v1`). Once a process is a signed artifact, anyone can **run it, verify exactly what happened, attribute it, fork it, and recombine it.** Think of it as *source control + notarization for procedures*, not just code.
+- **Pathways** — an open standard for writing a *workflow* down as a **versioned, signed, forkable recipe** (a small file with a stable name like `Assay.Citation.VerifyFirst@v1`). Once a process is a signed artifact, anyone can **run it, verify exactly what happened, attribute it, fork it, and recombine it.** Think of it as *source control + notarization for procedures*, not just code. Project home: **[tesseractstakes.com/pathways](https://tesseractstakes.com/pathways)**.
 - **Assay** — a precise test of what something is genuinely made of; an *assayer* certifies the true composition of a metal. The **assay pathways** test what a legal-AI claim is really made of — grounded citations, reproducible scores, attested runs — the honest measurement the satire only performs.
-- **Collaboration bundle** — this signed, self-contained folder: the unit two parties exchange to start working together without granting each other live access to private systems. You can confirm it is intact and untampered with one command (see §8).
+- **Collaboration bundle** — this signed, self-contained folder: the unit two parties exchange to start working together without granting each other live access to private systems. You can confirm it is intact and untampered with one command (see §9).
 
 The full **Pathways v1.1.0 specification + architecture** are included verbatim in [`collaboration/20260528-130500/canon/`](collaboration/20260528-130500/canon/) (with sha256 signatures), so "this is a real standard" is something you can check, not take on faith.
 
@@ -62,7 +62,24 @@ The result is hyper-collaboration where **what is shared is the attested shape o
 
 ---
 
-## 5. Peering — two Pathways apps (including two MikeOSS nodes) cross-referencing across dimensions
+## 5. Proof of personhood — this bundle as a *trust proxy* for its authors
+
+This bundle carries the de-identified lineage of several real collaborators (`person-a`, `entity-1`, …). Their names are masked — but their **participation is not erased, it is attested.** The bundle itself acts as a **trust proxy**: it lets a cold reader trust, *by inference*, that real, unique people and entities stand behind every embedded pathway — **without exposing a single name**, and without asking you to take that on faith.
+
+Each masked author keeps four things at once:
+
+- **Sovereign proof of participation.** Every placeholder has a public, self-asserted **Personhood Credential** (for a person) or **Entity Credential** (for an org) carrying a salted commitment `sha256(real_name‖salt)`. The name never appears, but a later reveal can be *checked against* the commitment — so the proof is real, not a promise.
+- **Full attribution of the underlying lineage.** On reveal, the placeholder resolves to a DID **and to every Pathways-encoded provenance record it underpins** — the run ledger, fork lineage, and `Term` edges in [`pathway-runs/`](collaboration/20260528-130500/pathway-runs/). The credit for the substrate beneath the referenced pathways is theirs, and it is structural.
+- **Forward rights — sovereign control of what comes next.** The reveal is a **1-of-2 lockbox**: the Originator can open it now as an interim convenience, but **each author's own key is the upgrade path**, so reveal — *and any future action taken under that identity* — remains theirs to authorize. Future actions may be bounded by **inherited constraints** that travel as explicit, signed terms with a clear cryptographic lineage back to this attestation (they bind forks, never the person's autonomy outside this context).
+- **Privacy.** Nothing reveals without a holder of the reveal key. You can open the **client-side reveal viewer** at [`identities/viewer/index.html`](collaboration/20260528-130500/identities/viewer/index.html) in any browser; it shows *where* attribution has been sealed and reveals nothing without the key.
+
+**The technique itself is now encoded as a Pathway** — `Collaboration.Identity.SovereignAttributionProxy@v1` ([file](collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.SovereignAttributionProxy.v1.yaml)), **authored by the Originator (DJ Thomson)**. It is identity *masking as attestation*: de-identify → bind the placeholder to a real DID / public identity anchor via a Personhood/Entity Credential → seal a 1-of-2 reveal lockbox → assert person↔entity relationships → grant forward rights with cryptographic lineage. So the method that protects these collaborators is itself an inspectable, forkable, attributed recipe — not a one-off. MikeOSS is, implicitly, the first collaborator whose invitation occasioned that encoding.
+
+**Scaffolding & roadmap.** The credential shapes and lockboxes in [`identities/`](collaboration/20260528-130500/identities/) are prototyped to be **OpenVTC-compatible** — [github.com/OpenVTC/openvtc](https://github.com/OpenVTC/openvtc), an open Rust toolkit for DIDs, Verifiable Credentials, **Personhood Credentials (PHCs)** and **Verifiable Relationship Credentials (VRCs)** over `did:webvh`. A production deployment would issue real `did:webvh` Persona DIDs and exchange VRCs over DIDComm, and we see strong **future integration potential with the First Person Project & network** ([firstperson.network](https://firstperson.network)), whose first-person trust model these credentials are designed to interoperate with. Zero-knowledge progressive reveal and homomorphic matching remain the explicit next steps; the salted-commitment design is the first.
+
+---
+
+## 6. Peering — two Pathways apps (including two MikeOSS nodes) cross-referencing across dimensions
 
 Any two **Pathways-compliant** applications — two firms, two products, or **two local MikeOSS nodes that adopt these assets** — can establish a **trusted peering relationship** (the spec's §10 invite / accept / verify / revoke protocol; conformance Level **F** = "federation-ready, can peer"). Peering needs **no central broker** and **no shared runtime** — just mutual genesis attestations.
 
@@ -75,11 +92,11 @@ Once peered, they cross-reference each other's pathways across the spec's **six 
 - **temporal** (when, recency, version history),
 - **lineage** (fork ancestry and attribution).
 
-Cross-referencing across these `composite_domain` / `context_lens` / `abstract_capability` registry substrates lets two peers **infer best practices and concrete improvements from each other** — e.g. "your judge-research pathway and mine converge except your authority-synthesis step has a lower not-found rate; here's the delta." Variation is **safe, reversible, and rewarding** because every change carries a signed author and explicit rights (§6). Two MikeOSS nodes starting from these same assets can therefore *co-evolve* — each improving the shared substrate, with credit and provenance intact.
+Cross-referencing across these `composite_domain` / `context_lens` / `abstract_capability` registry substrates lets two peers **infer best practices and concrete improvements from each other** — e.g. "your judge-research pathway and mine converge except your authority-synthesis step has a lower not-found rate; here's the delta." Variation is **safe, reversible, and rewarding** because every change carries a signed author and explicit rights (§7). Two MikeOSS nodes starting from these same assets can therefore *co-evolve* — each improving the shared substrate, with credit and provenance intact.
 
 ---
 
-## 6. License precision — from free to cryptographically gated, with no requirement
+## 7. License precision — from free to cryptographically gated, with no requirement
 
 The Pathways spec gives authors **precise, graduated control** over how their pathways travel — a wide spectrum, none of it mandatory. Every published template carries **four author rights** that travel with it cryptographically (license terms are part of the signed artifact and follow it across forks):
 
@@ -94,7 +111,7 @@ So the same standard supports a tiny solo author giving everything away, *and* a
 
 ---
 
-## 7. What's inside (artifact inventory)
+## 8. What's inside (artifact inventory)
 
 All under `collaboration/20260528-130500/`:
 
@@ -102,7 +119,7 @@ All under `collaboration/20260528-130500/`:
 - [`assay-pathways/`](collaboration/20260528-130500/assay-pathways/) — the four donated trust substrates (§3).
 - [`collaboration-pathways/`](collaboration/20260528-130500/collaboration-pathways/) — the collaboration-bundle technique encoded as Pathways, plus `Term` artifacts that make even the *names* versioned and licensable.
 - [`canon/`](collaboration/20260528-130500/canon/) — the **Pathways v1.1.0 specification + architecture** (verbatim, with sha256 signatures).
-- [`identities/`](collaboration/20260528-130500/identities/) — selective-disclosure credentials + 1-of-2 lockboxes + a browser viewer (§4).
+- [`identities/`](collaboration/20260528-130500/identities/) — selective-disclosure credentials + 1-of-2 lockboxes + a browser viewer; the **trust-proxy / proof-of-personhood** layer (§5).
 - [`pathway-runs/`](collaboration/20260528-130500/pathway-runs/) — the provenance ledger: every script that built this bundle, recorded as a run, mapped in `ASSET_PROVENANCE.yaml`.
 - `attestations/` — the SHA-256 manifest + Ed25519 signature sealing the whole folder.
 
@@ -110,7 +127,7 @@ The 9-10 small, **self-validating experiments** ("the asks") are in [`collaborat
 
 ---
 
-## 8. How to engage (any of these, or none)
+## 9. How to engage (any of these, or none)
 
 1. **Verify it's intact** (from the repo root):
    ```bash
@@ -146,10 +163,10 @@ Run [`START_COLLABORATION_HANDOFF.prompt.md`](START_COLLABORATION_HANDOFF.prompt
 
 ## Integrity
 
-**bundle_root_hash (recorded outside the seal):** `089f8cab5417501542aa15e97ceba2fde21d69bc7f78348d6c108c66829b8e3d`
-**file_count:** 149 · **signing:** Ed25519 over bundle_root_hash · **spec:** Pathways v1.1.0 · **verify:** `verify: OK`
+**bundle_root_hash (recorded outside the seal):** `8cb466fc2fb9d3e16e1869d40ec3d2ac044d7d0501257ef26620a2ea23605ff3`
+**file_count:** 153 · **signing:** Ed25519 over bundle_root_hash · **spec:** Pathways v1.1.0 · **verify:** `verify: OK`
 Authoritative hash lives in [`collaboration/20260528-130500/attestations/CONTENT_MANIFEST.yaml`](collaboration/20260528-130500/attestations/CONTENT_MANIFEST.yaml).
 
 ## License
 
-This donation: **fork allowed; attribution required; revocation scope max `self_only`; no fee, no gate.** (The Pathways spec supports the full licensing spectrum of §6; this bundle chooses the most open end.)
+This donation: **fork allowed; attribution required; revocation scope max `self_only`; no fee, no gate.** (The Pathways spec supports the full licensing spectrum of §7; this bundle chooses the most open end.)

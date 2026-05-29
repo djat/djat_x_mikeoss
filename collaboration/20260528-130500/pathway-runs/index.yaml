@@ -330,3 +330,23 @@ runs:
     script_sha256: 22412f595f00725c86663212b74f708537f3ef2ed87821ea04fbd3ce52c7252c
     record: pathway-runs/pr_5ba65e4479bd.json
     produced: ["collaboration/20260528-130500/pathway-runs/COMPLETENESS.md", "collaboration/20260528-130500/collaboration-pathways/sidecars/privacy-refactor-lineage.md", "collaboration/20260528-130500/collaboration-pathways/scripts/06_finalize.py", "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.Finalize.v1.yaml"]
+  - run_id: pr_b0b118829995
+    pathway: Collaboration.Meta.EmbedTechniqueProvenance@v1
+    label: "author Collaboration.Identity.SovereignAttributionProxy@v1 (trust-proxy technique; Originator DJ Thomson)"
+    started: 2026-05-29T08:03:37Z
+    ended: 2026-05-29T08:03:37Z
+    exit_code: 0
+    script: collaboration/20260528-130500/collaboration-pathways/scripts/15_encode_sovereign_attribution.py
+    script_sha256: 13d2d22c03bd1cc608d88ae18f2474b8ab13cca8dac3e54a1178a7eeb56454c8
+    record: pathway-runs/pr_b0b118829995.json
+    produced: ["collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.SovereignAttributionProxy.v1.yaml", "collaboration/20260528-130500/collaboration-pathways/pathways-index.yaml", "collaboration/20260528-130500/collaboration-pathways/scripts/15_encode_sovereign_attribution.py"]
+  - run_id: pr_2414f50802db
+    pathway: Collaboration.Refactor.Finalize@v1
+    label: "re-gate after sovereign-attribution technique encoding"
+    started: 2026-05-29T08:03:37Z
+    ended: 2026-05-29T08:03:37Z
+    exit_code: 0
+    script: collaboration/20260528-130500/collaboration-pathways/scripts/06_finalize.py
+    script_sha256: beff79807f990e07e1ad12d008468fdff0b4eeb43a9aaeaff8d82478eda83d0c
+    record: pathway-runs/pr_2414f50802db.json
+    produced: ["collaboration/20260528-130500/pathway-runs/COMPLETENESS.md", "collaboration/20260528-130500/collaboration-pathways/sidecars/privacy-refactor-lineage.md", "collaboration/20260528-130500/collaboration-pathways/scripts/06_finalize.py", "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.Finalize.v1.yaml"]

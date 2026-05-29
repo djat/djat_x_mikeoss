@@ -28,6 +28,7 @@ NEW_TEMPLATES = {
     "Collaboration.Identity.RevealLockbox.v1.yaml",
     "Collaboration.Canon.UpdateSpec.v1.yaml",
     "Collaboration.Refactor.HardenGateProfile.v1.yaml",
+    "Collaboration.Identity.SovereignAttributionProxy.v1.yaml",
 }
 
 
