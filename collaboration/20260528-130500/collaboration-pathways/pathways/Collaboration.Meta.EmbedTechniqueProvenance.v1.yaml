@@ -11,7 +11,7 @@ pathway_template:
     NEW. Originator (DJ Thomson)'s authored enhancement to the collaboration-bundle
     technique: embed the technique's OWN canonical Pathways encoding plus its
     provenance (version, co-originators, lineage, defining pathways) INSIDE the
-    bundle, so both sides — and any later peer — can interrogate not just this
+    bundle, so both sides - and any later peer - can interrogate not just this
     exchange but the meta-collaboration context of the whole ecosystem,
     asynchronously and without a shared runtime. From this bundle forward, every
     collaboration bundle is self-describing.

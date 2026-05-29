@@ -1,4 +1,4 @@
-# Reference excerpt — the Elite MegaLaw Benchmark (satire)
+# Reference excerpt - the Elite MegaLaw Benchmark (satire)
 
 Source: `https://mikeoss.com/articles/elite-megalaw-benchmark` (read as beautiful satire).
 

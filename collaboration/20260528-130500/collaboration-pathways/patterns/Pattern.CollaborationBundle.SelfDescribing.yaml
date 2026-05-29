@@ -7,7 +7,7 @@ pattern:
     NEW. Originator (DJ Thomson)'s authored enhancement to the co-originated
     collaboration-bundle technique. Every bundle henceforth carries, inside itself,
     the canonical Pathways encoding of the technique AND that technique's provenance,
-    so any peer can interrogate not just the bundle's format but its formalization —
+    so any peer can interrogate not just the bundle's format but its formalization -
     asynchronously, without a shared runtime, across the whole ecosystem.
 
   invariants:

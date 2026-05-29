@@ -1,4 +1,4 @@
-# PC-2 — Bundle seal/invalidate conformance test
+# PC-2 - Bundle seal/invalidate conformance test
 
 test:
   id: PC-2
@@ -8,7 +8,7 @@ test:
 
   narrative: |
     Evaluate the structural hypotheses (H-MO0a, H-MO0b) and the ten asks, then set
-    bundle_status to SEALED, INVALIDATED, INCONCLUSIVE, or ASSEMBLED — never ambiguous.
+    bundle_status to SEALED, INVALIDATED, INCONCLUSIVE, or ASSEMBLED - never ambiguous.
     Reciprocal-only outcomes are INCONCLUSIVE, never INVALIDATED.
 
   pass_criteria:

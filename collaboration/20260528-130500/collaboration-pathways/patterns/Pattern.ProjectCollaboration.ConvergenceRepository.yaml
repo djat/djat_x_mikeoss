@@ -4,7 +4,7 @@ pattern:
   title: Convergence Repository Pattern
 
   description: |
-    Two peers begin collaboration by assembling a convergence repository —
+    Two peers begin collaboration by assembling a convergence repository -
     not by sharing live repo access. The repository is:
     - verbatim-copied (no symlinks)
     - link-closed for browsing

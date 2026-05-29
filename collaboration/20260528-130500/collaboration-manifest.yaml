@@ -1,5 +1,5 @@
 # =============================================================================
-# THE OPEN PATHWAYS × MIKEOSS COLLABORATION — machine-readable bundle manifest
+# THE OPEN PATHWAYS × MIKEOSS COLLABORATION - machine-readable bundle manifest
 # =============================================================================
 # Pairs with companion-bundle-index.md (the human-readable read-me-first).
 # This manifest also carries the technique_provenance block (see below): the
@@ -24,7 +24,7 @@ bundle:
   contains_code: false
   collaboration_kind: open-invitation
   reciprocation_required: false
-  status: "ASSEMBLED — open invitation to the MikeOSS project and team"
+  status: "ASSEMBLED - open invitation to the MikeOSS project and team"
 
 read_order:
   - "companion-bundle-index.md"
@@ -71,7 +71,7 @@ files:
     disclosure: architecture-and-method
 
 # -----------------------------------------------------------------------------
-# TECHNIQUE PROVENANCE — the self-describing enhancement (read this to interrogate
+# TECHNIQUE PROVENANCE - the self-describing enhancement (read this to interrogate
 # not just the bundle FORMAT, but the collaboration-bundle TECHNIQUE's formalization)
 # -----------------------------------------------------------------------------
 technique_provenance:

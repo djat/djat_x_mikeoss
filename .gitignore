@@ -4,6 +4,10 @@
 keys/*
 !keys/bundle-signing.public.pem
 
+# Aqua tooling deps (reproducible via package.json + lockfile; node_modules is heavy)
+tools/aqua/node_modules/
+tools/aqua/credentials.json
+
 # OS / editor noise
 .DS_Store
 .obsidian/

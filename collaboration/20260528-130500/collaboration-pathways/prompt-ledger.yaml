@@ -1,4 +1,4 @@
-# Originator prompt ledger — djat-mikeoss-20260528
+# Originator prompt ledger - djat-mikeoss-20260528
 # Append-only collaboration process meta-encoding
 
 ledger_version: "1.0.0"
@@ -13,8 +13,8 @@ entries:
     intent: plan
     prompt_summary: |
       Read the Elite MegaLaw Benchmark as beautiful satire, then run an exercise to
-      read it as truth, find the delta, and propose how two open projects — the open
-      Pathways project and the open MikeOSS project — can co-create the genuine
+      read it as truth, find the delta, and propose how two open projects - the open
+      Pathways project and the open MikeOSS project - can co-create the genuine
       assay to what the satire has begun to alchemize. Frame as an open invitation
       and recognition, with a menu of small, self-validating asks.
     artifacts_affected:

@@ -1,4 +1,4 @@
-# Start Collaboration Handoff — Agent Entry Prompt
+# Start Collaboration Handoff - Agent Entry Prompt
 
 **Document type:** Meta instructive prompt (run once at repository root)
 **Audience:** LLM agent or agentic reader on either side of the channel
@@ -29,11 +29,11 @@ You are loading the **open Pathways × MikeOSS collaboration bundle**. Your job 
 1. Verify bundle integrity.
 2. Understand what is authoritative.
 3. Load the read order and the embedded self-describing technique encoding.
-4. Surface the menu of self-validating experiments — so value can be produced with or without a reciprocal collaboration.
+4. Surface the menu of self-validating experiments - so value can be produced with or without a reciprocal collaboration.
 
 ---
 
-## Step 1 — Verify integrity (mandatory)
+## Step 1 - Verify integrity (mandatory)
 
 From **repository root**, run:
 
@@ -55,7 +55,7 @@ collaboration/20260528-130500/
 
 ---
 
-## Step 2 — Load read order (paths relative to `BUNDLE_ROOT`)
+## Step 2 - Load read order (paths relative to `BUNDLE_ROOT`)
 
 Read these files **in order**:
 
@@ -72,20 +72,20 @@ Read these files **in order**:
 
 ---
 
-## Step 3 — Interrogate the technique (the point of this bundle)
+## Step 3 - Interrogate the technique (the point of this bundle)
 
 This bundle is self-describing. To interrogate not just the format but its Pathways formalization:
 
 1. Open `collaboration-manifest.yaml` and read the `technique_provenance:` block (version, co-originators, lineage, defining pathways).
-2. Open the `collaboration-pathways/pathways/` directory and read any `Collaboration.*` template — each is a `pathway_template` you can fork, critique, or re-implement.
+2. Open the `collaboration-pathways/pathways/` directory and read any `Collaboration.*` template - each is a `pathway_template` you can fork, critique, or re-implement.
 3. The pathway `Collaboration.Meta.EmbedTechniqueProvenance@v1` is the rule that put this self-description here. The pattern `Pattern.CollaborationBundle.SelfDescribing` states the invariant.
 
 ---
 
-## Step 4 — Consider the asks (no obligation)
+## Step 4 - Consider the asks (no obligation)
 
 `collaboration-pathways/test/HYPOTHESES.md` holds 10 pre-registered hypotheses (H-MO1..H-MO10). Each maps to a small experiment that produces standalone value. The bundle can reach `SEALED` on the **unilateral** experiments alone; a reciprocal collaboration from MikeOSS is welcome but not required.
 
-If you wish to reply, see `collaboration-spine.md` § Reciprocation — and know that a reply is itself just another collaboration bundle in this same lineage.
+If you wish to reply, see `collaboration-spine.md` § Reciprocation - and know that a reply is itself just another collaboration bundle in this same lineage.
 
 --- END PROMPT ---

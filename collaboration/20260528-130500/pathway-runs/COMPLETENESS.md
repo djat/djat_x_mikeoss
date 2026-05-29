@@ -1,9 +1,9 @@
 # Completeness gate - refactor asset provenance
 
-Run: pr_2414f50802db
-Indexed assets in ASSET_PROVENANCE.yaml: 101
-Expected refactor assets present: 57
-Covered: 57
+Run: pr_56e96fbfcc27
+Indexed assets in ASSET_PROVENANCE.yaml: 156
+Expected refactor assets present: 58
+Covered: 58
 Missing: 0
 
 All refactor assets have a producing Pathway + PathwayRun. Seal may proceed.

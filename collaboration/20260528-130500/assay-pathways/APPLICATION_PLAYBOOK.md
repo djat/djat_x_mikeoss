@@ -1,4 +1,4 @@
-# Assay Pathways — Application Playbook
+# Assay Pathways - Application Playbook
 
 > **Assay** - a precise test of what something is genuinely made of; an *assayer* certifies the true composition of a metal. Here, the *assay pathways* test what a legal-AI claim is really made of - grounded citations, reproducible scores, attested runs: the honest measurement the satire only performs.
 
@@ -26,7 +26,7 @@ The *Elite MegaLaw Benchmark* satire works because everyone recognizes the failu
 
 ## How they compose
 
-`Assay.Convergence.AnchoredAuthority` is the meta-technique: it invokes `VerifyFirst` for the first pass, then re-enters with the canonical-consensus oracle pinned as authority, attesting each iteration via `RunManifest`, until typed citation error falls below a threshold. `Benchmark.Reproducible` wraps any of them in an attested, re-runnable harness so a number can be re-derived by anyone — never inflated.
+`Assay.Convergence.AnchoredAuthority` is the meta-technique: it invokes `VerifyFirst` for the first pass, then re-enters with the canonical-consensus oracle pinned as authority, attesting each iteration via `RunManifest`, until typed citation error falls below a threshold. `Benchmark.Reproducible` wraps any of them in an attested, re-runnable harness so a number can be re-derived by anyone - never inflated.
 
 ---
 

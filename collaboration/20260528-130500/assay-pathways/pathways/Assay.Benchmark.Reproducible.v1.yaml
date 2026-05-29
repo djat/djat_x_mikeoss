@@ -10,10 +10,10 @@ pathway_template:
   description: |
     The honest inverse of the Elite MegaLaw table. Each benchmark task is an attested
     run with hashed prompt + hashed output and deterministic grounding. Scores are
-    bounded by ground truth — a citation either resolves against a canonical public
-    source or it does not — so no score can exceed 100%, and every number can be
+    bounded by ground truth - a citation either resolves against a canonical public
+    source or it does not - so no score can exceed 100%, and every number can be
     re-derived by a third party. No chart smoothing, no decimal optimisation, no
-    strategic category weighting. STUB — no executable code.
+    strategic category weighting. STUB - no executable code.
 
   inputs:
     - name: task_set

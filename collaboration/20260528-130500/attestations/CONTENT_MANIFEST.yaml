@@ -2,7 +2,7 @@
 manifest_version: "1.0"
 manifest_kind: content_manifest
 bundle_id: djat-mikeoss-20260528
-issued_at: 2026-05-29T08:03:38Z
+issued_at: 2026-05-29T21:41:43Z
 issuer_label: "Originator (Pathways framework author)"
 
 state:
@@ -12,35 +12,50 @@ state:
 bundle_root_hash:
   algorithm: sha256
   method: "sha256(sort-join(rel_path \t content_sha256 \n))"
-  hash: 8cb466fc2fb9d3e16e1869d40ec3d2ac044d7d0501257ef26620a2ea23605ff3
+  hash: 916549688e6b4e064ffe12ce3d46e7a878f022f2c4c70085f49d0a6256ce4644
 
-file_count: 153
+file_count: 203
 
 files:
   - rel_path: COLLABORATION_READINESS.md
-    content_sha256: ad38544392c4e2590a13dbb68baec83c8ad3db4d32748dc99b8972373d7548ac
-    file_size: 2025
+    content_sha256: bad81949385bdbba14a39f53ddf0f7c5f5f054bff785201ad5bc7061a5b37eb1
+    file_size: 2021
   - rel_path: REPOSITORY_README.md
-    content_sha256: ce2263ca7c81efc89e5cd01f7093fa1db38c8b2b177bba441a524074bee4ffa0
-    file_size: 2953
+    content_sha256: 3fc359e3ec7fe84eff792eaab22b12c6a15ebe00550c4fc786be64c88266bb96
+    file_size: 2939
+  - rel_path: aqua-trees-index.yaml
+    content_sha256: ad82d9824d1f954e62ac7328cb6aa54a6e8e637b41331901f9e7d39455212098
+    file_size: 17902
   - rel_path: assay-pathways/APPLICATION_PLAYBOOK.md
-    content_sha256: de7187c7d22f6efee6af5658e623defa1c36c9c0ee6cf2b8bc2f793bdd09d818
-    file_size: 3012
+    content_sha256: d9a5ea8d895d631c1b1f319f163cf890b0b64ad419b4ba909272bf87f13b1411
+    file_size: 3008
   - rel_path: assay-pathways/PACKAGE.yaml
     content_sha256: b62e742281437abfd6b4dfe3ec5bd9d8baa94ac3a2de5f9514f46b393023715e
     file_size: 2378
   - rel_path: assay-pathways/pathways/Assay.Benchmark.Reproducible.v1.yaml
-    content_sha256: 27ba7e142dcc95e562631d6e2fd310817e30e61a62b5e3b9993846cc54c21be9
-    file_size: 1875
+    content_sha256: 27f8837cd47b7c224380f0fce1ec19d44c7126f9eed456a6c84378438b4219a0
+    file_size: 1869
+  - rel_path: assay-pathways/pathways/Assay.Benchmark.Reproducible.v1.yaml.aqua.json
+    content_sha256: 126f4d61fdfb038aa4a66004f624816d6fcc77230a7dcccfa1e2a8a78693c012
+    file_size: 12919
   - rel_path: assay-pathways/pathways/Assay.Citation.VerifyFirst.v1.yaml
     content_sha256: 0c1c65e6445f0bdd492f1d88ca91e5490329bf99fe88c29449a0d50a765f4794
     file_size: 2698
+  - rel_path: assay-pathways/pathways/Assay.Citation.VerifyFirst.v1.yaml.aqua.json
+    content_sha256: 5b777c998827e0cc4b28f33ec9110fd33326298891f8d3eb095e7063f2051f19
+    file_size: 12917
   - rel_path: assay-pathways/pathways/Assay.Convergence.AnchoredAuthority.v1.yaml
     content_sha256: 5b8ca0de9f12799badbd8e865bbfb1145d984f562dd4ee95026730169c8d129a
     file_size: 4091
+  - rel_path: assay-pathways/pathways/Assay.Convergence.AnchoredAuthority.v1.yaml.aqua.json
+    content_sha256: 047b6aa1653466b91b062c8aa7eec29e26b710b09fd09eed6e3de9957b925807
+    file_size: 12926
   - rel_path: assay-pathways/pathways/Assay.Provenance.RunManifest.v1.yaml
     content_sha256: e417caf50290fce6525dd44b4c5a581dddeec56639ca38d1cb43c23df1f7dc22
     file_size: 3443
+  - rel_path: assay-pathways/pathways/Assay.Provenance.RunManifest.v1.yaml.aqua.json
+    content_sha256: 6718775875a9f10e137a2e7db8ecab5eaf76cfe0b3c6a969470e17ca78962786
+    file_size: 12919
   - rel_path: assay-pathways/pathways-index.yaml
     content_sha256: 231f79bed4ef5edbdf57461b58aa0a82113956bbebb1af7b450cb85bdabd8f2a
     file_size: 1348
@@ -48,8 +63,8 @@ files:
     content_sha256: a70ce7575184875187ea91afc6d9bf121807e0206534de265bfabeb938054b79
     file_size: 2213
   - rel_path: assets/elite-megalaw-benchmark-excerpt.md
-    content_sha256: e07ce9aa8217a3a68d04e5940d768b4b8f0566d7fedd76fb8b548ec06ff63239
-    file_size: 1583
+    content_sha256: e073fce098a17e653770fafb19edbe981c62085a4f1028f36e9a1c53609af3b0
+    file_size: 1581
   - rel_path: canon/CANON_MANIFEST.yaml
     content_sha256: fe45193a8c69a9f630eb319a56f81d240e3849e37c70a22091dc7fca4d1961ca
     file_size: 1055
@@ -60,17 +75,17 @@ files:
     content_sha256: 1588cda3f28fc8c22007ab05cad4231b1212444f2d0c2a1b404e9603ac6c75cc
     file_size: 128628
   - rel_path: collaboration-manifest.yaml
-    content_sha256: ad4b504cd0583cf65e418dd16ed7c41489d0c4c17cc525aa2689eb574198617b
-    file_size: 8008
+    content_sha256: cac4d1a85ea3aa63f9eebf86005fee9b0e7f5ba2a07b4c5c3c9220763984402c
+    file_size: 8002
   - rel_path: collaboration-pathways/.DS_Store
     content_sha256: 80b4f2b07dc40a4b9f4b201baead38fb281167a7608b50e06af802ea9dcf9e67
     file_size: 6148
   - rel_path: collaboration-pathways/APPLICATION_PLAYBOOK.md
-    content_sha256: 723e85dde28f30d57a78a98dbfd085500fc0680c9d5fd45d2187117fedf2fe2b
-    file_size: 5868
+    content_sha256: f5379955a991841d4dc394f26a5e435a71b0b5e90608ff05000b6e73ce14bbfb
+    file_size: 5802
   - rel_path: collaboration-pathways/PACKAGE.yaml
-    content_sha256: 56c19807d768c5a015567682c923599ee51b6ab5dc8cff0e1954315ea8c32a89
-    file_size: 4057
+    content_sha256: 7155acf51b663025261ffe877cca8d1564b56d0013731cc0f01eea6d99c22bc5
+    file_size: 4055
   - rel_path: collaboration-pathways/canon/COLLABORATION_BUNDLE_TECHNIQUE.md
     content_sha256: 919ff7f69ec4eda9d56df47325b4b1037a818b41ef742a2bdc00826f39064060
     file_size: 8688
@@ -78,107 +93,197 @@ files:
     content_sha256: 4975f3fc722e2576032493661f0eeb59f3ffa415d68c3498885bedbad039ba43
     file_size: 1065
   - rel_path: collaboration-pathways/meta/collaboration-instance.yaml
-    content_sha256: 8ec0f9a6a73754b32b9148974dd3329b2075a98194cd83c1c7508a3865deb773
-    file_size: 670
+    content_sha256: 6a252f360fa5a6173517461f5d128feca9cc52e27b27b7fa94622eb84b87b55e
+    file_size: 668
   - rel_path: collaboration-pathways/meta/djat-mikeoss-20260528.yaml
     content_sha256: 8b27d987541c9bae14e6d050d16a698fc49272d5a3dc2d0e26e9010b1e13a711
     file_size: 1770
   - rel_path: collaboration-pathways/pathways/Collaboration.Attestation.BindContentHashes.v1.yaml
     content_sha256: c29ad46aaf37c5691fef00e4d6e88cfc5d2631528b46fc95d00d3a9655c241f3
     file_size: 1089
+  - rel_path: collaboration-pathways/pathways/Collaboration.Attestation.BindContentHashes.v1.yaml.aqua.json
+    content_sha256: d9ae73411549d6e5befad13db11f1df974af41b1cd8ac0ea6493fa68fad459b7
+    file_size: 12938
   - rel_path: collaboration-pathways/pathways/Collaboration.Attestation.RecordPathwayRun.v1.yaml
     content_sha256: 6c9b19ef4d6814c12399f0de016d3d44e26a2540c9efdf1b555ba4698decba97
     file_size: 1982
+  - rel_path: collaboration-pathways/pathways/Collaboration.Attestation.RecordPathwayRun.v1.yaml.aqua.json
+    content_sha256: bdd77fc0b2e0f08741faf136a8c66b739c1571af230abc5730aa0c6b260128b5
+    file_size: 12933
   - rel_path: collaboration-pathways/pathways/Collaboration.Bundle.RewriteLinks.v1.yaml
     content_sha256: 20945d8487a62ba724951d3cd49010c2c33187a7f3e04cc043653f8724c3cf0d
     file_size: 758
+  - rel_path: collaboration-pathways/pathways/Collaboration.Bundle.RewriteLinks.v1.yaml.aqua.json
+    content_sha256: 099cef3bb484b4f09a2d3f308d7ee009627be5a0f15e5387df724e1eac49640a
+    file_size: 12924
   - rel_path: collaboration-pathways/pathways/Collaboration.Bundle.SealBundle.v1.yaml
     content_sha256: 758383143d2a6e9d1bc4fcdbb0d7e1598021641fc9ea6ad3029a118d8c5cbd97
     file_size: 1960
+  - rel_path: collaboration-pathways/pathways/Collaboration.Bundle.SealBundle.v1.yaml.aqua.json
+    content_sha256: 977ea7ad23c2754f1dc24c50e2c7bbf11c0aabae00491d185b4b5e0a1bcb8216
+    file_size: 12926
   - rel_path: collaboration-pathways/pathways/Collaboration.Bundle.VerifyBundle.v1.yaml
     content_sha256: f674f1f5226df2cb6340e11ded8606bb971481e185d53d44fd2400db6518c2f4
     file_size: 1280
+  - rel_path: collaboration-pathways/pathways/Collaboration.Bundle.VerifyBundle.v1.yaml.aqua.json
+    content_sha256: 064156d3c7aac615b65fcd9120a9b157f68c1f85be1dbba4d81f4084cc912f3b
+    file_size: 12928
   - rel_path: collaboration-pathways/pathways/Collaboration.Canon.UpdateSpec.v1.yaml
     content_sha256: 5ee31b9e5fcc537ce2df0a50416b00386f0f493c5734f76df114166a2a39907c
     file_size: 882
+  - rel_path: collaboration-pathways/pathways/Collaboration.Canon.UpdateSpec.v1.yaml.aqua.json
+    content_sha256: 610778a8c1b5253b1f80fc0bdbf645e4e81df977b5febc942ddd7af990363997
+    file_size: 12921
   - rel_path: collaboration-pathways/pathways/Collaboration.Convergence.AssembleBundle.v1.yaml
     content_sha256: 262bd9aee622015a72e68a38c2ce0ae09ab076c02705293ac03c1b595c3426a7
     file_size: 1898
+  - rel_path: collaboration-pathways/pathways/Collaboration.Convergence.AssembleBundle.v1.yaml.aqua.json
+    content_sha256: 67f268e9a4576b6958d66f1df1bd69cbd86aa7e50027bf8f8e07df49f13596e8
+    file_size: 12931
   - rel_path: collaboration-pathways/pathways/Collaboration.Identity.AssertRelationship.v1.yaml
     content_sha256: cb2744fd80b37409ebec2be2f8c79b4e3a9d93e1c2f161b733749b4316b9142e
     file_size: 691
+  - rel_path: collaboration-pathways/pathways/Collaboration.Identity.AssertRelationship.v1.yaml.aqua.json
+    content_sha256: 88318bb534f86c0b36c4de523fe1932fb3113015a2d0340fac469bee19ae53ef
+    file_size: 12932
   - rel_path: collaboration-pathways/pathways/Collaboration.Identity.IssuePersonhoodCredential.v1.yaml
     content_sha256: 8ebedb6f1bf4bdbb60788aff34dd75a648b2946f135466ecd086f9a3988b4895
     file_size: 843
+  - rel_path: collaboration-pathways/pathways/Collaboration.Identity.IssuePersonhoodCredential.v1.yaml.aqua.json
+    content_sha256: 41fdec9cf3a63d7207c6b344ebcc8c072a06241a486c1d7819093719772351f7
+    file_size: 12943
   - rel_path: collaboration-pathways/pathways/Collaboration.Identity.RevealLockbox.v1.yaml
     content_sha256: a00467aa99abb25cfbfc7d75677a7d6a66701db227255114a1aad5b735f3dec0
     file_size: 770
+  - rel_path: collaboration-pathways/pathways/Collaboration.Identity.RevealLockbox.v1.yaml.aqua.json
+    content_sha256: 7cea9d7b2fcdf80281fa611151a299788d6e27b6f35d48460963abe3c2d99736
+    file_size: 12931
   - rel_path: collaboration-pathways/pathways/Collaboration.Identity.SealNameLockbox.v1.yaml
     content_sha256: a3efcfe11396391779afab11f0d6dd4d52e12d0ecebe375da43da252d20fc747
     file_size: 767
+  - rel_path: collaboration-pathways/pathways/Collaboration.Identity.SealNameLockbox.v1.yaml.aqua.json
+    content_sha256: de5187cd7465bcf144201fea7a3ca285b927ffff0bae2671ac88a0f1a3f3534b
+    file_size: 12929
   - rel_path: collaboration-pathways/pathways/Collaboration.Identity.SovereignAttributionProxy.v1.yaml
     content_sha256: fd0776749afa32e9320eedce9dfee11ff962eacaac3dd56c55cc269d291d628d
     file_size: 6064
+  - rel_path: collaboration-pathways/pathways/Collaboration.Identity.SovereignAttributionProxy.v1.yaml.aqua.json
+    content_sha256: 4037e4d7dcac2179ec7b9749762fb30f53d48b60be91a007235f470acc1774ae
+    file_size: 12939
   - rel_path: collaboration-pathways/pathways/Collaboration.Investigation.DeclarePending.v1.yaml
     content_sha256: 339bc51d72ffba23e32c70ce6ca36e2eea124f00adf2d99a89a7ca1ff1f8260f
     file_size: 1181
+  - rel_path: collaboration-pathways/pathways/Collaboration.Investigation.DeclarePending.v1.yaml.aqua.json
+    content_sha256: a30c8aa8a999b8ad775b29e43f36c2333addbdc6c059895069f9b9b8566b9fd8
+    file_size: 12937
   - rel_path: collaboration-pathways/pathways/Collaboration.Investigation.PreRegisterHypotheses.v1.yaml
     content_sha256: 4fce2e203453d146f9080758b205107232027ae2001063c44415252274f1a738
     file_size: 931
+  - rel_path: collaboration-pathways/pathways/Collaboration.Investigation.PreRegisterHypotheses.v1.yaml.aqua.json
+    content_sha256: eb8e3ab5f9822e7d0d7de640b0e7ea208e4c250ef756bcb3e79ac8e3e2d85dce
+    file_size: 12940
   - rel_path: collaboration-pathways/pathways/Collaboration.Investigation.SealOrInvalidateBundle.v1.yaml
     content_sha256: 3acce3fe5a9e8fbc47b41bf6ce8d691b392f87e3bada4eb3f5f247d6376fe7fa
     file_size: 1306
+  - rel_path: collaboration-pathways/pathways/Collaboration.Investigation.SealOrInvalidateBundle.v1.yaml.aqua.json
+    content_sha256: 728f39f413a744250865568568aa280a9da046f2db0cd277f232371cade3d7f3
+    file_size: 12945
   - rel_path: collaboration-pathways/pathways/Collaboration.Meta.EmbedTechniqueProvenance.v1.yaml
-    content_sha256: 3d0f1ab95e646ab12e13bce34058d52a3249961fe41b3956932d5241eb088943
-    file_size: 2499
+    content_sha256: 8dfc10eb7260b4fb161e910f7f9b9623908d86f01226a51f9a41ed101ff3a0ff
+    file_size: 2495
+  - rel_path: collaboration-pathways/pathways/Collaboration.Meta.EmbedTechniqueProvenance.v1.yaml.aqua.json
+    content_sha256: 00a725d1432d20d4656c6b1288bdd1c24b35d2492045be81812eb3411ff36086
+    file_size: 12938
   - rel_path: collaboration-pathways/pathways/Collaboration.Meta.EncodePromptLedger.v1.yaml
     content_sha256: c0d5fd56daea9262078f79788d83b2d5632d48c472d2104ef71fb22314bcd8e8
     file_size: 973
+  - rel_path: collaboration-pathways/pathways/Collaboration.Meta.EncodePromptLedger.v1.yaml.aqua.json
+    content_sha256: a13a36bdb9ea2cd8247ad2d6d1871911c4953af01e8d51f726b677c6d254ac0d
+    file_size: 12928
   - rel_path: collaboration-pathways/pathways/Collaboration.Naming.RegisterTerm.v1.yaml
     content_sha256: 3e6d23712e32940d4953ca1ac210896d30107779595688216d1f0047428808fb
     file_size: 1395
+  - rel_path: collaboration-pathways/pathways/Collaboration.Naming.RegisterTerm.v1.yaml.aqua.json
+    content_sha256: ac8c33274f800f066dab0bde5007d201e70e245c84a704ca9586991e4027aa86
+    file_size: 12924
   - rel_path: collaboration-pathways/pathways/Collaboration.Privacy.DeIdentify.v1.yaml
     content_sha256: f1bbf519f1f2b6f05be13b12d0d8cb61a246fdbd628c174d08fe854ddb80fdc0
     file_size: 1444
+  - rel_path: collaboration-pathways/pathways/Collaboration.Privacy.DeIdentify.v1.yaml.aqua.json
+    content_sha256: b9cef50778994cc03134c499a82f561e338969d3a024f04242954eedb5536871
+    file_size: 12927
   - rel_path: collaboration-pathways/pathways/Collaboration.Proof.AwaitCounterpartyBuild.v1.yaml
     content_sha256: cf9207240013c2113ebd95cccf079d16086cbcdcb6bbef03e8a0b32c857eb58b
     file_size: 1483
+  - rel_path: collaboration-pathways/pathways/Collaboration.Proof.AwaitCounterpartyBuild.v1.yaml.aqua.json
+    content_sha256: d82e7514d2cc82d70f536bbe3da57ca09be8d87a8025076332b6b70a875134e3
+    file_size: 12933
   - rel_path: collaboration-pathways/pathways/Collaboration.Proof.RunUnilateralExperiment.v1.yaml
     content_sha256: 756da36cabe46d9e4ae2faad7bab56776bd108c931e286df2129f84482e6af21
     file_size: 1594
+  - rel_path: collaboration-pathways/pathways/Collaboration.Proof.RunUnilateralExperiment.v1.yaml.aqua.json
+    content_sha256: e852a885bc0220a9f3b3a0c0ed4c6f64dca0d8e4bcc1d336fa811ff4100ea659
+    file_size: 12934
   - rel_path: collaboration-pathways/pathways/Collaboration.Reciprocation.AssembleReturnBundle.v1.yaml
     content_sha256: 7c29a17cfde2bf7aceda82f628448794bf34178caf4301cdc747eb613e82bdf4
     file_size: 1610
+  - rel_path: collaboration-pathways/pathways/Collaboration.Reciprocation.AssembleReturnBundle.v1.yaml.aqua.json
+    content_sha256: c45bbc09055e7e95c24f8525b4a3f696897744e87017cbf76a1c7b74ec84c168
+    file_size: 12939
   - rel_path: collaboration-pathways/pathways/Collaboration.Refactor.Finalize.v1.yaml
     content_sha256: fa0c4e0714a546dc67c299c0b3346a9ac7b345e62107f981f17f118b649531d5
     file_size: 740
+  - rel_path: collaboration-pathways/pathways/Collaboration.Refactor.Finalize.v1.yaml.aqua.json
+    content_sha256: 79697a211090dd25149507f379a6982108fb504cdb1e787f91602f4479196195
+    file_size: 12926
   - rel_path: collaboration-pathways/pathways/Collaboration.Refactor.HardenGateProfile.v1.yaml
     content_sha256: c08faee3ee00e28ebd25cc57c2f975e12ba28dae92f8eaf111ee483e55ab9f08
     file_size: 1909
+  - rel_path: collaboration-pathways/pathways/Collaboration.Refactor.HardenGateProfile.v1.yaml.aqua.json
+    content_sha256: 82582f848d3ad5bd871b2465a38f4e0d3eb230641ba81aaf8e77b91b9b95864c
+    file_size: 12931
   - rel_path: collaboration-pathways/pathways/Collaboration.Refactor.RenameTerm.v1.yaml
     content_sha256: 72b66d147c5d268fa128d0541ccd75887458fa23e3109e203fc56f99d825585a
     file_size: 1541
+  - rel_path: collaboration-pathways/pathways/Collaboration.Refactor.RenameTerm.v1.yaml.aqua.json
+    content_sha256: 73a939d0366825aeda3dde47051c2510e16b4c7bc613424af18130e6c1b89483
+    file_size: 12924
   - rel_path: collaboration-pathways/pathways/Collaboration.UX.RenderRevealViewer.v1.yaml
     content_sha256: 065d85d9253ace19d3d2f5542553b0edc67f73e789f5ae229896677bbf6593a8
     file_size: 857
+  - rel_path: collaboration-pathways/pathways/Collaboration.UX.RenderRevealViewer.v1.yaml.aqua.json
+    content_sha256: 5f4cecc6ce698af33077144acbb81fa71408952a6c33bbad57ec0757ae4a37c2
+    file_size: 12930
   - rel_path: collaboration-pathways/pathways/Experience.Collaboration.OpenInvitation.v1.yaml
     content_sha256: 873c69132314653998700a2fb1b8076957f93e18f3b44e4c13d281069b42b28a
     file_size: 2201
+  - rel_path: collaboration-pathways/pathways/Experience.Collaboration.OpenInvitation.v1.yaml.aqua.json
+    content_sha256: 32e6cde546689163030269e445bb2712b84bc55721429e2ac8cbc183aefa9953
+    file_size: 12930
   - rel_path: collaboration-pathways/pathways-index.yaml
     content_sha256: 99fba847db4770cb77f7ba6597b5262b4872b441a7164a2ed2f03bd086da1e7f
     file_size: 4935
   - rel_path: collaboration-pathways/patterns/Pattern.CollaborationBundle.SelfDescribing.yaml
-    content_sha256: b195581edf95b46c612826474629676bf1c58b41111308561c2927ef1e08764d
-    file_size: 2076
+    content_sha256: 396151fa8e163c7393a0aaf393475baa2f476fca1be582da078f467b6abffb11
+    file_size: 2074
+  - rel_path: collaboration-pathways/patterns/Pattern.CollaborationBundle.SelfDescribing.yaml.aqua.json
+    content_sha256: 31b2936d36fa8a9608e2541ac2062f8532a65117b51d836d4b728e56d5613055
+    file_size: 12930
   - rel_path: collaboration-pathways/patterns/Pattern.Naming.ProvenancedTermBinding.yaml
     content_sha256: 370898ae5f06219cefa4615d1515f58360d388e057fc36ca3851255f92975665
     file_size: 842
+  - rel_path: collaboration-pathways/patterns/Pattern.Naming.ProvenancedTermBinding.yaml.aqua.json
+    content_sha256: 2a61b0288e20b5b31399f44b5afe8b6d65edfae15babca15f872729a333d794f
+    file_size: 12929
   - rel_path: collaboration-pathways/patterns/Pattern.ProjectCollaboration.ConvergenceRepository.yaml
-    content_sha256: 172ee3cd417ae43fbfebfff4c9321365f40618c992837a9f940fa73d0df376b6
-    file_size: 2108
+    content_sha256: 33098858e8967e9a9719081b82d2a9832b89405ab14a11087564937457e15ad1
+    file_size: 2106
+  - rel_path: collaboration-pathways/patterns/Pattern.ProjectCollaboration.ConvergenceRepository.yaml.aqua.json
+    content_sha256: 59d72257b096a377ffdb144c863f0b614dee6686d2a69c83436954899baeaba0
+    file_size: 12942
   - rel_path: collaboration-pathways/prompt-ledger.yaml
-    content_sha256: ad7b418a8ad641e3a737d6cf7c2f7084b47dcbfc62cdc09f248713663e476ddc
-    file_size: 3575
+    content_sha256: 9fea1eb908b405adf75f6bde119ab1cb412fb9ed4a90be55e5f661e495ddb3ea
+    file_size: 3569
   - rel_path: collaboration-pathways/scripts/00_genesis.py
     content_sha256: b8ed66d4b2e2a044a5b5f7d8b892c48568c3c0f193b76ca1fdf2be13fd0d6bd3
     file_size: 1773
@@ -233,42 +338,57 @@ files:
   - rel_path: collaboration-pathways/scripts/15_encode_sovereign_attribution.py
     content_sha256: 13d2d22c03bd1cc608d88ae18f2474b8ab13cca8dac3e54a1178a7eeb56454c8
     file_size: 8798
+  - rel_path: collaboration-pathways/scripts/16_strip_emdash.py
+    content_sha256: 61cfb8680ba2efad9e5a1d4278d5a652b6cbd68c6b37c4bdbbeb5f4b020211b6
+    file_size: 1741
   - rel_path: collaboration-pathways/scripts/run_with_provenance.py
     content_sha256: 03b8231bd2d0b61144aebef6f48d2338dfb3169453ff073b8ee732192d93cb5f
     file_size: 6811
   - rel_path: collaboration-pathways/sidecars/collaboration-pattern-lineage-and-attribution.md
-    content_sha256: 72255f59d3bd8ebae0bf9e5e337949435e25d0ac92b255658c18bccc801cc09b
-    file_size: 2384
+    content_sha256: 393f56e4e93ea6e496f5f25c963dd8122bcd812ccaa89e6df3542f7cb5a1913d
+    file_size: 2376
   - rel_path: collaboration-pathways/sidecars/privacy-refactor-lineage.md
     content_sha256: e4d973ba75944d8f3d0098a199d51572dd9806e7784b1a860fdfecbc3462619b
     file_size: 1360
   - rel_path: collaboration-pathways/terms/Term.AntiVenom.v1.yaml
     content_sha256: 19de8ce98ceb45d5752d87ee04361c6956cb21f8cdfadeabe702510d76a7c5de
     file_size: 586
+  - rel_path: collaboration-pathways/terms/Term.AntiVenom.v1.yaml.aqua.json
+    content_sha256: 1dc295ab79c09799d804b888625dfe13f49abc4dc92a8dcedfc025426e106468
+    file_size: 12905
   - rel_path: collaboration-pathways/terms/Term.Assay.v1.yaml
     content_sha256: de24c5057f21e58e5afabc159f3726be58fedeae4caba0a5cd5cac45a33f8acd
     file_size: 656
+  - rel_path: collaboration-pathways/terms/Term.Assay.v1.yaml.aqua.json
+    content_sha256: 6f4532ed9f81c4c21c130c60714567ad02cb39c3375807a4b6385c54e66d9a7b
+    file_size: 12901
   - rel_path: collaboration-pathways/terms/Term.CollaborationBundle.v1.yaml
     content_sha256: 12adfbec9b676c7cd69dbb256806fd41071aa57ee547b11d77c971d405c72cc0
     file_size: 706
+  - rel_path: collaboration-pathways/terms/Term.CollaborationBundle.v1.yaml.aqua.json
+    content_sha256: 7400b8573f100c18c3463c0d468c7e3aa8c9dd695facd8b37a859f2327fa5f78
+    file_size: 12915
   - rel_path: collaboration-pathways/terms/Term.TransmissionBundle.v1.yaml
     content_sha256: 4e470c99454ec2943020cd2b0cb238e4675302e803e0648689d7918bc1968027
     file_size: 810
+  - rel_path: collaboration-pathways/terms/Term.TransmissionBundle.v1.yaml.aqua.json
+    content_sha256: 1201f2a29b5358114dbc2b9f0df7b1369ca1a543506df2a4dd7bcc763ba2f6ea
+    file_size: 12914
   - rel_path: collaboration-pathways/test/HYPOTHESES.md
-    content_sha256: c248c5c4b1d9c2d2b80c4c4c304191ba5a93c64d53a5914fdec399bb19e01bc3
-    file_size: 5819
+    content_sha256: fdc6a9f3bb5d979d60fea882bfa6ab066ba532d516c5ea179401791c6c6f9644
+    file_size: 5779
   - rel_path: collaboration-pathways/test/PC-1-unilateral-experiments.yaml
-    content_sha256: 4244f6a614d7c2ad8f77ebb14a9811a06056d12b1f7b7d7f72f50f76ee5333c9
-    file_size: 821
+    content_sha256: 91beff339ddebef3f297bfbb68e410b949c94056a7bd882733ac2d575f57d156
+    file_size: 817
   - rel_path: collaboration-pathways/test/PC-2-bundle-seal-invalidate.yaml
-    content_sha256: 28cd01e49a8a75d6db68410472aa01ba677ad152af477755f00528b41bd15754
-    file_size: 832
+    content_sha256: 49e630dd3ed68044339bcedf3c2e21703ece71c94dde30fe406fef6916838ece
+    file_size: 828
   - rel_path: collaboration-spine.md
-    content_sha256: c0533feb8a90818a19768af7999a646b614e2f4b713f5d74c6cd3485ac45b5f4
-    file_size: 9197
+    content_sha256: e10b3948f29934edbf3c7f3da1829ccc7b2b809f4077ae0053a6722289de3213
+    file_size: 9125
   - rel_path: companion-bundle-index.md
-    content_sha256: f26d368c450b42ee10d9474625e036de278930e0e0852e4cc83c7a9435cd3657
-    file_size: 4187
+    content_sha256: 5718806792f20fa7b69e02db59683ce45fe5f4f157960c80b8c3ac57ac6ab764
+    file_size: 4155
   - rel_path: identities/README.md
     content_sha256: fc6628a9e598700b5deed0032f7a5659e23b3e1dbdf9e8894007018a136af86a
     file_size: 1518
@@ -330,29 +450,38 @@ files:
     content_sha256: c1d1b75d6d3a30dabde3c9f2e89fe61655605b7bec568fea02ce2af0d977aaed
     file_size: 21551
   - rel_path: pathway-runs/ASSET_PROVENANCE.yaml
-    content_sha256: b6f7654c34683809b1f2d50c48effd42d6d12a56832d306194a029a55d3758f7
-    file_size: 58749
+    content_sha256: f0b5f1c84358ebac9b07d89f00acdb5485444b815e51b954ba4208fa210d11cc
+    file_size: 119696
   - rel_path: pathway-runs/COMPLETENESS.md
-    content_sha256: 88545f5bcf877c5c391745bef5e37b9146353c1cec9cd19a51668710d5c831a4
+    content_sha256: 331bdfd8f3562064c6c9422dd6fe5df8a60a1baf14073dff3029f4ef2b2ddf6f
     file_size: 253
   - rel_path: pathway-runs/genesis-bootstrap.json
     content_sha256: 6dba1d38799aaf22e0cdd0e215b7e3cbad53ce9019476d2a26b7692e3091eb92
     file_size: 493
   - rel_path: pathway-runs/index.yaml
-    content_sha256: 3830d805207dc3ae3e4762244fe17ea30b743f3823bdf6ac89b8ce57f01256e3
-    file_size: 34319
+    content_sha256: 11aa8e1773399c9408b001773daf59f567d72aa36b286b92fb285db4bce34377
+    file_size: 60881
   - rel_path: pathway-runs/pr_020e76ed45ad.json
     content_sha256: 4bd22255f5d369f9aca09f20062a7f6e09d4a7f149a35b4e1ac0bcb44bb6c866
     file_size: 17355
   - rel_path: pathway-runs/pr_0954b2476ab7.json
     content_sha256: e137f5befcf5f4090426c003a264c1b49d3f3c85dbe64ea2fc5e2363526d1ac3
     file_size: 7642
+  - rel_path: pathway-runs/pr_09a38d4fcff6.json
+    content_sha256: ee85faf8fbaac4a095b1445665ef52febca8ce1918f9fbb127a520f1e1fd5857
+    file_size: 7789
   - rel_path: pathway-runs/pr_13d38a89c014.json
     content_sha256: 5d9540d5f96ae14176129b1dd58c348835f040de6bdbb65f43206cde97411232
     file_size: 3633
+  - rel_path: pathway-runs/pr_21afc1191c26.json
+    content_sha256: 3930f11c16116976d27cc5031286f135a86debca7531d7330df3ddc86508fc37
+    file_size: 20349
   - rel_path: pathway-runs/pr_22835d2f4b9d.json
     content_sha256: ae10b5eaca3f5602d2c28401e460805c0dfa4558f6d955bdb557c9ce4539aa5c
     file_size: 7646
+  - rel_path: pathway-runs/pr_234733c0644d.json
+    content_sha256: b020911e365b0b9f97825095e5f650655c3645725f79cf615c16f2d637090ff7
+    file_size: 7772
   - rel_path: pathway-runs/pr_2414f50802db.json
     content_sha256: 5a34094e8876306cc0b743d7b328929287e4381d06a44e80cea93080aaec27df
     file_size: 7796
@@ -380,9 +509,15 @@ files:
   - rel_path: pathway-runs/pr_54582fed9105.json
     content_sha256: 47421038dc338ae5d805d3c96cceda956a8147959deba2b5544dcaa246ecf866
     file_size: 3223
+  - rel_path: pathway-runs/pr_56e96fbfcc27.json
+    content_sha256: 0b9997e80c3dec1fdfeca2a6b8f9f9ab334c20171bdef21a32e880aac164ff3b
+    file_size: 7767
   - rel_path: pathway-runs/pr_5ba65e4479bd.json
     content_sha256: 2c7cb378be3fa96a54b4fe3ab7611aebcf3073e9aa2beadc66bd51a94947e726
     file_size: 7706
+  - rel_path: pathway-runs/pr_600b10789168.json
+    content_sha256: b37f0356e07b1369638ba07f2b40866e749efcde5ea683c1764123001616f94c
+    file_size: 20548
   - rel_path: pathway-runs/pr_64f2a4f3c15d.json
     content_sha256: e065dc5e5a40de7c6d375344f992f63b1ac1e99a540858aac02fb8614303c874
     file_size: 7648
@@ -395,9 +530,15 @@ files:
   - rel_path: pathway-runs/pr_8031cc31d1a6.json
     content_sha256: 361e7fa8d238e12575317f5b5a212cc0394c0ac6ba4394db714b1a7c72fcc48c
     file_size: 4029
+  - rel_path: pathway-runs/pr_85a818d778bc.json
+    content_sha256: 56bfad60c4189c38f2c8fc8df99e69d564df9e797337e66fdb9faaaed295f450
+    file_size: 7780
   - rel_path: pathway-runs/pr_87ef2cef2a4d.json
     content_sha256: c43493fa8084b5b16e3c61ae26fb2e4d6ae040712e9bf8aa649f0cc1e465317e
     file_size: 17364
+  - rel_path: pathway-runs/pr_96e866cfc300.json
+    content_sha256: 1edc0b4ef0a77b6fab81e343f98842155ebbc070e3db655e9a88d6bf1b8f1826
+    file_size: 9683
   - rel_path: pathway-runs/pr_9ef41959c291.json
     content_sha256: c0de66d30c83d5e9be5c1a533a4a4c1314228ef8f7931851f4e2ace723761b61
     file_size: 5498
@@ -413,18 +554,27 @@ files:
   - rel_path: pathway-runs/pr_b0b118829995.json
     content_sha256: 266e668872b9a2ce89b8f53723708be33803b2e076b203c2bfe214efa4ea5036
     file_size: 10965
+  - rel_path: pathway-runs/pr_ca0206934866.json
+    content_sha256: 7b64d0450f57038ca8f45c8b35d3d922f3a3b28e211ca5e2ab98444425572568
+    file_size: 20429
   - rel_path: pathway-runs/pr_ca2762aba00f.json
     content_sha256: ba7e1b1b5546c321ed7a340e491bc1ee8b9e1c75d840723b269792a43b78d656
     file_size: 15989
   - rel_path: pathway-runs/pr_d0007433bd12.json
     content_sha256: bd65c0e329aa1cce6987ea41ff5c3c134c90d5866c663b73558ba2589c6f755a
     file_size: 5942
+  - rel_path: pathway-runs/pr_d81cd6d656d1.json
+    content_sha256: 048937522b8530361790cb45e145fcc93aab1477322389f95af26b4287d6642f
+    file_size: 7769
   - rel_path: pathway-runs/pr_dcd9c2813464.json
     content_sha256: 4de359dfc1b57f40e2c9d58d05b24469e662bd05e87f120fcf8c5e5bbeddf880
     file_size: 9058
   - rel_path: pathway-runs/pr_e0e05c240390.json
     content_sha256: 4984a5ca5d8807359eff752deef5575f404e04d93ebb18a7b1595b8f504122c7
     file_size: 7451
+  - rel_path: pathway-runs/pr_e9e1e3bd2aeb.json
+    content_sha256: 4f359f6e1482b6e7166c8f6cad340eb40ede2256fabbe4392bbf81cc94513c93
+    file_size: 20327
   - rel_path: pathway-runs/pr_ea5b2ee616a2.json
     content_sha256: 561d73754e063fda7622bbd5517a94e7588482df94e49d65e8cbe487f726fe24
     file_size: 15982
@@ -450,17 +600,17 @@ files:
     content_sha256: 182d2da5d483b340f81b60d8dda86cab9b1f069f43d7ae526d28802b803b1cf4
     file_size: 433
   - rel_path: pathways_canon/PATHWAYS_PROJECT_COLLABORATION_REPORT.md
-    content_sha256: 865a6f43cabfa62ee0a33887f8509abc7dfd5bcaf0c227c71007db6a94da756e
-    file_size: 2138
+    content_sha256: 6072e2febdf1f8ad9abafdc6b2ebfc8197f86cc7cb274db2a1ee58e74c63340d
+    file_size: 2124
   - rel_path: sidecars/assay-thesis.md
-    content_sha256: 80d62d868185637c09bbcb3d1ce8b631e7035e7feceff6a78ff4a075018ffb5f
-    file_size: 2261
+    content_sha256: 56598c1cbfa79cee2067eebb4c92409ec0edc38fa37f7c0cb58544605199eea5
+    file_size: 2253
   - rel_path: sidecars/public-commons-appreciation.md
-    content_sha256: fd4067a14c71c05d34b9355d40412f7737f0e96029ea9f856d3408abf64f4aff
-    file_size: 1452
+    content_sha256: be7b772d6c044fad4bb5fe37d77b869721e4f86b6466c37b5dbc32240edd7dda
+    file_size: 1438
   - rel_path: sidecars/reading-the-satire-as-truth.md
-    content_sha256: 7601cf0438561c927b9078fbe8374ed74f4baa49f6d51c83470dbcb2cf181bb8
-    file_size: 2240
+    content_sha256: 41ff1577266a7e9a6d8f0f3c1be9e09aea0648c3bf2dc5ab4da14151de19c6f0
+    file_size: 2230
   - rel_path: timeline/events/evt_001_invitation_initiated.json
     content_sha256: 198d510a4842c1dd7b0331d5046013c38da9e787749921e5d2a734cd08610ebd
     file_size: 348

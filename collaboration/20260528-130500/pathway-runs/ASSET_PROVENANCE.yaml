@@ -881,3 +881,819 @@ assets:
     produced_by_pathway: Collaboration.Refactor.Finalize@v1
     pathway_run_id: pr_2414f50802db
     sha256: fa0c4e0714a546dc67c299c0b3346a9ac7b345e62107f981f17f118b649531d5
+  - asset: collaboration/20260528-130500/COLLABORATION_READINESS.md
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_96e866cfc300
+    sha256: bad81949385bdbba14a39f53ddf0f7c5f5f054bff785201ad5bc7061a5b37eb1
+  - asset: collaboration/20260528-130500/REPOSITORY_README.md
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_96e866cfc300
+    sha256: 3fc359e3ec7fe84eff792eaab22b12c6a15ebe00550c4fc786be64c88266bb96
+  - asset: collaboration/20260528-130500/assay-pathways/APPLICATION_PLAYBOOK.md
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_96e866cfc300
+    sha256: d9a5ea8d895d631c1b1f319f163cf890b0b64ad419b4ba909272bf87f13b1411
+  - asset: collaboration/20260528-130500/assay-pathways/pathways/Assay.Benchmark.Reproducible.v1.yaml
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_96e866cfc300
+    sha256: 27f8837cd47b7c224380f0fce1ec19d44c7126f9eed456a6c84378438b4219a0
+  - asset: collaboration/20260528-130500/assets/elite-megalaw-benchmark-excerpt.md
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_96e866cfc300
+    sha256: e073fce098a17e653770fafb19edbe981c62085a4f1028f36e9a1c53609af3b0
+  - asset: collaboration/20260528-130500/collaboration-manifest.yaml
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_96e866cfc300
+    sha256: cac4d1a85ea3aa63f9eebf86005fee9b0e7f5ba2a07b4c5c3c9220763984402c
+  - asset: collaboration/20260528-130500/collaboration-pathways/APPLICATION_PLAYBOOK.md
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_96e866cfc300
+    sha256: f5379955a991841d4dc394f26a5e435a71b0b5e90608ff05000b6e73ce14bbfb
+  - asset: collaboration/20260528-130500/collaboration-pathways/PACKAGE.yaml
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_96e866cfc300
+    sha256: 7155acf51b663025261ffe877cca8d1564b56d0013731cc0f01eea6d99c22bc5
+  - asset: collaboration/20260528-130500/collaboration-pathways/meta/collaboration-instance.yaml
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_96e866cfc300
+    sha256: 6a252f360fa5a6173517461f5d128feca9cc52e27b27b7fa94622eb84b87b55e
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Meta.EmbedTechniqueProvenance.v1.yaml
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_96e866cfc300
+    sha256: 8dfc10eb7260b4fb161e910f7f9b9623908d86f01226a51f9a41ed101ff3a0ff
+  - asset: collaboration/20260528-130500/collaboration-pathways/patterns/Pattern.CollaborationBundle.SelfDescribing.yaml
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_96e866cfc300
+    sha256: 396151fa8e163c7393a0aaf393475baa2f476fca1be582da078f467b6abffb11
+  - asset: collaboration/20260528-130500/collaboration-pathways/patterns/Pattern.ProjectCollaboration.ConvergenceRepository.yaml
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_96e866cfc300
+    sha256: 33098858e8967e9a9719081b82d2a9832b89405ab14a11087564937457e15ad1
+  - asset: collaboration/20260528-130500/collaboration-pathways/prompt-ledger.yaml
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_96e866cfc300
+    sha256: 9fea1eb908b405adf75f6bde119ab1cb412fb9ed4a90be55e5f661e495ddb3ea
+  - asset: collaboration/20260528-130500/collaboration-pathways/sidecars/collaboration-pattern-lineage-and-attribution.md
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_96e866cfc300
+    sha256: 393f56e4e93ea6e496f5f25c963dd8122bcd812ccaa89e6df3542f7cb5a1913d
+  - asset: collaboration/20260528-130500/collaboration-pathways/test/HYPOTHESES.md
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_96e866cfc300
+    sha256: fdc6a9f3bb5d979d60fea882bfa6ab066ba532d516c5ea179401791c6c6f9644
+  - asset: collaboration/20260528-130500/collaboration-pathways/test/PC-1-unilateral-experiments.yaml
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_96e866cfc300
+    sha256: 91beff339ddebef3f297bfbb68e410b949c94056a7bd882733ac2d575f57d156
+  - asset: collaboration/20260528-130500/collaboration-pathways/test/PC-2-bundle-seal-invalidate.yaml
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_96e866cfc300
+    sha256: 49e630dd3ed68044339bcedf3c2e21703ece71c94dde30fe406fef6916838ece
+  - asset: collaboration/20260528-130500/collaboration-spine.md
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_96e866cfc300
+    sha256: e10b3948f29934edbf3c7f3da1829ccc7b2b809f4077ae0053a6722289de3213
+  - asset: collaboration/20260528-130500/companion-bundle-index.md
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_96e866cfc300
+    sha256: 5718806792f20fa7b69e02db59683ce45fe5f4f157960c80b8c3ac57ac6ab764
+  - asset: collaboration/20260528-130500/pathways_canon/PATHWAYS_PROJECT_COLLABORATION_REPORT.md
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_96e866cfc300
+    sha256: 6072e2febdf1f8ad9abafdc6b2ebfc8197f86cc7cb274db2a1ee58e74c63340d
+  - asset: collaboration/20260528-130500/sidecars/assay-thesis.md
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_96e866cfc300
+    sha256: 56598c1cbfa79cee2067eebb4c92409ec0edc38fa37f7c0cb58544605199eea5
+  - asset: collaboration/20260528-130500/sidecars/public-commons-appreciation.md
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_96e866cfc300
+    sha256: be7b772d6c044fad4bb5fe37d77b869721e4f86b6466c37b5dbc32240edd7dda
+  - asset: collaboration/20260528-130500/sidecars/reading-the-satire-as-truth.md
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_96e866cfc300
+    sha256: 41ff1577266a7e9a6d8f0f3c1be9e09aea0648c3bf2dc5ab4da14151de19c6f0
+  - asset: collaboration/20260528-130500/collaboration-pathways/scripts/16_strip_emdash.py
+    produced_by_pathway: Collaboration.Refactor.RenameTerm@v1
+    pathway_run_id: pr_96e866cfc300
+    sha256: 61cfb8680ba2efad9e5a1d4278d5a652b6cbd68c6b37c4bdbbeb5f4b020211b6
+  - asset: collaboration/20260528-130500/pathway-runs/COMPLETENESS.md
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_d81cd6d656d1
+    sha256: 353e2363b468794cf0ddb894036cab7a26dd59f03708cf790dbdf138f80b19c4
+  - asset: collaboration/20260528-130500/collaboration-pathways/sidecars/privacy-refactor-lineage.md
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_d81cd6d656d1
+    sha256: e4d973ba75944d8f3d0098a199d51572dd9806e7784b1a860fdfecbc3462619b
+  - asset: collaboration/20260528-130500/collaboration-pathways/scripts/06_finalize.py
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_d81cd6d656d1
+    sha256: beff79807f990e07e1ad12d008468fdff0b4eeb43a9aaeaff8d82478eda83d0c
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.Finalize.v1.yaml
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_d81cd6d656d1
+    sha256: fa0c4e0714a546dc67c299c0b3346a9ac7b345e62107f981f17f118b649531d5
+  - asset: collaboration/20260528-130500/assay-pathways/pathways/Assay.Benchmark.Reproducible.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_ca0206934866
+    sha256: 569ed48aa35cb9c8206d69f4b13ceb122f48195ac578d07a41bf049c663e790b
+  - asset: collaboration/20260528-130500/assay-pathways/pathways/Assay.Citation.VerifyFirst.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_ca0206934866
+    sha256: bc59cdf66c4618e698a61208873cfab1c9d43b6c3d11714eb1444c7bb3b1d692
+  - asset: collaboration/20260528-130500/assay-pathways/pathways/Assay.Convergence.AnchoredAuthority.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_ca0206934866
+    sha256: d81966c3bb8f743b8ece7a28c4f5c34681f5850ce6a7243c276f85d1548003a4
+  - asset: collaboration/20260528-130500/assay-pathways/pathways/Assay.Provenance.RunManifest.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_ca0206934866
+    sha256: 4eb149309ffa8b9ede49f5497515fd1ab9375cf73f7d87d62063de729cb573ec
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Attestation.BindContentHashes.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_ca0206934866
+    sha256: 001a3a1f5e0aacffac4a153d0ab41f4f7a880fa22d0f7ced39e16fa4e7a00988
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Attestation.RecordPathwayRun.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_ca0206934866
+    sha256: ba3353beccd13a99cd73a16db1cb1040b77c1f56bcd4808cc3cb3a156f31a152
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Bundle.RewriteLinks.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_ca0206934866
+    sha256: 78f9d643334d04d7315bf14584d2f4a4691aaf1a5f0a0900586ecd942431c1e8
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Bundle.SealBundle.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_ca0206934866
+    sha256: 40641cd1ea07344296c1c01d45bf4d2482de400b8d342ade342b0312cbfb89fa
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Bundle.VerifyBundle.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_ca0206934866
+    sha256: f47bb9737a74af789e3df7495bf9790dee9eb52a5bf422c1ddb022d624f8fbe9
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Canon.UpdateSpec.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_ca0206934866
+    sha256: 40f2f8a2cedfcdf40f688028bcb5698391cade8955357e18296d289b114a3730
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Convergence.AssembleBundle.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_ca0206934866
+    sha256: 82987ae6120851611a6fded8aea47ef4c91a146a87e3425b420edc216f22c86b
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.AssertRelationship.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_ca0206934866
+    sha256: be376dda9e6537d3a04dec369a2897b30654f25ada390bc4e03afc93d57fc057
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.IssuePersonhoodCredential.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_ca0206934866
+    sha256: 6857dffca15b015e0a97b457d2b17f8961ae1373fcb0c8324085a2d3231feb2a
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.RevealLockbox.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_ca0206934866
+    sha256: 4491837fb4dddd102f55df7e3281e78f65c5bec1927b4f4cd9070f806f332a51
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.SealNameLockbox.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_ca0206934866
+    sha256: b6e9b4ca3d84df2afbdd0f53ec15a31189da601aa9db3fcc4aab7f1401346427
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.SovereignAttributionProxy.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_ca0206934866
+    sha256: e43dfa3f36f6d913e59e6fb5ba0c42e8599703701eb686aa6e6cd8997bbd0722
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Investigation.DeclarePending.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_ca0206934866
+    sha256: 2da3313d7ab39c0093ee4fb985c927086b4a7cf81c0a557e3029bc3693c98473
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Investigation.PreRegisterHypotheses.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_ca0206934866
+    sha256: e04b4d0b391666524fc3c5abbd0629f6c46b9ba8179f3d04620f0f9a4cbae646
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Investigation.SealOrInvalidateBundle.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_ca0206934866
+    sha256: 20cef1b2865698d53bf8c97baea45a59db97cbd2578db43e7698b7f2bebc190c
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Meta.EmbedTechniqueProvenance.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_ca0206934866
+    sha256: 443a5f1c9f478ef284804fedd4b9f8945267bd890af4ddeff9c29cb3155dfb9f
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Meta.EncodePromptLedger.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_ca0206934866
+    sha256: b64d386daac2f63a7967bea8e19d4585aa0fe3355dacbd1c922e1b9181f2518f
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Naming.RegisterTerm.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_ca0206934866
+    sha256: cf3e4999a38b75e4c0ea6fa2d712b04bb6a08e80f2462ac9d3dd1f6e2118a763
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Privacy.DeIdentify.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_ca0206934866
+    sha256: f028d4b9bc5bc98339cb3b82695c95ef868744b355dd6de2d2d2029ee635ad3e
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Proof.AwaitCounterpartyBuild.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_ca0206934866
+    sha256: 180e5dd8d3c79e1e9040ba7401a877956decf5329773710de5eb0d6a8486a635
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Proof.RunUnilateralExperiment.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_ca0206934866
+    sha256: b1389e65c358b9aaa3e362c90900347e6ab835fcfda2096765f2e51a4f12ec40
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Reciprocation.AssembleReturnBundle.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_ca0206934866
+    sha256: 03df4c922a9dfe46d811f70556e3bad6c0e4104782ec3a9f13b75c557bc9350e
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.Finalize.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_ca0206934866
+    sha256: 175fe538497cacd34febcc92cfb26d28fe6be40d937a5fa972904ecce803f248
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.HardenGateProfile.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_ca0206934866
+    sha256: 060ab3bcfcee765cca4ff02fc01f23a41d6f7bc16cbf2020429e33ec10bed20d
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.RenameTerm.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_ca0206934866
+    sha256: 264af0a4bd829b58c96eeb4f1813997fb879915aedfcc33cbeae625784421c1a
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.UX.RenderRevealViewer.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_ca0206934866
+    sha256: f4a5faf6392b9aa7389eed6d24ddc58259f43dd485b0e536493250af6bb8389d
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Experience.Collaboration.OpenInvitation.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_ca0206934866
+    sha256: 6b79549e40d23532fa27dccc20bf59ec3565762a696f8518f182dc1691c3ded7
+  - asset: collaboration/20260528-130500/collaboration-pathways/patterns/Pattern.CollaborationBundle.SelfDescribing.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_ca0206934866
+    sha256: 88026dd3a65c91e6d4f83eba6adcf840efe816f96885bffa7d01ff1373f4235c
+  - asset: collaboration/20260528-130500/collaboration-pathways/patterns/Pattern.Naming.ProvenancedTermBinding.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_ca0206934866
+    sha256: 41f337d5e4e53d2026dd3ad77fe80e3d97f312d64cb0d747c9749bb49be53a8f
+  - asset: collaboration/20260528-130500/collaboration-pathways/patterns/Pattern.ProjectCollaboration.ConvergenceRepository.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_ca0206934866
+    sha256: c08823378a1119d764c46abb815786d1de0b30d1a925d579012aa457a5967238
+  - asset: collaboration/20260528-130500/collaboration-pathways/terms/Term.AntiVenom.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_ca0206934866
+    sha256: 2e503201e16ed619a47e2c0e9eab6656e30c9fd3405bf95c1ea51fe6184934a9
+  - asset: collaboration/20260528-130500/collaboration-pathways/terms/Term.Assay.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_ca0206934866
+    sha256: c081b52fc41d8ae0122de77cf7f6bf240fcfe0e8975d5ea80f34b8b81cb78870
+  - asset: collaboration/20260528-130500/collaboration-pathways/terms/Term.CollaborationBundle.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_ca0206934866
+    sha256: 70362b8fa75a54c06a1afeb555a2c1bc31940ab3325d6271e9dc12747b45fc4b
+  - asset: collaboration/20260528-130500/collaboration-pathways/terms/Term.TransmissionBundle.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_ca0206934866
+    sha256: eff8624f8ae83583e6c1016388031bb18d2f00bd04c1c784e11f1db94ad67248
+  - asset: collaboration/20260528-130500/aqua-trees-index.yaml
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_ca0206934866
+    sha256: d5b6d941aefb953c5da8e5fe6312a6f8b3f8230cf886eaf907bdf77eb7d29f83
+  - asset: tools/aqua/make_aqua_trees.js
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_ca0206934866
+    sha256: 1e6f3438e57c708605e503adc4859a56cfe45bf0b1d29a4b00d812f58332be66
+  - asset: collaboration/20260528-130500/pathway-runs/COMPLETENESS.md
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_234733c0644d
+    sha256: 6073baf7f13d4a8698d5ccdca676e99c6439b7d376a8fcb8a6563e57eabb3474
+  - asset: collaboration/20260528-130500/collaboration-pathways/sidecars/privacy-refactor-lineage.md
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_234733c0644d
+    sha256: e4d973ba75944d8f3d0098a199d51572dd9806e7784b1a860fdfecbc3462619b
+  - asset: collaboration/20260528-130500/collaboration-pathways/scripts/06_finalize.py
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_234733c0644d
+    sha256: beff79807f990e07e1ad12d008468fdff0b4eeb43a9aaeaff8d82478eda83d0c
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.Finalize.v1.yaml
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_234733c0644d
+    sha256: fa0c4e0714a546dc67c299c0b3346a9ac7b345e62107f981f17f118b649531d5
+  - asset: collaboration/20260528-130500/assay-pathways/pathways/Assay.Benchmark.Reproducible.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_21afc1191c26
+    sha256: 61f4477b1c8c0072aebf83a9b6f02e5b68937443bae74031ccb0c3ea68a8bbc9
+  - asset: collaboration/20260528-130500/assay-pathways/pathways/Assay.Citation.VerifyFirst.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_21afc1191c26
+    sha256: 0d99a5637978e12e0ad2d082cbfd50c31b5cecd50b9bb668c278a0faacd6e5fa
+  - asset: collaboration/20260528-130500/assay-pathways/pathways/Assay.Convergence.AnchoredAuthority.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_21afc1191c26
+    sha256: 8058d7370e076304ae479ee38b441a391d89d86138d4398d74e0c135563f5123
+  - asset: collaboration/20260528-130500/assay-pathways/pathways/Assay.Provenance.RunManifest.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_21afc1191c26
+    sha256: 0603468da6d8d52dd4a495ea5b7c93d818e506e5070845f8f5281080711025f8
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Attestation.BindContentHashes.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_21afc1191c26
+    sha256: 057447bfe2b29cbecd7963c023fc690446aa980b1dea22f98ec2e7d06d35eb57
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Attestation.RecordPathwayRun.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_21afc1191c26
+    sha256: 641449c38cd4e459eca4505e0f41002d506c58fc367b2596fedb097fc79a8a7c
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Bundle.RewriteLinks.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_21afc1191c26
+    sha256: 2fe09637a5fdccf2dfe28dfb516ede83fae7cfd098ba289192bedd634bbcde47
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Bundle.SealBundle.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_21afc1191c26
+    sha256: ca615275b26416ab6d4affe2316f46dc20103092be98b534e3ba0961ea75f28e
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Bundle.VerifyBundle.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_21afc1191c26
+    sha256: 600a019318aa7fc8cfd4a9a71656abdbb8a100f0c0bfdbd2b9e40dcacc703c24
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Canon.UpdateSpec.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_21afc1191c26
+    sha256: 1a81e6991af6a6edc9f8bf18ecdeef6b9f612ef21b186de7a75588bdc4d82ddf
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Convergence.AssembleBundle.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_21afc1191c26
+    sha256: b4ab2ff0fb0a4e278db295b5ea44328191026e88d0ce93e963acabf07e9e5544
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.AssertRelationship.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_21afc1191c26
+    sha256: f9fa28497210f7f1f6812545005b6b2725c60cea54ca2ff77e908409e0a5d923
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.IssuePersonhoodCredential.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_21afc1191c26
+    sha256: 57a5ee6e68d86a1c5ee4e7bca53617b6de296b4ed03f3821bf8b4bbf6ee4adb5
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.RevealLockbox.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_21afc1191c26
+    sha256: 13e998b3b1eed20841e764126221385a09d41165b5411d483bb52fefbdb186fe
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.SealNameLockbox.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_21afc1191c26
+    sha256: 4257b97f3db1c4d58b5d2330e691b2f0c4604cf5cd39aff86a59fbe00f084192
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.SovereignAttributionProxy.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_21afc1191c26
+    sha256: ed405f2d3d06dc67a5cee3f9d64514f27499f5f9ff940d866fa7d67296bfee6c
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Investigation.DeclarePending.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_21afc1191c26
+    sha256: c88784fcf5a0132266707a3c70c5b9262cafced8aee179178834d7800b55a149
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Investigation.PreRegisterHypotheses.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_21afc1191c26
+    sha256: e8422ffccba30ac079c4fd6000b1026e6616ed9add5e4ba0c40677590e7a2081
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Investigation.SealOrInvalidateBundle.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_21afc1191c26
+    sha256: 50b405ba3562b0c8aa2ad203fdaff83d5ba5875fe140e2f6823e4ffc45f18458
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Meta.EmbedTechniqueProvenance.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_21afc1191c26
+    sha256: b7de7b4a6cc6e7f897d3404eb9a72914705d73b53e8a81b45d8164c286d3203a
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Meta.EncodePromptLedger.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_21afc1191c26
+    sha256: 07ac6dc2a5dd721f4337961772cf308afb0545134bcacb2ee4af2be0eb48d5d4
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Naming.RegisterTerm.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_21afc1191c26
+    sha256: b692bd0df20829a87b5f52f536e217a0783e3cf51b85dd1535367a93b67245f7
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Privacy.DeIdentify.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_21afc1191c26
+    sha256: e5624f4700ae75754ad1275c7443b52d134a4c597d96af6b90a137c75720036f
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Proof.AwaitCounterpartyBuild.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_21afc1191c26
+    sha256: d0cf749a4d439c5d57dc2b104850db3fed2f51495d34108f8631605d35f8a9ef
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Proof.RunUnilateralExperiment.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_21afc1191c26
+    sha256: aaabaf083e1b2dfc4813479cba120ba6bd981ff6c6302d3e3dc8d7c6881d1731
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Reciprocation.AssembleReturnBundle.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_21afc1191c26
+    sha256: a6c4d7345efa0b4d0996b033ec6bdb508f053742886598b4addcadde2fd090ba
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.Finalize.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_21afc1191c26
+    sha256: 3db1f751c1fa77afc787b69464ef0374b67dfbb3f18733f44019e82cdc4e413e
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.HardenGateProfile.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_21afc1191c26
+    sha256: 8c854edad474427c56fceeaff236e07a9c0ffac519a1751c8b3b77ebb8b385c3
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.RenameTerm.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_21afc1191c26
+    sha256: f81738841e704046303c961ba8fce84a533fb8ec9c5c6570c25fcbaa12d7aba6
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.UX.RenderRevealViewer.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_21afc1191c26
+    sha256: 99f63dec0e3f64d8c8789f5d66324a8e7c71a03407f2d0b8f06842540c6eda0b
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Experience.Collaboration.OpenInvitation.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_21afc1191c26
+    sha256: 86d20d660710f19846173c7ff5b39d88664a2b5d731074ec16b0d488903e68bd
+  - asset: collaboration/20260528-130500/collaboration-pathways/patterns/Pattern.CollaborationBundle.SelfDescribing.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_21afc1191c26
+    sha256: bf5c91357db31edb24be1fff3c907a83a31756c9e7b3bc8a35ff5ebb358cd1d0
+  - asset: collaboration/20260528-130500/collaboration-pathways/patterns/Pattern.Naming.ProvenancedTermBinding.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_21afc1191c26
+    sha256: f6a2f453fc964f48042889c1cfb8f28c4d7a8f1bf4fbb22c3a71b215b0e2952b
+  - asset: collaboration/20260528-130500/collaboration-pathways/patterns/Pattern.ProjectCollaboration.ConvergenceRepository.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_21afc1191c26
+    sha256: 746a5def98208d8fc9281244b969f08af0bdf2b6ef665f529141dbe6e481b612
+  - asset: collaboration/20260528-130500/collaboration-pathways/terms/Term.AntiVenom.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_21afc1191c26
+    sha256: d4491852ecf9487d6ea4aff0cd4c93c6f62ca4142c4129499ca295eed1dea69d
+  - asset: collaboration/20260528-130500/collaboration-pathways/terms/Term.Assay.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_21afc1191c26
+    sha256: 1f0d31dae86edc7273126f6907d5143da9b26b72cf81c2274d5b95d39162657c
+  - asset: collaboration/20260528-130500/collaboration-pathways/terms/Term.CollaborationBundle.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_21afc1191c26
+    sha256: 2e2a7ebfabae855a4012245b66510e8b14e9272c9554ab19d6be076ae9094d16
+  - asset: collaboration/20260528-130500/collaboration-pathways/terms/Term.TransmissionBundle.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_21afc1191c26
+    sha256: 358403701285a2453e34325533ec740e7e9e22c36b294ff07da50adedb3bdd18
+  - asset: collaboration/20260528-130500/aqua-trees-index.yaml
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_21afc1191c26
+    sha256: c7bd367dd3e49bb9410b6bc128a9608dccaa541143c54773db3b6034e3c482aa
+  - asset: tools/aqua/make_aqua_trees.js
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_21afc1191c26
+    sha256: 7d91a2b3df1dc1306f3105ba727b9eec294fda9ef84adaaa4cd2acbf6a823e82
+  - asset: collaboration/20260528-130500/pathway-runs/COMPLETENESS.md
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_85a818d778bc
+    sha256: 8853e6d4645d131aee00e1dc3187482268aaf9471a6fa63d11173695936c736f
+  - asset: collaboration/20260528-130500/collaboration-pathways/sidecars/privacy-refactor-lineage.md
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_85a818d778bc
+    sha256: e4d973ba75944d8f3d0098a199d51572dd9806e7784b1a860fdfecbc3462619b
+  - asset: collaboration/20260528-130500/collaboration-pathways/scripts/06_finalize.py
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_85a818d778bc
+    sha256: beff79807f990e07e1ad12d008468fdff0b4eeb43a9aaeaff8d82478eda83d0c
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.Finalize.v1.yaml
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_85a818d778bc
+    sha256: fa0c4e0714a546dc67c299c0b3346a9ac7b345e62107f981f17f118b649531d5
+  - asset: collaboration/20260528-130500/assay-pathways/pathways/Assay.Benchmark.Reproducible.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_e9e1e3bd2aeb
+    sha256: 76b41f73973528d1e28799e0855652ff261d956b51560edc034760e9795cd5d3
+  - asset: collaboration/20260528-130500/assay-pathways/pathways/Assay.Citation.VerifyFirst.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_e9e1e3bd2aeb
+    sha256: e35b75a8f2f0a2c33672119786547e33e5a37279375c7a1e75a796a67f77a333
+  - asset: collaboration/20260528-130500/assay-pathways/pathways/Assay.Convergence.AnchoredAuthority.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_e9e1e3bd2aeb
+    sha256: af71c250f2f75aec9e40ef870ff045d192553b9941d552954299247d7743a01d
+  - asset: collaboration/20260528-130500/assay-pathways/pathways/Assay.Provenance.RunManifest.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_e9e1e3bd2aeb
+    sha256: 50d13a1bbd622bc000df469c6f45cc32c1fd5f5f7f67ef8f087e0894e668650d
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Attestation.BindContentHashes.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_e9e1e3bd2aeb
+    sha256: 51723d5c20a82fd817b6ec952d95445ceb1c1918f3842d77266e29d745b2d5b2
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Attestation.RecordPathwayRun.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_e9e1e3bd2aeb
+    sha256: 65ac54c4190fe1d4ed976b9d1f7e503d9f794a1b1f84dd95e7a53bc9136abbbf
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Bundle.RewriteLinks.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_e9e1e3bd2aeb
+    sha256: 28f2dbd4d2e80bd65280c4c3488ddd79e38f11ef98d4e06e2f2595ee4aab2175
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Bundle.SealBundle.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_e9e1e3bd2aeb
+    sha256: 30e5e83b89ba4b8ee0a7bf1caa41b84c5b14c139b7a574a0f4ffc40c36f225a2
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Bundle.VerifyBundle.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_e9e1e3bd2aeb
+    sha256: e65698a3450200de7918e80138c7cd860b44e1d61aafd301ebc6e663c9a221b0
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Canon.UpdateSpec.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_e9e1e3bd2aeb
+    sha256: c6833f010393df73e985319c6a0d9b6be8dd36dba7b2950b5c13000298eae0c6
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Convergence.AssembleBundle.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_e9e1e3bd2aeb
+    sha256: 1b1ea44abd0d55cb29af4a09af49b051432ce6955f7d2dc78636d65237de1b57
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.AssertRelationship.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_e9e1e3bd2aeb
+    sha256: cdf3b072470cb0d6a13f6f317da6ea311a79996278ecb54237f3e4d7d0cd8b62
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.IssuePersonhoodCredential.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_e9e1e3bd2aeb
+    sha256: 5de3bdb17723adf245c677694fc84e3df15a80f1ab0002b1ce19017faefd8f72
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.RevealLockbox.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_e9e1e3bd2aeb
+    sha256: f51a3a049ce16c2b161b9aaff3c0be6ce364428caf42f6d2a3650325da026b34
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.SealNameLockbox.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_e9e1e3bd2aeb
+    sha256: 042d61db9c4413afea410ba8f6b5ec53ed653327eecd60adf4f7dfff21fda5d5
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.SovereignAttributionProxy.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_e9e1e3bd2aeb
+    sha256: f97e7ead6423033988736dd419c0a1c2de7b637a84bcad426b5d7ff8b14b4508
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Investigation.DeclarePending.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_e9e1e3bd2aeb
+    sha256: 8f116f3a261b3ea5d8b68f303b1d673dc738e2ecc73ec0cab8c362e743921052
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Investigation.PreRegisterHypotheses.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_e9e1e3bd2aeb
+    sha256: ff9c80f8404cc6625f7483059606d2f3adedaa4322d02aaa3e2e0d7d7308a906
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Investigation.SealOrInvalidateBundle.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_e9e1e3bd2aeb
+    sha256: fe00156ae82ecbdcad0ac41f08fab7e0b6a40bbce0b56aad273af1b60124d717
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Meta.EmbedTechniqueProvenance.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_e9e1e3bd2aeb
+    sha256: 2a9884184ffe1c8a14aaedbb40a807ca85e9842182d30815a19366d0825f7d03
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Meta.EncodePromptLedger.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_e9e1e3bd2aeb
+    sha256: 37813e28c3c7f4a886737e37543c40832c18005bb23dba7ec679e045abdc1ffc
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Naming.RegisterTerm.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_e9e1e3bd2aeb
+    sha256: 83d9dc678ecda16de2ee0440fe5aa7ef7d561f8c2803853cc9710fc11ec9177e
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Privacy.DeIdentify.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_e9e1e3bd2aeb
+    sha256: 9575408b5fef01a5e8d28814d0324d237bd99eb8653bb0abeb231f272735a597
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Proof.AwaitCounterpartyBuild.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_e9e1e3bd2aeb
+    sha256: 070a29cfa092f3c747ab3e1d7619192f9e767ebad5ae677259271acd2aeac53a
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Proof.RunUnilateralExperiment.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_e9e1e3bd2aeb
+    sha256: eafe96f97bb2c676c329b7c679adf29ed8125f6e9dd8f723159461ef57508eec
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Reciprocation.AssembleReturnBundle.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_e9e1e3bd2aeb
+    sha256: ea5bda135c1c81e8e44d191eeb05e186c96206bba7c3509431cdd5ce25809a0c
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.Finalize.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_e9e1e3bd2aeb
+    sha256: d19ca6d81f75b05608549f76d20ce8a0faf688fe2fae5cfa3865a401ecd15ca3
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.HardenGateProfile.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_e9e1e3bd2aeb
+    sha256: 5d8784cf7f7fb569ee88b9c54011e604da13a9808db0008b7f1cc9e3f2e703f1
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.RenameTerm.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_e9e1e3bd2aeb
+    sha256: c7db3caf60c60e65684a1fa9c7c3df3f9b32fb2ee9265068195e22e3c419f306
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.UX.RenderRevealViewer.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_e9e1e3bd2aeb
+    sha256: 91d09b92a5612eed9a369617e536d0cfa44f9a2e3c63fd3b9bfa3d928d4a817d
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Experience.Collaboration.OpenInvitation.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_e9e1e3bd2aeb
+    sha256: 6437c7e440a0804ab546a7057d7d19705fe58125504d12cb16bc4dc075cb0acc
+  - asset: collaboration/20260528-130500/collaboration-pathways/patterns/Pattern.CollaborationBundle.SelfDescribing.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_e9e1e3bd2aeb
+    sha256: 4148866ac8902166d6bde84c893800cd570636c1904ac983aa37c58dc3eb5256
+  - asset: collaboration/20260528-130500/collaboration-pathways/patterns/Pattern.Naming.ProvenancedTermBinding.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_e9e1e3bd2aeb
+    sha256: 908685ebaeeeedf3e91142a92d7e5458121d60c47a3694e0708db52108a5da64
+  - asset: collaboration/20260528-130500/collaboration-pathways/patterns/Pattern.ProjectCollaboration.ConvergenceRepository.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_e9e1e3bd2aeb
+    sha256: 99cc151eb43ef569d7723ab05a937d1da06b6a551490c9bc2c0c46d16f1adae2
+  - asset: collaboration/20260528-130500/collaboration-pathways/terms/Term.AntiVenom.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_e9e1e3bd2aeb
+    sha256: ea5d200ba0de00fb9bb08ffbf16d9186a3b5a0c7b33dddd0f0ef7b8fc9ff57d4
+  - asset: collaboration/20260528-130500/collaboration-pathways/terms/Term.Assay.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_e9e1e3bd2aeb
+    sha256: e0793365f6d4fa4597f22d04f81f96a1f5f92525ad8c8b8a576c299ea78f58b3
+  - asset: collaboration/20260528-130500/collaboration-pathways/terms/Term.CollaborationBundle.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_e9e1e3bd2aeb
+    sha256: 75ad1bb13646b8b0c52b979090a6ff075629712b3bd3a1c27cb923525d803110
+  - asset: collaboration/20260528-130500/collaboration-pathways/terms/Term.TransmissionBundle.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_e9e1e3bd2aeb
+    sha256: 7f41cc30f8f9a0639159c3db4bf5cd168338cb29f20f9a96bef30bce4cc43e25
+  - asset: collaboration/20260528-130500/aqua-trees-index.yaml
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_e9e1e3bd2aeb
+    sha256: 7b61439b939c1993c39a42277b8419be4c654c330dbc48cdb88ab78de20f4750
+  - asset: tools/aqua/make_aqua_trees.js
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_e9e1e3bd2aeb
+    sha256: cae11f6a003fe67b4cf6384923bb5b2a2681bdfedade63188cfaa4bbe1d13a54
+  - asset: collaboration/20260528-130500/pathway-runs/COMPLETENESS.md
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_09a38d4fcff6
+    sha256: 2e6cf2f33b73539094f82b5d2cdd6638517920495890576af0bdbbb9bd9ad5dd
+  - asset: collaboration/20260528-130500/collaboration-pathways/sidecars/privacy-refactor-lineage.md
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_09a38d4fcff6
+    sha256: e4d973ba75944d8f3d0098a199d51572dd9806e7784b1a860fdfecbc3462619b
+  - asset: collaboration/20260528-130500/collaboration-pathways/scripts/06_finalize.py
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_09a38d4fcff6
+    sha256: beff79807f990e07e1ad12d008468fdff0b4eeb43a9aaeaff8d82478eda83d0c
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.Finalize.v1.yaml
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_09a38d4fcff6
+    sha256: fa0c4e0714a546dc67c299c0b3346a9ac7b345e62107f981f17f118b649531d5
+  - asset: collaboration/20260528-130500/assay-pathways/pathways/Assay.Benchmark.Reproducible.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_600b10789168
+    sha256: 126f4d61fdfb038aa4a66004f624816d6fcc77230a7dcccfa1e2a8a78693c012
+  - asset: collaboration/20260528-130500/assay-pathways/pathways/Assay.Citation.VerifyFirst.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_600b10789168
+    sha256: 5b777c998827e0cc4b28f33ec9110fd33326298891f8d3eb095e7063f2051f19
+  - asset: collaboration/20260528-130500/assay-pathways/pathways/Assay.Convergence.AnchoredAuthority.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_600b10789168
+    sha256: 047b6aa1653466b91b062c8aa7eec29e26b710b09fd09eed6e3de9957b925807
+  - asset: collaboration/20260528-130500/assay-pathways/pathways/Assay.Provenance.RunManifest.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_600b10789168
+    sha256: 6718775875a9f10e137a2e7db8ecab5eaf76cfe0b3c6a969470e17ca78962786
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Attestation.BindContentHashes.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_600b10789168
+    sha256: d9ae73411549d6e5befad13db11f1df974af41b1cd8ac0ea6493fa68fad459b7
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Attestation.RecordPathwayRun.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_600b10789168
+    sha256: bdd77fc0b2e0f08741faf136a8c66b739c1571af230abc5730aa0c6b260128b5
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Bundle.RewriteLinks.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_600b10789168
+    sha256: 099cef3bb484b4f09a2d3f308d7ee009627be5a0f15e5387df724e1eac49640a
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Bundle.SealBundle.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_600b10789168
+    sha256: 977ea7ad23c2754f1dc24c50e2c7bbf11c0aabae00491d185b4b5e0a1bcb8216
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Bundle.VerifyBundle.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_600b10789168
+    sha256: 064156d3c7aac615b65fcd9120a9b157f68c1f85be1dbba4d81f4084cc912f3b
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Canon.UpdateSpec.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_600b10789168
+    sha256: 610778a8c1b5253b1f80fc0bdbf645e4e81df977b5febc942ddd7af990363997
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Convergence.AssembleBundle.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_600b10789168
+    sha256: 67f268e9a4576b6958d66f1df1bd69cbd86aa7e50027bf8f8e07df49f13596e8
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.AssertRelationship.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_600b10789168
+    sha256: 88318bb534f86c0b36c4de523fe1932fb3113015a2d0340fac469bee19ae53ef
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.IssuePersonhoodCredential.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_600b10789168
+    sha256: 41fdec9cf3a63d7207c6b344ebcc8c072a06241a486c1d7819093719772351f7
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.RevealLockbox.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_600b10789168
+    sha256: 7cea9d7b2fcdf80281fa611151a299788d6e27b6f35d48460963abe3c2d99736
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.SealNameLockbox.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_600b10789168
+    sha256: de5187cd7465bcf144201fea7a3ca285b927ffff0bae2671ac88a0f1a3f3534b
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.SovereignAttributionProxy.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_600b10789168
+    sha256: 4037e4d7dcac2179ec7b9749762fb30f53d48b60be91a007235f470acc1774ae
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Investigation.DeclarePending.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_600b10789168
+    sha256: a30c8aa8a999b8ad775b29e43f36c2333addbdc6c059895069f9b9b8566b9fd8
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Investigation.PreRegisterHypotheses.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_600b10789168
+    sha256: eb8e3ab5f9822e7d0d7de640b0e7ea208e4c250ef756bcb3e79ac8e3e2d85dce
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Investigation.SealOrInvalidateBundle.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_600b10789168
+    sha256: 728f39f413a744250865568568aa280a9da046f2db0cd277f232371cade3d7f3
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Meta.EmbedTechniqueProvenance.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_600b10789168
+    sha256: 00a725d1432d20d4656c6b1288bdd1c24b35d2492045be81812eb3411ff36086
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Meta.EncodePromptLedger.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_600b10789168
+    sha256: a13a36bdb9ea2cd8247ad2d6d1871911c4953af01e8d51f726b677c6d254ac0d
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Naming.RegisterTerm.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_600b10789168
+    sha256: ac8c33274f800f066dab0bde5007d201e70e245c84a704ca9586991e4027aa86
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Privacy.DeIdentify.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_600b10789168
+    sha256: b9cef50778994cc03134c499a82f561e338969d3a024f04242954eedb5536871
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Proof.AwaitCounterpartyBuild.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_600b10789168
+    sha256: d82e7514d2cc82d70f536bbe3da57ca09be8d87a8025076332b6b70a875134e3
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Proof.RunUnilateralExperiment.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_600b10789168
+    sha256: e852a885bc0220a9f3b3a0c0ed4c6f64dca0d8e4bcc1d336fa811ff4100ea659
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Reciprocation.AssembleReturnBundle.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_600b10789168
+    sha256: c45bbc09055e7e95c24f8525b4a3f696897744e87017cbf76a1c7b74ec84c168
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.Finalize.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_600b10789168
+    sha256: 79697a211090dd25149507f379a6982108fb504cdb1e787f91602f4479196195
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.HardenGateProfile.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_600b10789168
+    sha256: 82582f848d3ad5bd871b2465a38f4e0d3eb230641ba81aaf8e77b91b9b95864c
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.RenameTerm.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_600b10789168
+    sha256: 73a939d0366825aeda3dde47051c2510e16b4c7bc613424af18130e6c1b89483
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.UX.RenderRevealViewer.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_600b10789168
+    sha256: 5f4cecc6ce698af33077144acbb81fa71408952a6c33bbad57ec0757ae4a37c2
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Experience.Collaboration.OpenInvitation.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_600b10789168
+    sha256: 32e6cde546689163030269e445bb2712b84bc55721429e2ac8cbc183aefa9953
+  - asset: collaboration/20260528-130500/collaboration-pathways/patterns/Pattern.CollaborationBundle.SelfDescribing.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_600b10789168
+    sha256: 31b2936d36fa8a9608e2541ac2062f8532a65117b51d836d4b728e56d5613055
+  - asset: collaboration/20260528-130500/collaboration-pathways/patterns/Pattern.Naming.ProvenancedTermBinding.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_600b10789168
+    sha256: 2a61b0288e20b5b31399f44b5afe8b6d65edfae15babca15f872729a333d794f
+  - asset: collaboration/20260528-130500/collaboration-pathways/patterns/Pattern.ProjectCollaboration.ConvergenceRepository.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_600b10789168
+    sha256: 59d72257b096a377ffdb144c863f0b614dee6686d2a69c83436954899baeaba0
+  - asset: collaboration/20260528-130500/collaboration-pathways/terms/Term.AntiVenom.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_600b10789168
+    sha256: 1dc295ab79c09799d804b888625dfe13f49abc4dc92a8dcedfc025426e106468
+  - asset: collaboration/20260528-130500/collaboration-pathways/terms/Term.Assay.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_600b10789168
+    sha256: 6f4532ed9f81c4c21c130c60714567ad02cb39c3375807a4b6385c54e66d9a7b
+  - asset: collaboration/20260528-130500/collaboration-pathways/terms/Term.CollaborationBundle.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_600b10789168
+    sha256: 7400b8573f100c18c3463c0d468c7e3aa8c9dd695facd8b37a859f2327fa5f78
+  - asset: collaboration/20260528-130500/collaboration-pathways/terms/Term.TransmissionBundle.v1.yaml.aqua.json
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_600b10789168
+    sha256: 1201f2a29b5358114dbc2b9f0df7b1369ca1a543506df2a4dd7bcc763ba2f6ea
+  - asset: collaboration/20260528-130500/aqua-trees-index.yaml
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_600b10789168
+    sha256: ad82d9824d1f954e62ac7328cb6aa54a6e8e637b41331901f9e7d39455212098
+  - asset: tools/aqua/add_witness.js
+    produced_by_pathway: Collaboration.Attestation.BindContentHashes@v1
+    pathway_run_id: pr_600b10789168
+    sha256: 59b66388e1dbe6a86add3dba1a26a35f1965fc71234b0b5da0e6ab503c684e3d
+  - asset: collaboration/20260528-130500/pathway-runs/COMPLETENESS.md
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_56e96fbfcc27
+    sha256: 331bdfd8f3562064c6c9422dd6fe5df8a60a1baf14073dff3029f4ef2b2ddf6f
+  - asset: collaboration/20260528-130500/collaboration-pathways/sidecars/privacy-refactor-lineage.md
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_56e96fbfcc27
+    sha256: e4d973ba75944d8f3d0098a199d51572dd9806e7784b1a860fdfecbc3462619b
+  - asset: collaboration/20260528-130500/collaboration-pathways/scripts/06_finalize.py
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_56e96fbfcc27
+    sha256: beff79807f990e07e1ad12d008468fdff0b4eeb43a9aaeaff8d82478eda83d0c
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.Finalize.v1.yaml
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_56e96fbfcc27
+    sha256: fa0c4e0714a546dc67c299c0b3346a9ac7b345e62107f981f17f118b649531d5

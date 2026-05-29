@@ -1,4 +1,4 @@
-# PC-1 — Unilateral experiment conformance test
+# PC-1 - Unilateral experiment conformance test
 
 test:
   id: PC-1
@@ -9,7 +9,7 @@ test:
   narrative: |
     Each of H-MO1..H-MO10 is designed to produce standalone value. This test asserts
     that running any one of them emits a result artifact under proof-results/unilateral/
-    and updates seal candidacy — with no dependency on a reply from MikeOSS.
+    and updates seal candidacy - with no dependency on a reply from MikeOSS.
 
   pass_criteria:
     - "Running any H-MOn emits proof-results/unilateral/H-MOn.yaml"

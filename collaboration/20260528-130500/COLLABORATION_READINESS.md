@@ -6,7 +6,7 @@
 
 ---
 
-## Pre-flight (originator — complete)
+## Pre-flight (originator - complete)
 
 - [x] Open invitation + recognition authored (`collaboration-spine.md`)
 - [x] "Read the satire as truth" delta table authored
@@ -24,7 +24,7 @@
 - [ ] Ed25519 signature applied (`attestations/BUNDLE_SIGNATURE.json`)
 - [ ] Offline verify passes (`verify: OK`)
 
-## MikeOSS actions (optional — no obligation)
+## MikeOSS actions (optional - no obligation)
 
 - [ ] Verify: `python3 tools/collaboration-bundle/sign_bundle.py verify collaboration/20260528-130500`
 - [ ] Read the spine and the technique canon

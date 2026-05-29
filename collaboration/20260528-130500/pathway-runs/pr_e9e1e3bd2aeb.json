@@ -1,0 +1,186 @@
+{
+  "schema": "pathway-run/1.0",
+  "run_id": "pr_e9e1e3bd2aeb",
+  "pathway": "Collaboration.Attestation.BindContentHashes@v1",
+  "label": "re-sign Pathways artifacts with did:key AquaTrees (corrected index)",
+  "status": "COMPLETED",
+  "started": "2026-05-29T20:30:46Z",
+  "ended": "2026-05-29T20:30:48Z",
+  "elapsed_ms": 1601,
+  "command": [
+    "node",
+    "tools/aqua/make_aqua_trees.js"
+  ],
+  "exit_code": 0,
+  "script_path": "tools/aqua/make_aqua_trees.js",
+  "script_sha256": "cae11f6a003fe67b4cf6384923bb5b2a2681bdfedade63188cfaa4bbe1d13a54",
+  "script_source": "/**\n * make_aqua_trees.js - sign every Pathways artifact with a real AquaTree (Aqua Protocol v3.2).\n *\n * For each pathway template, pattern, and term in the bundle, this creates an Aqua genesis\n * (file) revision plus a \"did\" signature revision: an Ed25519 JWS signed by a did:key\n * (offline, no witness, no network). Writes \"<artifact>.aqua.json\" alongside each artifact,\n * and aqua-trees-index.yaml summarizing each tree, its revision hashes, and the signer DID.\n *\n * Overwrites existing trees (re-sign). The Ed25519 private key is generated once and kept in\n * keys/aqua-signing.did.json (gitignored, never sealed); only the public did:key is recorded.\n *\n * Run THROUGH the provenance harness so it is captured as a PathwayRun.\n * Uses aqua-js-sdk@3.2 CJS build (the ESM build has a broken dynamic require of crypto).\n */\nconst aqua = require(\"aqua-js-sdk\");\nconst { Mnemonic } = require(\"ethers\");\nconst fs = require(\"node:fs\");\nconst path = require(\"node:path\");\nconst crypto = require(\"node:crypto\");\n\nconst Aquafier = aqua.default || aqua.Aquafier;\nconst isErr = aqua.isErr;\n\nconst REPO = process.cwd();\nconst SNAP = \"collaboration/20260528-130500\";\nconst KEYS = path.join(REPO, \"keys\", \"aqua-signing.did.json\");\nconst DIRS = [\n  `${SNAP}/assay-pathways/pathways`,\n  `${SNAP}/collaboration-pathways/pathways`,\n  `${SNAP}/collaboration-pathways/patterns`,\n  `${SNAP}/collaboration-pathways/terms`,\n];\n\nfunction loadCredentials() {\n  if (fs.existsSync(KEYS)) return JSON.parse(fs.readFileSync(KEYS, \"utf-8\"));\n  const did_key = crypto.randomBytes(32).toString(\"hex\"); // Ed25519 private key, hex\n  const creds = {\n    mnemonic: \"\", nostr_sk: \"\", did_key, alchemy_key: \"\",\n    witness_eth_network: \"\", witness_method: \"did\",\n  };\n  fs.mkdirSync(path.dirname(KEYS), { recursive: true });\n  fs.writeFileSync(KEYS, JSON.stringify(creds, null, 2) + \"\\n\");\n  return creds;\n}\n\nfunction targets() {\n  const out = [];\n  for (const d of DIRS) {\n    const abs = path.join(REPO, d);\n    if (!fs.existsSync(abs)) continue;\n    for (const f of fs.readdirSync(abs).sort()) {\n      if (f.endsWith(\".yaml\") && !f.endsWith(\".aqua.json\")) out.push(path.join(d, f));\n    }\n  }\n  return out;\n}\n\n(async () => {\n  const aquafier = new Aquafier();\n  const creds = loadCredentials();\n  const produced = [];\n  const indexRows = [];\n  let signer = null;\n\n  for (const rel of targets()) {\n    const abs = path.join(REPO, rel);\n    const treePath = abs + \".aqua.json\";\n    const treeRel = rel + \".aqua.json\";\n\n    const fileName = path.basename(rel);\n    const fileObject = { fileName, fileContent: fs.readFileSync(abs, \"utf-8\"), path: fileName };\n\n    const gen = await aquafier.createGenesisRevision(fileObject);\n    if (isErr(gen)) { console.error(\"genesis failed:\", rel); (gen.data || []).forEach(e => console.error(e)); process.exit(1); }\n\n    const wrapper = { aquaTree: gen.data.aquaTree, fileObject, revision: \"\" };\n    const signed = await aquafier.signAquaTree(wrapper, \"did\", creds, false);\n    if (isErr(signed)) { console.error(\"sign failed:\", rel); (signed.data || []).forEach(e => console.error(JSON.stringify(e))); process.exit(1); }\n\n    const tree = signed.data.aquaTree;\n    fs.writeFileSync(treePath, JSON.stringify(tree, null, 2) + \"\\n\");\n    produced.push(treeRel);\n\n    const hashes = Object.keys(tree.revisions);\n    const sigRev = Object.values(tree.revisions).find(r => r.revision_type === \"signature\");\n    const signerDid = sigRev && (sigRev.signature_public_key || sigRev.signature_wallet_address);\n    if (signerDid) signer = signerDid;\n    indexRows.push({ artifact: rel, tree: treeRel, revisions: hashes.length, genesis: hashes[0], signer_did: signerDid });\n    console.log(\"aqua:\", treeRel, `(${hashes.length} revisions)`);\n  }\n\n  // index\n  const lines = [\n    \"# AquaTree attestation index - Aqua Protocol v3.2 (aqua-js-sdk)\",\n    \"# Each Pathways artifact carries a sidecar <artifact>.aqua.json: genesis (file) + did:key signature revision.\",\n    \"# Signing is offline (Ed25519 JWS via did:key, no witness). Verify with aqua-js-sdk verifyAquaTree.\",\n    `aqua_protocol_version: \"3.2\"`,\n    `sdk: \"aqua-js-sdk@3.2.1-45\"`,\n    `sign_type: did_key`,\n    `signer_did: \"${signer || \"\"}\"`,\n    `count: ${indexRows.length}`,\n    \"trees:\",\n  ];\n  for (const r of indexRows) {\n    lines.push(`  - artifact: ${r.artifact}`);\n    lines.push(`    tree: ${r.tree}`);\n    lines.push(`    revisions: ${r.revisions}`);\n    lines.push(`    genesis_hash: ${r.genesis}`);\n    lines.push(`    signer_did: \"${r.signer_did || \"\"}\"`);\n  }\n  const indexRel = `${SNAP}/aqua-trees-index.yaml`;\n  if (produced.length > 0) {\n    fs.writeFileSync(path.join(REPO, indexRel), lines.join(\"\\n\") + \"\\n\");\n    produced.push(indexRel);\n  }\n\n  produced.push(\"tools/aqua/make_aqua_trees.js\");\n  const am = process.env.ASSET_MANIFEST;\n  if (am) fs.writeFileSync(am, JSON.stringify(produced));\n  console.log(`aqua trees: ${indexRows.length} artifact(s) signed; signer ${signer}`);\n})();\n",
+  "stdout": "aqua: collaboration/20260528-130500/assay-pathways/pathways/Assay.Benchmark.Reproducible.v1.yaml.aqua.json (2 revisions)\naqua: collaboration/20260528-130500/assay-pathways/pathways/Assay.Citation.VerifyFirst.v1.yaml.aqua.json (2 revisions)\naqua: collaboration/20260528-130500/assay-pathways/pathways/Assay.Convergence.AnchoredAuthority.v1.yaml.aqua.json (2 revisions)\naqua: collaboration/20260528-130500/assay-pathways/pathways/Assay.Provenance.RunManifest.v1.yaml.aqua.json (2 revisions)\naqua: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Attestation.BindContentHashes.v1.yaml.aqua.json (2 revisions)\naqua: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Attestation.RecordPathwayRun.v1.yaml.aqua.json (2 revisions)\naqua: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Bundle.RewriteLinks.v1.yaml.aqua.json (2 revisions)\naqua: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Bundle.SealBundle.v1.yaml.aqua.json (2 revisions)\naqua: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Bundle.VerifyBundle.v1.yaml.aqua.json (2 revisions)\naqua: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Canon.UpdateSpec.v1.yaml.aqua.json (2 revisions)\naqua: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Convergence.AssembleBundle.v1.yaml.aqua.json (2 revisions)\naqua: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.AssertRelationship.v1.yaml.aqua.json (2 revisions)\naqua: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.IssuePersonhoodCredential.v1.yaml.aqua.json (2 revisions)\naqua: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.RevealLockbox.v1.yaml.aqua.json (2 revisions)\naqua: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.SealNameLockbox.v1.yaml.aqua.json (2 revisions)\naqua: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.SovereignAttributionProxy.v1.yaml.aqua.json (2 revisions)\naqua: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Investigation.DeclarePending.v1.yaml.aqua.json (2 revisions)\naqua: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Investigation.PreRegisterHypotheses.v1.yaml.aqua.json (2 revisions)\naqua: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Investigation.SealOrInvalidateBundle.v1.yaml.aqua.json (2 revisions)\naqua: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Meta.EmbedTechniqueProvenance.v1.yaml.aqua.json (2 revisions)\naqua: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Meta.EncodePromptLedger.v1.yaml.aqua.json (2 revisions)\naqua: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Naming.RegisterTerm.v1.yaml.aqua.json (2 revisions)\naqua: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Privacy.DeIdentify.v1.yaml.aqua.json (2 revisions)\naqua: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Proof.AwaitCounterpartyBuild.v1.yaml.aqua.json (2 revisions)\naqua: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Proof.RunUnilateralExperiment.v1.yaml.aqua.json (2 revisions)\naqua: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Reciprocation.AssembleReturnBundle.v1.yaml.aqua.json (2 revisions)\naqua: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.Finalize.v1.yaml.aqua.json (2 revisions)\naqua: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.HardenGateProfile.v1.yaml.aqua.json (2 revisions)\naqua: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.RenameTerm.v1.yaml.aqua.json (2 revisions)\naqua: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.UX.RenderRevealViewer.v1.yaml.aqua.json (2 revisions)\naqua: collaboration/20260528-130500/collaboration-pathways/pathways/Experience.Collaboration.OpenInvitation.v1.yaml.aqua.json (2 revisions)\naqua: collaboration/20260528-130500/collaboration-pathways/patterns/Pattern.CollaborationBundle.SelfDescribing.yaml.aqua.json (2 revisions)\naqua: collaboration/20260528-130500/collaboration-pathways/patterns/Pattern.Naming.ProvenancedTermBinding.yaml.aqua.json (2 revisions)\naqua: collaboration/20260528-130500/collaboration-pathways/patterns/Pattern.ProjectCollaboration.ConvergenceRepository.yaml.aqua.json (2 revisions)\naqua: collaboration/20260528-130500/collaboration-pathways/terms/Term.AntiVenom.v1.yaml.aqua.json (2 revisions)\naqua: collaboration/20260528-130500/collaboration-pathways/terms/Term.Assay.v1.yaml.aqua.json (2 revisions)\naqua: collaboration/20260528-130500/collaboration-pathways/terms/Term.CollaborationBundle.v1.yaml.aqua.json (2 revisions)\naqua: collaboration/20260528-130500/collaboration-pathways/terms/Term.TransmissionBundle.v1.yaml.aqua.json (2 revisions)\naqua trees: 38 artifact(s) signed; signer did:key:z6MktFAmXN22VE6PsUsboaC75KBKTEL2s1CrdWiAiU44MCoU\n",
+  "stderr": "",
+  "produced_assets": [
+    {
+      "asset": "collaboration/20260528-130500/assay-pathways/pathways/Assay.Benchmark.Reproducible.v1.yaml.aqua.json",
+      "sha256": "76b41f73973528d1e28799e0855652ff261d956b51560edc034760e9795cd5d3"
+    },
+    {
+      "asset": "collaboration/20260528-130500/assay-pathways/pathways/Assay.Citation.VerifyFirst.v1.yaml.aqua.json",
+      "sha256": "e35b75a8f2f0a2c33672119786547e33e5a37279375c7a1e75a796a67f77a333"
+    },
+    {
+      "asset": "collaboration/20260528-130500/assay-pathways/pathways/Assay.Convergence.AnchoredAuthority.v1.yaml.aqua.json",
+      "sha256": "af71c250f2f75aec9e40ef870ff045d192553b9941d552954299247d7743a01d"
+    },
+    {
+      "asset": "collaboration/20260528-130500/assay-pathways/pathways/Assay.Provenance.RunManifest.v1.yaml.aqua.json",
+      "sha256": "50d13a1bbd622bc000df469c6f45cc32c1fd5f5f7f67ef8f087e0894e668650d"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Attestation.BindContentHashes.v1.yaml.aqua.json",
+      "sha256": "51723d5c20a82fd817b6ec952d95445ceb1c1918f3842d77266e29d745b2d5b2"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Attestation.RecordPathwayRun.v1.yaml.aqua.json",
+      "sha256": "65ac54c4190fe1d4ed976b9d1f7e503d9f794a1b1f84dd95e7a53bc9136abbbf"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Bundle.RewriteLinks.v1.yaml.aqua.json",
+      "sha256": "28f2dbd4d2e80bd65280c4c3488ddd79e38f11ef98d4e06e2f2595ee4aab2175"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Bundle.SealBundle.v1.yaml.aqua.json",
+      "sha256": "30e5e83b89ba4b8ee0a7bf1caa41b84c5b14c139b7a574a0f4ffc40c36f225a2"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Bundle.VerifyBundle.v1.yaml.aqua.json",
+      "sha256": "e65698a3450200de7918e80138c7cd860b44e1d61aafd301ebc6e663c9a221b0"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Canon.UpdateSpec.v1.yaml.aqua.json",
+      "sha256": "c6833f010393df73e985319c6a0d9b6be8dd36dba7b2950b5c13000298eae0c6"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Convergence.AssembleBundle.v1.yaml.aqua.json",
+      "sha256": "1b1ea44abd0d55cb29af4a09af49b051432ce6955f7d2dc78636d65237de1b57"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.AssertRelationship.v1.yaml.aqua.json",
+      "sha256": "cdf3b072470cb0d6a13f6f317da6ea311a79996278ecb54237f3e4d7d0cd8b62"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.IssuePersonhoodCredential.v1.yaml.aqua.json",
+      "sha256": "5de3bdb17723adf245c677694fc84e3df15a80f1ab0002b1ce19017faefd8f72"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.RevealLockbox.v1.yaml.aqua.json",
+      "sha256": "f51a3a049ce16c2b161b9aaff3c0be6ce364428caf42f6d2a3650325da026b34"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.SealNameLockbox.v1.yaml.aqua.json",
+      "sha256": "042d61db9c4413afea410ba8f6b5ec53ed653327eecd60adf4f7dfff21fda5d5"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.SovereignAttributionProxy.v1.yaml.aqua.json",
+      "sha256": "f97e7ead6423033988736dd419c0a1c2de7b637a84bcad426b5d7ff8b14b4508"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Investigation.DeclarePending.v1.yaml.aqua.json",
+      "sha256": "8f116f3a261b3ea5d8b68f303b1d673dc738e2ecc73ec0cab8c362e743921052"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Investigation.PreRegisterHypotheses.v1.yaml.aqua.json",
+      "sha256": "ff9c80f8404cc6625f7483059606d2f3adedaa4322d02aaa3e2e0d7d7308a906"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Investigation.SealOrInvalidateBundle.v1.yaml.aqua.json",
+      "sha256": "fe00156ae82ecbdcad0ac41f08fab7e0b6a40bbce0b56aad273af1b60124d717"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Meta.EmbedTechniqueProvenance.v1.yaml.aqua.json",
+      "sha256": "2a9884184ffe1c8a14aaedbb40a807ca85e9842182d30815a19366d0825f7d03"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Meta.EncodePromptLedger.v1.yaml.aqua.json",
+      "sha256": "37813e28c3c7f4a886737e37543c40832c18005bb23dba7ec679e045abdc1ffc"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Naming.RegisterTerm.v1.yaml.aqua.json",
+      "sha256": "83d9dc678ecda16de2ee0440fe5aa7ef7d561f8c2803853cc9710fc11ec9177e"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Privacy.DeIdentify.v1.yaml.aqua.json",
+      "sha256": "9575408b5fef01a5e8d28814d0324d237bd99eb8653bb0abeb231f272735a597"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Proof.AwaitCounterpartyBuild.v1.yaml.aqua.json",
+      "sha256": "070a29cfa092f3c747ab3e1d7619192f9e767ebad5ae677259271acd2aeac53a"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Proof.RunUnilateralExperiment.v1.yaml.aqua.json",
+      "sha256": "eafe96f97bb2c676c329b7c679adf29ed8125f6e9dd8f723159461ef57508eec"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Reciprocation.AssembleReturnBundle.v1.yaml.aqua.json",
+      "sha256": "ea5bda135c1c81e8e44d191eeb05e186c96206bba7c3509431cdd5ce25809a0c"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.Finalize.v1.yaml.aqua.json",
+      "sha256": "d19ca6d81f75b05608549f76d20ce8a0faf688fe2fae5cfa3865a401ecd15ca3"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.HardenGateProfile.v1.yaml.aqua.json",
+      "sha256": "5d8784cf7f7fb569ee88b9c54011e604da13a9808db0008b7f1cc9e3f2e703f1"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.RenameTerm.v1.yaml.aqua.json",
+      "sha256": "c7db3caf60c60e65684a1fa9c7c3df3f9b32fb2ee9265068195e22e3c419f306"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.UX.RenderRevealViewer.v1.yaml.aqua.json",
+      "sha256": "91d09b92a5612eed9a369617e536d0cfa44f9a2e3c63fd3b9bfa3d928d4a817d"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/pathways/Experience.Collaboration.OpenInvitation.v1.yaml.aqua.json",
+      "sha256": "6437c7e440a0804ab546a7057d7d19705fe58125504d12cb16bc4dc075cb0acc"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/patterns/Pattern.CollaborationBundle.SelfDescribing.yaml.aqua.json",
+      "sha256": "4148866ac8902166d6bde84c893800cd570636c1904ac983aa37c58dc3eb5256"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/patterns/Pattern.Naming.ProvenancedTermBinding.yaml.aqua.json",
+      "sha256": "908685ebaeeeedf3e91142a92d7e5458121d60c47a3694e0708db52108a5da64"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/patterns/Pattern.ProjectCollaboration.ConvergenceRepository.yaml.aqua.json",
+      "sha256": "99cc151eb43ef569d7723ab05a937d1da06b6a551490c9bc2c0c46d16f1adae2"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/terms/Term.AntiVenom.v1.yaml.aqua.json",
+      "sha256": "ea5d200ba0de00fb9bb08ffbf16d9186a3b5a0c7b33dddd0f0ef7b8fc9ff57d4"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/terms/Term.Assay.v1.yaml.aqua.json",
+      "sha256": "e0793365f6d4fa4597f22d04f81f96a1f5f92525ad8c8b8a576c299ea78f58b3"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/terms/Term.CollaborationBundle.v1.yaml.aqua.json",
+      "sha256": "75ad1bb13646b8b0c52b979090a6ff075629712b3bd3a1c27cb923525d803110"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/terms/Term.TransmissionBundle.v1.yaml.aqua.json",
+      "sha256": "7f41cc30f8f9a0639159c3db4bf5cd168338cb29f20f9a96bef30bce4cc43e25"
+    },
+    {
+      "asset": "collaboration/20260528-130500/aqua-trees-index.yaml",
+      "sha256": "7b61439b939c1993c39a42277b8419be4c654c330dbc48cdb88ab78de20f4750"
+    },
+    {
+      "asset": "tools/aqua/make_aqua_trees.js",
+      "sha256": "cae11f6a003fe67b4cf6384923bb5b2a2681bdfedade63188cfaa4bbe1d13a54"
+    }
+  ],
+  "accessed_domains": [],
+  "authenticated_by_identity": null,
+  "harness": "collaboration-pathways/scripts/run_with_provenance.py",
+  "recorded_at": "2026-05-29T20:30:48Z"
+}

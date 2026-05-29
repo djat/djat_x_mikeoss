@@ -1,0 +1,241 @@
+# AquaTree attestation index - Aqua Protocol v3.2 (aqua-js-sdk)
+# Each Pathways artifact carries a sidecar <artifact>.aqua.json:
+#   genesis (file) + did:key signature + tsa witness (RFC 3161 timestamp).
+# Verify with aqua-js-sdk verifyAquaTree. Signing offline; witness via public TSA.
+aqua_protocol_version: "3.2"
+sdk: "aqua-js-sdk@3.2.1-45"
+sign_type: did_key
+signer_did: "did:key:z6MktFAmXN22VE6PsUsboaC75KBKTEL2s1CrdWiAiU44MCoU"
+witness_type: tsa
+witness_protocol: TSA_RFC3161
+witness_tsa_url: "http://timestamp.digicert.com"
+count: 38
+trees:
+  - artifact: collaboration/20260528-130500/assay-pathways/pathways/Assay.Benchmark.Reproducible.v1.yaml
+    tree: collaboration/20260528-130500/assay-pathways/pathways/Assay.Benchmark.Reproducible.v1.yaml.aqua.json
+    revisions: 3
+    genesis_hash: 0xbca30b04c55e6d24b370094c4cad81f0a305aa886b320f619a404b2b93fcefba
+    signer_did: "did:key:z6MktFAmXN22VE6PsUsboaC75KBKTEL2s1CrdWiAiU44MCoU"
+    witness_timestamp: 1780090889
+  - artifact: collaboration/20260528-130500/assay-pathways/pathways/Assay.Citation.VerifyFirst.v1.yaml
+    tree: collaboration/20260528-130500/assay-pathways/pathways/Assay.Citation.VerifyFirst.v1.yaml.aqua.json
+    revisions: 3
+    genesis_hash: 0x6460c43f34bbe4394f05dc517ac86b638b8ae9cfd6755d4bf1a2197985332735
+    signer_did: "did:key:z6MktFAmXN22VE6PsUsboaC75KBKTEL2s1CrdWiAiU44MCoU"
+    witness_timestamp: 1780090890
+  - artifact: collaboration/20260528-130500/assay-pathways/pathways/Assay.Convergence.AnchoredAuthority.v1.yaml
+    tree: collaboration/20260528-130500/assay-pathways/pathways/Assay.Convergence.AnchoredAuthority.v1.yaml.aqua.json
+    revisions: 3
+    genesis_hash: 0x78518fd1aca62a7cfe8b3eabf6ea8878cf9c8d7d13a6723a1139cf153189bd49
+    signer_did: "did:key:z6MktFAmXN22VE6PsUsboaC75KBKTEL2s1CrdWiAiU44MCoU"
+    witness_timestamp: 1780090890
+  - artifact: collaboration/20260528-130500/assay-pathways/pathways/Assay.Provenance.RunManifest.v1.yaml
+    tree: collaboration/20260528-130500/assay-pathways/pathways/Assay.Provenance.RunManifest.v1.yaml.aqua.json
+    revisions: 3
+    genesis_hash: 0x7c62525a7dd836b3b2abe5cc4afc2b7f488f2cd03da9273f31404fe9eac46149
+    signer_did: "did:key:z6MktFAmXN22VE6PsUsboaC75KBKTEL2s1CrdWiAiU44MCoU"
+    witness_timestamp: 1780090890
+  - artifact: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Attestation.BindContentHashes.v1.yaml
+    tree: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Attestation.BindContentHashes.v1.yaml.aqua.json
+    revisions: 3
+    genesis_hash: 0x7485278ce0aa9c6c4f87fe50f51e509d978f4f3b53c9b6859be858eed88c4258
+    signer_did: "did:key:z6MktFAmXN22VE6PsUsboaC75KBKTEL2s1CrdWiAiU44MCoU"
+    witness_timestamp: 1780090890
+  - artifact: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Attestation.RecordPathwayRun.v1.yaml
+    tree: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Attestation.RecordPathwayRun.v1.yaml.aqua.json
+    revisions: 3
+    genesis_hash: 0xefe2a50efa8ea8e970c38bff8d0a89c3c7890a58fdcdc2ee23107d50ae3aff56
+    signer_did: "did:key:z6MktFAmXN22VE6PsUsboaC75KBKTEL2s1CrdWiAiU44MCoU"
+    witness_timestamp: 1780090890
+  - artifact: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Bundle.RewriteLinks.v1.yaml
+    tree: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Bundle.RewriteLinks.v1.yaml.aqua.json
+    revisions: 3
+    genesis_hash: 0xef8e3e0610a424cd0f068590165a82214f4b47c11a95f011f57759a358064a4d
+    signer_did: "did:key:z6MktFAmXN22VE6PsUsboaC75KBKTEL2s1CrdWiAiU44MCoU"
+    witness_timestamp: 1780090890
+  - artifact: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Bundle.SealBundle.v1.yaml
+    tree: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Bundle.SealBundle.v1.yaml.aqua.json
+    revisions: 3
+    genesis_hash: 0xca7d983851a94d29227a2580dd6496832a298559e235cc65ad8f11e89efff0f2
+    signer_did: "did:key:z6MktFAmXN22VE6PsUsboaC75KBKTEL2s1CrdWiAiU44MCoU"
+    witness_timestamp: 1780090890
+  - artifact: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Bundle.VerifyBundle.v1.yaml
+    tree: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Bundle.VerifyBundle.v1.yaml.aqua.json
+    revisions: 3
+    genesis_hash: 0xf6e3ee05c78747d4eeccf985e4453e0903bee120c450439551751af640559907
+    signer_did: "did:key:z6MktFAmXN22VE6PsUsboaC75KBKTEL2s1CrdWiAiU44MCoU"
+    witness_timestamp: 1780090890
+  - artifact: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Canon.UpdateSpec.v1.yaml
+    tree: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Canon.UpdateSpec.v1.yaml.aqua.json
+    revisions: 3
+    genesis_hash: 0xd4d5055a7b7646235a2587afc01dee5dc3a0fdf802c4d0e63bede5cc1ff5e3ff
+    signer_did: "did:key:z6MktFAmXN22VE6PsUsboaC75KBKTEL2s1CrdWiAiU44MCoU"
+    witness_timestamp: 1780090890
+  - artifact: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Convergence.AssembleBundle.v1.yaml
+    tree: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Convergence.AssembleBundle.v1.yaml.aqua.json
+    revisions: 3
+    genesis_hash: 0x47b2edcf29771f99ae579633bfe8a0fb197b73adf0f73a0783cd35079031034f
+    signer_did: "did:key:z6MktFAmXN22VE6PsUsboaC75KBKTEL2s1CrdWiAiU44MCoU"
+    witness_timestamp: 1780090890
+  - artifact: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.AssertRelationship.v1.yaml
+    tree: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.AssertRelationship.v1.yaml.aqua.json
+    revisions: 3
+    genesis_hash: 0xcd7c5b8b5cf49eabb8d6572cf8861e3466ac4d96bf7b62d683c7658d611dfcc3
+    signer_did: "did:key:z6MktFAmXN22VE6PsUsboaC75KBKTEL2s1CrdWiAiU44MCoU"
+    witness_timestamp: 1780090890
+  - artifact: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.IssuePersonhoodCredential.v1.yaml
+    tree: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.IssuePersonhoodCredential.v1.yaml.aqua.json
+    revisions: 3
+    genesis_hash: 0xe45787cab334b2937b6edfe64bd234cb0fdeb784de37f6e74647095ef1f8eb1b
+    signer_did: "did:key:z6MktFAmXN22VE6PsUsboaC75KBKTEL2s1CrdWiAiU44MCoU"
+    witness_timestamp: 1780090890
+  - artifact: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.RevealLockbox.v1.yaml
+    tree: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.RevealLockbox.v1.yaml.aqua.json
+    revisions: 3
+    genesis_hash: 0xe54fa935c1e4e2a4785a97f073c5dc1e9e245bbd3cb9c88876166b5746562d8f
+    signer_did: "did:key:z6MktFAmXN22VE6PsUsboaC75KBKTEL2s1CrdWiAiU44MCoU"
+    witness_timestamp: 1780090890
+  - artifact: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.SealNameLockbox.v1.yaml
+    tree: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.SealNameLockbox.v1.yaml.aqua.json
+    revisions: 3
+    genesis_hash: 0x71696ba2b29514b4f52b4a4497d8eaf3d15a2070766c6a93597aaee69adb3a9f
+    signer_did: "did:key:z6MktFAmXN22VE6PsUsboaC75KBKTEL2s1CrdWiAiU44MCoU"
+    witness_timestamp: 1780090890
+  - artifact: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.SovereignAttributionProxy.v1.yaml
+    tree: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Identity.SovereignAttributionProxy.v1.yaml.aqua.json
+    revisions: 3
+    genesis_hash: 0xb241c7c5f524c91d63b4ddc305410ff7160703b45b928093fff62f61527fb377
+    signer_did: "did:key:z6MktFAmXN22VE6PsUsboaC75KBKTEL2s1CrdWiAiU44MCoU"
+    witness_timestamp: 1780090890
+  - artifact: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Investigation.DeclarePending.v1.yaml
+    tree: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Investigation.DeclarePending.v1.yaml.aqua.json
+    revisions: 3
+    genesis_hash: 0xd02f69f1bc78f8cc2fd27ae7c065861e95a349634df09919631308dafc3760ce
+    signer_did: "did:key:z6MktFAmXN22VE6PsUsboaC75KBKTEL2s1CrdWiAiU44MCoU"
+    witness_timestamp: 1780090890
+  - artifact: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Investigation.PreRegisterHypotheses.v1.yaml
+    tree: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Investigation.PreRegisterHypotheses.v1.yaml.aqua.json
+    revisions: 3
+    genesis_hash: 0x1a1ccbbb9de6f2afa655ad93eb04a0f517d0e5e5d444b8f42f5ec1402eaec089
+    signer_did: "did:key:z6MktFAmXN22VE6PsUsboaC75KBKTEL2s1CrdWiAiU44MCoU"
+    witness_timestamp: 1780090891
+  - artifact: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Investigation.SealOrInvalidateBundle.v1.yaml
+    tree: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Investigation.SealOrInvalidateBundle.v1.yaml.aqua.json
+    revisions: 3
+    genesis_hash: 0xb94b73f9fccfbde320833701dfff1115f18cd1b7e40feb609f7bfc00e838ce14
+    signer_did: "did:key:z6MktFAmXN22VE6PsUsboaC75KBKTEL2s1CrdWiAiU44MCoU"
+    witness_timestamp: 1780090891
+  - artifact: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Meta.EmbedTechniqueProvenance.v1.yaml
+    tree: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Meta.EmbedTechniqueProvenance.v1.yaml.aqua.json
+    revisions: 3
+    genesis_hash: 0x0219a1b4739355024c2b534010c340e2daa430acbadc915e8442184adfccacd0
+    signer_did: "did:key:z6MktFAmXN22VE6PsUsboaC75KBKTEL2s1CrdWiAiU44MCoU"
+    witness_timestamp: 1780090891
+  - artifact: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Meta.EncodePromptLedger.v1.yaml
+    tree: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Meta.EncodePromptLedger.v1.yaml.aqua.json
+    revisions: 3
+    genesis_hash: 0x611de35cade06d1268b7dfd6b1a2acf7cbb6ed7a1b914e9a534bc10e7e35147c
+    signer_did: "did:key:z6MktFAmXN22VE6PsUsboaC75KBKTEL2s1CrdWiAiU44MCoU"
+    witness_timestamp: 1780090891
+  - artifact: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Naming.RegisterTerm.v1.yaml
+    tree: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Naming.RegisterTerm.v1.yaml.aqua.json
+    revisions: 3
+    genesis_hash: 0x9b4dc63eca07edc958284d8198c10f463f11038816bef63141806b081c1da678
+    signer_did: "did:key:z6MktFAmXN22VE6PsUsboaC75KBKTEL2s1CrdWiAiU44MCoU"
+    witness_timestamp: 1780090891
+  - artifact: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Privacy.DeIdentify.v1.yaml
+    tree: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Privacy.DeIdentify.v1.yaml.aqua.json
+    revisions: 3
+    genesis_hash: 0x97daf20ce93253c453575d3ce4bb861a1e5c858fadec6aeb647fbcd1b006308d
+    signer_did: "did:key:z6MktFAmXN22VE6PsUsboaC75KBKTEL2s1CrdWiAiU44MCoU"
+    witness_timestamp: 1780090891
+  - artifact: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Proof.AwaitCounterpartyBuild.v1.yaml
+    tree: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Proof.AwaitCounterpartyBuild.v1.yaml.aqua.json
+    revisions: 3
+    genesis_hash: 0x2d9a66385140956682e8c045dcc1727730ef58d084bb74f973bf177b7486f6fd
+    signer_did: "did:key:z6MktFAmXN22VE6PsUsboaC75KBKTEL2s1CrdWiAiU44MCoU"
+    witness_timestamp: 1780090891
+  - artifact: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Proof.RunUnilateralExperiment.v1.yaml
+    tree: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Proof.RunUnilateralExperiment.v1.yaml.aqua.json
+    revisions: 3
+    genesis_hash: 0x98aec044b4789697b69d7467ae0d91b2cc9745014a708ba6521170eb801fa605
+    signer_did: "did:key:z6MktFAmXN22VE6PsUsboaC75KBKTEL2s1CrdWiAiU44MCoU"
+    witness_timestamp: 1780090891
+  - artifact: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Reciprocation.AssembleReturnBundle.v1.yaml
+    tree: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Reciprocation.AssembleReturnBundle.v1.yaml.aqua.json
+    revisions: 3
+    genesis_hash: 0x5603a54fd63255c6e7ec1cd40d815ec056ce156ae2cfc4b14565516111c670b4
+    signer_did: "did:key:z6MktFAmXN22VE6PsUsboaC75KBKTEL2s1CrdWiAiU44MCoU"
+    witness_timestamp: 1780090891
+  - artifact: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.Finalize.v1.yaml
+    tree: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.Finalize.v1.yaml.aqua.json
+    revisions: 3
+    genesis_hash: 0x2ff29481f45d776c142968086d4d7cacad27d2307a82146177e133c0f6b35ca5
+    signer_did: "did:key:z6MktFAmXN22VE6PsUsboaC75KBKTEL2s1CrdWiAiU44MCoU"
+    witness_timestamp: 1780090891
+  - artifact: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.HardenGateProfile.v1.yaml
+    tree: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.HardenGateProfile.v1.yaml.aqua.json
+    revisions: 3
+    genesis_hash: 0xf9d0b689d98fc2bcc9e51e5eaecc03d2fea99206c46ba2c90e31f46663536419
+    signer_did: "did:key:z6MktFAmXN22VE6PsUsboaC75KBKTEL2s1CrdWiAiU44MCoU"
+    witness_timestamp: 1780090891
+  - artifact: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.RenameTerm.v1.yaml
+    tree: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.RenameTerm.v1.yaml.aqua.json
+    revisions: 3
+    genesis_hash: 0xbd6486d6aee17ec9fe961b3660a143883dce0bb67850194e5254e96f95dc7429
+    signer_did: "did:key:z6MktFAmXN22VE6PsUsboaC75KBKTEL2s1CrdWiAiU44MCoU"
+    witness_timestamp: 1780090891
+  - artifact: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.UX.RenderRevealViewer.v1.yaml
+    tree: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.UX.RenderRevealViewer.v1.yaml.aqua.json
+    revisions: 3
+    genesis_hash: 0x098756799c299b5668991ac8de981adf06f223452be7c4f3082a2f98fe2d1c5b
+    signer_did: "did:key:z6MktFAmXN22VE6PsUsboaC75KBKTEL2s1CrdWiAiU44MCoU"
+    witness_timestamp: 1780090891
+  - artifact: collaboration/20260528-130500/collaboration-pathways/pathways/Experience.Collaboration.OpenInvitation.v1.yaml
+    tree: collaboration/20260528-130500/collaboration-pathways/pathways/Experience.Collaboration.OpenInvitation.v1.yaml.aqua.json
+    revisions: 3
+    genesis_hash: 0x5d3f6537204c36222c591f9c7040307ef1f2779f05dd539d9dfc694215b79224
+    signer_did: "did:key:z6MktFAmXN22VE6PsUsboaC75KBKTEL2s1CrdWiAiU44MCoU"
+    witness_timestamp: 1780090891
+  - artifact: collaboration/20260528-130500/collaboration-pathways/patterns/Pattern.CollaborationBundle.SelfDescribing.yaml
+    tree: collaboration/20260528-130500/collaboration-pathways/patterns/Pattern.CollaborationBundle.SelfDescribing.yaml.aqua.json
+    revisions: 3
+    genesis_hash: 0xf160c2cca221712ef8b2e499fe7e9da8dc49c255e08857101e37ad49d935b138
+    signer_did: "did:key:z6MktFAmXN22VE6PsUsboaC75KBKTEL2s1CrdWiAiU44MCoU"
+    witness_timestamp: 1780090891
+  - artifact: collaboration/20260528-130500/collaboration-pathways/patterns/Pattern.Naming.ProvenancedTermBinding.yaml
+    tree: collaboration/20260528-130500/collaboration-pathways/patterns/Pattern.Naming.ProvenancedTermBinding.yaml.aqua.json
+    revisions: 3
+    genesis_hash: 0x791fd82624864766da925531334630feb3a2f50742b1120c26377590bf6fc80d
+    signer_did: "did:key:z6MktFAmXN22VE6PsUsboaC75KBKTEL2s1CrdWiAiU44MCoU"
+    witness_timestamp: 1780090891
+  - artifact: collaboration/20260528-130500/collaboration-pathways/patterns/Pattern.ProjectCollaboration.ConvergenceRepository.yaml
+    tree: collaboration/20260528-130500/collaboration-pathways/patterns/Pattern.ProjectCollaboration.ConvergenceRepository.yaml.aqua.json
+    revisions: 3
+    genesis_hash: 0x24d30d1acb0f0bffb0fcea0ee2a3998bcf4b1080522dbac9216be02410b2c0d5
+    signer_did: "did:key:z6MktFAmXN22VE6PsUsboaC75KBKTEL2s1CrdWiAiU44MCoU"
+    witness_timestamp: 1780090891
+  - artifact: collaboration/20260528-130500/collaboration-pathways/terms/Term.AntiVenom.v1.yaml
+    tree: collaboration/20260528-130500/collaboration-pathways/terms/Term.AntiVenom.v1.yaml.aqua.json
+    revisions: 3
+    genesis_hash: 0x951eee0bad9f9adbb3c02d5b88b1522703965f70f5400583fde7b595454b70ae
+    signer_did: "did:key:z6MktFAmXN22VE6PsUsboaC75KBKTEL2s1CrdWiAiU44MCoU"
+    witness_timestamp: 1780090891
+  - artifact: collaboration/20260528-130500/collaboration-pathways/terms/Term.Assay.v1.yaml
+    tree: collaboration/20260528-130500/collaboration-pathways/terms/Term.Assay.v1.yaml.aqua.json
+    revisions: 3
+    genesis_hash: 0x627f328001a58307a2a6810177ecf3a01a7fe46f4f857ec90f6cd65508c39ad4
+    signer_did: "did:key:z6MktFAmXN22VE6PsUsboaC75KBKTEL2s1CrdWiAiU44MCoU"
+    witness_timestamp: 1780090892
+  - artifact: collaboration/20260528-130500/collaboration-pathways/terms/Term.CollaborationBundle.v1.yaml
+    tree: collaboration/20260528-130500/collaboration-pathways/terms/Term.CollaborationBundle.v1.yaml.aqua.json
+    revisions: 3
+    genesis_hash: 0x887e55b6429726aab1651981165bacbf7c9f49049d88a95f65248e2438d4b8d7
+    signer_did: "did:key:z6MktFAmXN22VE6PsUsboaC75KBKTEL2s1CrdWiAiU44MCoU"
+    witness_timestamp: 1780090892
+  - artifact: collaboration/20260528-130500/collaboration-pathways/terms/Term.TransmissionBundle.v1.yaml
+    tree: collaboration/20260528-130500/collaboration-pathways/terms/Term.TransmissionBundle.v1.yaml.aqua.json
+    revisions: 3
+    genesis_hash: 0x7be0538ddc0999cc4588bc8be73c5ab4495fa5a89d11fdca51b5a4757490a4d3
+    signer_did: "did:key:z6MktFAmXN22VE6PsUsboaC75KBKTEL2s1CrdWiAiU44MCoU"
+    witness_timestamp: 1780090892

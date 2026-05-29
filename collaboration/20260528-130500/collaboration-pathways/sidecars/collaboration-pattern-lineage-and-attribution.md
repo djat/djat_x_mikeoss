@@ -12,14 +12,14 @@
 
 ## Co-originators
 
-- **person-a** (`did:placeholder:person-a`) — collaboration-bundle premise pattern, catalog unit #44.
-- **Originator (DJ Thomson)** — Pathways framework formalization, collaboration-domain encoding, and the self-describing-bundle enhancement first carried here.
+- **person-a** (`did:placeholder:person-a`) - collaboration-bundle premise pattern, catalog unit #44.
+- **Originator (DJ Thomson)** - Pathways framework formalization, collaboration-domain encoding, and the self-describing-bundle enhancement first carried here.
 
 Co-origination covers the **concept, pattern, formats, and techniques**: the directory structure, the verbatim-copy + link-rewrite + content-hash-bind + Ed25519-seal method, the convergence-repository pattern, the investigation/seal lifecycle, and the reciprocation contract.
 
 ## This instance (5th)
 
-First context in which the technique is **canonically encoded as Pathways** — promoted from prior per-instance encodings (`prior-instance-4`, `prior-instance-3`) into a standalone, reusable, self-describing canon, and the first bundle to **embed that canon and its provenance inside the bundle it describes**.
+First context in which the technique is **canonically encoded as Pathways** - promoted from prior per-instance encodings (`prior-instance-4`, `prior-instance-3`) into a standalone, reusable, self-describing canon, and the first bundle to **embed that canon and its provenance inside the bundle it describes**.
 
 The open MikeOSS project and team is, implicitly, the first collaborator whose invitation occasioned this canonical emergence.
 
@@ -29,7 +29,7 @@ Prior instances already carried instance-scoped `Collaboration.*` pathways. This
 
 ## Authored enhancement (this bundle)
 
-- **self-describing-bundle** — by Originator (DJ Thomson). Every bundle henceforth carries the technique canon + provenance inside itself, for asynchronous interrogability across the Pathways ecosystem. Realized by `Collaboration.Meta.EmbedTechniqueProvenance@v1` and `Pattern.CollaborationBundle.SelfDescribing`.
+- **self-describing-bundle** - by Originator (DJ Thomson). Every bundle henceforth carries the technique canon + provenance inside itself, for asynchronous interrogability across the Pathways ecosystem. Realized by `Collaboration.Meta.EmbedTechniqueProvenance@v1` and `Pattern.CollaborationBundle.SelfDescribing`.
 
 ## Attribution terms
 

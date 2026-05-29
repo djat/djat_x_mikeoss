@@ -1,4 +1,4 @@
-# the open Pathways project × MikeOSS — Open Collaboration Bundle
+# the open Pathways project × MikeOSS - Open Collaboration Bundle
 
 **Prepared by:** the open Pathways project (Originator)
 **Prepared for:** the open MikeOSS project and team
@@ -30,7 +30,7 @@ Set `BUNDLE_ROOT` to this directory. All links in companion docs resolve here.
 
 ## Handoff
 
-**Status:** SIGNED — ready for open collaboration to the MikeOSS project and team.
+**Status:** SIGNED - ready for open collaboration to the MikeOSS project and team.
 
 ### Verify (from repository root)
 
@@ -52,11 +52,11 @@ Expected: `verify: OK`. Authoritative `bundle_root_hash`: [`attestations/CONTENT
 
 ## Read order (paths relative to this directory)
 
-1. [`companion-bundle-index.md`](companion-bundle-index.md) — start here
-2. [`collaboration-spine.md`](collaboration-spine.md) — invitation, exercise, asks
-3. [`collaboration-pathways/canon/COLLABORATION_BUNDLE_TECHNIQUE.md`](collaboration-pathways/canon/COLLABORATION_BUNDLE_TECHNIQUE.md) — the technique, encoded
-4. [`assay-pathways/APPLICATION_PLAYBOOK.md`](assay-pathways/APPLICATION_PLAYBOOK.md) — the legal assay pathways
-5. [`collaboration-pathways/test/HYPOTHESES.md`](collaboration-pathways/test/HYPOTHESES.md) — the asks, pre-registered
+1. [`companion-bundle-index.md`](companion-bundle-index.md) - start here
+2. [`collaboration-spine.md`](collaboration-spine.md) - invitation, exercise, asks
+3. [`collaboration-pathways/canon/COLLABORATION_BUNDLE_TECHNIQUE.md`](collaboration-pathways/canon/COLLABORATION_BUNDLE_TECHNIQUE.md) - the technique, encoded
+4. [`assay-pathways/APPLICATION_PLAYBOOK.md`](assay-pathways/APPLICATION_PLAYBOOK.md) - the legal assay pathways
+5. [`collaboration-pathways/test/HYPOTHESES.md`](collaboration-pathways/test/HYPOTHESES.md) - the asks, pre-registered
 
 ---
 
