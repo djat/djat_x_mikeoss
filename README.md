@@ -143,6 +143,22 @@ Run [`START_COLLABORATION_HANDOFF.prompt.md`](START_COLLABORATION_HANDOFF.prompt
 
 ---
 
+## Foundations & attribution — built on the Aqua Protocol
+
+Everything in this bundle that makes a claim *checkable* — the signed snapshot, the verifier-portable run ledger, the selective-disclosure identities, the "who-ran / who-attested / who-authored" separation — ultimately rests on a cryptographic substrate that Pathways did **not** invent and is proud to stand on: the **[Aqua Protocol](https://aqua-protocol.org/)** (open source, by inblock.io).
+
+Aqua is, foundationally, **what makes the Pathways architecture and specification possible.** It is an open, decentralized framework for **data accountability** that — without a blockchain and without a central authority — provides the primitives Pathways treats as bedrock:
+
+- **Tamper-evident provenance — `AquaTree`s.** Portable data structures that record a complete, ordered, cryptographically chained history of revisions. This is the substrate behind Pathways' *verifier-portable* template and run lineage (architecture canon **§9.6**): a forked pathway carries its derivation evidence with it, verifiable offline with the same SDK semantics.
+- **Sovereign + private attestation.** Modular signatures, self-sovereign identity, and peer (challenge-based) attestations — only hashes need leave your control. This is precisely what lets the bundle's **proof-of-personhood / trust-proxy** layer (§5) vouch for real authors while exposing nothing, and what the spec's **DID-signed steps**, **Aqua-attested practice profiles**, and `gate_profile_changed` / `register_removed` revisions (§4.8) are built to ride on.
+- **Independent, decentralized verification + optional timestamping.** Trust grounded in mathematics rather than authority — the same property the Pathways "marketplace emerges organically, no broker" thesis depends on.
+
+In short: **Pathways supplies the *grammar* of accountable workflows; Aqua supplies the *cryptographic accountability* that grammar assumes.** The capabilities this bundle facilitates emergently — verifiable lineage, sovereign attribution, privacy-preserving peering, fork-and-disable visibility — are downstream consequences of Aqua's primitives. The Pathways architecture document scopes Aqua attestations as a shipped MVP with a clear roadmap to full lineage parity (canon **§9.6–§9.7**).
+
+*Honest scope for this artifact:* to keep verification dependency-free for a cold reader, this bundle's seal uses a minimal **Ed25519 + SHA-256** binding that is **Aqua-compatible in spirit** (content-addressed, signature-bound, offline-verifiable) rather than the full `AquaTree` revision chain; a production Pathways deployment issues Aqua revisions (and `did:webvh` identities) directly. SDKs: **[`aqua-js-sdk`](https://github.com/inblockio/aqua-js-sdk)** (TypeScript) and `aqua-cli` (Rust). With gratitude to the Aqua Protocol project and contributors.
+
+---
+
 ## Repository layout
 
 | Path | Role | Authoritative? |
