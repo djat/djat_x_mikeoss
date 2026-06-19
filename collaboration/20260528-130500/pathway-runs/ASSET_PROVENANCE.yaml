@@ -1697,3 +1697,35 @@ assets:
     produced_by_pathway: Collaboration.Refactor.Finalize@v1
     pathway_run_id: pr_56e96fbfcc27
     sha256: fa0c4e0714a546dc67c299c0b3346a9ac7b345e62107f981f17f118b649531d5
+  - asset: README.md
+    produced_by_pathway: Experience.Collaboration.OpenInvitation@v1
+    pathway_run_id: pr_cf6d512ccda2
+    sha256: 545e1bf0a09d3e275f0767ee19b2883e9b1620e16a53c8014c9555d6a11cacc5
+  - asset: collaboration/20260528-130500/collaboration-pathways/scripts/17_publish_open_benchmark_readme.py
+    produced_by_pathway: Experience.Collaboration.OpenInvitation@v1
+    pathway_run_id: pr_cf6d512ccda2
+    sha256: 990b0e6e6bd5dc2870481ec693dfb7026fecb0b6d2d0d3e45a0b3446871b74c0
+  - asset: collaboration/20260528-130500/pathway-runs/COMPLETENESS.md
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_dba103eec389
+    sha256: 0ac8ce93175377c008438678f9c019184245d13301947f4b53e862004298ab02
+  - asset: collaboration/20260528-130500/collaboration-pathways/sidecars/privacy-refactor-lineage.md
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_dba103eec389
+    sha256: e4d973ba75944d8f3d0098a199d51572dd9806e7784b1a860fdfecbc3462619b
+  - asset: collaboration/20260528-130500/collaboration-pathways/scripts/06_finalize.py
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_dba103eec389
+    sha256: beff79807f990e07e1ad12d008468fdff0b4eeb43a9aaeaff8d82478eda83d0c
+  - asset: collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.Finalize.v1.yaml
+    produced_by_pathway: Collaboration.Refactor.Finalize@v1
+    pathway_run_id: pr_dba103eec389
+    sha256: fa0c4e0714a546dc67c299c0b3346a9ac7b345e62107f981f17f118b649531d5
+  - asset: collaboration/20260528-130500/attestations/CONTENT_MANIFEST.yaml
+    produced_by_pathway: Collaboration.Bundle.SealBundle@v1
+    pathway_run_id: pr_356f2e21a349
+    sha256: ed7f0aac1ccfff37adfdb673b3e4eaf1b643440e6019a834314cc776f785beb1
+  - asset: collaboration/20260528-130500/attestations/BUNDLE_SIGNATURE.json
+    produced_by_pathway: Collaboration.Bundle.SealBundle@v1
+    pathway_run_id: pr_356f2e21a349
+    sha256: 766699e19457155fc28e85577438786c904f486bb6c2815f2cf5dd6c15999384

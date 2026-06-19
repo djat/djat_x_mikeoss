@@ -2,7 +2,7 @@
 manifest_version: "1.0"
 manifest_kind: content_manifest
 bundle_id: djat-mikeoss-20260528
-issued_at: 2026-05-29T21:41:43Z
+issued_at: 2026-06-19T19:57:06Z
 issuer_label: "Originator (Pathways framework author)"
 
 state:
@@ -12,9 +12,9 @@ state:
 bundle_root_hash:
   algorithm: sha256
   method: "sha256(sort-join(rel_path \t content_sha256 \n))"
-  hash: 916549688e6b4e064ffe12ce3d46e7a878f022f2c4c70085f49d0a6256ce4644
+  hash: 6a599273094263939be83f4bac2710a68c32715fe6cd5ff26a8af36508d2a4d4
 
-file_count: 203
+file_count: 207
 
 files:
   - rel_path: COLLABORATION_READINESS.md
@@ -341,6 +341,9 @@ files:
   - rel_path: collaboration-pathways/scripts/16_strip_emdash.py
     content_sha256: 61cfb8680ba2efad9e5a1d4278d5a652b6cbd68c6b37c4bdbbeb5f4b020211b6
     file_size: 1741
+  - rel_path: collaboration-pathways/scripts/17_publish_open_benchmark_readme.py
+    content_sha256: 990b0e6e6bd5dc2870481ec693dfb7026fecb0b6d2d0d3e45a0b3446871b74c0
+    file_size: 3306
   - rel_path: collaboration-pathways/scripts/run_with_provenance.py
     content_sha256: 03b8231bd2d0b61144aebef6f48d2338dfb3169453ff073b8ee732192d93cb5f
     file_size: 6811
@@ -450,17 +453,17 @@ files:
     content_sha256: c1d1b75d6d3a30dabde3c9f2e89fe61655605b7bec568fea02ce2af0d977aaed
     file_size: 21551
   - rel_path: pathway-runs/ASSET_PROVENANCE.yaml
-    content_sha256: f0b5f1c84358ebac9b07d89f00acdb5485444b815e51b954ba4208fa210d11cc
-    file_size: 119696
+    content_sha256: 29b9d277f8dab47bea62bc7336534745200b67375d13c3ff7a1d396a235ea647
+    file_size: 121748
   - rel_path: pathway-runs/COMPLETENESS.md
-    content_sha256: 331bdfd8f3562064c6c9422dd6fe5df8a60a1baf14073dff3029f4ef2b2ddf6f
+    content_sha256: 0ac8ce93175377c008438678f9c019184245d13301947f4b53e862004298ab02
     file_size: 253
   - rel_path: pathway-runs/genesis-bootstrap.json
     content_sha256: 6dba1d38799aaf22e0cdd0e215b7e3cbad53ce9019476d2a26b7692e3091eb92
     file_size: 493
   - rel_path: pathway-runs/index.yaml
-    content_sha256: 11aa8e1773399c9408b001773daf59f567d72aa36b286b92fb285db4bce34377
-    file_size: 60881
+    content_sha256: 6f99dfcbfc7be6548dcab59b2c84e3d6e777331efef439cf581afc5aa0d3d4d3
+    file_size: 62844
   - rel_path: pathway-runs/pr_020e76ed45ad.json
     content_sha256: 4bd22255f5d369f9aca09f20062a7f6e09d4a7f149a35b4e1ac0bcb44bb6c866
     file_size: 17355
@@ -494,6 +497,9 @@ files:
   - rel_path: pathway-runs/pr_2d6d0730e9f7.json
     content_sha256: ae5020f77d204e642b91c58ceae6f48152dea0009f2c47600576565f3da54e7b
     file_size: 3681
+  - rel_path: pathway-runs/pr_356f2e21a349.json
+    content_sha256: 9ec59a5099ead495563752f874f1443dd16b7b00da7b6852202c1328933c9d15
+    file_size: 12392
   - rel_path: pathway-runs/pr_406c7ed8c71c.json
     content_sha256: 9818fd5e0939d258134bfc251e63eed9f029cf39f9928648d5ef130247598e7e
     file_size: 7641
@@ -560,12 +566,18 @@ files:
   - rel_path: pathway-runs/pr_ca2762aba00f.json
     content_sha256: ba7e1b1b5546c321ed7a340e491bc1ee8b9e1c75d840723b269792a43b78d656
     file_size: 15989
+  - rel_path: pathway-runs/pr_cf6d512ccda2.json
+    content_sha256: 6cf23a4705551fd69796b9d9ce4adf048c81d0a05a4505cf1755c506f505f853
+    file_size: 4818
   - rel_path: pathway-runs/pr_d0007433bd12.json
     content_sha256: bd65c0e329aa1cce6987ea41ff5c3c134c90d5866c663b73558ba2589c6f755a
     file_size: 5942
   - rel_path: pathway-runs/pr_d81cd6d656d1.json
     content_sha256: 048937522b8530361790cb45e145fcc93aab1477322389f95af26b4287d6642f
     file_size: 7769
+  - rel_path: pathway-runs/pr_dba103eec389.json
+    content_sha256: 2f665647f4d03ea06ce91f9e0e8cebf9aec3676b6da251ca32193cf89a3f0cd8
+    file_size: 7789
   - rel_path: pathway-runs/pr_dcd9c2813464.json
     content_sha256: 4de359dfc1b57f40e2c9d58d05b24469e662bd05e87f120fcf8c5e5bbeddf880
     file_size: 9058

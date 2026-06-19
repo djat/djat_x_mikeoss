@@ -450,3 +450,33 @@ runs:
     script_sha256: beff79807f990e07e1ad12d008468fdff0b4eeb43a9aaeaff8d82478eda83d0c
     record: pathway-runs/pr_56e96fbfcc27.json
     produced: ["collaboration/20260528-130500/pathway-runs/COMPLETENESS.md", "collaboration/20260528-130500/collaboration-pathways/sidecars/privacy-refactor-lineage.md", "collaboration/20260528-130500/collaboration-pathways/scripts/06_finalize.py", "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.Finalize.v1.yaml"]
+  - run_id: pr_cf6d512ccda2
+    pathway: Experience.Collaboration.OpenInvitation@v1
+    label: "Publish open benchmarking README for MikeOSS collaboration offering"
+    started: 2026-06-19T19:56:56Z
+    ended: 2026-06-19T19:56:56Z
+    exit_code: 0
+    script: collaboration/20260528-130500/collaboration-pathways/scripts/17_publish_open_benchmark_readme.py
+    script_sha256: 990b0e6e6bd5dc2870481ec693dfb7026fecb0b6d2d0d3e45a0b3446871b74c0
+    record: pathway-runs/pr_cf6d512ccda2.json
+    produced: ["README.md", "collaboration/20260528-130500/collaboration-pathways/scripts/17_publish_open_benchmark_readme.py"]
+  - run_id: pr_dba103eec389
+    pathway: Collaboration.Refactor.Finalize@v1
+    label: "re-gate after open-benchmark README publication"
+    started: 2026-06-19T19:56:56Z
+    ended: 2026-06-19T19:56:56Z
+    exit_code: 0
+    script: collaboration/20260528-130500/collaboration-pathways/scripts/06_finalize.py
+    script_sha256: beff79807f990e07e1ad12d008468fdff0b4eeb43a9aaeaff8d82478eda83d0c
+    record: pathway-runs/pr_dba103eec389.json
+    produced: ["collaboration/20260528-130500/pathway-runs/COMPLETENESS.md", "collaboration/20260528-130500/collaboration-pathways/sidecars/privacy-refactor-lineage.md", "collaboration/20260528-130500/collaboration-pathways/scripts/06_finalize.py", "collaboration/20260528-130500/collaboration-pathways/pathways/Collaboration.Refactor.Finalize.v1.yaml"]
+  - run_id: pr_356f2e21a349
+    pathway: Collaboration.Bundle.SealBundle@v1
+    label: "re-seal after open-benchmark README pathway runs"
+    started: 2026-06-19T19:56:56Z
+    ended: 2026-06-19T19:56:57Z
+    exit_code: 0
+    script: tools/collaboration-bundle/sign_bundle.py
+    script_sha256: 1e9aab9fabae34fd2d6c74aa967298fa88405b5352db3fceb12d7e5b5880da0c
+    record: pathway-runs/pr_356f2e21a349.json
+    produced: ["collaboration/20260528-130500/attestations/CONTENT_MANIFEST.yaml", "collaboration/20260528-130500/attestations/BUNDLE_SIGNATURE.json"]

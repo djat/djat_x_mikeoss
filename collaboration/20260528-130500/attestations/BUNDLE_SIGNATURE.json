@@ -2,11 +2,11 @@
   "manifest_version": "1.0",
   "manifest_kind": "bundle_signature",
   "bundle_id": "djat-mikeoss-20260528",
-  "issued_at": "2026-05-29T21:41:43Z",
+  "issued_at": "2026-06-19T19:57:06Z",
   "issuer_label": "Originator (Pathways framework author)",
   "signing_method": "Ed25519 OpenSSL rawin over bundle_root_hash hex",
-  "bundle_root_hash": "916549688e6b4e064ffe12ce3d46e7a878f022f2c4c70085f49d0a6256ce4644",
-  "signature_base64": "+nWqjhpl7xmosS1ddnRQD+7E1W8PRB4WfbVNIUEtwLaDjQg3x4nQvGkizU/Ga4HAJ6jj9PXiY9DXYTQtVNAjAQ==",
+  "bundle_root_hash": "6a599273094263939be83f4bac2710a68c32715fe6cd5ff26a8af36508d2a4d4",
+  "signature_base64": "DzWRhX/Wm2IwrUKPqvBtobOcj4Q96XWpUWH+x9iDWDs/RF4AeAur3iCZtfOY1aUoQBadC0bpoM6nlA5JH9RQAg==",
   "public_key_pem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAqrzbFAZlXl4HbG/9TbYkXXI36lG2h6QgnmAUgukxs8I=\n-----END PUBLIC KEY-----\n",
   "verify_command": "python3 tools/collaboration-bundle/sign_bundle.py verify collaboration/20260528-130500"
 }

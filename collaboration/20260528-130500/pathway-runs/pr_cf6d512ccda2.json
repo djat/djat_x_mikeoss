@@ -1,0 +1,34 @@
+{
+  "schema": "pathway-run/1.0",
+  "run_id": "pr_cf6d512ccda2",
+  "pathway": "Experience.Collaboration.OpenInvitation@v1",
+  "label": "Publish open benchmarking README for MikeOSS collaboration offering",
+  "status": "COMPLETED",
+  "started": "2026-06-19T19:56:56Z",
+  "ended": "2026-06-19T19:56:56Z",
+  "elapsed_ms": 156,
+  "command": [
+    "python3",
+    "collaboration/20260528-130500/collaboration-pathways/scripts/17_publish_open_benchmark_readme.py"
+  ],
+  "exit_code": 0,
+  "script_path": "collaboration/20260528-130500/collaboration-pathways/scripts/17_publish_open_benchmark_readme.py",
+  "script_sha256": "990b0e6e6bd5dc2870481ec693dfb7026fecb0b6d2d0d3e45a0b3446871b74c0",
+  "script_source": "#!/usr/bin/env python3\n\"\"\"17_publish_open_benchmark_readme.py - record + gate the repo-root open-benchmark README.\n\nPublishes the Pathways -> MikeOSS collaboration offering README at repository root:\nan open benchmarking tool riff on the Elite MegaLaw Benchmark satire, with direct\nlinks to the Pathways v1.1.0 spec and all four assay pathways.\n\nProducing pathway: Experience.Collaboration.OpenInvitation@v1\nStdlib only. No network.\n\nUsage:\n  17_publish_open_benchmark_readme.py              # validate README markers\n  17_publish_open_benchmark_readme.py --sync-integrity  # post-seal: sync hash + file_count\n\"\"\"\nfrom __future__ import annotations\n\nimport argparse\nimport json\nimport os\nimport re\nfrom pathlib import Path\n\nREPO = Path(\".\")\nSNAP = Path(\"collaboration/20260528-130500\")\nREADME = REPO / \"README.md\"\nMANIFEST = SNAP / \"attestations\" / \"CONTENT_MANIFEST.yaml\"\nSCRIPT = SNAP / \"collaboration-pathways\" / \"scripts\" / \"17_publish_open_benchmark_readme.py\"\n\nMARKERS = [\n    \"An Open Benchmarking Tool for MikeOSS\",\n    \"elite-megalaw-benchmark\",\n    \"PATHWAYS_REFERENCE_v1.1.0.md\",\n    \"Assay.Citation.VerifyFirst.v1.yaml\",\n    \"Assay.Benchmark.Reproducible.v1.yaml\",\n    \"Assay.Convergence.AnchoredAuthority.v1.yaml\",\n    \"Assay.Provenance.RunManifest.v1.yaml\",\n    \"authority-boundaries-for-ai\",\n    \"SPEC_1.1_USAGE_AND_GREENWOOD_TEST.md\",\n]\n\n\ndef validate_readme(text: str) -> list[str]:\n    missing = [m for m in MARKERS if m not in text]\n    return missing\n\n\ndef sync_integrity(text: str) -> tuple[str, str, str]:\n    if not MANIFEST.is_file():\n        raise SystemExit(f\"missing manifest: {MANIFEST}\")\n    manifest = MANIFEST.read_text(encoding=\"utf-8\")\n    hm = re.search(r\"^\\s*hash:\\s*([0-9a-f]{64})\\s*$\", manifest, re.M)\n    fc = re.search(r\"^file_count:\\s*(\\d+)\\s*$\", manifest, re.M)\n    if not hm or not fc:\n        raise SystemExit(\"could not parse bundle_root_hash or file_count from manifest\")\n    root_hash, file_count = hm.group(1), fc.group(1)\n    text = re.sub(\n        r\"\\*\\*bundle_root_hash:\\*\\*\\s*`[0-9a-f]{64}`\",\n        f\"**bundle_root_hash:** `{root_hash}`\",\n        text,\n    )\n    text = re.sub(\n        r\"\\*\\*file_count:\\*\\*\\s*\\d+\",\n        f\"**file_count:** {file_count}\",\n        text,\n    )\n    return text, root_hash, file_count\n\n\ndef main() -> int:\n    ap = argparse.ArgumentParser()\n    ap.add_argument(\"--sync-integrity\", action=\"store_true\")\n    args = ap.parse_args()\n\n    if not README.is_file():\n        print(f\"error: missing {README}\", flush=True)\n        return 1\n\n    text = README.read_text(encoding=\"utf-8\")\n    missing = validate_readme(text)\n    if missing:\n        print(\"README validation failed; missing markers:\", flush=True)\n        for m in missing:\n            print(f\"  - {m}\", flush=True)\n        return 1\n\n    if args.sync_integrity:\n        text, root_hash, file_count = sync_integrity(text)\n        README.write_text(text, encoding=\"utf-8\")\n        print(f\"synced integrity: bundle_root_hash={root_hash} file_count={file_count}\", flush=True)\n\n    produced = [str(README), str(SCRIPT)]\n    am = os.environ.get(\"ASSET_MANIFEST\")\n    if am:\n        Path(am).write_text(json.dumps(produced), encoding=\"utf-8\")\n\n    print(\"open-benchmark README: validated OK\", flush=True)\n    return 0\n\n\nif __name__ == \"__main__\":\n    raise SystemExit(main())\n",
+  "stdout": "open-benchmark README: validated OK\n",
+  "stderr": "",
+  "produced_assets": [
+    {
+      "asset": "README.md",
+      "sha256": "545e1bf0a09d3e275f0767ee19b2883e9b1620e16a53c8014c9555d6a11cacc5"
+    },
+    {
+      "asset": "collaboration/20260528-130500/collaboration-pathways/scripts/17_publish_open_benchmark_readme.py",
+      "sha256": "990b0e6e6bd5dc2870481ec693dfb7026fecb0b6d2d0d3e45a0b3446871b74c0"
+    }
+  ],
+  "accessed_domains": [],
+  "authenticated_by_identity": null,
+  "harness": "collaboration-pathways/scripts/run_with_provenance.py",
+  "recorded_at": "2026-06-19T19:56:56Z"
+}
