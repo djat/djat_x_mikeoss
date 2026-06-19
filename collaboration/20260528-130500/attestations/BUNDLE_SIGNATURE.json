@@ -2,7 +2,7 @@
   "manifest_version": "1.0",
   "manifest_kind": "bundle_signature",
   "bundle_id": "djat-mikeoss-20260528",
-  "issued_at": "2026-06-19T19:57:06Z",
+  "issued_at": "2026-06-19T20:02:56Z",
   "issuer_label": "Originator (Pathways framework author)",
   "signing_method": "Ed25519 OpenSSL rawin over bundle_root_hash hex",
   "bundle_root_hash": "6a599273094263939be83f4bac2710a68c32715fe6cd5ff26a8af36508d2a4d4",
